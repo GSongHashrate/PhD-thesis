@@ -6,47 +6,97 @@ A level-1 auxiliary file: Preamble.aux
 A level-1 auxiliary file: Introduction.aux
 A level-1 auxiliary file: Chapter2.aux
 A level-1 auxiliary file: Chapter3.aux
+A level-1 auxiliary file: Chapter4.aux
+A level-1 auxiliary file: Chapter5.aux
+A level-1 auxiliary file: Chapter6.aux
 A level-1 auxiliary file: Conclusions.aux
 A level-1 auxiliary file: Appendices.aux
-Database file #1: example.bib
-You've used 1 entry,
+Database file #1: PhD.bib
+I was expecting a `,' or a `}'---line 485 of file PhD.bib
+ :  howpublished = "\url{https://www.hyperelliptic.org/EFD/}"
+ :                                                           ;
+I'm skipping whatever remains of this entry
+Repeated entry---line 993 of file PhD.bib
+ : @incollection{courtois2002cryptanalysis
+ :                                        ,
+I'm skipping whatever remains of this entry
+You're missing a field name---line 2461 of file PhD.bib
+ : 
+ : % Author = "M. Albrecht and N. Courtois and D. Hulme and G. Song",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 2669 of file PhD.bib
+ : 
+ : %  AUTHOR =       "T. Mourouzis",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Repeated entry---line 2679 of file PhD.bib
+ : @inproceedings{simon2
+ :                      ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 2845 of file PhD.bib
+ : @inproceedings{grobner
+ :                       ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 3149 of file PhD.bib
+ : @article{faugere2014using
+ :                          ,
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "example-citation"
+Warning--I didn't find a database entry for "optisharcs"
+Name 1 in "Gregory V. Bard, and Nicolas T. Courtois, and Chris Jefferson." has a comma at the end for entry cryptoeprint:2007:024
+while executing---line 944 of file unsrt.bst
+Name 2 in "Gregory V. Bard, and Nicolas T. Courtois, and Chris Jefferson." has a comma at the end for entry cryptoeprint:2007:024
+while executing---line 944 of file unsrt.bst
+Warning--empty booktitle in BardCourtoiJeffersonConv
+Too many commas in name 1 of "Courtois, Nicolas T, Bard, Gregory V and Bogdanov, Andrey" for entry KeeLoqTatra
+while executing---line 944 of file unsrt.bst
+Warning--empty booktitle in BoyarPeraltaMCMethod
+Warning--empty booktitle in BoyarPeraltaMCBoolean
+Warning--empty booktitle in simonref
+Warning--empty booktitle in BoyarPeraltaMCMethodAES
+Warning--empty booktitle in EquationSolving
+Warning--empty author in IEEEP1363
+Warning--empty booktitle in IEEEP1363
+You've used 124 entries,
             1791 wiz_defined-function locations,
-            458 strings with 3715 characters,
-and the built_in function-call counts, 249 in all, are:
-= -- 21
-> -- 4
-< -- 0
-+ -- 2
-- -- 1
-* -- 22
-:= -- 44
-add.period$ -- 3
-call.type$ -- 1
-change.case$ -- 1
+            1076 strings with 22942 characters,
+and the built_in function-call counts, 28367 in all, are:
+= -- 2589
+> -- 1030
+< -- 35
++ -- 401
+- -- 277
+* -- 1476
+:= -- 4205
+add.period$ -- 401
+call.type$ -- 124
+change.case$ -- 114
 chr.to.int$ -- 0
-cite$ -- 1
-duplicate$ -- 9
-empty$ -- 27
-format.name$ -- 1
-if$ -- 51
+cite$ -- 132
+duplicate$ -- 1505
+empty$ -- 3099
+format.name$ -- 277
+if$ -- 6693
 int.to.chr$ -- 0
-int.to.str$ -- 1
-missing$ -- 1
-newline$ -- 8
-num.names$ -- 1
-pop$ -- 1
+int.to.str$ -- 124
+missing$ -- 116
+newline$ -- 619
+num.names$ -- 124
+pop$ -- 581
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 3
+skip$ -- 728
 stack$ -- 0
-substring$ -- 27
-swap$ -- 1
-text.length$ -- 0
+substring$ -- 1516
+swap$ -- 430
+text.length$ -- 35
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 0
-while$ -- 2
-width$ -- 2
-write$ -- 13
+warning$ -- 8
+while$ -- 275
+width$ -- 127
+write$ -- 1325
+(There were 10 error messages)

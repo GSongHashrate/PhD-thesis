@@ -1,0 +1,384 @@
+\chapter{Cryptanalysis of Simon}\label{ch:SIMON}
+\section{Introduction}
+Nowadays lightweight cryptography is rapidly evolving and becoming more and more important due to the increasing demand from mobile phones and Internet of Things. These lightweight cryptographic primitives are designed to
+be efficient (in both hardware and software) when limited
+hardware resources are available and at the same time to
+guarantee a desired level of security. The
+design of such primitives is a great challenge and can be
+seen as a non-trivial optimization problem, where several
+trade-offs are taken into account. They need to maintain
+a reasonable balance between security, efficient software and hardware
+implementation and very low overall cost with respect to several
+meaningful metrics (power consumption, energy consumption,
+size of the circuit \cite{OptimiPaper,BoyarPeraltaMCMethod,BoyarPeraltaMCBoolean}).
+
+The research community has
+proposed many lightweight hash functions, block ciphers and stream ciphers which are
+reasonably good and satisfy at a reasonable level the trade-off
+between efficiency and security. Nowadays, in the cryptographic
+literature we find lots of such lightweight cryptographic primitives such as
+KATAN \cite{KATAN}, KLEIN \cite{KLEIN}, ICEBERG
+\cite{ICEBERG}, HIGHT \cite{HIGHT}, LED \cite{LED},
+mCrypton \cite{mCrypton}, PRESENT \cite{PRESENT}, Piccolo \cite{Piccolo}
+and many others.
+
+In July 2013, a team from the NSA has proposed two new families of particularly lightweight block
+ciphers, SIMON and SPECK, both coming in a variety of widths and key sizes
+\cite{NSAciphers}. We use a basic reference implementation of both ciphers
+which  can be found in \cite{simonref},
+as well as the generator of algebraic equations to be used in algebraic attacks.
+
+The designers published the full specifications and presented
+only performance and implementation footprints, without providing
+any advanced security analysis
+against known cryptanalytic attacks.
+Both of them offer excellent performance on both
+hardware and software platforms and perform
+exceptionally well across the majority of lightweight applications and
+not only on a singe platform. Compared to
+other lightweight cryptographic primitives,
+these two are meant to have better performance with respect to the area
+needed for a given throughput, code size and memory usage.
+SIMON is designed for optimal performance in hardware, and SPECK for optimal
+performance in software.
+According to \cite{simoneff}, SIMON with an equivalent security level as AES,
+is $86\%$ smaller
+than AES, $70\%$ smaller than PRESENT and its smallest hardware architecture
+only costs 36 slices (72 LUTs, 30 registers). Recent results about hardware
+implementation of block ciphers emphasize reducing the size and/or MC further possibly
+lead to optimal implementations \cite{BoyarPeraltaMCMethodAES,OptimiPaper}.
+
+However in \cite{NSAciphers}, no advanced analysis of the security of the ciphers was discussed. In the same paper \cite{NSAciphers}, they briefly said that SIMON and SPECK were designed to provide security against traditional adversaries who can adaptively encrypt and decrypt large amount of data and some attention was given so that there are no related-key attacks. Except of these comments, no more analysis against common attacks such as linear or differential cryptanalysis was presented and the task of analyzing the resistance of the ciphers against known attacks was left to the academic community. Immediately after the release of the specifications we had the first attempts of cryptanalysis against differential, linear and rotational cryptanalysis \cite{simon1,simon2}. However, since SIMON is a cipher of exceptionally low MC and as a result of low non-linearity it is an ideal candidate for algebraic attacks and combinations of algebraic attacks with truncated differential cryptanalysis. Combining an algebraic attack with a truncated differential property is equivalent to adding extra linear equations to the system involving input and output bits. This can speed up the solving stage when software solvers which exploit the linearity are used like ElimLin \cite{ElimLinR}.
+
+\textbf{Contribution and Outline:} In this part of the report, we will study SIMON-64/128
+against algebraic attacks and combinations of algebraic attacks with
+truncated differential cryptanalysis. Due to its very simple mathematical structure,
+SIMON has a compact algebraic representation and because of the low non-linearity and
+MC, it seems an ideal for algebraic
+cryptanalysis and its variants. Our aim is to use the very rich algebraic structure
+with additional data provided ( e.g. pairs $\{(P,P'),(C,C')\}$ which
+follow a certain highly probable truncated differential property) in order to solve
+the underlying multivariate system of equations. We attempt to solve the system
+by either using a SAT solver (after converting the system to its corresponding
+CNF-SAT form \cite{BardCourtoiJeffersonConv}) or by ElimLin algorithm \cite{FourMNL,OptimiPaper,OptimiPaper2}.
+We are able to break up to 10 (/44) rounds of the cipher using
+a SAT solver and usual guess-then-determine techniques.
+Surprisingly, in most cases we are
+able to obtain the key without guessing any key bits
+when truncated differentials are used.
+This is a very remarkable results
+since one of the biggest difficulties in software algebraic cryptanalysis is
+to know how do experimental attacks scale up for larger numbers of rounds.
+This is possibly due
+to the very low non-linearity of the cipher and suggests that it worths studying
+a specific strategy for P-C pairs which have certain structure and decrease
+even more the non-linearity of the system by introducing
+more linear equations (e.g. truncated differential properties)
+until the key can be obtained even
+for more number of rounds. We
+discuss in details our results in Section 4.
+
+In our attacks, we study the following three scenarios:
+
+\begin{enumerate}
+	\item \textbf{RP/RC} (Random Plaintexts/Random Ciphertexts): We assume that random plaintext-ciphertext (P-C) pairs are available
+	\item \textbf{SP/RC} (Similar Plaintexts/Random Ciphertexts): We assume that random P-C pairs such that the plaintexts differ by very few bits
+	are available (low Hamming distance)
+	\item \textbf{SP/SC} (Similar Plaintexts/Similar Ciphertexts): We assume that random P-C pairs which follow a highly probably truncated differential property are available. In this setting we use just two such pair and then generate more random P-C pairs.
+	
+	%B. \textbf{(SP/SC)'}: We assume that random P-C pairs which follow a highly probably truncated %differential property are available. We use two such pairs and then using these plaintexts we %generate pairs with low Hamming in the plaintext.
+	
+\end{enumerate}
+
+
+%In Section 2 we discuss the specification of SIMON-64/128 version. In Section 3, we provide some introduction regarding algebraic cryptanalysis, MC and the ElimLin algorithm. We discuss software algebraic cryptanalysis as a 2-step process, where in the first step we algebraically encode the problem and then we aim to solve the underlying system of equations using available software solver.
+
+\section{General Description of SIMON}
+
+SIMON is a family of lightweight block ciphers with the aim to have optimal hardware performance \cite{NSAciphers}.
+It follows the classical Feistel design paradigm, operating on two
+$n$-bit halves in each round and thus the general block size is $2n$.
+The SIMON block cipher with an $n$-bit word is denoted by Simon-$2n$, where
+$n=16,24,32,48$ or $64$ and if it uses an $m$-word key (equivalently $mn$-bit
+key) we denote it as Simon-$2n/mn$. In this chapter, we study the variant of
+SIMON with $n=32$ and $m=4$ (i.e. 128-bit key).
+
+Each round of SIMON applies a non-linear, non-bijective (and as a result
+non-invertible) function
+
+\begin{equation}
+F:GF(2)^n\rightarrow GF(2)^n
+\end{equation}
+
+to the left half of the state which is repeated for 44 rounds.
+The operations used are as follows:
+
+\begin{enumerate}
+	\item bitwise XOR, $\oplus$
+	\item bitwise AND,
+	\item left circular shift, $S^j$ by $j$ bits.
+\end{enumerate}
+
+We denote the input to the $i$-th round by $L^{i-1}||R^{i-1}$
+and in each round the left word $L^{i-1}$ is used as input
+to the round function $F$ defined by,
+
+\begin{equation}
+F(L^{i-1})=(L^{i-1}<<<1)\wedge(L^{i-1}<<<8)\oplus(L^{i-1}<<<2)
+\end{equation}
+
+Then, the next state $L^{i}||R^{i}$ is computed as follows
+(cf. Fig. \ref{fig:SIMONroundfn}),
+
+\begin{equation}
+L^i=R^{i-1}\oplus F(L^{i-1})\oplus K^{i-1}
+\end{equation}
+
+\begin{equation}
+R^i=L^{i-1}
+\end{equation}
+
+
+\begin{figure}[!h]
+	\vspace{-0.2cm}
+	\centering
+	%   {\epsfig{file = .\SIMONroundfn.eps, width = 6.5cm}}
+	\includegraphics[width=80mm]{./pics/SIMONroundfn-eps-converted-to.pdf}
+	\caption{The round function of SIMON}
+	\label{fig:SIMONroundfn}
+	\vspace{-0.1cm}
+\end{figure}
+
+
+The output of the last round is the ciphertext.
+
+The key schedule of SIMON is based on an LSFR-like procedure, where the $nm$-bits of the key are used to generate the keys $K_0,K_1,...,K_{r-1}$ to be used in each round. There are three different key schedule procedures depending on the number of words that the secret key consists of ($m=2,3,4$).
+
+At the beginning, the first $m$ words $K^0,K^1,...,K^{m-1}$ are initialized with the secret key, while the remaining are generated by the LSFR-like construction. For the variant of our interest, where $m=4$, the remaining keys are generated in the following way:
+
+\begin{equation}
+Y=K^{i+1}\oplus (K^{i+3}>>>3)
+\end{equation}
+
+\begin{equation}
+K^{i+4}=K^i\oplus Y \oplus (Y>>>1)\oplus c\oplus (z_j)_i
+\end{equation}
+
+The constant $c=0xff...fc$ is used for preventing slide attacks and attacks exploiting rotational symmetries \cite{NSAciphers}. In addition, the generated subkeys are xored with a bit $(z_j)_i$, that denotes the $i$-th bit from the one of the five constant sequences $z_0,...,z_4$. These sequences are defined in \cite{NSAciphers} and for our variant we use $z_3$. In \cite{simonref} there is a basic reference implementation of SIMON and SPECK ciphers and a basic generator of equations that are used in algebraic attacks.
+
+The Feistel network, the construction of the round function and the key generation of SIMON, enables bit-serial hardware architectures which can significantly reduce the cost of implementation \cite{simoneff}. Additionally, encryption and decryption can be done using the
+same hardware.
+\section{Algebraic Cryptanalysis of SIMON}
+
+We evaluated the security of SIMON against algebraic attacks under the following
+three settings (cf. Fig. \ref{ThreeScenarios}), where S=Similar and R=Random
+as explained in the introduction.
+
+\begin{itemize}
+	\item \textbf{Setting 1:}(RP/RC) Random P-C pairs are available
+	\item \textbf{Setting 2:}(SP/RC) Random P-C pairs are available with plaintexts of low Hamming distance
+	\item \textbf{Setting 3:}(SP/SC) Random P-C pairs which satisfy a truncated differential property in the input and output of the reduced-version of the cipher we study. More random P-C pairs are generated and used.
+	% \item \textbf{Setting 3':}(SP/SC)' Random P-C pairs which satisfy a truncated differential property in the input and output of the reduced-version of the cipher we study. Then we generate more such pairs by using pairs with similar plaintexts (low Hamming Distance)
+	%    such that ciphertext pairs lie in the truncated differential mask.
+\end{itemize}
+
+\begin{figure}[!h]
+	\vspace{-0.2cm}
+	\centering
+	%{\epsfig{file = three_scenarios.eps, width = 7.5cm}}
+	\includegraphics*[width=60mm]{./pics/three_scenarios2.jpg}
+	\caption{Our three attack scenarios}
+	\label{ThreeScenarios}
+	\vspace{-0.1cm}
+\end{figure}
+
+
+
+%\begin{figure}[h!]
+%    \centering
+%    \includegraphics{three_scenarios.eps}
+%    \caption[width=0.2]{Our three attack scenarios}
+%    \label{setting}
+%\end{figure}
+
+Setting 1 is the simplest setting of understanding how many rounds of SIMON
+can be broken by simple guess-then-determine techniques, assuming availability of
+a few P-C pairs. This setting help us to understand the maximum number of rounds we
+can break by guessing as few as possible key bits and using as few as possible P-C
+pairs. It a non-trivial step in order to set the benchmark for attacking more number of rounds.
+
+
+Setting 2 is a form of known-plaintext attack. Setting 2 requires the existence of P-C pairs with plaintexts
+of low Hamming distance (or similar plaintexts)
+such that many variables are eliminated in the first few rounds due to weak
+diffusion. By eliminating some variables from the initial equations we expect that
+the system will be solved faster using any solving technique. This is a form of
+chosen plaintext attack.
+
+Lastly, Setting 3 assume the existence of P-C pairs
+
+\begin{center}
+	$\{(P_1,C_1),(P_2,C_2),...,(P_n,C_n)\}$
+\end{center}
+
+such that
+$P_i\oplus P_j \in \Delta P$ and $C_i\oplus C_j \in \Delta C$, for
+all $1\leq i,j \leq n$ and some truncated differential masks $\Delta P,\Delta C$
+of low Hamming weight which holds with comparatively high probability.
+In our attacks we always use 2 pairs which satisfy a given truncated
+differential property and then more P-C pairs are generated by using the
+first 2 plaintexts and computing the encryptions of new plaintexts which have small Hamming distance from the
+first ones. 
+
+The difference
+from Setting 2 is that in this case we also eliminate variables
+from the last rounds of the cipher, expecting that the system is even more easier to solve. In this
+attack, we need assume that the entire codebook is available and thus the
+data complexity is $2^{64}$.
+
+In all of our attacks we start with an 8-round truncated differential property $\Delta=[00000222 00000080]$
+with 4 active bits found by our discovery method which is the following
+
+\begin{equation}
+Prob(\Delta\rightarrow \Delta)\simeq2^{-20.51}
+\end{equation}
+
+The mask $[00000222 00000080]$ denotes the set of $2^4-1$ possible differences,
+excluding the zero difference.
+Our detailed results and discussion will be presented in the following section.
+
+\section{Algebraic Attacks experiments and results}
+We run experiments using SAT solvers and ElimLin Algorithm on a machine with the
+following characteristics
+
+\begin{itemize}
+	\item CPU: Intel i7-3520m 2.9GHz
+	\item RAM: 4G
+	\item OS: 64-bit Windows 8
+\end{itemize}
+
+Our implementation of Simon can be found at \cite{simonref} which also include an equation generator which generate an algebraic equitation system for n round Simon encryption. Once the equation is generated, we use Nicolas Courtois' software \cite{EquationSolving} to either solve the system by ELimlin or convert to CNF file and then solved by a SAT solver. For reader to check and verify our results, here are the command line we used to get our experiments results:
+
+\begin{itemize}
+	\item ELimlin: xl0.exe /deg2 filePath
+	\item SAT Solver: xl0.exe /deg2 /sat /bard /timeout600 /cryptominisat64296 filePath
+\end{itemize}
+
+\subsection{Experiments with 2 P/C pairs}
+The initial benchmark experiments was done with only 2 P/C pairs and solved by SAT solver using 8 round Truncated differential mask $[00000222 00000080]$ $\Rightarrow$ $[00000222 00000080]$. Table \ref{tab:example1} presents our 2 P/C pairs experiment results. The average time (in seconds) taken $T_{average}$
+to solve the underlying problem
+by a SAT solver is presented, while the time complexity $C_T$
+(in terms of SIMON encryptions) is
+computed by the following formulae,
+
+\begin{equation}
+C_T=2^{k}\times2^{log_2(T_{average}*N_{8REnc})},
+\end{equation}
+
+where $k$ is the number of bits we guess initially, $N_{nREnc}$ is the number of n round Simon encryptions the experiment PC can run in 1 seconds.
+
+\begin{table}[!hh]
+	\caption{Best results obtained by a SAT solver}\label{tab:example1} \centering
+	\begin{tabular}{|c|c|c|c|c|c|}
+		\hline
+		$\#$(Rounds) & $k$ & $\#$(P-C) & $T_{average}$(s) & $C_T$ & Setting \\
+		\hline
+		8 & 84 & 2 & 63.76   & $2^{110.08}$ & RP/RC \\
+		8 & 80 & 2 & 87.38   & $2^{106.53}$ & RP/RC \\
+		\hline
+		8 & 75 & 2 & 156.60  & $2^{102.37}$ & SP/RC \\
+		\hline
+		8 & 75 & 2 & 515.60  & $2^{104.09}$ & SP/SC \\
+		\hline
+	\end{tabular}
+\end{table}
+
+We start from setting 1 using random Plaintext and random Ciphertext pair (RP/RC), until we can not solve the equations using SAT solver. We successfully break 8 rounds Simon with guessing some key bits. The best result for 8 rounds is fixing 80 key bits with complexity of $2^{106.53}$. Fixing less than 80 key bits will not be solved by SAT solver within 600 seconds. Then we try Setting 2 and Setting 3 to compare the results. Setting 2 using selected Plaintext and Random Ciphertext (SP/RC) and setting 3 using selected Plaintext and selected ciphertext (RP/RC) is better than RP/RC. However, the results in table \ref{tab:example1} show that SP/SC is not perform any better than SP/RC. Both SP/RC and SP/SC are not improving RP/RC a lot. 
+
+The experiment results show that for setting 2 and setting 3, using only 2 P/C pairs can not provide enough information (additional linear equations) to perform a better attack than RP/RC. In the next subsection we try to increase the number of P/C pairs and compare the results using different settings.
+
+\subsection{Experiments with more P/C pairs}
+We start to using more P/C pairs for 8 rounds Simon and we show our results in talbe \ref{tab:8RmorePC}. Here we start to record some features of the converted CNF files. In table \ref{tab:8RmorePC} and other SAT solver results table, $n,s,h$ stand for number of variables, average sparsity (the average number of literals in each clause) and hardness respectively and $m$ is the number of clauses in the converted CNF file.
+We define hardness as a number $h$ such that $h^n$ is the running time, where $n$ is the number of variables.
+It is known that $h\leq 1.47$ for 4-SAT problems (cf. Table 1 in \cite{semaev})
+% explain hardness
+
+\begin{table}[!hh]
+	\caption{Best results obtained by a SAT solver}\label{tab:8RmorePC} \centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+		\hline
+		$\#$(Rounds) & $k$ & $\#$(P-C) & $T_{average}$(s) & $C_T$ & Setting & $n$ & $x=\frac{m}{n}$ & $s$ & $h$ \\
+		\hline
+		8 & 45 & 6 & 207.31   & $2^{27.78}$ & RP/RC & 8576	& 6.5118	& 4.2761	& 1.0032 \\
+		\hline
+		8 & 0  & 6 & 12.21   & $2^{23.76}$ & SP/RC  & 8576	& 6.5065	& 4.2787	& 1.0029  \\
+		\hline
+		8 & 0  & 6 & 11.84   & $2^{23.57}$ & SP/SC  & 8576	& 6.5513	& 4.2631	& 1.0028 \\
+		\hline
+	\end{tabular}
+\end{table}
+
+From Table \ref{tab:8RmorePC} we can see that when using more P/C pairs, all the three settings get better results than using 2 P/C pairs in Table \ref{tab:example1}. The improvements for setting 2 and setting 3 are much more larger than setting 1. Setting 2 and setting 3 can break 8R Simon without guessing any key bits.
+
+Then we start to extended the current 8 rounds attack to 9 and 10 rounds. We first extend our 8R truncated differential mask to 9 and 10 rounds as the following:
+\begin{itemize}
+	\item 9R: $[00000022 00000080]$ $\rightarrow$ $[00022e4c 00000222]$
+	\item 10R: $[00000022 00000080]$ $\rightarrow$ $[002eff9a 00022e4c]$ 
+\end{itemize}
+
+We manage to break 9 rounds without guessing any key bits and break 10 rounds with some key bits guessing. Our best results are shown in table \ref{tab:10RmorePC}
+
+\begin{table}[!hh]
+	\caption{Best results obtained by a SAT solver}\label{tab:10RmorePC} \centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+		\hline
+		$\#$(Rounds) & $k$ & $\#$(P-C) & $T_{average}$(s) & $C_T$ & Setting & $n$ & $x=\frac{m}{n}$ & $s$ & $h$ \\
+		\hline
+		9 & 0 & 6 & 222.50   & $2^{27.9}$ & SP/RC & 9536	& 6.70	& 4.31	& 1.0029 \\
+		9 & 0 & 7 & 94.7   & $2^{26.6}$ & SP/RC & 11104	& 6.70	& 4.31	& 1.0024 \\
+		10 & 90 & 8 & 346.0   & $2^{118.5}$ & SP/RC & 13952	& 6.90	& 4.32	& 1.0020 \\
+		\hline
+		9 & 0  & 6 & 24.24   & $2^{24.7}$ & SP/SC  & 9536	& 6.69	& 4.31	& 1.0026  \\
+		9 & 0  & 7 & 18.56   & $2^{24.3}$ & SP/SC  & 11104	& 6.70	& 4.31	& 1.0022  \\
+		10 & 70  & 10 & 417.73   & $2^{98.79}$ & SP/SC  & 17408	& 6.88	& 4.31	& 1.0022  \\
+		\hline
+	\end{tabular}
+\end{table}
+
+Moreover, assuming Setting 3 we can break 10 rounds by
+guessing 70 bits of the key initially with time complexity $2^{98.79}$ encryptions.
+Note that in SP/SC setting we always generate two P-C pairs which satisfy the truncated differential property and the rest pairs are generated at random.
+
+The other two settings have failed to produce good results for 10 rounds in reasonable time
+and this reflects the power of using pairs which follow strong truncated differential properties. We conjecture that for a cipher of low MC, there exists a certain amount of pairs which depends on the MC which can be used to break any round.
+
+\subsection{Algebraic Attacks Using ElimLin Algorithm}
+
+Table \ref{tab:SimonElimlin} presents the results using the ElimLin algorithm for solving the
+underlying system of equations.
+
+
+\begin{table}[!h]
+\caption{Best results obtained by a ElimLin Algorithm}\label{tab:SimonElimlin} \centering
+\begin{tabular}{|c|c|c|c|c|c|}
+  \hline
+  $\#$(Rounds) & $k$ & $\#$(P-C) & $T_{average}$(s) & $C_T$ & Setting \\
+  \hline
+  8 & 0 & 6 & 824.4 & $2^{29.8}$ & SP/RC \\
+ \hline
+ 8 & 0 & 6 & 583.2 & $2^{29.3}$ & SP/SC \\
+  \hline
+\end{tabular}
+\end{table}
+
+ElimLin exploits the existence of linear equations in order to solve the system. We have been able to break up to 8 rounds in Setting 3 without guessing any key bits
+initially. Setting 1 fails while Setting 2 is much weaker than Setting 3. The best
+attack we have obtained is of time complexity $2^{29.3}$ encryptions against 8 rounds of SIMON and requires pairs which satisfy
+the truncated differential property presented in the previous section extended for 8 rounds.
+
+Adding pairs which follow a strong truncated differential property is equivalent to adding linear equations in the system and this
+is exploited by the ElimLin algorithm. An immediate improvement is to use additional intermediate truncated differences.
+This will eliminate also variables in intermediate rounds and introduce more linear
+equations in the intermediate rounds. We conjecture that ElimLin is more powerful
+in case where a strong characteristic is found by our discovery method (intermediate difference states).
+

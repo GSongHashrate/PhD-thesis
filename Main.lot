@@ -3,5 +3,19 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {5.1}{\ignorespaces Best results obtained by a SAT solver\relax }}{51}{table.caption.17}
+\contentsline {table}{\numberline {5.2}{\ignorespaces Best results obtained by a SAT solver\relax }}{52}{table.caption.18}
+\contentsline {table}{\numberline {5.3}{\ignorespaces Best results obtained by a SAT solver\relax }}{53}{table.caption.19}
+\contentsline {table}{\numberline {5.4}{\ignorespaces Best results obtained by a ElimLin Algorithm\relax }}{53}{table.caption.20}
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {6.1}{\ignorespaces NIST's recommendation for key management \relax }}{62}{table.caption.26}
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {7.1}{\ignorespaces Time cost for different window width $w$, point addition method secp256k1 library \cite {Wulliesecp256k1} secp256k1\_gej\_add\_ge \relax }}{80}{table.caption.32}
+\contentsline {table}{\numberline {7.2}{\ignorespaces Benchmarking openssl and MPIR library for field multiplication, square and modular inverse in affine coordinate\relax }}{81}{table.caption.33}
+\contentsline {table}{\numberline {7.3}{\ignorespaces Operation counts for point addition and doubling. A = affine, P = standard projective, J = Jacobian \cite {hankerson2006guide,brown2001software}\relax }}{81}{table.caption.36}
+\contentsline {table}{\numberline {7.4}{\ignorespaces Field operation counts and benchmark results\relax }}{84}{table.caption.41}
+\contentsline {table}{\numberline {7.5}{\ignorespaces Time cost for different window width $w$ for EC key generation\relax }}{85}{table.caption.42}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
