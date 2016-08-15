@@ -35,40 +35,51 @@
 \BOOKMARK [2][-]{subsection.5.4.1}{Experiments with 2 P/C pairs}{section.5.4}% 35
 \BOOKMARK [2][-]{subsection.5.4.2}{Experiments with more P/C pairs}{section.5.4}% 36
 \BOOKMARK [2][-]{subsection.5.4.3}{Algebraic Attacks Using ElimLin Algorithm}{section.5.4}% 37
-\BOOKMARK [0][-]{chapter.6}{Introduction to Elliptic Curves}{}% 38
-\BOOKMARK [1][-]{section.6.1}{Mathematical Foundations}{chapter.6}% 39
-\BOOKMARK [2][-]{subsection.6.1.1}{Finite Groups}{section.6.1}% 40
-\BOOKMARK [2][-]{subsection.6.1.2}{Finite Fields}{section.6.1}% 41
-\BOOKMARK [2][-]{subsection.6.1.3}{Cyclic Groups}{section.6.1}% 42
-\BOOKMARK [1][-]{section.6.2}{Elliptic Curves}{chapter.6}% 43
-\BOOKMARK [2][-]{subsection.6.2.1}{Elliptic Curves Over Fp}{section.6.2}% 44
-\BOOKMARK [2][-]{subsection.6.2.2}{Binary Elliptic Curves}{section.6.2}% 45
-\BOOKMARK [1][-]{section.6.3}{Point Arithmetic}{chapter.6}% 46
-\BOOKMARK [2][-]{subsection.6.3.1}{Point Addition}{section.6.3}% 47
-\BOOKMARK [2][-]{subsection.6.3.2}{Point Doubling}{section.6.3}% 48
-\BOOKMARK [2][-]{subsection.6.3.3}{Explicit Formulas}{section.6.3}% 49
-\BOOKMARK [2][-]{subsection.6.3.4}{Point Multiplication and ECDLP}{section.6.3}% 50
-\BOOKMARK [1][-]{section.6.4}{Open Research Questions}{chapter.6}% 51
-\BOOKMARK [2][-]{subsection.6.4.1}{Summation Polynomials}{section.6.4}% 52
-\BOOKMARK [2][-]{subsection.6.4.2}{Semaev Cipher}{section.6.4}% 53
-\BOOKMARK [2][-]{subsection.6.4.3}{Curves with Special Shortcuts}{section.6.4}% 54
-\BOOKMARK [1][-]{section.6.5}{Elliptic Curve Cryptography}{chapter.6}% 55
-\BOOKMARK [2][-]{subsection.6.5.1}{Domain Parameters}{section.6.5}% 56
-\BOOKMARK [2][-]{subsection.6.5.2}{Key Pair Generation}{section.6.5}% 57
-\BOOKMARK [2][-]{subsection.6.5.3}{Elliptic Curve Digital Signature Algorithm}{section.6.5}% 58
-\BOOKMARK [0][-]{chapter.7}{Bitcoin and Brain Wallet Attacks}{}% 59
-\BOOKMARK [1][-]{section.7.1}{Bitcoin Elliptic Curve}{chapter.7}% 60
-\BOOKMARK [1][-]{section.7.2}{Brain Wallet}{chapter.7}% 61
-\BOOKMARK [1][-]{section.7.3}{Bitcoin Elliptic Curve Implementation and Benchmarking}{chapter.7}% 62
-\BOOKMARK [2][-]{subsection.7.3.1}{Related Work}{section.7.3}% 63
-\BOOKMARK [2][-]{subsection.7.3.2}{Special Designed Point Multiplication Method For Attack}{section.7.3}% 64
-\BOOKMARK [2][-]{subsection.7.3.3}{Point Representation}{section.7.3}% 65
-\BOOKMARK [1][-]{section.7.4}{Experiment Results}{chapter.7}% 66
-\BOOKMARK [2][-]{subsection.7.4.1}{Network Stress Test}{section.7.4}% 67
-\BOOKMARK [2][-]{subsection.7.4.2}{Disclosure of results}{section.7.4}% 68
-\BOOKMARK [0][-]{chapter.8}{General Conclusions}{}% 69
-\BOOKMARK [0][-]{chapter.8}{Appendices}{}% 70
-\BOOKMARK [0][-]{appendix.A}{An Appendix About Stuff}{}% 71
-\BOOKMARK [0][-]{appendix.B}{Another Appendix About Things}{}% 72
-\BOOKMARK [0][-]{appendix.C}{Colophon}{}% 73
-\BOOKMARK [0][-]{appendix.C}{Bibliography}{}% 74
+\BOOKMARK [1][-]{section.5.5}{ElimLin On Lightweight Ciphers}{chapter.5}% 38
+\BOOKMARK [2][-]{subsection.5.5.1}{Phase transitions}{section.5.5}% 39
+\BOOKMARK [1][-]{section.5.6}{Experimental Setup and Notation}{chapter.5}% 40
+\BOOKMARK [1][-]{section.5.7}{How to Predict the Success of ElimLin}{chapter.5}% 41
+\BOOKMARK [2][-]{subsection.5.7.1}{On Growth Rate in ElimLin}{section.5.7}% 42
+\BOOKMARK [2][-]{subsection.5.7.2}{Analysis of Our Prediction}{section.5.7}% 43
+\BOOKMARK [2][-]{subsection.5.7.3}{Limitations vs. Improvements}{section.5.7}% 44
+\BOOKMARK [1][-]{section.5.8}{The Big Picture - Long Term Predictions}{chapter.5}% 45
+\BOOKMARK [2][-]{subsection.5.8.1}{Are Reliable Extrapolations Possible?}{section.5.8}% 46
+\BOOKMARK [2][-]{subsection.5.8.2}{Are Low Degree Polynomial Extrapolations Possible?}{section.5.8}% 47
+\BOOKMARK [1][-]{section.5.9}{On Comparative Strength of Ciphers}{chapter.5}% 48
+\BOOKMARK [0][-]{chapter.6}{Introduction to Elliptic Curves}{}% 49
+\BOOKMARK [1][-]{section.6.1}{Mathematical Foundations}{chapter.6}% 50
+\BOOKMARK [2][-]{subsection.6.1.1}{Finite Groups}{section.6.1}% 51
+\BOOKMARK [2][-]{subsection.6.1.2}{Finite Fields}{section.6.1}% 52
+\BOOKMARK [2][-]{subsection.6.1.3}{Cyclic Groups}{section.6.1}% 53
+\BOOKMARK [1][-]{section.6.2}{Elliptic Curves}{chapter.6}% 54
+\BOOKMARK [2][-]{subsection.6.2.1}{Elliptic Curves Over Fp}{section.6.2}% 55
+\BOOKMARK [2][-]{subsection.6.2.2}{Binary Elliptic Curves}{section.6.2}% 56
+\BOOKMARK [1][-]{section.6.3}{Point Arithmetic}{chapter.6}% 57
+\BOOKMARK [2][-]{subsection.6.3.1}{Point Addition}{section.6.3}% 58
+\BOOKMARK [2][-]{subsection.6.3.2}{Point Doubling}{section.6.3}% 59
+\BOOKMARK [2][-]{subsection.6.3.3}{Explicit Formulas}{section.6.3}% 60
+\BOOKMARK [2][-]{subsection.6.3.4}{Point Multiplication and ECDLP}{section.6.3}% 61
+\BOOKMARK [1][-]{section.6.4}{Open Research Questions}{chapter.6}% 62
+\BOOKMARK [2][-]{subsection.6.4.1}{Summation Polynomials}{section.6.4}% 63
+\BOOKMARK [2][-]{subsection.6.4.2}{Semaev Cipher}{section.6.4}% 64
+\BOOKMARK [2][-]{subsection.6.4.3}{Curves with Special Shortcuts}{section.6.4}% 65
+\BOOKMARK [1][-]{section.6.5}{Elliptic Curve Cryptography}{chapter.6}% 66
+\BOOKMARK [2][-]{subsection.6.5.1}{Domain Parameters}{section.6.5}% 67
+\BOOKMARK [2][-]{subsection.6.5.2}{Key Pair Generation}{section.6.5}% 68
+\BOOKMARK [2][-]{subsection.6.5.3}{Elliptic Curve Digital Signature Algorithm}{section.6.5}% 69
+\BOOKMARK [0][-]{chapter.7}{Bitcoin and Brain Wallet Attacks}{}% 70
+\BOOKMARK [1][-]{section.7.1}{Bitcoin Elliptic Curve}{chapter.7}% 71
+\BOOKMARK [1][-]{section.7.2}{Brain Wallet}{chapter.7}% 72
+\BOOKMARK [1][-]{section.7.3}{Bitcoin Elliptic Curve Implementation and Benchmarking}{chapter.7}% 73
+\BOOKMARK [2][-]{subsection.7.3.1}{Related Work}{section.7.3}% 74
+\BOOKMARK [2][-]{subsection.7.3.2}{Special Designed Point Multiplication Method For Attack}{section.7.3}% 75
+\BOOKMARK [2][-]{subsection.7.3.3}{Point Representation}{section.7.3}% 76
+\BOOKMARK [1][-]{section.7.4}{Experiment Results}{chapter.7}% 77
+\BOOKMARK [2][-]{subsection.7.4.1}{Network Stress Test}{section.7.4}% 78
+\BOOKMARK [2][-]{subsection.7.4.2}{Disclosure of results}{section.7.4}% 79
+\BOOKMARK [0][-]{chapter.8}{General Conclusions}{}% 80
+\BOOKMARK [0][-]{chapter.8}{Appendices}{}% 81
+\BOOKMARK [0][-]{appendix.A}{An Appendix About Stuff}{}% 82
+\BOOKMARK [0][-]{appendix.B}{Another Appendix About Things}{}% 83
+\BOOKMARK [0][-]{appendix.C}{Colophon}{}% 84
+\BOOKMARK [0][-]{appendix.C}{Bibliography}{}% 85

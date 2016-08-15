@@ -56,47 +56,52 @@ Warning--empty booktitle in BoyarPeraltaMCBoolean
 Warning--empty booktitle in simonref
 Warning--empty booktitle in BoyarPeraltaMCMethodAES
 Warning--empty booktitle in EquationSolving
+Warning--empty booktitle in CourtoisSoftware
+Too many commas in name 1 of "N. Courtois, T. Mourouzis, G. Song, P. Sepehrdad and P. Susil" for entry ACTruncSimon
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "P. Susil, P. Sepehrdad, S. Vaudenay, N. Courtois" for entry ElimLinUniversalEqs
+while executing---line 944 of file unsrt.bst
 Warning--empty author in IEEEP1363
 Warning--empty booktitle in IEEEP1363
-You've used 124 entries,
+You've used 135 entries,
             1791 wiz_defined-function locations,
-            1076 strings with 22942 characters,
-and the built_in function-call counts, 28367 in all, are:
-= -- 2589
-> -- 1030
+            1133 strings with 24650 characters,
+and the built_in function-call counts, 30312 in all, are:
+= -- 2763
+> -- 1082
 < -- 35
-+ -- 401
-- -- 277
-* -- 1476
-:= -- 4205
-add.period$ -- 401
-call.type$ -- 124
-change.case$ -- 114
++ -- 425
+- -- 290
+* -- 1534
+:= -- 4505
+add.period$ -- 444
+call.type$ -- 135
+change.case$ -- 125
 chr.to.int$ -- 0
-cite$ -- 132
-duplicate$ -- 1505
-empty$ -- 3099
-format.name$ -- 277
-if$ -- 6693
+cite$ -- 144
+duplicate$ -- 1636
+empty$ -- 3372
+format.name$ -- 290
+if$ -- 7179
 int.to.chr$ -- 0
-int.to.str$ -- 124
-missing$ -- 116
-newline$ -- 619
-num.names$ -- 124
-pop$ -- 581
+int.to.str$ -- 135
+missing$ -- 127
+newline$ -- 674
+num.names$ -- 135
+pop$ -- 648
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 728
+skip$ -- 753
 stack$ -- 0
 substring$ -- 1516
-swap$ -- 430
+swap$ -- 451
 text.length$ -- 35
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 8
-while$ -- 275
-width$ -- 127
-write$ -- 1325
-(There were 10 error messages)
+warning$ -- 9
+while$ -- 286
+width$ -- 138
+write$ -- 1445
+(There were 12 error messages)

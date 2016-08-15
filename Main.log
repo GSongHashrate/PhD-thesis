@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.8.9)  9 AUG 2016 14:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.8.9)  15 AUG 2016 22:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -649,28 +649,28 @@ LaTeX Font Info:    Try loading font information for TS1+ptm on input line 3.
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 ) [5
 
-] [6])
+] [6]
+[7])
 \tf@toc=\write4
 \openout4 = `Main.toc'.
 
-
-[7] (./Main.lof
-Underfull \hbox (badness 3623) in paragraph at lines 18--18
+ [8] (./Main.lof
+Underfull \hbox (badness 3623) in paragraph at lines 22--22
  [][] [][]\OT1/ptm/m/n/12 password strength com-par-i-son be-tween us-ing pass-
 word and 
  []
 
-)
+[9
+
+])
 \tf@lof=\write5
 \openout5 = `Main.lof'.
 
- [8
-
-] (./Main.lot)
+ [10] (./Main.lot)
 \tf@lot=\write6
 \openout6 = `Main.lot'.
 
-) [9
+) [11
 
 ]
 \openout2 = `Introduction.aux'.
@@ -680,13 +680,13 @@ Chapter 1.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
 
-LaTeX Warning: Citation `example-citation' on page 10 undefined on input line 4
+LaTeX Warning: Citation `example-citation' on page 12 undefined on input line 4
 .
 
 
 LaTeX Warning: Citation `example-citation' undefined on input line 6.
 
-) [10
+) [12
 
 
 
@@ -698,7 +698,7 @@ Chapter 2.
 
 Underfull \vbox (badness 1902) has occurred while \output is active []
 
- [11
+ [13
 
 
 
@@ -710,7 +710,7 @@ Package nag Warning: $$...$$ is obsolete.
 
 Underfull \vbox (badness 1152) has occurred while \output is active []
 
- [12]
+ [14]
 
 Package nag Warning: $$...$$ is obsolete.
 (nag)                Use \[...\] et al. instead on input line 24.
@@ -723,7 +723,7 @@ Package nag Warning: $$...$$ is obsolete.
 Package nag Warning: $$...$$ is obsolete.
 (nag)                Use \[...\] et al. instead on input line 32.
 
-[13]
+[15]
 
 Package nag Warning: $$...$$ is obsolete.
 (nag)                Use \[...\] et al. instead on input line 41.
@@ -735,7 +735,7 @@ Package nag Warning: $$...$$ is obsolete.
 
 Underfull \vbox (badness 6332) has occurred while \output is active []
 
- [14]
+ [16]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 46.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
@@ -757,7 +757,7 @@ Package nag Warning: $$...$$ is obsolete.
 Package nag Warning: $$...$$ is obsolete.
 (nag)                Use \[...\] et al. instead on input line 59.
 
-[15]
+[17]
 
 Package nag Warning: $$...$$ is obsolete.
 (nag)                Use \[...\] et al. instead on input line 60.
@@ -782,7 +782,7 @@ Package nag Warning: $$...$$ is obsolete.
 Package nag Warning: $$...$$ is obsolete.
 (nag)                Use \[...\] et al. instead on input line 68.
 
-[16]
+[18]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <12> not available
 (Font)              Font shape `OT1/ptm/b/it' tried instead on input line 73.
 
@@ -811,31 +811,31 @@ Package nag Warning: $$...$$ is obsolete.
 Package nag Warning: $$...$$ is obsolete.
 (nag)                Use \[...\] et al. instead on input line 83.
 
-[17]
+[19]
 
 Package nag Warning: $$...$$ is obsolete.
 (nag)                Use \[...\] et al. instead on input line 84.
 
-) [18]
+) [20]
 \openout2 = `Chapter3.aux'.
 
  (./Chapter3.tex
 Chapter 3.
-[19
+[21
 
 
 
-] [20] [21] [22] [23]
+] [22] [23] [24] [25]
 
 Package nag Warning: $$...$$ is obsolete.
 (nag)                Use \[...\] et al. instead on input line 91.
 
-[24] [25]
+[26] [27]
 
 Package nag Warning: $$...$$ is obsolete.
 (nag)                Use \[...\] et al. instead on input line 125.
 
-[26] <./pics/block_cipher_topology2.png, id=690, 598.235pt x 655.44875pt>
+[28] <./pics/block_cipher_topology2.png, id=770, 598.235pt x 655.44875pt>
 File: ./pics/block_cipher_topology2.png Graphic file (type png)
 
 <use ./pics/block_cipher_topology2.png>
@@ -848,26 +848,26 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[27]
+[29]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [28 <./pics/block_cipher_topology2.png>]
+ [30 <./pics/block_cipher_topology2.png>]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
 put line 162.
 
 
 LaTeX Warning: Command \O invalid in math mode on input line 166.
 
-[29]) [30]
+[31]) [32]
 \openout2 = `Chapter4.aux'.
 
  (./Chapter4.tex
 Chapter 4.
-[31
+[33
 
 
 
-] [32] <./pics/gostfeist2.jpg, id=822, 481.8pt x 481.8pt>
+] [34] <./pics/gostfeist2.jpg, id=902, 481.8pt x 481.8pt>
 File: ./pics/gostfeist2.jpg Graphic file (type jpg)
 
 <use ./pics/gostfeist2.jpg>
@@ -882,7 +882,7 @@ Package nag Warning: Command \bf is an old LaTeX 2.09 command.
 Package nag Warning: Command \bf is an old LaTeX 2.09 command. 
 (nag)                Use \bfseries or \textbf instead on input line 133.
 
-[33 <./pics/gostfeist2.jpg>]
+[35 <./pics/gostfeist2.jpg>]
 
 Package nag Warning: Command \bf is an old LaTeX 2.09 command. 
 (nag)                Use \bfseries or \textbf instead on input line 163.
@@ -895,17 +895,17 @@ Package nag Warning: Command \bf is an old LaTeX 2.09 command.
 Package nag Warning: Command \bf is an old LaTeX 2.09 command. 
 (nag)                Use \bfseries or \textbf instead on input line 181.
 
-[34]
+[36]
 
 Package nag Warning: Command \bf is an old LaTeX 2.09 command. 
 (nag)                Use \bfseries or \textbf instead on input line 225.
 
-[35]
+[37]
 
 Package nag Warning: Command \bf is an old LaTeX 2.09 command. 
 (nag)                Use \bfseries or \textbf instead on input line 274.
 
-[36]
+[38]
 
 Package nag Warning: Command \bf is an old LaTeX 2.09 command. 
 (nag)                Use \bfseries or \textbf instead on input line 316.
@@ -922,17 +922,17 @@ Package nag Warning: Command \bf is an old LaTeX 2.09 command.
 Package nag Warning: Command \bf is an old LaTeX 2.09 command. 
 (nag)                Use \bfseries or \textbf instead on input line 351.
 
-[37]
+[39]
 
 Package nag Warning: Command \bf is an old LaTeX 2.09 command. 
 (nag)                Use \bfseries or \textbf instead on input line 361.
 
-[38]
+[40]
 
 Package nag Warning: Command \bf is an old LaTeX 2.09 command. 
 (nag)                Use \bfseries or \textbf instead on input line 434.
 
-<./pics/gost81optimal4KP.jpg, id=920, 361.35pt x 642.4pt>
+<./pics/gost81optimal4KP.jpg, id=1000, 361.35pt x 642.4pt>
 File: ./pics/gost81optimal4KP.jpg Graphic file (type jpg)
 
 <use ./pics/gost81optimal4KP.jpg>
@@ -946,11 +946,11 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 Package nag Warning: Command \bf is an old LaTeX 2.09 command. 
 (nag)                Use \bfseries or \textbf instead on input line 461.
 
-[39]
+[41]
 
-LaTeX Warning: Citation `optisharcs' on page 40 undefined on input line 499.
+LaTeX Warning: Citation `optisharcs' on page 42 undefined on input line 499.
 
-<./pics/gost81optimalSAT4KP.jpg, id=935, 361.35pt x 642.4pt>
+<./pics/gost81optimalSAT4KP.jpg, id=1015, 361.35pt x 642.4pt>
 File: ./pics/gost81optimalSAT4KP.jpg Graphic file (type jpg)
 
 <use ./pics/gost81optimalSAT4KP.jpg>
@@ -965,8 +965,8 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 Package nag Warning: Command \bf is an old LaTeX 2.09 command. 
 (nag)                Use \bfseries or \textbf instead on input line 514.
 
-[40 <./pics/gost81optimal4KP.jpg>] [41 <./pics/gost81optimalSAT4KP.jpg>])
-[42]
+[42 <./pics/gost81optimal4KP.jpg>] [43 <./pics/gost81optimalSAT4KP.jpg>])
+[44]
 \openout2 = `Chapter5.aux'.
 
  (./Chapter5.tex
@@ -974,24 +974,24 @@ Chapter 5.
 
 Underfull \vbox (badness 3128) has occurred while \output is active []
 
- [43
+ [45
 
 
 
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [44]
-[45] [46]
-<./pics/SIMONroundfn-eps-converted-to.pdf, id=1033, 297.11pt x 212.795pt>
+ [46]
+[47] [48]
+<./pics/SIMONroundfn-eps-converted-to.pdf, id=1113, 297.11pt x 212.795pt>
 File: ./pics/SIMONroundfn-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./pics/SIMONroundfn-eps-converted-to.pdf>
 Package pdftex.def Info: ./pics/SIMONroundfn-eps-converted-to.pdf used on input
  line 146.
-(pdftex.def)             Requested size: 227.62204pt x 163.0344pt.
- [47 <./pics/SIMONroundfn-eps-converted-to.pdf>] <./pics/three_scenarios2.jpg, 
-id=1049, 180.675pt x 461.725pt>
+(pdftex.def)             Requested size: 341.43306pt x 244.54997pt.
+ [49 <./pics/SIMONroundfn-eps-converted-to.pdf>] <./pics/three_scenarios2.jpg, 
+id=1130, 180.675pt x 461.725pt>
 File: ./pics/three_scenarios2.jpg Graphic file (type jpg)
 
 <use ./pics/three_scenarios2.jpg>
@@ -1001,13 +1001,13 @@ Package pdftex.def Info: ./pics/three_scenarios2.jpg used on input line 189.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[48] [49 <./pics/three_scenarios2.jpg>]
+[50] [51 <./pics/three_scenarios2.jpg>]
 Underfull \hbox (badness 1057) in paragraph at lines 264--265
 []\OT1/ptm/m/n/12 SAT Solver: xl0.exe /deg2 /sat /bard /time-out600 /cryp-to-mi
 n-isat64296
  []
 
-[50] [51]
+[52] [53]
 Overfull \hbox (48.81374pt too wide) in paragraph at lines 308--319
  [][] 
  []
@@ -1020,12 +1020,91 @@ Overfull \hbox (38.72058pt too wide) in paragraph at lines 333--346
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[52]) [53]
+[54] [55]
+
+Package nag Warning: Command \bf is an old LaTeX 2.09 command. 
+(nag)                Use \bfseries or \textbf instead on input line 421.
+
+[56] [57]
+
+Package nag Warning: Command \bf is an old LaTeX 2.09 command. 
+(nag)                Use \bfseries or \textbf instead on input line 502.
+
+[58] <./pics/image011.png, id=1220, 359.84438pt x 230.36063pt>
+File: ./pics/image011.png Graphic file (type png)
+
+<use ./pics/image011.png>
+Package pdftex.def Info: ./pics/image011.png used on input line 559.
+(pdftex.def)             Requested size: 341.43306pt x 218.59177pt.
+
+Underfull \vbox (badness 1521) has occurred while \output is active []
+
+ [59 <./pics/image011.png>]
+
+Package nag Warning: Command \bf is an old LaTeX 2.09 command. 
+(nag)                Use \bfseries or \textbf instead on input line 619.
+
+[60]
+
+Package nag Warning: Command \bf is an old LaTeX 2.09 command. 
+(nag)                Use \bfseries or \textbf instead on input line 636.
+
+<./pics/pol4_U.png, id=1250, 121.8954pt x 74.9199pt>
+File: ./pics/pol4_U.png Graphic file (type png)
+ <use ./pics/pol4_U.png>
+Package pdftex.def Info: ./pics/pol4_U.png used on input line 665.
+(pdftex.def)             Requested size: 341.43306pt x 209.88744pt.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 668.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 692.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+) [61]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [62 <./pics/pol4_U.png>]
+
+Package nag Warning: Command \bf is an old LaTeX 2.09 command. 
+(nag)                Use \bfseries or \textbf instead on input line 740.
+
+
+Package nag Warning: Command \bf is an old LaTeX 2.09 command. 
+(nag)                Use \bfseries or \textbf instead on input line 755.
+
+[63] <./pics/KUS8_deg6.jpg, id=1282, 479.7925pt x 252.945pt>
+File: ./pics/KUS8_deg6.jpg Graphic file (type jpg)
+
+<use ./pics/KUS8_deg6.jpg>
+Package pdftex.def Info: ./pics/KUS8_deg6.jpg used on input line 813.
+(pdftex.def)             Requested size: 341.43306pt x 180.00519pt.
+
+<./pics/KUS8_deg2.jpg, id=1284, 479.7925pt x 252.945pt>
+File: ./pics/KUS8_deg2.jpg Graphic file (type jpg)
+
+<use ./pics/KUS8_deg2.jpg>
+Package pdftex.def Info: ./pics/KUS8_deg2.jpg used on input line 814.
+(pdftex.def)             Requested size: 341.43306pt x 180.00519pt.
+
+Underfull \vbox (badness 3954) has occurred while \output is active []
+
+ [64 <./pics/KUS8_deg6.jpg> <./pics/KUS8_deg2.jpg>]
+<./pics/SimonvsCTC2_7.jpg, id=1295, 988.69376pt x 553.06625pt>
+File: ./pics/SimonvsCTC2_7.jpg Graphic file (type jpg)
+
+<use ./pics/SimonvsCTC2_7.jpg>
+Package pdftex.def Info: ./pics/SimonvsCTC2_7.jpg used on input line 849.
+(pdftex.def)             Requested size: 341.43306pt x 190.99371pt.
+) [65 <./pics/SimonvsCTC2_7.jpg>]
 \openout2 = `Chapter6.aux'.
 
  (./Chapter6.tex
 Chapter 6.
-[54
+[66
 
 
 
@@ -1034,7 +1113,7 @@ Chapter 6.
 Package nag Warning: $$...$$ is obsolete.
 (nag)                Use \[...\] et al. instead on input line 26.
 
-[55]
+[67]
 
 Package nag Warning: $$...$$ is obsolete.
 (nag)                Use \[...\] et al. instead on input line 43.
@@ -1055,10 +1134,7 @@ Package nag Warning: $$...$$ is obsolete.
 Package nag Warning: $$...$$ is obsolete.
 (nag)                Use \[...\] et al. instead on input line 45.
 
-[56]
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 65.
-
+[68]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 65.
@@ -1085,7 +1161,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 76--81
 
  []
 
-[57]
+[69]
 
 Package nag Warning: $$...$$ is obsolete.
 (nag)                Use \[...\] et al. instead on input line 82.
@@ -1110,7 +1186,7 @@ Package nag Warning: $$...$$ is obsolete.
 Package nag Warning: $$...$$ is obsolete.
 (nag)                Use \[...\] et al. instead on input line 91.
 
-<./pics/example_of_gf2m.png, id=1133, 418.56375pt x 414.54875pt>
+<./pics/example_of_gf2m.png, id=1341, 418.56375pt x 414.54875pt>
 File: ./pics/example_of_gf2m.png Graphic file (type png)
 
 <use ./pics/example_of_gf2m.png>
@@ -1120,7 +1196,7 @@ Package pdftex.def Info: ./pics/example_of_gf2m.png used on input line 95.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./pics/ecc_point_addition.png, id=1136, 301.125pt x 360.34625pt>
+<./pics/ecc_point_addition.png, id=1344, 301.125pt x 360.34625pt>
 File: ./pics/ecc_point_addition.png Graphic file (type png)
 
 <use ./pics/ecc_point_addition.png>
@@ -1129,7 +1205,7 @@ Package pdftex.def Info: ./pics/ecc_point_addition.png used on input line 105.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [58]
+ [70]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -1137,8 +1213,8 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 Package nag Warning: $$...$$ is obsolete.
 (nag)                Use \[...\] et al. instead on input line 114.
 
-[59 <./pics/example_of_gf2m.png>]
-<./pics/ecc_point_doubling.png, id=1150, 301.125pt x 396.48125pt>
+[71 <./pics/example_of_gf2m.png>]
+<./pics/ecc_point_doubling.png, id=1358, 301.125pt x 396.48125pt>
 File: ./pics/ecc_point_doubling.png Graphic file (type png)
 
 <use ./pics/ecc_point_doubling.png>
@@ -1147,7 +1223,7 @@ Package pdftex.def Info: ./pics/ecc_point_doubling.png used on input line 118.
 
 Underfull \vbox (badness 3907) has occurred while \output is active []
 
- [60 <./pics/ecc_point_addition.png> <./pics/ecc_point_doubling.png>]
+ [72 <./pics/ecc_point_addition.png> <./pics/ecc_point_doubling.png>]
 
 Package nag Warning: $$...$$ is obsolete.
 (nag)                Use \[...\] et al. instead on input line 127.
@@ -1191,7 +1267,7 @@ Package nag Warning: $$...$$ is obsolete.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [61]
+ [73]
 
 Package nag Warning: $$...$$ is obsolete.
 (nag)                Use \[...\] et al. instead on input line 141.
@@ -1199,7 +1275,7 @@ Package nag Warning: $$...$$ is obsolete.
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ô in font ptmr7t!
-[62]
+[74]
 
 Package nag Warning: $$...$$ is obsolete.
 (nag)                Use \[...\] et al. instead on input line 172.
@@ -1214,7 +1290,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 182--183
 
  []
 
-[63]
+[75]
 Underfull \hbox (badness 10000) in paragraph at lines 197--198
 
  []
@@ -1231,7 +1307,7 @@ Package nag Warning: $$...$$ is obsolete.
 Package nag Warning: $$...$$ is obsolete.
 (nag)                Use \[...\] et al. instead on input line 217.
 
-[64]
+[76]
 
 Package nag Warning: $$...$$ is obsolete.
 (nag)                Use \[...\] et al. instead on input line 218.
@@ -1251,7 +1327,7 @@ Package nag Warning: $$...$$ is obsolete.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [65]
+ [77]
 
 Package nag Warning: $$...$$ is obsolete.
 (nag)                Use \[...\] et al. instead on input line 254.
@@ -1259,7 +1335,7 @@ Package nag Warning: $$...$$ is obsolete.
 
 Underfull \vbox (badness 5359) has occurred while \output is active []
 
- [66]
+ [78]
 
 Package nag Warning: $$...$$ is obsolete.
 (nag)                Use \[...\] et al. instead on input line 256.
@@ -1312,7 +1388,7 @@ cm/m/it/12 CBCB\OT1/ztmcm/m/n/12 16630\OML/ztmcm/m/it/12 FB\OT1/ztmcm/m/n/12 68
 /12 6\OML/ztmcm/m/it/12 AFA\OT1/ztmcm/m/n/12 40$
  []
 
-[67]
+[79]
 
 Package nag Warning: $$...$$ is obsolete.
 (nag)                Use \[...\] et al. instead on input line 303.
@@ -1330,16 +1406,16 @@ Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ì in font ptmr7t!
 
-LaTeX Warning: Reference `sec:RecomandedCurves' on page 68 undefined on input l
+LaTeX Warning: Reference `sec:RecomandedCurves' on page 80 undefined on input l
 ine 317.
 
 
 Underfull \vbox (badness 2884) has occurred while \output is active []
 
- [68]
-[69] [70] [71]
+ [80]
+[81] [82] [83]
 Chapter 7.
-[72
+[84
 
 ]
 
@@ -1385,7 +1461,7 @@ Overfull \hbox (81.7338pt too wide) detected at line 408
 
 Underfull \vbox (badness 3872) has occurred while \output is active []
 
- [73]
+ [85]
 Overfull \hbox (60.53917pt too wide) in paragraph at lines 421--422
 \OT1/ptm/m/n/12 5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D
 8 
@@ -1403,13 +1479,13 @@ Overfull \hbox (56.38684pt too wide) in paragraph at lines 422--423
 6 
  []
 
-[74]
+[86]
 Overfull \hbox (52.37904pt too wide) in paragraph at lines 423--425
 \OT1/ptm/m/n/12 1D8ED6551EE910136EB0EA735106E137565E8F5EBF8DF73A6A877C92C049F92
 2 
  []
 
-<./pics/brainwallet-password.png, id=1350, 1161.33875pt x 261.97874pt>
+<./pics/brainwallet-password.png, id=1558, 1161.33875pt x 261.97874pt>
 File: ./pics/brainwallet-password.png Graphic file (type png)
 
 <use ./pics/brainwallet-password.png>
@@ -1417,7 +1493,7 @@ Package pdftex.def Info: ./pics/brainwallet-password.png used on input line 432
 .
 (pdftex.def)             Requested size: 398.33858pt x 89.85909pt.
 
-<./pics/password_strength.png, id=1352, 668.4975pt x 542.92838pt>
+<./pics/password_strength.png, id=1560, 668.4975pt x 542.92838pt>
 File: ./pics/password_strength.png Graphic file (type png)
 
 <use ./pics/password_strength.png>
@@ -1435,7 +1511,7 @@ Underfull \hbox (badness 7595) in paragraph at lines 448--448
 
 Underfull \vbox (badness 5064) has occurred while \output is active []
 
- [75 <./pics/brainwallet-password.png>] [76 <./pics/password_strength.png>]
+ [87 <./pics/brainwallet-password.png>] [88 <./pics/password_strength.png>]
 
 Package nag Warning: $$...$$ is obsolete.
 (nag)                Use \[...\] et al. instead on input line 465.
@@ -1444,15 +1520,15 @@ Package nag Warning: $$...$$ is obsolete.
 Package nag Warning: $$...$$ is obsolete.
 (nag)                Use \[...\] et al. instead on input line 469.
 
-[77]
+[89]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [78]
+ [90]
 
 Package nag Warning: $$...$$ is obsolete.
 (nag)                Use \[...\] et al. instead on input line 513.
 
-[79]
+[91]
 Overfull \hbox (23.32745pt too wide) in paragraph at lines 540--548
  [][] 
  []
@@ -1471,12 +1547,12 @@ LaTeX Warning: No positions in optional float specifier.
 Package nag Warning: $$...$$ is obsolete.
 (nag)                Use \[...\] et al. instead on input line 569.
 
-[80]
+[92]
 
 Package nag Warning: $$...$$ is obsolete.
 (nag)                Use \[...\] et al. instead on input line 571.
 
-[81]
+[93]
 
 Package nag Warning: $$...$$ is obsolete.
 (nag)                Use \[...\] et al. instead on input line 603.
@@ -1496,7 +1572,7 @@ Package nag Warning: $$...$$ is obsolete.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [82]
+ [94]
 
 Package nag Warning: $$...$$ is obsolete.
 (nag)                Use \[...\] et al. instead on input line 623.
@@ -1506,7 +1582,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 633--635
 
  []
 
-[83]
+[95]
 Overfull \hbox (96.2254pt too wide) in paragraph at lines 655--663
  [][] 
  []
@@ -1524,14 +1600,14 @@ Overfull \hbox (33.94778pt too wide) in paragraph at lines 675--689
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[84] [85] <./pics/tag_page.png, id=1506, 625.33624pt x 640.3925pt>
+[96] [97] <./pics/tag_page.png, id=1715, 625.33624pt x 640.3925pt>
 File: ./pics/tag_page.png Graphic file (type png)
 
 <use ./pics/tag_page.png>
 Package pdftex.def Info: ./pics/tag_page.png used on input line 709.
 (pdftex.def)             Requested size: 227.62204pt x 233.10127pt.
 
-<./pics/tag_address.png, id=1507, 518.93875pt x 235.88126pt>
+<./pics/tag_address.png, id=1716, 518.93875pt x 235.88126pt>
 File: ./pics/tag_address.png Graphic file (type png)
 
 <use ./pics/tag_address.png>
@@ -1541,12 +1617,12 @@ Package pdftex.def Info: ./pics/tag_address.png used on input line 716.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [86 <./pics/tag_page.png>] [87 <./pics/tag_address.png>]
+) [98 <./pics/tag_page.png>] [99 <./pics/tag_address.png>]
 \openout2 = `Conclusions.aux'.
 
  (./Conclusions.tex
 Chapter 8.
-) [88
+) [100
 
 
 
@@ -1555,28 +1631,23 @@ Chapter 8.
 
  (./Appendices.tex
 Appendix A.
-[89
+[101
 
 
 
 ]
 Appendix B.
-[90
+[102
 
 ]
 Appendix C.
-) [91
+) [103
 
 ] (./Main.bbl
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 6.
-
-(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ot1pcr.fd
-File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-)
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no î in font ptmr7t!
- [92
+ [104
 
 
 ]
@@ -1610,12 +1681,11 @@ Missing character: There is no î in font ptmr7t!
 Missing character: There is no ‚ in font ptmri7t!
 Missing character: There is no Ä in font ptmri7t!
 Missing character: There is no î in font ptmri7t!
- [93]
+ [105]
 Missing character: There is no ‚ in font ptmri7t!
 Missing character: There is no Ä in font ptmri7t!
 Missing character: There is no î in font ptmri7t!
-
-[94]
+ [106]
 Missing character: There is no ‚ in font ptmri7t!
 Missing character: There is no Ä in font ptmri7t!
 Missing character: There is no î in font ptmri7t!
@@ -1625,11 +1695,11 @@ Underfull \hbox (badness 1014) in paragraph at lines 214--220
 tions of per-
  []
 
-[95]
+[107]
 Missing character: There is no ‚ in font ptmri7t!
 Missing character: There is no Ä in font ptmri7t!
 Missing character: There is no î in font ptmri7t!
- [96]
+ [108]
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ô in font ptmr7t!
@@ -1639,11 +1709,11 @@ Missing character: There is no ú in font ptmr7t!
 Missing character: There is no ‚ in font ptmri7t!
 Missing character: There is no Ä in font ptmri7t!
 Missing character: There is no ù in font ptmri7t!
- [97]
+ [109]
 Missing character: There is no ‚ in font ptmri7t!
 Missing character: There is no Ä in font ptmri7t!
 Missing character: There is no î in font ptmri7t!
- [98] [99]
+ [110] [111]
 Underfull \hbox (badness 1210) in paragraph at lines 497--500
 []\OT1/ptm/m/n/12 R. Beaulieu, D. Shors, J. Smith, S. Treatman-Clark, B. Weeks,
  and
@@ -1661,34 +1731,54 @@ Underfull \hbox (badness 4328) in paragraph at lines 502--506
 ions -
  []
 
-[100]
+[112]
 Underfull \hbox (badness 10000) in paragraph at lines 529--533
 []\OT1/ptm/m/n/12 N. Cour-tois.  Ba-sic equa-tion solv-ing tool-box -
  []
 
+Missing character: There is no ¬ in font ptmr7t!
+Missing character: There is no î in font ptmr7t!
+
+Underfull \hbox (badness 2452) in paragraph at lines 546--551
+\OT1/ptm/m/it/12 Col-lege Lon-don\OT1/ptm/m/n/12 . []$\OT1/pcr/m/n/12 http : / 
+/ www . nicolascourtois . com / papers /
+ []
+
+[113]
+Underfull \hbox (badness 2452) in paragraph at lines 575--580
+\OT1/ptm/m/it/12 Col-lege Lon-don\OT1/ptm/m/n/12 . []$\OT1/pcr/m/n/12 http : / 
+/ www . nicolascourtois . com / papers /
+ []
+
+
+Underfull \hbox (badness 2050) in paragraph at lines 582--585
+[]\OT1/ptm/m/n/12 N.T. Cour-tois.  Al-ge-braic crypt-anal-y-sis soft-ware,.  []
+$\OT1/pcr/m/n/12 http : / / www .
+ []
+
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no î in font ptmr7t!
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no î in font ptmr7t!
-[101]
+[114]
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ô in font ptmr7t!
 
-Overfull \hbox (93.62808pt too wide) in paragraph at lines 611--616
+Overfull \hbox (93.62808pt too wide) in paragraph at lines 674--679
 \OT1/pcr/m/n/12 elliptic-[]curve-[]discrete-[]logarithm-[]problem-[]in-[]charac
 teristic-[]two$[]\OT1/ptm/m/n/12 ,
  []
 
-[102]
-Underfull \hbox (badness 7012) in paragraph at lines 623--628
+[115]
+Underfull \hbox (badness 7012) in paragraph at lines 686--691
 []\OT1/ptm/m/n/12 Nicolas Cour-tois, Theo-dosis Mourouzis, Guangyan Song, Pouya
 n
  []
 
-[103]
+[116]
 Missing character: There is no ‚ in font ptmri7t!
 Missing character: There is no Ä in font ptmri7t!
 Missing character: There is no î in font ptmri7t!
@@ -1705,29 +1795,29 @@ Package nag Warning: Package times is obsolete.
 ges instead.
 
 
-Package nag Warning: 92 complaints in total.
+Package nag Warning: 98 complaints in total.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 124.
-[104]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 124.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 125.
+[117]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 125.
  (./Main.aux (./Preamble.aux) (./Introduction.aux) (./Chapter2.aux)
 (./Chapter3.aux) (./Chapter4.aux) (./Chapter5.aux) (./Chapter6.aux)
 (./Conclusions.aux) (./Appendices.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 124.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 124.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 125.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 125.
 Package rerunfilecheck Info: File `Main.out' has not changed.
-(rerunfilecheck)             Checksum: F09AF4A720C05FB67D7C4E07E44BEC85;5357.
+(rerunfilecheck)             Checksum: 09C2894C5926C4D195B4977D52F4028D;6270.
 
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 10260 strings out of 493089
- 152516 string characters out of 6134843
- 251717 words of memory out of 5000000
- 12800 multiletter control sequences out of 15000+600000
- 78824 words of font info for 174 fonts, out of 8000000 for 9000
+ 10396 strings out of 493089
+ 154660 string characters out of 6134843
+ 255133 words of memory out of 5000000
+ 12868 multiletter control sequences out of 15000+600000
+ 82552 words of font info for 180 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,17n,42p,1543b,577s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{cite.cohen1998efficient} has been referenced but 
@@ -1822,6 +1912,36 @@ ist, replaced by a fixed one
 
 pdfTeX warning (dest): name{cite.balasubramanian1998improbability} has been ref
 erenced but does not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{cite.ElimLinUniversalEqs} has been referenced but d
+oes not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{cite.ACTruncSimon} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{cite.XL2} has been referenced but does not exist, r
+eplaced by a fixed one
+
+pdfTeX warning (dest): name{cite.CourtoisSoftware} has been referenced but does
+ not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{cite.ToyRijSer} has been referenced but does not ex
+ist, replaced by a fixed one
+
+pdfTeX warning (dest): name{cite.FastAlg2} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{cite.FastAlg} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{cite.desalg} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{cite.SlidesAlgAllteach} has been referenced but doe
+s not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{cite.RaddumSimon} has been referenced but does not 
+exist, replaced by a fixed one
 
 pdfTeX warning (dest): name{cite.semaev} has been referenced but does not exist
 , replaced by a fixed one
@@ -2102,6 +2222,9 @@ es not exist, replaced by a fixed one
 pdfTeX warning (dest): name{cite.Wulliesecp256k1} has been referenced but does 
 not exist, replaced by a fixed one
 
+pdfTeX warning (dest): name{cite.AlgteachElimLinLab} has been referenced but do
+es not exist, replaced by a fixed one
+
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/tex
 live/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texl
 ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texli
@@ -2117,10 +2240,10 @@ ype1/urw/times/utmb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/t
 imes/utmbi8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmr
 8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></u
 sr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Main.pdf (104 pages, 933696 bytes).
+Output written on Main.pdf (117 pages, 1045948 bytes).
 PDF statistics:
- 1919 PDF objects out of 2073 (max. 8388607)
- 1750 compressed objects within 18 object streams
- 633 named destinations out of 1000 (max. 500000)
- 664 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2162 PDF objects out of 2487 (max. 8388607)
+ 1964 compressed objects within 20 object streams
+ 690 named destinations out of 1000 (max. 500000)
+ 807 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -143,7 +143,7 @@ R^i=L^{i-1}
 	\vspace{-0.2cm}
 	\centering
 	%   {\epsfig{file = .\SIMONroundfn.eps, width = 6.5cm}}
-	\includegraphics[width=80mm]{./pics/SIMONroundfn-eps-converted-to.pdf}
+	\includegraphics[width=120mm]{./pics/SIMONroundfn-eps-converted-to.pdf}
 	\caption{The round function of SIMON}
 	\label{fig:SIMONroundfn}
 	\vspace{-0.1cm}
@@ -381,4 +381,498 @@ is exploited by the ElimLin algorithm. An immediate improvement is to use additi
 This will eliminate also variables in intermediate rounds and introduce more linear
 equations in the intermediate rounds. We conjecture that ElimLin is more powerful
 in case where a strong characteristic is found by our discovery method (intermediate difference states).
+
+%secrypt2016 
+%TODO
+
+\section{ElimLin On Lightweight Ciphers}
+Our initial algebraic cryptanalysis work on Simon was published in 2014. In 2015,   Raddum \cite{RaddumSimon} published another algebraic cryptanalysis on more version of Simon and have break many rounds using Elimlin with more P/C pairs. 
+
+ 
+However, a major difficulty with ElimLin is that so far it has been successful only for relatively simple lightweight ciphers.
+For more complex ciphers
+%%% full version maybe %%%
+%%it is not clear if the attack makes big progress.
+it seems to do things which are relatively trivial,
+%However until now this has not been formalized.
+%We do not know what trivial means.
+%for example
+e.g. equations generated do not penetrate deeply inside the cipher, or very slowly,
+cf. %for example
+slide 153 in \cite{SlidesAlgAllteach}.
+% we observe that as the number
+%of new linear equations grows,
+%these equations penetrate more and more deeply inside the cipher for $2,3,5,\ldots$ rounds.
+
+My work aim to make some definite progress in the direction of distinguishing between trivial and non-trivial behavior for ElimLin. This is not only about penetrating deeper inside the cipher. Previous experience shows that ElimLin only starts to work at a certain threshold. Before this threshold, again nothing non-trivial can be observed even though slow penetration occurs. This is not really apparent in any of the current works or is lost in vast quantities of data generated in computer simulations. 
+%In this paper we are going to be the first to define what non-trivial means.
+We define a new criterion which shows that it is possible to see that there exist two very different and easily distinguishable patterns in ElimLin. Either the attack follows one pattern, and does nothing trivial, or it follows another pattern and it is very clearly doing well.
+
+\subsection{Phase transitions}
+
+It is known that many NP-hard problems are subject to ``phase transition'', with certain parameters that problem is hard, and then will rather abruptly transition from ``hard'' to ``easy to solve''. This is what we observe with ElimLin. % here. 
+Let $K$ be the number of Plaintext/Ciphertext (P/C) pairs used in an ElimLin attack. We are going to discover that at a certain threshold the number of new linear and linearly independent equations
+generated at various stages of the attack can follow one curve,
+and then switch to another curve with a different asymptotic growth rate.
+
+
+
+%\begin{conj}
+{\bf Conjecture \ref{ElimLinQuadConj}}
+\label{ElimLinQuadConj}
+Consider a system of multivariate equations derived from a block cipher written following
+one of the two basic strategies described in \cite{desalg,SlidesAlgAllteach}.
+Consider a simple known plaintext attack with $K$ Plaintext/ciphertext (P/C) pairs.
+Consider a case such that the cipher is eventually broken by ElimLin, cf. \cite{FastAlg,FastAlg2,ToyRijSer,AlgteachElimLinLab,RaddumSimon}.
+The number of new and linearly independent linear equations generated
+by ElimLin algorithm goes through several distinct stages St0-St3:
+
+\begin{enumerate}
+	\item[St0]
+	Initially it grows linearly with $K$,
+	and for certain individual stages of the attack is
+	simply equal to 0 and does NOT grow,
+	cf. our later $r_i$ notation in Section \ref{ElimLinNotation}.
+	\item[St1]
+	Then it switches to another curve where
+	it grows faster than linearly in $K$.
+	%cf Sec. \ref{SuperLinearGrowth}
+	\item[St2]
+	This until it reaches a saturation stage where the
+	cipher is completely broken by ElimLin.
+	Here we have a very rapid phase transition cf. Section ref{BigPictureUpAndDown}
+	where the number of equations $r_i$ generated at one stage re-becomes 0
+	simply because an earlier stage of the attack reaches a certain threshold where combinatorial explosion
+	in additional equations generated
+	makes it complete the whole attack and not requite the next stage to be executed].
+\end{enumerate}
+
+\noindent
+%Again let $K$ be the number of P/C pairs in an ElimLin attack.
+One (old) example from 2007 which shows that the number of equations grows faster than linear
+as a function of the data complexity $K$ in ElimLin
+can be found at slide 153 in \cite{SlidesAlgAllteach}
+and which originally comes from \cite{ToyRijSer}. 
+%ToySerpent but not ToyRijndael [or more data are needed]
+%%% full version maybe %%%
+%This paper
+%%is dedicated to see if this conjecture is verified in the real life
+%and how exactly we can approximate different stages of the attack by precise closed formulas
+%which allow to predict the outcomes of the attack as exactly as possible.
+
+
+%\newpage
+
+%\section{\uppercase{Our Experimental Setup and Notation}}
+
+\section{Experimental Setup and Notation}
+\label{ElimLinSetup}
+\label{ElimLinNotation}
+
+More examples can be easily obtained using a basic software setup which we use at UCL to run
+a hands-on student lab session on algebraic cryptanalysis of block ciphers \cite{AlgteachElimLinLab},
+which is part of GA18 course on cryptanalysis taught at UCL.
+One example could be easily obtained for the CTC2 cipher, cf. \cite{FastAlg,FastAlg2,AlgteachElimLinLab}.
+A more ``modern'' example can be generated by using the equations generator for Simon block cipher
+developed by Guangyan Song and UCL student Ilyas Azeem in 2015-6,
+%TODO developed in cryptyanalysis of simon
+the complete source code of which is
+available at github, cf. \cite{AlgteachElimLinLab,CourtoisSoftware}.
+The ElimLin is executed using one of our implementations of
+ElimLin \cite{AlgteachElimLinLab,CourtoisSoftware} which has the nice particularity to display on screen the number of linear equations generated at each stage/iteration of the algorithm.
+
+We recall the two main and only steps of ElimLin:
+
+\begin{enumerate}
+	\item[1] Find $r_i$ linear equations in the linear span, $i=0,1,2,3,\ldots$.
+	\item[2a] If $r_i>0$ eliminate some $r_i$ variables,
+	increment $i$ and try again Step 1.
+	\item[2b] Algorithm terminates when $r_i=0$ for some $i$.
+\end{enumerate}
+
+In addition and by convention we are going to define a step $i=0$ which is different than
+above, but the same which is implemented in a common implementation of ElimLin \cite{CourtoisSoftware}.
+We will assume that $r_0$ will be the number of linear equations which already appear in the equations,
+without executing any linear algebra. This is a convention which allows researchers to distinguish
+more easily between a ``misleading'' starting number of variables (which is sometimes artificially inflated due to
+methods used for equation generation and formal coding)
+and the ``real'' or intrinsic number of variables which is there prior to execution or ElimLin.
+
+%\begin{defi}[ElimLin progress indicators]\\
+{\bf Definition \ref{ElimLinProgressParams}[ElimLin progress indicators]}\\
+\label{ElimLinProgressParams}
+Let $V_{start}$ or simply $V$ if there is no confusion
+be the initial number of variables.
+We define by $r_i$ the number of
+linear/affine equations over GF(2)
+generated at each stage of the algorithm
+where by convention $r_0$ is the number of
+linear/affine equations over GF(2) already present.
+We define
+
+\begin{equation}
+V^i_{broken}=\sum_{j=0}^{i} r_j ~~~~~~~~V_{broken}=\sum_{i=0}^{\infty} r_i
+\end{equation}
+
+where by convention $r_i=0$ if algorithm has reached
+$V^i_{broken}=V$ at an earlier stage.
+We define also
+
+\begin{equation}
+V^i_{broken}=V-\sum_{j=0}^{i} r_j
+\end{equation}
+
+and accordingly let
+$
+V_{unbroken}=V-\sum_{i=0}^{\infty} r_i.
+$
+Overall we will say that the algorithm terminates if
+$V_{broken}=V$ and $V_{unbroken}=0$ and we deliberately ignore the fact that
+some variables could be subject to a brute force step,
+cf. FXL method in \cite{XL2}.
+Overall our goal is to achieve for a certain $i$ that
+\begin{equation}
+\frac{V^i_{broken}}{V_{start}}=1
+~~~~~~~~~~~\mbox{or}~~~~~~~~~~~~
+\frac{V^i_{unbroken}}{V_{start}}=0
+\end{equation}
+
+
+%\end{defi}
+
+\section{How to Predict the Success of ElimLin}
+
+We start by a simple example which shows that accurate prediction is feasible.
+
+\subsection{On Growth Rate in ElimLin}
+\label{SuperLinearGrowth}
+
+On the figure below we show the number of linear equations generated at stage 4 [counting from 0]
+of the ElimLin algorithm for 8 rounds of Simon block cipher.
+We should note that nothing remarkable happens at earlier stages 0,1,2,3,
+the growth is linear and therefore very easy to predict.
+We have then asked Microsoft Excel to produce a polynomial interpolation for this data series.
+
+\begin{figure}[!h]
+	\vspace{-0.2cm}
+	\centering
+	\includegraphics*[width=120mm]{./pics/image011.png}
+		\caption{Number of linearly independent equations generated at stage 4
+			of the ElimLin algorithm
+			for 8 rounds of Simon 64/128 obtained with the exact software setup
+			of \cite{AlgteachElimLinLab}.}
+	\label{ElimLinQuadConjExampleSimon8}
+	\vspace{-0.1cm}
+\end{figure}
+
+\subsection{Analysis of Our Prediction}
+
+First property we need to note is that the polynomial prediction seems to be the right tool here.
+This is justified by the fact that the normalized squared error value $R^2$ is very high and close
+to the theoretical maximum of $1$, and also
+that high degree coefficients are substantially smaller
+(in absolute values) that lower degree polynomial coefficients.
+
+%Our conclusion is as follows.
+Secondly we observe that
+%{\bf Conclusion.}
+ElimLin eventually breaks the cipher here because
+the number of newly generated linear equations grows
+%{\bf asymptotically faster}
+faster
+than the number of variables which grows linearly with $K$.
+Eventually we obtain a sufficient number of linear equations which makes ElimLin
+compute all the variables and obtain the 128-bit secret key together with all the intermediate variables.
+%
+%%% full version maybe %%%
+%{\bf Growth vs. Penetration.}
+This was previously observed in other cases where ElimLin was applied
+%and even barely starts to work... => explosion
+cf. %for example slide 153 in
+\cite{SlidesAlgAllteach,ToyRijSer,%FastAlg,
+	FastAlg2,desalg} %,AlgteachElimLinLab}.
+%%% full version maybe %%%
+%In the table at slide 153 in \cite{SlidesAlgAllteach} we observe that as the number of new linear equations grows,
+%these equations penetrate more and more deeply inside the cipher for $2,3,5,\ldots$ rounds.
+%We expect the same to happen for other block ciphers when ElimLin was applied.
+
+\subsection{Limitations vs. Improvements}
+
+%{\bf Can This Fail.}
+We do not know any %real
+counter-example which would contradict our asymptotic super-linear growth rule.
+For 8 rounds of Simon cipher we observed that the growth remains strictly linear for
+equations computed at stage 3, however some equations are only computed at stage 4
+and this occurs quite early starting from $K=1$.
+However Simon is a particularly simple cipher. For more complex ciphers,
+the ElimLin algorithm could have serious problems to enter this behavior
+or start working and exhibit any sort of non-trivial behavior.
+However when ElimLin starts to work for some cipher and produces new equations
+which depend on the plaintext or ciphertext data in a non-trivial way,
+steady progress is observed.
+%it seems that nothing can stop it.
+Except maybe if there isn't enough data available.
+A certain type of counter-example could occur for some ciphers
+with small blocks which
+would maybe not be able to allow $K$ to be large enough for ElimLin to terminate.
+
+{\bf Improvements.}
+We stress that this powerful phenomenon of combinatorial explosion which eventually leads
+to ElimLin breaking the cipher
+occurs already for a basic straightforward application of ElimLin in a
+known-plaintext attack (KPA) scenario.
+Several methods to make ElimLin work better by using
+well-chosen P/C pairs.
+One method which has been used ever since ElimLin was invented \cite{FastAlg,FastAlg2,desalg}
+is to exploit a CPA (chosen-plaintext attacks) with plaintext which differ by extremely few bits, for example in a counter mode.
+More recently new methods have been proposed
+%in the literature
+which allow to generate additional linear equations
+not automatically discovered by ElimLin
+\cite{ACTruncSimon} and \cite{ElimLinUniversalEqs}.
+%2 very different mechanisms...
+
+In this paper we again focus on very simple variants of ElimLin in order to show that
+{\bf high accuracy} predictions (e.g. with $R^2\approx 1$) are possible to achieve.
+This success should encourage and set up standards for further research
+on more realistic and more powerful but also more complex applications of ElimLin, cf.
+\cite{ACTruncSimon,ElimLinUniversalEqs,RaddumSimon}.
+
+%\newpage
+
+\section{The Big Picture - Long Term Predictions}
+\label{BigPictureUpAndDown}
+
+As already explained in
+Conjecture \ref{ElimLinQuadConj}
+page
+\pageref{ElimLinQuadConj},
+we expect that there are at least 3 distinct stages in ElimLin algorithm.
+With these notations until now we have been only looking at stage St1 of the attack.
+In this section we look at the big picture and the main phase transition
+ST1-2 which is the most fundamental one because we have really here a
+transition from ``hard'' to ``easy'' and some sort of
+combinatorial explosion in the number of generated equations at one stage
+which for even higher $K$ makes this stage $i$ of the attack unnecessary
+because the  attack will terminate at an earlier stage $i-1$.
+%%% full version maybe %%%
+%and a similar rapid growth will be observed for $r_{i-1}$ value.
+This is best seen by looking at how the value of $V_{unbroken}$ evolves with growing $K$.
+
+\begin{figure}[h!]
+	\vspace{-0.2cm}
+	\centering
+	\includegraphics*[width=120mm]{./pics/pol4_U.png}
+	 \caption{Number of variables when ElimLin terminates  $V_{unbroken}$
+	 	for 8 rounds of Simon 64/128 obtained with the exact software setup
+	 	of \cite{AlgteachElimLinLab}.}
+	 \label{ElimLinUnrokenCurveUpDownSimon8}
+	\vspace{-0.1cm}
+\end{figure}
+
+This curve seems a lot harder to predict than until now.
+For example we have obtained the following polynomial predictor
+
+\begin{multline}
+V_{unbroken}(K)=\\
+-\frac{1.35}{10^4}
+K^4
++
+\frac{2.07}{10^2}
+K^3
+-
+1.12\cdot K^2+
+22.4\cdot K + 308.25
+\end{multline}
+
+for which we have $R^2=0.9863$.
+Substantially better accuracy can be achieved by focusing on another quantity
+and looking at a wider range or prediction methods.
+We have tried many different predictors obtained with Microsoft Excel and WolframAlpha cloud
+online service \url{www.wolframcloud.com} which offers higher precision and more advanced functionalities.
+In general focusing on the ratio $V_{unbroken}/V_{start}$ gives substantially better results,
+as $V_{start}$ grows linearly with $K$ and our primary interest in this paper is a deviation
+from that linear growth which is the default (trivial) behavior. The curves become then more regular and
+more intelligible, cf. later Figure \ref{CTC2StrongerThanSimon7RCurve}.
+For example we obtained $R^2=0.9941$ with
+
+\begin{equation}
+\frac{V_{unbroken}(K)}{V_{start}}=
+1.07 \cdot x^{-0.485} -0.127
+\end{equation}
+
+
+Then we obtained $R^2=0.9989$ with a polynomial of degree 6:
+%(best precision available in Excel):
+
+\begin{multline}
+\frac{V_{unbroken}(K)}{V_{start}}=
+-
+\frac{2}{10^{10}}K^6
+-
+\frac{5}{10^8}K^5
++
+\frac{5}{10^6}K^4\\
+-
+\frac{3}{10^4}K^3
++
+\frac{7.5}{10^3}K^2
+-
+0.112 K
++0.8083
+\end{multline}
+
+
+%y = 2E-10x6 - 5E-08x5 + 5E-06x4 - 0.0003x3 + 0.0075x2 - 0.112x + 0.8083
+
+Finally we have obtained an even better result $R^2=0.9998$ with
+
+\begin{multline}
+\frac{V_{unbroken}(K)}{V_{start}}=
+-\frac{9.57}{10^3}(\ln K)^4
++\frac{1.00}{10}(\ln K)^3\\
+-\frac{3.19}{10}(\ln K)^2
+-\frac{1.35}{10}\ln K
++0.65.
+\end{multline}
+
+
+{\bf Goals.}
+%{\bf Research Objectives.}
+Overall %we propose that
+in security of block ciphers
+the main goal for further development of prediction techniques
+will be first
+to predict the moment when the curve on
+Figure \ref{ElimLinUnrokenCurveUpDownSimon8} starts falling.
+This is the main phase transition from ``hard'' to ``easy'' in any ElimLin attack.
+
+\subsection{Are Reliable Extrapolations Possible?}
+\label{BigPictureUpAndDown2}
+
+So far we have only worked with data from simulations and all our predictions are highly accurate
+just because we had quite a few data points and have deployed sufficient effort to compute predictors with standard techniques.
+The fact that {\bf several methods} give remarkably good results
+should however be a warning sign.
+This together with insufficient amount of data will be a major difficulty %primary topic of interest
+when researchers in the future are going to
+try to build predictive models to extrapolate and compute the complexity of simulations
+which they have not done.
+In an extrapolation scenario it is easy to see that %what will happen is that
+even though different methods used will give excessively good results on the actual data in a certain interval,
+they could diverge and could fail to predict the curve on a larger interval.
+Even in this case these predictions can be used to determine
+the possible or plausible range of results which one can expect to achieve.
+%This makes our predictions more hazardous. % and less clear
+
+A real solution for this difficulty would be to have an
+``\`{a} priori'' idea
+about the nature of the curve and its growth.
+We had that in Section \ref{SuperLinearGrowth} and the polynomial approximation
+has larger degree coefficients which have decreased rapidly
+confirming our ``\`{a} priori'' idea on super-linear growth approximated by a polynomial.
+%%WE DO!!!! ...?We do not have this ``\`{a} priori'' theoretical or heuristic prediction of any sort.
+Here for predicting $V_{unbroken}(K)$ which is essentially proportionnal ot sum of the $r_i$
+we also expect a polynomial prediction and we obtained $R^2=0.9989$.
+This is also a somewhat consistent predictor with
+rapidly decreasing coefficients of higher degree.
+If so, shouldn't we use a lower degree predictor?
+% lowering the degree
+%%%VERY BAD To cut it
+%which could be just simplified to
+%$\frac{V_{unbroken}(K)}{V_{start}}=0.09K+0.76$.
+%How accurate is this simplification on our complete set of data ??_ BAD!!! see new graph added tab K-US8 in SimonResults2.xlsx...
+
+%\newpage
+\subsection{Are Low Degree Polynomial Extrapolations Possible?}
+\label{BigPictureUpAndDownLowDegreeFails}
+
+%{\bf Important Remark.}
+If we look at our later Figure \ref{CTC2StrongerThanSimon7RCurve} or again how quickly
+lower degree coefficients decrease in predictors above,
+we could be tempted to use a linear or low degree predictor.
+%knowledge
+Our experience shows that cutting small higher degree terms in these predictors is disastrous
+and does not lead to quality predictions,
+not even on smaller intervals.
+For example we can cut the beginning of current series
+and restrict to polynomials of degree 2 for $\frac{V_{unbroken}(K)}{V_{start}}$
+and we obtain a predictor of
+$
+\frac{V_{unbroken}(K)}{V_{start}}\approx
+\frac{6}{10^5}K^2
+-\frac{7.7}{10^3}K
++0.26
+$
+which is neither very consistent with more accurate predictors computed above
+nor with the data trend at most places.
+
+\begin{figure}[h!]
+	\vspace{-0.2cm}
+	\centering
+	\includegraphics*[width=120mm]{./pics/KUS8_deg6.jpg}
+	\includegraphics*[width=120mm]{./pics/KUS8_deg2.jpg}
+    \caption{Good vs. bad predictors:
+	decreasing the degree of a polynomial prediction
+	for the same Simon 64/128 8 rounds. %\cite{AlgteachElimLinLab}.
+}
+    \label{ElimLinUnrokenCurveUpDownSimon8BadPRedictorCurDeg2}
+	\vspace{-0.1cm}
+\end{figure}
+
+The latter graph is definitely not a predictor we would recommend!
+%Further research on this topic is needed.
+
+%\newpage
+\section{On Comparative Strength of Ciphers}
+\label{SimonWeakerThanCTC2}
+
+Another major application of ElimLin techniques and possible extrapolations
+is to make comparison between different ciphers.
+For example current research indicates that Simon is broken for up to 16 rounds
+\cite{RaddumSimon} and CTC2 for up to 7 rounds, both using ElimLin algorithm.
+Is it possible to claim that one round of Simon is substantially weaker than one round of CT2?
+We would agree with this claim. On the figure below we show how the quantity
+$\frac{V_{unbroken}(K)}{V_{start}}$ decreases for 7 rounds for each cipher.
+We conclude that both ciphers are broken for some $K$ value but with ElimLin we still have a long way to go before the attack terminates resulting in much higher data complexity and running times.
+%
+This shows that there exist ciphers fundamentally weaker than CTC2 even though CTC2 was designed
+to be quite vulnerable to algebraic attacks \cite{FastAlg,FastAlg2}.
+%%% full version maybe %%%
+%and %even though
+%we looked at a weak variant of CTC2.
+
+%\newpage
+\begin{figure}[h!]
+	\vspace{-0.2cm}
+	\centering
+	\includegraphics*[width=120mm]{./pics/SimonvsCTC2_7.jpg}
+	\caption{The value of $\frac{V_{unbroken}(K)}{V_{start}}$ for 7 rounds of
+		Simon 64/128 (blue) compared to toy cipher CTC2 with 7 rounds
+		and 8 S-boxes per round and 10/24 key bits known (red).}
+	\label{CTC2StrongerThanSimon7RCurve}
+	\vspace{-0.1cm}
+\end{figure}
+
+This per-round weakness of Simon is expected to be compensated by a larger number of rounds.
+%Now the cryptographic history shows that ciphers which have been designed to be secure
+%for a larger number of rounds \cite{gostac}
+
+
+%%% full version maybe %%%
+%Overall we need to realize that that ElimLin can break way more than 16 rounds of Simon as reported in
+%\cite{RaddumSimon} and extrapolations are needed and can be obtained with the methods of this paper.
+%In particular Figure \ref{CTC2StrongerThanSimon7RCurve} seems very promising as it seems to
+%be very regular and exempt from sudden changes of direction which we have observed on
+%Figure \ref{ElimLinUnrokenCurveUpDownSimon8}.
+%However truly accurate prediction
+%%is not going to be easy.
+%can NOT be achieved by extending this curve and assuming that it is linear,
+%this gives very bad results,
+%see Section \ref{BigPictureUpAndDownLowDegreeFails}.
+%We expect that much better results will obtained by polynomial interpolation
+%as shown in Section \ref{BigPictureUpAndDown}.
+
+
+
 
