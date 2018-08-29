@@ -59,7 +59,7 @@ As indicated in the name, in substitution ciphers, every character in plaintext 
 \paragraph{Simple Substitution} \mbox{} \\ 
 In a simple substitution cipher, each plaint text character is transformed into a ciphertext character via the same encryption function $E$. More formally, let $P = p_{0}, ... ,p_{n-1}$ be an $n$-character plaintext and $C=c_{0},...c_{n-1}$ be a ciphertext,  $\forall i : 0 \leq i < n $ 
 $$ E : P \rightarrow C$$
-$$c_{i} = f (p_{i})$$
+$$c_{i} = E (p_{i})$$
 %TODO: f is unbounded
 Around 50 BC, Julius Caesar wrote to Marcus Cicero using a cipher that encrypted messages by shifting every letter in the plaintext three positions to the right in the alphabet. This cipher is based on \textit{shifted alphabets}. For the Caesar cipher, the secret key $k$ is $+3\mod{26}$. In general, the cipher is easily broken by shifting the ciphertexts one position until the plaintext arises.
 \paragraph{Polyalphabetic Substitution} \mbox{} \\ 
@@ -93,8 +93,25 @@ A Feistel cipher is an iterated cipher that maps a 2t-bit plaintext block ($L_{0
 The result of $i$-rounds encryption $\forall i : 1 \leq i < r - 1 $ is computed as follows:
 $$ L_{i} = R_{i-1}$$
 $$ R_{i} = L_{i-1} \oplus f(R_{i-1},K_{i-1})$$
-where $K_{i}$ is the $i$th subkey derived from the secret key $K$ and $f$ the one-round function which takes a subkey and a $t$-block as input to map into another $t$-bit block. This process is iteratively applied for $r - 2$ rounds. In the last round, there is no swap between two halves $L_{i-1}$ and $R_{i-1}$. This makes the decryption of the Feistel network the same as the encryption process, only requires a reversal of the key schedule. The final output is given by the following: $$ L_{r} = L_{r-1} \oplus f(R_{r-1},K_{r-1})$$
+where $K_{i}$ is the $i$th subkey derived from the secret key $K$ and $f$ the one-round function which takes a subkey and a $t$-block as input to map into another $t$-bit block. We will assume that $\oplus$ is the bitwise exclusive-or operation, if not explicitly stated otherwise. This process is iteratively applied for $r - 2$ rounds. In the last round, there is no swap between two halves $L_{i-1}$ and $R_{i-1}$. This makes the decryption of the Feistel network the same as the encryption process, only requires a reversal of the key schedule. The final output is given by the following: $$ L_{r} = L_{r-1} \oplus f(R_{r-1},K_{r-1})$$
 $$R_{r} = R_{r-1}$$
 
-Since the encryption and decryption processes are identical (except for the key order), the software and hardware implementation of Feistel ciphers are much easier. 
+Since the encryption and decryption processes are identical (except for the key order), the software and hardware implementation of Feistel ciphers are much easier.
+\subsection{DES}
+In 1972, the US Standards body National Bureau of Standards (NBS) (now known
+as National Institute of Standards and Technology (NIST)) identified the need for
+an encryption standard to be used for the encryption of unclassified and sensitive
+information. Until 1973, many designs were proposed, which were all rejected by NIST
+in collaboration with NSA. However, in a second round of the competition, the IBM
+proposal was finally accepted to be used by the government. The IBM research team
+proposed a block cipher based on a previous cipher, called Lucifer.
+DES is a block-cipher based on the Feistel Network iterative structure. It maps 64
+bits to 64 bits using keys of 56 bits and consists of 16 rounds. The key is actually 64
+bits but only 56 are used. The remaining 8 bits are used for checking parity and they
+can be discarded.
+In addition, we have an initial and nal permutation, IP and FP respectively, which
+are such that IP ◦ FP = FP ◦ IP = Id. These permutations are of no cryptographic
+signicance and they are used for facilitating loading blocks in and out of mid-1970s
+8-bit based hardware [110].
+The operations involved in the round function are as follows: 
 \subsection{Courtois Toy Cipher}
