@@ -1,62 +1,5 @@
 \chapter{Algebraic Cryptanalysis of Simon}\label{ch:SIMON}
-In Chapter \ref{ch:GOST} we have introduced the notion of contradiction immunity and SAT immunity. We have shown how an optimized guess-then-solve attack can be done on GOST. In this chapter, we are going to explore how to improve algebraic attack with well chosen data. Our target is the new NSA block cipher Simon\cite{NSAciphers}. The lightweight block cipher Simon was introduced by NSA in 2013 and later submitted to ISO to become an international standard. Similar to GOST, Simon has very low diffusion and small S-boxes, which makes it an excellent target for algebraic cryptanalysis. In this chapter, we describe the first algebraic cryptanalysis work on Simon and demonstrate how algebraic attacks can be improved by carefully selected Plaintext/Ciphertext pairs. 
-
-\section{Introduction}
-Nowadays lightweight cryptography is rapidly evolving and becoming more and more important due to the increasing demand from mobile phones and the Internet of Things. These lightweight cryptographic primitives are designed to
-be efficient (in both hardware and software) when limited
-hardware resources are available and at the same time to
-guarantee a desired level of security. The
-design of such primitives is a great challenge and can be
-seen as a non-trivial optimization problem, where several
-trade-offs are taken into account. They need to maintain
-a reasonable balance between security and efficient software and hardware
-implementation with very low overall cost with respect to several
-meaningful metrics (power consumption, energy consumption, size of the circuit \cite{OptimiPaper,BoyarPeraltaMCMethod,BoyarPeraltaMCBoolean}).
-
-The research community has
-proposed many lightweight hash functions, block ciphers and stream ciphers which are
-reasonably good and satisfy at a reasonable level the trade-off
-between efficiency and security. Nowadays, in cryptographic
-literature we find lots of such lightweight cryptographic primitives such as
-KATAN \cite{KATAN}, KLEIN \cite{KLEIN}, ICEBERG
-\cite{ICEBERG}, HIGHT \cite{HIGHT}, LED \cite{LED},
-mCrypton \cite{mCrypton}, PRESENT \cite{PRESENT}, Piccolo \cite{Piccolo}
-and many others.
-
-In July 2013, a team from the NSA proposed two new families of particularly lightweight block
-ciphers, Simon and Speck, both coming in a variety of blocks and key sizes
-\cite{NSAciphers}. We have developed a basic reference implementation of both ciphers 
-which can be found in Github \cite{simonref},
-as well as a generator of algebraic equations to be used in algebraic attacks. 
-
-The designers of Simon and Speck published the full specifications and presented
-only performance and implementation footprints, without providing
-any advanced security analysis
-against known cryptanalytic attacks.
-Both of them offer excellent performance on both
-hardware and software platforms and perform
-exceptionally well across the majority of lightweight applications and
-not only on a single platform. Compared to
-other lightweight cryptographic primitives,
-these two are meant to have better performance with respect to the area
-needed for a given throughput, code size and memory usage.
-Simon is designed for optimal performance in hardware, and Speck for optimal
-performance in software.
-According to \cite{simoneff}, Simon with an equivalent security level as AES,
-is $86\%$ smaller
-than AES, $70\%$ smaller than PRESENT and its smallest hardware architecture
-only costs 36 slices (72 look-up tables, 30 registers). Recent results about hardware
-implementation of block ciphers emphasize reducing the size and/or Multiplicative Complexity (MC) further possibly
-leads to optimal implementations \cite{BoyarPeraltaMCMethodAES,OptimiPaper}.
-
-However, in the original NSA paper \cite{NSAciphers}, there is no analysis of the security of these 2 ciphers against major well-known attacks. In the same paper \cite{NSAciphers}, the authors briefly said that Simon and Speck were designed to provide security against traditional adversaries who can adaptively encrypt and decrypt large amounts of data, and some attention was given so that there are no related-key attacks. Except for these comments, no more analysis against common attacks such as linear or differential cryptanalysis was presented and the task of analyzing the resistance of the ciphers against known attacks was left to the academic community. Immediately after the release of the specifications we had the first attempts using differential, linear and rotational cryptanalysis \cite{simon1,simon2}. Interestingly our research indicates that Simon is a cipher of exceptionally low Multiplicative Complexity \cite{TheoPhD} and has very low non-linearity. Therefore, it is an ideal candidate for algebraic attacks and combinations of algebraic attacks with truncated differential cryptanalysis. Combining an algebraic attack with a truncated differential property is equivalent to adding extra linear equations to the system involving input and output bits. This can speed up the solving stage when software solvers which exploit the linearity are used, like ElimLin \cite{ElimLinR}. Other methods of finding additional equations to ElimLIn will be studied in Chapter \ref{ch:ElimLIn}.
-
-\textbf{Contribution and Outline:} In this chapter, we will study Simon-64/128
-against algebraic attacks and combinations of algebraic attacks with
-truncated differential cryptanalysis. Due to its very simple mathematical structure,
-Simon has a compact algebraic representation and because of the low non-linearity and
-Multiplicative Complexity, it seems ideal for algebraic
-cryptanalysis and its variants. Our aim is to use the very rich algebraic structure
+In Chapter \ref{ch:GOST} we have introduced the notion of contradiction immunity and SAT immunity. We have shown how an optimized guess-then-solve attack can be done on GOST. In this chapter, we are going to explore how to improve algebraic attack with well chosen data. Our target is the new NSA block cipher Simon\cite{NSAciphers}. The lightweight block cipher Simon was introduced by NSA in 2013 and later submitted to ISO to become an international standard. Similar to GOST, Simon has very low diffusion and small S-boxes, which makes it an excellent target for algebraic cryptanalysis. Our aim is to use the very rich algebraic structure
 with additional data provided ( e.g. pairs $\{(P,P'),(C,C')\}$ which
 follow a certain highly probable truncated differential property) in order to solve
 the underlying multivariate system of equations. We attempt to solve the system
@@ -70,8 +13,6 @@ when truncated differentials are used.
 This is a very remarkable result as it gives a good hope that the attack will scale up well for a larger number of rounds. This is possibly due to the very low non-linearity of the cipher and suggests that it is worth studying a specific strategy for P/C pairs which have a certain structure and decrease even more the non-linearity of the system by introducing
 more linear equations (e.g. truncated differential properties)
 until the key can be obtained even for a larger number of rounds. We will discuss in details our results in Section \ref{Sec:SimonResult}.
-
-Our attacks on Simon described in this chapter were the first algebraic cryptanalysis attacks attempted on Simon. The work was published in 2014 \cite{courtois2014combined}. In recent years Simon was studied heavily by a lot of researchers, including differential attacks introduced by Biryukov et al \cite{simon3}, Mourouzis et al \cite{SIMON6} and Wang et al \cite{SIMON4, SIMON5}, also combined differential and linear attacks by Farzaneh et al \cite{simon1} and Alkhzaimi et al \cite{simon2}. Most of them are using statistical cryptanalysis techniques, the best results break around 70\% rounds of different versions of Simon. In 2015, Raddum \cite{raddum2006new} published another algebraic cryptanalysis work on Simon for most of the versions (not including Simon 64/128 version). Raddum's work uses more P/C pairs than our attack and breaks 16 (out of 72) rounds of Simon 128/256 version with ElimLin.  This attack shows that there is a need to understand better how ElimLin attacks can scale to larger attacks. 
 
 
 \section{How to Write Simon Equations}

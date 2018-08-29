@@ -56,39 +56,38 @@
 \BOOKMARK [2][-]{subsection.5.2.4}{Low Data Complexity Meet-In-The-Middle Attack for 8 Rounds GOST}{section.5.2}% 56
 \BOOKMARK [1][-]{section.5.3}{Conclution}{chapter.5}% 57
 \BOOKMARK [0][-]{chapter.6}{Algebraic Cryptanalysis of Simon}{part.2}% 58
-\BOOKMARK [1][-]{section.6.1}{Introduction}{chapter.6}% 59
-\BOOKMARK [1][-]{section.6.2}{How to Write Simon Equations}{chapter.6}% 60
-\BOOKMARK [1][-]{section.6.3}{Differential-Algebraic Cryptanalysis of Simon}{chapter.6}% 61
-\BOOKMARK [1][-]{section.6.4}{Algebraic Attacks experiments and results}{chapter.6}% 62
-\BOOKMARK [2][-]{subsection.6.4.1}{Experiments with 2 P/C pairs}{section.6.4}% 63
-\BOOKMARK [2][-]{subsection.6.4.2}{Experiments with more P/C pairs}{section.6.4}% 64
-\BOOKMARK [2][-]{subsection.6.4.3}{ElimLin Results}{section.6.4}% 65
-\BOOKMARK [1][-]{section.6.5}{Conclusion}{chapter.6}% 66
-\BOOKMARK [0][-]{chapter.7}{Re-Designing Algebraic Attacks Beyond ElimLin}{part.2}% 67
-\BOOKMARK [1][-]{section.7.1}{ElimLin Overview}{chapter.7}% 68
-\BOOKMARK [2][-]{subsection.7.1.1}{Phase transitions}{section.7.1}% 69
-\BOOKMARK [1][-]{section.7.2}{How to Predict the Success of ElimLin}{chapter.7}% 70
-\BOOKMARK [2][-]{subsection.7.2.1}{Experimental Setup and Notation}{section.7.2}% 71
-\BOOKMARK [1][-]{section.7.3}{The Big Picture}{chapter.7}% 72
-\BOOKMARK [2][-]{subsection.7.3.1}{On Growth Rate in ElimLin}{section.7.3}% 73
-\BOOKMARK [2][-]{subsection.7.3.2}{Deep Inspection}{section.7.3}% 74
-\BOOKMARK [1][-]{section.7.4}{Known Plaintext vs Chosen Plaintext}{chapter.7}% 75
-\BOOKMARK [1][-]{section.7.5}{Equations In ElimLin vs. Direct Approximation}{chapter.7}% 76
-\BOOKMARK [2][-]{subsection.7.5.1}{Polynomial Approximation in Practice}{section.7.5}% 77
-\BOOKMARK [2][-]{subsection.7.5.2}{ElimLin+}{section.7.5}% 78
-\BOOKMARK [1][-]{section.7.6}{Conclusion}{chapter.7}% 79
-\BOOKMARK [-1][-]{part.3}{III Speed Optimisation for Bitcoin Brain Wallet Attacks}{}% 80
-\BOOKMARK [0][-]{chapter.8}{Improving Brain Wallet Attacks}{part.3}% 81
-\BOOKMARK [1][-]{section.8.1}{Bitcoin Elliptic Curve Implementation and Benchmarking}{chapter.8}% 82
-\BOOKMARK [2][-]{subsection.8.1.1}{Dedicated Scalar Multiplication Method}{section.8.1}% 83
-\BOOKMARK [2][-]{subsection.8.1.2}{Point Representation}{section.8.1}% 84
-\BOOKMARK [1][-]{section.8.2}{On Cracked Brain Wallets}{chapter.8}% 85
-\BOOKMARK [2][-]{subsection.8.2.1}{Network Stress Test}{section.8.2}% 86
-\BOOKMARK [2][-]{subsection.8.2.2}{Disclosure of Results}{section.8.2}% 87
-\BOOKMARK [1][-]{section.8.3}{Summary}{chapter.8}% 88
-\BOOKMARK [0][-]{chapter.9}{Conclusion}{part.3}% 89
-\BOOKMARK [0][-]{chapter.9}{Appendices}{part.3}% 90
-\BOOKMARK [0][-]{appendix.A}{Full Instruction for ElimLin Prediction Experiments}{part.3}% 91
-\BOOKMARK [0][-]{appendix.B}{Java Tool for Deep Inspection of ElimLin}{part.3}% 92
-\BOOKMARK [0][-]{appendix.C}{Examples of Cracked Brainwallet Passwords}{part.3}% 93
-\BOOKMARK [0][-]{Item.75}{Bibliography}{part.3}% 94
+\BOOKMARK [1][-]{section.6.1}{How to Write Simon Equations}{chapter.6}% 59
+\BOOKMARK [1][-]{section.6.2}{Differential-Algebraic Cryptanalysis of Simon}{chapter.6}% 60
+\BOOKMARK [1][-]{section.6.3}{Algebraic Attacks experiments and results}{chapter.6}% 61
+\BOOKMARK [2][-]{subsection.6.3.1}{Experiments with 2 P/C pairs}{section.6.3}% 62
+\BOOKMARK [2][-]{subsection.6.3.2}{Experiments with more P/C pairs}{section.6.3}% 63
+\BOOKMARK [2][-]{subsection.6.3.3}{ElimLin Results}{section.6.3}% 64
+\BOOKMARK [1][-]{section.6.4}{Conclusion}{chapter.6}% 65
+\BOOKMARK [0][-]{chapter.7}{Re-Designing Algebraic Attacks Beyond ElimLin}{part.2}% 66
+\BOOKMARK [1][-]{section.7.1}{ElimLin Overview}{chapter.7}% 67
+\BOOKMARK [2][-]{subsection.7.1.1}{Phase transitions}{section.7.1}% 68
+\BOOKMARK [1][-]{section.7.2}{How to Predict the Success of ElimLin}{chapter.7}% 69
+\BOOKMARK [2][-]{subsection.7.2.1}{Experimental Setup and Notation}{section.7.2}% 70
+\BOOKMARK [1][-]{section.7.3}{The Big Picture}{chapter.7}% 71
+\BOOKMARK [2][-]{subsection.7.3.1}{On Growth Rate in ElimLin}{section.7.3}% 72
+\BOOKMARK [2][-]{subsection.7.3.2}{Deep Inspection}{section.7.3}% 73
+\BOOKMARK [1][-]{section.7.4}{Known Plaintext vs Chosen Plaintext}{chapter.7}% 74
+\BOOKMARK [1][-]{section.7.5}{Equations In ElimLin vs. Direct Approximation}{chapter.7}% 75
+\BOOKMARK [2][-]{subsection.7.5.1}{Polynomial Approximation in Practice}{section.7.5}% 76
+\BOOKMARK [2][-]{subsection.7.5.2}{ElimLin+}{section.7.5}% 77
+\BOOKMARK [1][-]{section.7.6}{Conclusion}{chapter.7}% 78
+\BOOKMARK [-1][-]{part.3}{III Speed Optimisation for Bitcoin Brain Wallet Attacks}{}% 79
+\BOOKMARK [0][-]{chapter.8}{Improving Brain Wallet Attacks}{part.3}% 80
+\BOOKMARK [1][-]{section.8.1}{Bitcoin Elliptic Curve Implementation and Benchmarking}{chapter.8}% 81
+\BOOKMARK [2][-]{subsection.8.1.1}{Dedicated Scalar Multiplication Method}{section.8.1}% 82
+\BOOKMARK [2][-]{subsection.8.1.2}{Point Representation}{section.8.1}% 83
+\BOOKMARK [1][-]{section.8.2}{On Cracked Brain Wallets}{chapter.8}% 84
+\BOOKMARK [2][-]{subsection.8.2.1}{Network Stress Test}{section.8.2}% 85
+\BOOKMARK [2][-]{subsection.8.2.2}{Disclosure of Results}{section.8.2}% 86
+\BOOKMARK [1][-]{section.8.3}{Summary}{chapter.8}% 87
+\BOOKMARK [0][-]{chapter.9}{Conclusion}{part.3}% 88
+\BOOKMARK [0][-]{chapter.9}{Appendices}{part.3}% 89
+\BOOKMARK [0][-]{appendix.A}{Full Instruction for ElimLin Prediction Experiments}{part.3}% 90
+\BOOKMARK [0][-]{appendix.B}{Java Tool for Deep Inspection of ElimLin}{part.3}% 91
+\BOOKMARK [0][-]{appendix.C}{Examples of Cracked Brainwallet Passwords}{part.3}% 92
+\BOOKMARK [0][-]{Item.75}{Bibliography}{part.3}% 93

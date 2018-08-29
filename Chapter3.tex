@@ -316,7 +316,7 @@ in addition to the very long bit keys,
 GOST has a much lower implementation cost
 than AES or any other comparable encryption algorithm.
 For example, in hardware GOST 256 bits requires less than 800 GE\footnote{GE: (informally) 1 GE is equivalent to 1 AND gate },
-while AES-128 requires 3100 GE, see \cite{PoschmannImplement}.
+while AES-128 requires 3100 GE \cite{PoschmannImplement}.
 Thus it is not surprising that GOST became an Internet standard.
 It is part of many crypto libraries such as OpenSSL
 \cite{GOSTRussianReferenceImplementation}, %,Crypto++},
@@ -341,8 +341,9 @@ Unhappily in 2011 several key recovery attacks on GOST were found
 The turning point in the security of GOST was the discovery of the so called
 ``Reflection'' property described in \cite{GOSTReflectionKara}.
 Initially at Indocrypt 2008 only a weak-key attack with time complexity of $2^{192}$ was proposed, with a large proportion of $2^{-32}$ of weak keys. Then in 2011 several attacks on regular GOST keys were discovered, and more than half of these new attacks use this reflection property \cite{JapaneseGOSTMITMFSE2011,DunkelmanImprovedGOST8R}, sometimes twice, three or four times \cite{gostac}. Most of these attacks follow the principle of algebraic complexity reduction (see Section \ref{sec:ACReduction}) where from some data for the full 32 rounds GOST we obtain a certain number
-of pairs for 8 or less rounds of GOST. The quantity of data available after reduction is very small,
-for example 2,3 or 4 pairs for a reduced cipher. In this chapter we look precisely at questions pertaining to cryptanalysing 8 rounds GOST with 2,3,4 P/C pairs needed as a last step in numerous already known attacks on GOST \cite{gostreport,gostac,gostlow8r}.
+of pairs for 8 or less rounds of GOST. The quantity of data available after reduction is very small,for example 2,3 or 4 pairs for a reduced round cipher. 
+
+In Courtois' initial attack on breaking full 32 rounds GOST, the author described a guess-then-solve attack solving 8 rounds GOST using 4 known P/C pairs as the last step of breaking full 32 rounds of GOST \cite{gostreport}. The time complexity of breaking 8 rounds GOST was $2^{120}$. In this thesis we look precisely at questions pertaining to cryptanalysing 8 rounds GOST with 2,3,4 P/C pairs which can be used as a plugin to replace already known attacks on full GOST \cite{gostreport,gostac,gostlow8r}. 
 
 Many attacks which do not use any reflections
 have also been proposed \cite{gostac,gostreport,DunkelmanImprovedGOST8R}
@@ -508,6 +509,9 @@ The Feistel network, the construction of the round function and the key generati
 same hardware.
 
 \section{Summary}
+Algebraic Cryptanalysis is powerful as it only requires a small amount of data, however it can only break a small number of rounds compare to other cryptanalysis methods due to large computation complexity at solving stage. At the moment most of the exising Algebraic Cryptanalysis applications are just coverting target ciphers to equation systems and then solved directly by a software solver  (i.e ElimLin or SAT solvers). Very limited research has been done in order to understand the behavior of a solver and how to make the coverted equation system become easier to solve. 
 
+On cryptanalysis of block ciphers we introduced two well known encryption standards: Russian GOST and NSA SIMON. We reviewed the state of art cryptanalysis works on these encryption standards: best algerbraic cryptanalysis attack on 8 rounds GOST require time complexity of $2^{120}$ and no algerbraic cryptanalysis has been done on SIMON.The above facts motive our research work decribed in Part \ref{Part2} of the thesis. 
 
+In Chapter \ref{ch:GOST} of Part \ref{Part2} we will introduce a fundemental notion of ``contradiction immunity`` and describe how conradiction can be used in algebraic cryptanalysis. We will demostrate a mixed SAT/UNSAT attack on GOST which improve the time complexity of current best attack on breaking 8 rounds of GOST from $2^{120}$ to $2^{92}$. In Chapter \ref{ch:SIMON} we will describe a new Algebraic Cryptanalysis approach combined with well selected P/C paris in a Chosen Plaintext Attack scenario and benchmark our attacks with randomly selected P/C pairs. We will apply this method in newly proposed NSA cipher SIMON and provide the first Algebraic Cryptanalysis on SIMON block cipher. Finally in Chapter \ref{ch:ElimLIn} we will study the behavior of ElimLin method with regards to the number of data samples availiable to an attacker. By studying the number of linear independent equations found by ElimLin, we will show ElimLin has a phase transition process where the number of equations found by ElimLin increase much faster than linear and eventually break the cipher.
 
