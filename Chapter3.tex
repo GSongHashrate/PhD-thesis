@@ -240,30 +240,7 @@ polynomial algebra techniques \cite{XL,XL2,XLAsEstCourt04,Bardet,DoSemiRegularSe
 and makes non-linear equations disappear and generates linear equations. Non-linearity is the main and only thing which makes cryptographic schemes not broken by simple linear algebra. Intuitively, ElimLin seems to work better in cases where there is low non-linearity, since this implies the existence of more linear equations.  Multiplicative complexity (MC) is another notion of non-linearity which was studied in \cite{FourMNL,OptimiPaper2,TheoPhD} and possibly Elimlin may work sufficiently well in cryptographic primitives with low MC.
 However, the complexity of ElimLin attack or software algebraic attacks in general is not well studied. It is not clear why this works and how well the ElimLin attack scales for larger systems of equations. This is a major topic of interest in this thesis.
 
-\subsection{Connection with other Cryptanalysis Techniques}
-Many researchers consider algebraic cryptanalysis as an independent cryptanalysis research area called deterministic cryptanalysis, while differential and linear cryptanalysis methods are called probabilistic methods in cryptography \cite{pasalic2009probabilistic}. However, we argue that there are a lot of connections between algebraic cryptanalysis, linear and differential cryptanalysis. In Figure \ref{fig:ch3general}, we describe our view of the connections between these cryptanalytic techniques.
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=130mm]{./pics/ch3general.png}	
-	\caption[Classification of cryptanalysis methods and their connections]{Classification of cryptanalysis methods and their connections. Most of the existing literature considered algebraic cryptanalysis as an independent research area compare to probablisitic cryptanalysis methods such as differencial cryptanalysis (DC) and linear cryptanalysis (LC). We believe Algebraic Attacks has many connections. probablisitic method are often used together with Algebraic methods and in some attacks presented in this thesis they improved Algebraic Attacks performance by introduction new equations to the mathematic model and reduced solving complexity at the solving stage of Algebraic Attacks. Boxes colored in red are normally considered as LC. Yellow boxes are normally considered as DC methods. Green boxes are the parts included in this thesis and blue boxes are considered as specific solving methods}
-	\label{fig:ch3general}
-\end{figure}	
-
-A link between ElimLin and linear cryptanalysis in Figure \ref{fig:ch3general} reflects the fact that both of these methods are looking for linear relations inside the cipher. However, a major difference between these two approaches is ElimLin looks for equations that work only for a particular set of P/C pairs\footnote{although some equations might exist for any P/C pairs}. Cube attack which was introduced by Dinur and Shamir in 2009 \cite{dinur2009cube} chooses a subset of 'public' input bits such that the sum of an output bit value is a linear combination of the key after a certain summation over a cube composed of plaintexts where a subset of bits varies. Cube attack can sometimes be linear and sometimes non-linear which can be seen as related to both ElimLin and Non-Linear Cryptanalysis (NLC) sometimes called Generalized Linear Cryptanalysis (GLC). In \cite{suvsil2016selection} the authors have studied how well-selected samples from cube attack can be used to improve the performance of ElimLin. Our research in general more or less accidentally identifies some of the equations which are also found in cube attacks and many more. One key focus is how different cryptanalysis techniques can be used to improve software algebraic attacks by adding more equations which makes that these attacks themselves will find yet more equations (amplification effect). 
-In Chapter \ref{ch:SIMON} we show how well-selected samples following a truncated differential property can reduce the solving complexity of ElimLin and SAT solvers. Guess-then-solve method is a general cryptanalysis method which can be used in many attack scenarios. In Chapter \ref{ch:GOST} we will explore this type of attacks on Russian GOST cipher and show this method can be used to improve algebraic cryptanalysis with SAT solvers.
 %
-
-\subsection{On Complexity of Algebraic Attacks} \label{sec:ACCxty}
-
-Algebraic cryptanalysis attacks allow the cryptanalyst to recover secret key bits given only one or very few plaintext / ciphertext pairs. However, one of the fundamental problems of algebraic cryptanalysis is that the runtime of algebraic attacks against block ciphers is not well understood. In 2007, Courtois and Bard said in the first paper describing an algebraic attack on block cipher:
- 
- \begin{quotation}
- 	``Very little is known about what approach would make an algebraic attack efficient and why." 
- \end{quotation}
-
-
-Up to today, this question still remains in algebraic cryptanalysis. This is the main motivation of my research in Chapter \ref{ch:ElimLIn} and our (partial)  answer is to study the asymptotic growth in the equations generated. 
 
 \subsection{Algebraic Complexity Reduction} \label{sec:ACReduction}
 
@@ -287,9 +264,10 @@ which hold under these assumptions).  Amplification which was introduced by Cour
 \end{mydef}
 
 The idea of amplification is to gain additional information inside the cipher with low cost. Amplification is also a general cryptanalysis principle which can apply to many cryptanalysis attacks. For example, a guess-then-determine process can be seen as a form of amplification. With the cost of guessing, attackers gain additional information about the key bits which might lead to knowledge about many other bits inside the cipher. 
-Gordon Welchman's diagonal board is also a form of amplification which makes Turing's Bombe machine gain additional information about Enigma encryption settings, cf. \cite{CourtoisBlockEnigmaSlides}. 
+Gordon Welchman's diagonal board is also a form of amplification which makes Turing's Bombe machine gain additional information about Enigma encryption settings \cite{CourtoisBlockEnigmaSlides}. 
 
-Algebraic complexity reduction can be very successful if the cipher has certain special properties. For example, in \cite{gostac}, Courtois found the Russian cipher GOST had many self-similarity properties, which reduced the problem of breaking the full GOST cipher from $2^{64}$ key pairs for 32 rounds to 4 key pairs for 8 rounds and similar results. In chapter 4, we will explore the idea of amplification in 8 rounds GOST with a software algebraic attack as the last solving step.
+%Algebraic complexity reduction can be very successful if the cipher has certain special properties. For example, in \cite{gostac}, Courtois found the Russian cipher GOST had many self-similarity properties, which reduced the problem of breaking the full GOST cipher from $2^{64}$ key pairs for 32 rounds to 4 key pairs for 8 rounds and similar results.
+
 %Very little is known about what approach would make an algebraic attack efficient and why.
 
 %phase transition and solving time for random 3 sat problems
@@ -508,8 +486,15 @@ The constant $c=0xff...fc$ is used for preventing slide attacks and attacks expl
 The Feistel network, the construction of the round function and the key generation of Simon, enables bit-serial hardware architectures which can significantly reduce the cost of implementation \cite{simoneff}. Additionally, encryption and decryption can be done using the
 same hardware.
 
-\section{Summary}
-Algebraic Cryptanalysis is powerful as it only requires a small amount of data, however it can only break a small number of rounds compare to other cryptanalysis methods due to large computation complexity at solving stage. At the moment most of the exising Algebraic Cryptanalysis applications are just coverting target ciphers to equation systems and then solved directly by a software solver  (i.e ElimLin or SAT solvers). Very limited research has been done in order to understand the behavior of a solver and how to make the coverted equation system become easier to solve. 
+\section{Summary} \label{sec:ACCxty}
+Algebraic cryptanalysis attacks allow the cryptanalyst to recover secret key bits given only one or very few plaintext / ciphertext pairs. However, one of the fundamental problems of algebraic cryptanalysis is that the runtime of algebraic attacks against block ciphers is not well understood. In 2007, Courtois and Bard said in the first paper describing an algebraic attack on block cipher:
+
+\begin{quotation}
+	``Very little is known about what approach would make an algebraic attack efficient and why." 
+\end{quotation}
+
+
+Up to today, this question still remains in algebraic cryptanalysis. At the moment most of the exising Algebraic Cryptanalysis applications are just coverting target ciphers to equation systems and then solved directly by a software solver  (i.e ElimLin or SAT solvers). Very limited research has been done in order to understand the behavior of a solver and how to make the coverted equation system become easier to solve. 
 
 On cryptanalysis of block ciphers we introduced two well known encryption standards: Russian GOST and NSA SIMON. We reviewed the state of art cryptanalysis works on these encryption standards: best algerbraic cryptanalysis attack on 8 rounds GOST require time complexity of $2^{120}$ and no algerbraic cryptanalysis has been done on SIMON.The above facts motive our research work decribed in Part \ref{Part2} of the thesis. 
 
