@@ -3,19 +3,117 @@
 % The \appendix command resets the chapter counter, and changes the chapter numbering scheme to capital letters.
 %\chapter{Appendices}
 \appendix
-\chapter{An Appendix About Stuff}
+\chapter{Full Instruction for ElimLin Prediction Experiments}
 \label{appendixlabel1}
-(stuff)
 
-\chapter{Another Appendix About Things}
+Software Setup:
+\begin{enumerate}
+	\item \textbf{Simon.exe}: http://www.nicolascourtois.com/software/simon.exe \\ 
+	- Source code: https://github.com/GSongHashrate/SimonSpeck \\
+	- Documentation: section Simon inside: http://www.cryptosystem.net/aes/toyciphers.html
+	\item \textbf{ax64.exe}:  http://www.nicolascourtois.com/software/ax64.exe \\
+	- Documentation: http://www.cryptosystem.net/aes/tools.html
+	\item \textbf{cryptominisat-2.9.6-win64.exe} http://www.nicolascourtois.com/software/cryptominisat-2.9.6.-win64.exe \\
+	-  Sources and documentation: http://www.msoos.org/cryptominisat2/
+\end{enumerate}
+
+\textbf{Command Line}:\\
+Simon.exe NR /fixkF /insK /xl0, where NR = number of rounds for the cipher, F = number of fixed/guessed bits for the key and K = number of random plaintext/ciphertext pairs used.
+
+Command Line output might look like: \\
+\noindent\fbox{%
+	\parbox{\textwidth}{%
+		Simon.exe 16 /fixk0 /ins8 /xl0\\
+		... \\
+		10496+ 512+ 448+ 257+ 1+ 0 \\
+		Elim[ 14208] 0.529 h 2494/3712 ... 
+	}%
+}
+
+In this case NR = 16, F = 0, K = 8. The output is interpreted as follows:\\
+\noindent\fbox{%
+	\parbox{\textwidth}{%
+Simon.exe 16 /fixk0 /ins8 /xl0 \\
+... \\
+$r_0$+ $r_1$+ $r_2$+ $r_3$+ $r_4$+ $r_5$ \\
+Elim[ $Total (=r_0+V_{start})$] 0.529 h $V_{Unbroken}$/$V_{start}$ ...
+}%
+}
+
+\begin{table}[h!]
+	\centering
+	\caption{Data gathered by running ElimLin on 7 rounds of Simon 64/128}
+	\label{tbl:fullResultsSecrypt20167R}
+	\begin{tabular}{lllllllllll}
+		NR & K & $V_{start}$ & $V_{unbroken}$ & $r_1$   & $r_2$  & $r_3$  & $r_4$ & $r_5$ & $r_6$ & $r_7$ \\ \hline
+		7  & 2 & 448    & 248       & 1472 & 128 & 64  & 8  & 0  &    &    \\
+		7  & 3 & 608    & 268       & 2208 & 192 & 128 & 20 & 0  &    &    \\
+		7  & 4 & 768    & 271       & 2944 & 256 & 192 & 49 & 0  &    &   \\
+		7  & 5 & 928    & 262       & 3680 & 320 & 256  & 89  & 1  &   0 &    \\
+		7  & 6 & 1088    & 244       & 4416 & 384 & 320 & 139 & 1  &   0 &    \\
+		7  & 7 & 1248   & 215       & 5152 & 448 & 384 & 200 & 1  &   0 &   \\
+		7  & 8 & 1408    & 188       & 5888 & 512 & 448  & 259  & 1 &   0 &    \\
+		7  & 9 & 1568    & 158       & 6624 & 576 & 512 & 320 & 2  &  0  &    \\
+		7  & 10 & 1728    & 126       & 7360 & 640 & 576 & 384 & 2  & 0   &   \\
+		7  & 11 & 1888    & 82       & 8096 & 704 & 640  & 448  & 14  &  0  &    \\
+		7  & 12 & 2048    & 0       & 8832 & 768 & 704 & 512 & 17  & 47   & 0    
+								
+	\end{tabular}
+\end{table}
+
+\begin{table}[h!]
+	\centering
+	\caption{Data gathered by running ElimLin on 8 rounds of Simon 64/128}
+	\label{tbl:fullResultsSecrypt20168R}
+	\begin{tabular}{lllllllllll}
+		NR & K & $V_{start}$ & $V_{unbroken}$ & $r_1$   & $r_2$  & $r_3$  & $r_4$ & $r_5$ & $r_6$ & $r_7$ \\ \hline
+		8  & 2 & 512    & 317       & 1600 & 128 & 64  & 3  & 0  &    &    \\
+		8  & 4 & 896    & 409       & 3200 & 256 & 192 & 39 & 0  &    &    \\
+		8  & 8 & 1664    & 443       & 6400 & 512 & 448 & 261 & 0  &    &   \\
+		8 & 10 & 2048    & 448       & 8000 & 640 & 576  & 384  & 0  &    &    \\
+		8 & 12 & 2432    & 448       & 9600 & 768 & 704 & 512 & 0  &    &    \\
+		8  & 16 & 3200   & 444       & 12800 & 1024 & 960 & 768 & 4  &   0 &   \\
+		8  & 20 & 3968    & 439       & 16000 & 1280 & 1216  & 1024  & 9 &   0 &    \\
+		8 & 25 & 4928    & 435       & 20000 & 1600 & 1536 & 1344 & 13  &  0  &    \\
+		8  & 30 & 5888    & 525       & 24000 & 1920 & 1856 & 1664 & 23  & 0   &   \\
+		8 & 32 & 6272    & 417       & 25600 & 2048 & 1984 & 1792 & 31  &  0  &    \\
+		8  & 40 & 7808    & 402       & 32000 & 2560 & 2496 & 2304 & 46  & 0   &   \\
+		8 & 50 & 7808    & 378       & 40000 & 3200 & 3136 & 2944 & 70  &  0  &    \\
+		8  & 64 & 12416    & 307       & 51200 & 4096 & 4032  & 3840  & 140  &  1  & 0   \\
+		8  & 70 & 13568    & 249       & 56000 & 4480 & 4416 & 4224 & 189  & 10   & 0    
+		
+	\end{tabular}
+\end{table}
+\chapter{Java Tool for Deep Inspection of ElimLin}
+Guangyan Song and Nicolas Courtois:
+``Java tool for DEEP INSPECTION of equations generated with ElimLin over GF(2)
+in Cryptalanalysis of Block Ciphers'',
+available at
+\url{http://www.nicolascourtois.com/software/DeepElimlin-1.4-SNAPSHOT.jar}. Documentation can be found in the appropriate section of this web page:
+\url{http://www.cryptosystem.net/aes/tools.html}.
+
+\chapter{Examples of Cracked Brainwallet Passwords}
 \label{appendixlabel2}
-(things)
+We have found over 18,000 cracked Brainwallet passwords. In 2016, our open source tool was given to students for a UCL code breaking competition in module GA18. More than 100 new passwords were found by MSc students: Iason Papapanagiotakis, Jeonghyuk Park, Ellery Smith, Weixiu Tan and Wei Shao. Here we only list some interesting passwords. The full result remains confidential for security reasons. 
+\begin{enumerate}
+	\item say hello to my little friend
+	\item to be or not to be
+	\item Walk Into This Room
+	\item party like it's 1999
+	\item yohohoandabottleofrum
+	\item dudewheresmycar
+	\item dajiahao
+	\item hankou
+	\item \{1summer2leo3phoebe
+	\item 0racle9i
+	\item andreas antonopoulos
+	\item Arnold Schwarzenegger
+	\item blablablablablablabla
+	\item for the longest time
+	\item captain spaulding
+\end{enumerate}
 
-\chapter{Colophon}
-\label{appendixlabel3}
-\textit{This is a description of the tools you used to make your thesis. It helps people make future documents, reminds you, and looks good.}
 
-\textit{(example)} This document was set in the Times Roman typeface using \LaTeX\ and Bib\TeX , composed with a text editor. 
  % description of document, e.g. type faces, TeX used, TeXmaker, packages and things used for figures. Like a computational details section.
 % e.g. http://tex.stackexchange.com/questions/63468/what-is-best-way-to-mention-that-a-document-has-been-typeset-with-tex#63503
 

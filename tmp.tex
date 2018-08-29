@@ -1,0 +1,56 @@
+\subsection{Curves with Special Shortcuts} \label {sec:shortcuts}
+
+Let $E$ be an elliptic curve over $\mathbb{F}_p$ with prime number $p$ and curve order $n$. For any point $Q=(x,y)$ on curve $E$, there exist $\lambda$ and $\zeta$ such that $$\lambda \cdot Q = (\zeta \cdot x , y)$$
+
+So that for computing point multiplication $k \cdot Q$, one can use the above shortcut compute $Q' = \lambda \cdot Q$. Then decompose $k$ to $k=k_1+k_2 \cdot \lambda$ mod $n$. Then $$k \cdot Q = (k_1 + k_2 \cdot \lambda)\cdot Q = k_1\cdot Q + k_2\cdot \lambda \cdot Q = k_1 \cdot Q + k_2 \cdot Q' $$ Since $k_2 \cdot Q'$ can be computed efficiently, total number of point doubling for computing $k\cdot Q$ is reduced. An example have been given for curve secp160k1 in \cite{hankerson2006guide}.
+
+We looked at elliptic curve secp256k1 (used in Bitcoin, detail parameters introduced in section \ref{sec:secp256k1})  where prime $$p= \text{ FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFE FFFFFC2F}$$ and curve order $$ n = \text{FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFE BAAEDCE6 AF48A03B BFD25E8C D0364141}$$
+
+
+
+For secp256k1, we have $p \equiv 1 \mod{6}$, there exists a primitive 6th root of unity $\zeta \in \mathbb{F}_p$ and  $\zeta^6 - 1 = 0 \mod{n}$. Since $$\zeta^6 - 1 = (\zeta^2-1)\cdot(\zeta^2+\zeta - 1)\cdot (\zeta^2-\zeta -1)$$ 
+
+any root of $\zeta^6-1$ is root of one of the above three polynomials. 
+
+We found special multiples for secp256k1 as following: 
+
+Let
+$\lambda_6 =$\\
+$AC9C52B33FA3CF1F5AD9E3FD77ED9BA4A880B9FC8EC739C2E0CFC810B51283CF$
+%$-5363AD4CC05C30E0A5261C028812645A122E22EA20816678DF02967C1B23BD72$
+a primitive 6th root of unity mod $n$.
+%==78074008874160198520644763525212887401909906723592317393988542598630163514319
+%-37718080363155996902926221483475020450927657555482586988616620542887997980018
+%We have $\lambda_6+\lambda_6^2+1=0$ mod $Q$.
+We have $\lambda_6-\lambda_6^2-1=0 \mod{n}$.
+%mod Q= 115792089237316195423570985008687907852837564279074904382605163141518161494337
+%
+%\lambda_6^2 = 78074008874160198520644763525212887401909906723592317393988542598630163514318
+%=\lambda_6-1
+%
+%-\lambda_6=37718080363155996902926221483475020450927657555482586988616620542887997980018
+
+Let
+$\zeta_6 =$\\
+$ 851695D49A83F8EF919BB86153CBCB16630FB68AED0A766A3EC693D68E6AFA40$
+be a (not primitive) 6-th root of unity mod $P$.
+%a primitive 6-th root of unity mod $P$.
+%=60197513588986302554485582024885075108884032450952339817679072026166228089408
+%We have $\zeta_6-\zeta_6^2-1$ mod $P$.
+We have $\zeta_6+\zeta_6^2+1$ mod $P$.
+
+
+%mod P=115792089237316195423570985008687907853269984665640564039457584007908834671663
+%
+%//\zeta_6^2==55594575648329892869085402983802832744385952214688224221778511981742606582254 = 7ae96a2b657c07106e64479eac3434e99cf0497512f58995c1396c28719501eE
+%-zeta_6==55594575648329892869085402983802832744385952214688224221778511981742606582255 ==
+%7AE96A2B657C07106E64479EAC3434E99CF0497512F58995C1396C28719501EF
+
+
+
+We have for ANY point:
+$$
+\lambda\cdot (x,y) = (\zeta\cdot x,y)
+$$
+
+This property is not common for every elliptic curve. We have discovered more special shortcuts like this, and we will investigate how they can be used to speed up the point multiplication process. This should lead to future improvements in the speed of bitcoin ECDSA signature and verification process.

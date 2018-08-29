@@ -155,8 +155,33 @@
 \usepackage{algorithmic}
 \usepackage{multirow}
 \usepackage{url}
+\usepackage[table]{xcolor}
+\usepackage{pdflscape}
+\usepackage{rotating}
+\usepackage{tikz}
+%\usepackage{natbib}
+\usepackage{afterpage}
+
+\makeatletter
+\newenvironment{subtheorem}[1]{%
+	\def\subtheoremcounter{#1}%
+	\refstepcounter{#1}%
+	\protected@edef\theparentnumber{\csname the#1\endcsname}%
+	\setcounter{parentnumber}{\value{#1}}%
+	\setcounter{#1}{0}%
+	\expandafter\def\csname the#1\endcsname{\theparentnumber.\Alph{#1}}%
+	\ignorespaces
+}{%
+\setcounter{\subtheoremcounter}{\value{parentnumber}}%
+\ignorespacesafterend
+}
 
 \newtheorem{mydef}{Definition}
 \newtheorem{fact}{Fact}
 \newtheorem{myAssumption}{Assumption}
 \newtheorem{myequ}{Equation}
+\newcounter{parentnumber}
+\newtheorem{example}{Example}
+\newtheorem{lemma}{Proposition}
+\newtheorem{conj}[subsubsection]{Conjecture}{\bfseries}{\rmfamily}
+

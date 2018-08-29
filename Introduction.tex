@@ -1,9 +1,41 @@
-\chapter{Introductory Material}
+\chapter{Introduction}
 \label{chapterlabel1}
 
-Some stuff about things.\cite{example-citation} Some more things. 
+Cryptography is the study of mathematical techniques that ensure the confidentiality and integrity of information. Cryptography is one of the oldest fields of technical study which we can find records of. Going back to 1900 BC,  cryptography is found in non-standard hieroglyphs carved into monuments from the Old Kingdom of Egypt \cite{kahn1996codebreakers}. Modern cryptography started out as classified military technology, but now has become very common in our daily lives. Cryptography is not only used in banking cards, secure websites and electronic signatures, but also in public transport cards, car keys, and building passes. 
 
-Inline citation: \bibentry{example-citation}
+Block cipher is one of the main tools in cryptography; It uses a secret key to transform a plaintext into a ciphertext in such a way that this secret key is needed to recover the original plaintext. During the last 30 years, the academic research on the security of block ciphers has evolved from an empirical way to solve the problem of designing a secure algorithm towards a list of well-understood and well-established  security properties that a block cipher must fulfil in order to be secure. Unfortunately, the  security of a block cipher is still heavily dependent on the talent, the intuition, and the time at disposal of the people attempting to break it!
 
-% This just dumps some pseudolatin in so you can see some text in place.
-\blindtext
+Currently, because of the continuously growing impact of mobile phones, smart cards, RFID tags, sensor networks, and the rapid development in the Internet of Things (IoT), there is a huge demand to provide security and to design suitable cryptographic algorithms that can be efficiently implemented in resource-constrained devices. The area of cryptography that studies the design and the security of such lightweight cryptographic primitives, called lightweight cryptography, is rapidly evolving and becoming increasingly important. 
+
+Most of the cryptographic primitives have been carefully designed, especially those that have been standardized. However, not all of them have been well studied by researchers. Special properties  inside widely used cryptography schemes, which might lead to faster attacks, are discovered every year. Also, in real life cryptography applications, bad design, implementation or choice of parameters could lead to huge security issues.
+
+The main aim of my PhD research is to investigate the use of and to develop various optimization tools and software, such as SAT solver and evolutionary algorithms, in the field of automated cryptanalysis; apply cryptanalysis techniques to modern block ciphers, (such as GOST\cite{gost198928147}, Simon \cite{NSAciphers} and even elliptic curve cryptography problems) with optimization tools or software; and check if such tools can improve the current best attacks and discover new attacks. We hope to contribute to future government standards and popular cryptography applications. In this thesis, our cryptanalysis targets are the Russian government standard cipher GOST, the NSA newly proposed cipher Simon, and Bitcoin Elliptic Curve.
+
+The first part of this thesis focuses on software algebraic crytanalysis. Automated “black box” techniques, such as SAT solvers or Gr\"{o}bner basis computations, have become increasingly sophisticated and powerful. In the domain of algebraic cryptanalysis, they are used to solve equation systems that are converted from the cipher. Solving such equation systems is an NP-hard problem. When the problem becomes larger (e.g., trying to solve a larger number%numbers
+ of rounds), it becomes impossible to solve using a normal PC. This is the fundamental problem of software algebraic cryptanalysis. However, NP-hard problems normally have a ``phase transition" point when the problem is suddenly changed from ``hard to solve" to ``easy to solve". This phase transition also appears in software algebraic cryptanalysis, for example, using chosen plaintext in a counter mode then solving by ElimLin \cite{ElimLinR}. In this thesis, we explore different ways to improve software algebraic cryptanalysis. We introduce two possible directions: guessing a set of well chosen key bits and using well-chosen samples. We study GOST and Simon for a concrete number of rounds, discover properties inside the cipher structure which will lead to more efficient attacks. We will then demonstrate how to make these attacks work better by: %In this thesis, all solving algorithms are kept as black box. 
+% inspection: learn what is trival and non-travil behavior of ElimLin algorithm by inspecting the equations found by ElimLin, prediction: predict when ElimLin algorithm will terminate and solve the problem, interpolation Selection of samples / key bits: combining other cryanalysis ideas (such as truncated differential attack and cube attack) study how selected samples / key bits make the problem become easy to solve
+
+\begin{itemize}
+	\item \textbf{Inspection}: Learn what is trivial and non-trivial behavior of ElimLin algorithm by inspecting the equations found by ElimLin.
+	\item \textbf{Prediction and interpolation}: Predict when the ElimLin algorithm will terminate and solve the problem.
+	\item \textbf{Guess-then-solve}: With some ``cost of guessing'', we can reduce the solving complexity. Selecting the right set of bits to guess makes the problem easier to solve.
+	\item \textbf{Selection of samples}: Use specific plaintexts suggested by independent well-known attacks,
+	such as [generalized] linear attacks, truncated differential properties and cube attacks.
+\end{itemize}
+
+The second part of this thesis is about understanding how elliptic curve cryptography can be efficiently coded for fast implementation and also cryptanalysis. We discussed an open research problem for solving Elliptic Curve Discrete Logarithm Problem and also implemented a dedicated speed optimization for Bitcoin brain wallet attack. Bitcoin is a cryptocurrency that was invented in 2008 and has become extremely popular since 2012. Bitcoin users can deterministically derive the private key used for transmitting money from a password. Such wallets are known as brain wallets. Brain wallets are appealing because they free users from storing their private keys. Unfortunately, brain wallets were not designed carefully enough and allowed attackers to conduct unlimited offline password guessing. In 2015, a white hat hacker published the implementation of the brain wallet attack. The results of this attack were later published in 2016 \cite{vasek2016bitcoin}. We believe that such an attack can be made faster to make brain wallets much more vulnerable. In order to optimize the attack, we study Elliptic Curve secp256k1, which is used in Bitcoin. We focus on the speed of the key generation process and provide the first detailed benchmarks for all the major implementations of this curve. The key generation process is a fundamental part in the Bitcoin brain wallet attack, which is also the most part cost most time to compute. Our optimized attack improves the state-of-art by a factor of 2.5 in private key checking speed.
+%Here I listed three research problems which I investigate inside my PhD research:
+
+%1. Explore how software and tools can be used (and potentially develop such a tool) in the field of automated cryptanalysis, especially in SAT solvers used in algebraic attack. 
+
+%Automated “black box” techniques, such as SAT solvers or Grobner basis computations, have become increasingly sophisticated and powerful. In the domain of algebraic cryptanalysis, they are used to attack cryptosystems. But what is the limitation of this kind of attacks and how the current methods can be improved?
+
+%2. Study Russian government standard cipher GOST, NSA newly proposed cipher SIMON, and Semaev cipher (described in section \ref{sec:summationPoly})  for a concrete number of rounds, discover properties inside the cipher structure which will lead to more efficient attacks
+
+%Carefully study the structure of the cipher and try to find special properties which could lead to a faster attack. Combined automated tools and make use of other cryptanalysis techniques to improve current best attack.  
+
+%3. Study elliptic curves with special properties, identify possible attacks and implementation improvements.
+%\section{Structure of the Thesis}
+
+%\section{My Publications}
+%Some of the results presented in this thesis were published in the following conferences and journals:

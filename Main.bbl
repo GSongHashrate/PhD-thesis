@@ -1,265 +1,52 @@
 \begin{thebibliography}{100}
 
-\bibitem{Wulliesecp256k1}
-Petier Wullie.
-\newblock bitcoin secp256k1 library, version 2015/08/11.
-\newblock \url{https://github.com/bitcoin/secp256k1}.
+\bibitem{GOSTRussianReferenceImplementation}
+A russian reference implementation of gost implementing russian algorithms as
+  an extension of tls v1.0 is available as a part of openssl library. the file
+  gost89.c contains eight different sets of s-boxes and is found in openssl
+  0.9.8 and later at.
+\newblock \url{http://www.openssl.org/source/}.
 
-\bibitem{hankerson2006guide}
-Darrel Hankerson, Alfred~J Menezes, and Scott Vanstone.
-\newblock {\em Guide to elliptic curve cryptography}.
-\newblock Springer Science \& Business Media, 2006.
+\bibitem{IEEEP1363}
+Standard specifications for public key cryptography annex a.
+\newblock pages 76--172. IEEE P1363 / D9, Feb 1999.
 
-\bibitem{brown2001software}
-Michael Brown, Darrel Hankerson, Julio L{\'o}pez, and Alfred Menezes.
-\newblock {\em Software implementation of the NIST elliptic curves over prime
-  fields}.
-\newblock Springer, 2001.
+\bibitem{SIMON6}
+J.~Alizadeh, H.~A. Alkhzaimi, M.~R. Aref, N.~Bagheri, P.~Gauravaram, A.~Kumar,
+  M.~M. Lauridsen, and S.~K. Sanadhya.
+\newblock Cryptanalysis of simon variants with connections.
+\newblock In {\em International Workshop on Radio Frequency Identification:
+  Security and Privacy Issues}, pages 90--107. Springer, 2014.
 
-\bibitem{PrCryEngCourtois}
-Nicolas Courtois.
-\newblock Guiding principles of effective crypto and security engineering.
-\newblock \url{http://www.nicolascourtois.com/papers/sc/Pr_Crypto_eng_v12.pdf}.
+\bibitem{simon2}
+H.~Alkhzaimi and M.~Lauridsen.
+\newblock Differential and linear cryptanalysis of reduced-round simon.
+\newblock In {\em Cryptology ePrint Archive, Report 2013/543}, 2013.
 
-\bibitem{simmons1992contemporary}
-Gustavus~J Simmons et~al.
-\newblock {\em Contemporary cryptology}, volume~3.
-\newblock IEEE press New York, 1992.
-
-\bibitem{cramer2003design}
-Ronald Cramer and Victor Shoup.
-\newblock Design and analysis of practical public-key encryption schemes secure
-  against adaptive chosen ciphertext attack.
-\newblock {\em SIAM Journal on Computing}, 33(1):167--226, 2003.
-
-\bibitem{knudsen1998block}
-Lars~R Knudsen.
-\newblock Block ciphers—a survey.
-\newblock In {\em State of the Art in Applied Cryptography}, pages 18--48.
-  Springer, 1998.
-
-\bibitem{robling1982cryptography}
-Dorothy~Elizabeth Robling~Denning.
-\newblock {\em Cryptography and data security}.
-\newblock Addison-Wesley Longman Publishing Co., Inc., 1982.
-
-\bibitem{davies1989security}
-Donald~Watts Davies and Wyn~L Price.
-\newblock {\em Security for computer networks: and introduction to data
-  security in teleprocessing and electronic funds transfer}.
-\newblock John Wiley \& Sons, Inc., 1989.
-
-\bibitem{kahn1996codebreakers}
-David Kahn.
-\newblock {\em The Codebreakers: The comprehensive history of secret
-  communication from ancient times to the internet}.
-\newblock Simon and Schuster, 1996.
-
-\bibitem{feistel1973cryptography}
-Horst Feistel.
-\newblock Cryptography and computer privacy.
-\newblock {\em Scientific american}, 228:15--23, 1973.
-
-\bibitem{pub197746}
-NIST~FIPS PUB.
-\newblock 46-3. data encryption standard.
-\newblock {\em Federal Information Processing Standards, National Bureau of
-  Standards, US Department of Commerce}, 1977.
-
-\bibitem{shannon1949communication}
-Claude~E Shannon.
-\newblock Communication theory of secrecy systems.
-\newblock {\em Bell system technical journal}, 28(4):656--715, 1949.
-
-\bibitem{schneier1996applied}
-Brouce Schneier.
-\newblock Applied cryptography. protocols, algorithms, and source code in
-  c/bruce schneier, 1996.
-
-\bibitem{knudsen1994block}
-Lars~Ramkilde Knudsen.
-\newblock Block ciphers: analysis, design and applications.
-\newblock {\em DAIMI Report Series}, 23(485), 1994.
-
-\bibitem{matsui1994linear}
-Mitsuru Matsui.
-\newblock Linear cryptanalysis method for des cipher.
-\newblock In {\em Advances in Cryptology—EUROCRYPT’93}, pages 386--397.
-  Springer, 1994.
-
-\bibitem{matsui1993new}
-Mitsuru Matsui and Atsuhiro Yamagishi.
-\newblock A new method for known plaintext attack of feal cipher.
-\newblock In {\em Advances in Cryptology—Eurocrypt’92}, pages 81--91.
-  Springer, 1993.
-
-\bibitem{kaliski1994linear}
-Burton~S Kaliski~Jr and Matthew~JB Robshaw.
-\newblock Linear cryptanalysis using multiple approximations.
-\newblock In {\em Advances in Cryptology—Crypto’94}, pages 26--39.
-  Springer, 1994.
-
-\bibitem{kilian1996protect}
-Joe Kilian and Phillip Rogaway.
-\newblock How to protect des against exhaustive key search.
-\newblock In {\em Advances in Cryptology—CRYPTO’96}, pages 252--267.
-  Springer, 1996.
-
-\bibitem{brown1990loki}
-Lawrence Brown, Josef Pieprzyk, and Jennifer Seberry.
-\newblock Loki—a cryptographic primitive for authentication and secrecy
-  applications.
-\newblock In {\em Advances in Cryptology—AUSCRYPT'90}, pages 229--236.
-  Springer, 1990.
-
-\bibitem{courtois2004feistel}
-Nicolas~T Courtois.
-\newblock Feistel schemes and bi-linear cryptanalysis.
-\newblock In {\em Advances in Cryptology--CRYPTO 2004}, pages 23--40. Springer,
-  2004.
-
-\bibitem{biham1993differential}
-{\=E}.~Biham and A.~Shamir.
-\newblock {\em Differential cryptanalysis of the data encryption standard}.
-\newblock Springer-Verlag, 1993.
-
-\bibitem{coppersmith1994data}
-Don Coppersmith.
-\newblock The data encryption standard (des) and its strength against attacks.
-\newblock {\em IBM journal of research and development}, 38(3):243--250, 1994.
-
-\bibitem{coppersmith2000development}
-Don Coppersmith.
-\newblock The development of des.
-\newblock {\em Invited talk at CRYPTO}, 2000.
-
-\bibitem{courtois2003s}
-Nicolas~T Courtois, Guilhem Castagnos, and Louis Goubin.
-\newblock What do des s-boxes say to each other?
-\newblock {\em IACR Cryptology ePrint Archive}, 2003:184, 2003.
-
-\bibitem{knudsen1993cryptanalysis}
-Lars~Ramkilde Knudsen.
-\newblock Cryptanalysis of loki.
-\newblock In {\em Advances in Cryptology—ASIACRYPT'91}, pages 22--35.
-  Springer, 1993.
-
-\bibitem{massey1994safer}
-James~L Massey.
-\newblock Safer k-64: A byte-oriented block-ciphering algorithm.
-\newblock In {\em Fast Software Encryption}, pages 1--17. Springer, 1994.
-
-\bibitem{gostdc0}
-Nicolas~T Courtois and Micha{\l} Misztal.
-\newblock First differential attack on full 32-round gost.
-\newblock In {\em Information and Communications Security}, pages 216--227.
-  Springer, 2011.
-
-\bibitem{gostdc1}
-Nicolas Courtois and Michal Misztal.
-\newblock Differential cryptanalysis of gost.
-\newblock {\em IACR Cryptology ePrint Archive}, 2011:312, 2011.
-
-\bibitem{biryukov2014differential}
-Alex Biryukov, Arnab Roy, and Vesselin Velichkov.
-\newblock Differential analysis of block ciphers simon and speck.
-\newblock In {\em Fast Software Encryption}, pages 546--570. Springer, 2014.
-
-\bibitem{alkhzaimi2013cryptanalysis}
-Hoda AlKhzaimi and Martin~M Lauridsen.
-\newblock Cryptanalysis of the simon family of block ciphers.
-\newblock {\em IACR Cryptology ePrint Archive}, 2013:543, 2013.
-
-\bibitem{courtois2005best}
-Nicolas Courtois.
-\newblock The best differential characteristics and subtleties of the
-  biham-shamir attacks on des.
-\newblock {\em IACR Cryptology ePrint Archive}, 2005:202, 2005.
-
-\bibitem{Knudsen95}
-LarsR. Knudsen.
-\newblock Truncated and higher order differentials.
-\newblock In Bart Preneel, editor, {\em Fast Software Encryption}, volume 1008
-  of {\em Lecture Notes in Computer Science}, pages 196--211. Springer Berlin
-  Heidelberg, 1995.
-
-\bibitem{gostdc2}
-Nicolas~T Courtois.
-\newblock An improved differential attack on full gost.
-\newblock {\em IACR Cryptology ePrint Archive}, 2012:138, 2012.
-
-\bibitem{TheoPhD}
-Theodosis Mourouzis.
-\newblock {\em Optimizations in algebraic and differential cryptanalysis}.
-\newblock PhD thesis, UCL (University College London), 2015.
-
-\bibitem{courtois2015can}
-Nicolas~T Courtois, Theodosis Mourouzis, Micha{\l} Misztal, Jean-Jacques
-  Quisquater, and Guangyan Song.
-\newblock Can gost be made secure against differential cryptanalysis?
-\newblock {\em Cryptologia}, 39(2):145--156, 2015.
-
-\bibitem{Shannon}
-C.~Shannon.
-\newblock Communication theory of secrecy systems.
-\newblock In {\em Bell System Technical Journal 28}, 1949.
-
-\bibitem{courtois2002cryptanalysis}
-Nicolas~T Courtois and Josef Pieprzyk.
-\newblock Cryptanalysis of block ciphers with overdefined systems of equations.
-\newblock In {\em Advances in Cryptology—ASIACRYPT 2002}, pages 267--287.
-  Springer, 2002.
-
-\bibitem{CourtoisBlockEnigmaSlides}
-Nicolas Courtois.
-\newblock 100 years of cryptanalysis: Compositions of permutations.
+\bibitem{Andersen2015}
+G.~Andersen.
+\newblock Why increasing the max block size is urgent.
 \newblock
-  \url{http://www.nicolascourtois.com/papers/code_breakers_enigma_block_teach.pdf}.
-\newblock non-commutative combinations of permutations, used teaching GA18
-  Cryptanalysis course at University College London 2014-2016.
+  \url{http://gavinandresen.ninja/why-increasing-the-max-block-size-is-urgent},
+  2015.
 
-\bibitem{cryptoeprint:2015:310}
-Igor Semaev.
-\newblock New algorithm for the discrete logarithm problem on elliptic curves.
-\newblock Cryptology ePrint Archive, Report 2015/310, 2015.
+\bibitem{ansi2005x9}
+A.~ANSI.
+\newblock X9. 62: 2005: Public key cryptography for the financial services
+  industry.
+\newblock {\em The elliptic curve digital signature algorithm (ECDSA)}, 2005.
 
-\bibitem{semaev2004summation}
-Igor Semaev.
-\newblock Summation polynomials and the discrete logarithm problem on elliptic
-  curves.
-\newblock {\em IACR Cryptology ePrint Archive}, 2004:31, 2004.
+\bibitem{simoneff}
+A.~Aysu, E.~Gulcan, and P.~Schaumont.
+\newblock Simon says, break the area records for symmetric key block ciphers on
+  fpgas.
+\newblock In {\em Cryptology ePrint Archive, Report 2014/237}, 2014.
 
-\bibitem{fraenkel1980complexity}
-Aviezri~S Fraenkel and Yaacov Yesha.
-\newblock Complexity of solving algebraic equations.
-\newblock {\em Information Processing Letters}, 10(4):178--179, 1980.
-
-\bibitem{faugere1999new}
-Jean-Charles Faugere.
-\newblock A new efficient algorithm for computing gr{\"o}bner bases (< i>
-  f</i>< sub> 4</sub>).
-\newblock {\em Journal of pure and applied algebra}, 139(1):61--88, 1999.
-
-\bibitem{courtois2000efficient}
-Nicolas Courtois, Alexander Klimov, Jacques Patarin, and Adi Shamir.
-\newblock Efficient algorithms for solving overdefined systems of multivariate
-  polynomial equations.
-\newblock In {\em Advances in Cryptology—EUROCRYPT 2000}, pages 392--407.
-  Springer, 2000.
-
-\bibitem{sepehrdad2012statistical}
-Pouyan Sepehrdad.
-\newblock {\em Statistical and algebraic cryptanalysis of lightweight and
-  ultra-lightweight symmetric primitives}.
-\newblock PhD thesis, {\'E}COLE POLYTECHNIQUE F{\'E}D{\'E}RALE DE LAUSANNE,
-  2012.
-
-\bibitem{cryptoeprint:2007:024}
-Gregory~V. Bard, Nicolas~T. Courtois, and Chris Jefferson.
-\newblock Efficient methods for conversion and solution of sparse systems of
-  low-degree multivariate polynomials over gf(2) via sat-solvers.
-\newblock Cryptology ePrint Archive, Report 2007/024, 2007.
-\newblock http://eprint.iacr.org/.
+\bibitem{balasubramanian1998improbability}
+R.~Balasubramanian and N.~Koblitz.
+\newblock The improbability that an elliptic curve has subexponential discrete
+  log problem under the menezes—okamoto—vanstone algorithm.
+\newblock {\em Journal of cryptology}, 11(2):141--145, 1998.
 
 \bibitem{BardCourtoiJeffersonConv}
 G.~Bard, N.~Courtois, and C.~Jefferson.
@@ -267,51 +54,271 @@ G.~Bard, N.~Courtois, and C.~Jefferson.
   low-degree multivariate polynomials over gf(2) via sat-solvers.
 \newblock 2007.
 
-\bibitem{grobner}
-Jean-Charles Faugere.
-\newblock A new efficient algorithm for computing gr{\"o}bner bases (f 4).
-\newblock {\em Journal of pure and applied algebra}, 139(1):61--88, 1999.
+\bibitem{bard2007efficient}
+G.~V. Bard, N.~T. Courtois, and C.~Jefferson.
+\newblock Efficient methods for conversion and solution of sparse systems of
+  low-degree multivariate polynomials over gf (2) via sat-solvers, 2007.
+
+\bibitem{bard2010algebraic}
+G.~V. Bard, N.~T. Courtois, J.~Nakahara~Jr, P.~Sepehrdad, and B.~Zhang.
+\newblock Algebraic, aida/cube and side channel analysis of katan family of
+  block ciphers.
+\newblock In {\em International Conference on Cryptology in India}, pages
+  176--196. Springer, 2010.
+
+\bibitem{Bardet}
+M.~Bardet, J.-C. Faugere, and B.~Salvy.
+\newblock On the complexity of gr{\"o}bner basis computation of semi-regular
+  overdetermined algebraic equations.
+\newblock In {\em Proceedings of the International Conference on Polynomial
+  System Solving}, pages 71--74, 2004.
+
+\bibitem{barker2006recommendation}
+E.~Barker, W.~Barker, W.~Burr, W.~Polk, and M.~Smid.
+\newblock Recommendation for key management-part 1: General (revised.
+\newblock In {\em NIST special publication}. Citeseer, 2006.
+
+\bibitem{NSAciphers}
+R.~Beaulieu, D.~Shors, J.~Smith, S.~Treatman-Clark, B.~Weeks, and L.~Wingers.
+\newblock The simon and speck families of lightweight block ciphers.
+\newblock In {\em Cryptology ePrint Archive, Report 2013/404}, 2013.
+
+\bibitem{bernstein2007explicit}
+D.~J. Bernstein and T.~Lange.
+\newblock Explicit-formulas database, 2007.
+
+\bibitem{bernstein2007faster}
+D.~J. Bernstein and T.~Lange.
+\newblock Faster addition and doubling on elliptic curves.
+\newblock In {\em Advances in cryptology--ASIACRYPT 2007}, pages 29--50.
+  Springer, 2007.
+
+\bibitem{bernstein2009ebacs}
+D.~J. Bernstein and T.~Lange.
+\newblock ebacs: Ecrypt benchmarking of cryptographic systems, 2009.
+
+\bibitem{biham1993differential}
+{\=E}.~Biham and A.~Shamir.
+\newblock {\em Differential cryptanalysis of the data encryption standard}.
+\newblock Springer-Verlag, 1993.
+
+\bibitem{simon3}
+A.~Biryukov, A.~A.~Roy, and V.~Velichkov.
+\newblock Differential analysis of block ciphers simon and speck.
+\newblock In {\em 21st International Workshop on Fast Software Encryption, FSE
+  2014}, 2014.
+
+\bibitem{PRESENT}
+A.~Bogdanov, L.~Knudsen, C.~Paar, A.~Poschmann, M.~Robshaw, Y.~Seurin, and
+  Y.~Vikkelsoe.
+\newblock Present: An ultra-lightweight block cipher.
+\newblock In {\em In the proceedings of CHES 2007}, 2007.
+
+\bibitem{bouillaguet2012low}
+C.~Bouillaguet, P.~Derbez, O.~Dunkelman, P.-A. Fouque, N.~Keller, and
+  V.~Rijmen.
+\newblock Low-data complexity attacks on aes.
+\newblock {\em IEEE Transactions on Information Theory}, 58(11):7002--7017,
+  2012.
+
+\bibitem{FourMNL}
+J.~Boyar, M.~Find, and R.~Peralta.
+\newblock Four measures of nonlinearity.
+\newblock In {\em In Algorithms and Complexity, pp. 61-72. Springer Berlin
+  Heidelberg}, 2013.
+
+\bibitem{BoyarPeraltaMCMethod}
+J.~Boyar and R.~Peralta.
+\newblock A new combinational logic minimization technique with applications to
+  cryptology.
+\newblock 2010.
+
+\bibitem{BoyarPeraltaMCMethodAES}
+J.~Boyar and R.~Peralta.
+\newblock A depth-16 circuit for the aes s-box.
+\newblock 2011.
+
+\bibitem{BoyarPeraltaMCBoolean}
+J.~Boyar, R.~Peralta, and D.~Pochuev.
+\newblock On the multiplicative complexity of boolean functions over the basis.
+\newblock 2000.
+
+\bibitem{brickell1993fast}
+E.~F. Brickell, D.~M. Gordon, K.~S. McCurley, and D.~B. Wilson.
+\newblock Fast exponentiation with precomputation.
+\newblock In {\em Advances in Cryptology—EUROCRYPT’92}, pages 200--207.
+  Springer, 1993.
+
+\bibitem{brier2002weierstrass}
+E.~Brier and M.~Joye.
+\newblock Weierstra{\ss} elliptic curves and side-channel attacks.
+\newblock In {\em Public Key Cryptography}, pages 335--345. Springer, 2002.
+
+\bibitem{brown1990loki}
+L.~Brown, J.~Pieprzyk, and J.~Seberry.
+\newblock Loki—a cryptographic primitive for authentication and secrecy
+  applications.
+\newblock In {\em Advances in Cryptology—AUSCRYPT'90}, pages 229--236.
+  Springer, 1990.
+
+\bibitem{brown2001software}
+M.~Brown, D.~Hankerson, J.~L{\'o}pez, and A.~Menezes.
+\newblock {\em Software implementation of the NIST elliptic curves over prime
+  fields}.
+\newblock Springer, 2001.
+
+\bibitem{KATAN}
+C.~Canniere, O.~Dunkelman, and M.~Knezevic.
+\newblock Katan and ktantan a family of small and efficient hardware-oriented
+  block ciphers.
+\newblock In {\em In Christophe Clavier and Kris Gaj, editors,Cryptographic
+  Hardware and Embedded Systems - CHES 2009, volume 5747 of Lecture Notes in
+  Computer Science, Springer Berlin Heidelberg}, 2009.
+
+\bibitem{RyanDefcon}
+R.~Castellucci.
+\newblock Cracking cryptocurrency brainwallets.
+\newblock \url{https://www.defcon.org/html/defcon-23/dc-23-index.html}.
+
+\bibitem{certicom2000sec}
+S.~Certicom.
+\newblock Sec 2: Recommended elliptic curve domain parameters.
+\newblock {\em Proceeding of Standards for Efficient Cryptography, Version}, 1,
+  2000.
+
+\bibitem{cohen1998efficient}
+H.~Cohen, A.~Miyaji, and T.~Ono.
+\newblock Efficient elliptic curve exponentiation using mixed coordinates.
+\newblock In {\em Advances in Cryptology ASIACRYPT’98}, pages 51--65.
+  Springer, 1998.
+
+\bibitem{coppersmith1994data}
+D.~Coppersmith.
+\newblock The data encryption standard (des) and its strength against attacks.
+\newblock {\em IBM journal of research and development}, 38(3):243--250, 1994.
+
+\bibitem{coppersmith2000development}
+D.~Coppersmith.
+\newblock The development of des.
+\newblock {\em Invited talk at CRYPTO}, 2000.
+
+\bibitem{CourtoisBlockEnigmaSlides}
+N.~Courtois.
+\newblock 100 years of cryptanalysis: Compositions of permutations.
+\newblock
+  \url{http://www.nicolascourtois.com/papers/code_breakers_enigma_block_teach.pdf}.
+\newblock non-commutative combinations of permutations, used teaching GA18
+  Cryptanalysis course at University College London 2014-2016.
+
+\bibitem{PrCryEngCourtois}
+N.~Courtois.
+\newblock Guiding principles of effective crypto and security engineering.
+\newblock \url{http://www.nicolascourtois.com/papers/sc/Pr_Crypto_eng_v12.pdf}.
+
+\bibitem{CourtoisSoftware}
+N.~Courtois.
+\newblock Algebraic cryptanalysis software,.
+\newblock \url{http://www.cryptosystem.net/aes/tools.html}, 2000-2016.
+
+\bibitem{FastAlg2}
+N.~Courtois.
+\newblock Ctc2 and fast algebraic attacks on block ciphers revisited.
+\newblock In {\em eprint}. \url{eprint.iacr.org/2007/152/}, 2007.
+
+\bibitem{FastAlg}
+N.~Courtois.
+\newblock How fast can be algebraic attacks on block ciphers?
+\newblock In {\em Dagstuhl Seminar 07021, Symmetric Cryptography}.
+  \url{dagstuhl.de}, 2007.
+
+\bibitem{EquationSolving}
+N.~Courtois.
+\newblock Basic equation solving toolbox -
+  http://www.cryptosystem.net/aes/tools.html.
+\newblock 2010.
+
+\bibitem{gostac}
+N.~Courtois.
+\newblock Algebraic complexity reduction and cryptanalysis of gost.
+\newblock {\em IACR Cryptology ePrint Archive}, 2011:626, 2011.
+
+\bibitem{CourtoisECCPost2015}
+N.~Courtois.
+\newblock Half of all elliptic curves broken???
+\newblock \url{http://blog.bettercrypto.com/?p=1544}, 2015.
+
+\bibitem{SlidesAlgAllteach}
+N.~Courtois.
+\newblock Algebraic attacks vs. design of block and stream ciphers.
+\newblock In {\em slides used in UCL GA18 course ``Cryptanalysis'', University
+  College London}.
+  \url{http://www.nicolascourtois.com/papers/algat_all_teach_2015.pdf}, 2016.
+
+\bibitem{SlidesCompSec}
+N.~Courtois.
+\newblock Computer security foundations and principles – standard version.
+\newblock In {\em slides used in UCL course ``Computer Security'', University
+  College London}.
+  \url{http://www.nicolascourtois.com/papers/compsec/CompSec_Intro_01.ppt},
+  2016.
+
+\bibitem{AlgteachElimLinLab}
+N.~Courtois.
+\newblock Software and algebraic cryptanalysis lab,.
+\newblock In {\em University College London}.
+  \url{http://www.nicolascourtois.com/papers/ga18/AC_Lab1_ElimLin_Simon_CTC2.pdf},
+  2016.
 
 \bibitem{DEScourtois}
 N.~Courtois and G.~Bard.
 \newblock Algebraic cryptanalysis of the data encryption standard.
 \newblock In {\em In IMA Int. Conf. volume 4887, Springer}, 2007.
 
-\bibitem{courtois2008algebraicKeeLoq}
-Nicolas~T Courtois, Gregory~V Bard, and David Wagner.
-\newblock Algebraic and slide attacks on keeloq.
-\newblock In {\em Fast Software Encryption}, pages 97--115. Springer, 2008.
+\bibitem{ToyRijSer}
+N.~Courtois and B.~Debraize.
+\newblock Specific s-box criteria in algebraic attacks on block ciphers with
+  several known plaintexts.
+\newblock In {\em WEWoRC 2007, pp 100-113}. Springer, 2008.
 
-\bibitem{courtois2012contradiction}
-Nicolas~T Courtois, Jerzy~A Gawinecki, and Guangyan Song.
-\newblock Contradiction immunity and guess-then-determine attacks on gost.
-\newblock {\em Tatra Mountains Mathematical Publications}, 53(1):65--79, 2012.
+\bibitem{OptimiPaper}
+N.~Courtois, D.~Hulme, and T.~Mourouzis.
+\newblock Solving circuit optimisation problems in cryptography and
+  cryptanalysis.
+\newblock In {\em In electronic proceedings of 2nd IMA Conference Mathematics
+  in Defence 2011}, 2011.
 
-\bibitem{gostac}
-Nicolas Courtois.
-\newblock Algebraic complexity reduction and cryptanalysis of gost.
-\newblock {\em IACR Cryptology ePrint Archive}, 2011:626, 2011.
+\bibitem{XL}
+N.~Courtois, A.~Klimov, J.~Patarin, and A.~Shamir.
+\newblock Efficient algorithms for solving overdefined systems of multivariate
+  polynomial equations.
+\newblock In {\em International Conference on the Theory and Applications of
+  Cryptographic Techniques}, pages 392--407. Springer, 2000.
 
-\bibitem{erickson2010algebraic}
-Jeremy Erickson, Jintai Ding, and Chris Christensen.
-\newblock Algebraic cryptanalysis of sms4: Gr{\"o}bner basis attack and sat
-  attack compared.
-\newblock In {\em Information, Security and Cryptology--ICISC 2009}, pages
-  73--86. Springer, 2010.
+\bibitem{gostdc1}
+N.~Courtois and M.~Misztal.
+\newblock Differential cryptanalysis of gost.
+\newblock {\em IACR Cryptology ePrint Archive}, 2011:312, 2011.
 
-\bibitem{soos2009extending}
-Mate Soos, Karsten Nohl, and Claude Castelluccia.
-\newblock Extending sat solvers to cryptographic problems.
-\newblock In {\em Theory and Applications of Satisfiability Testing-SAT 2009},
-  pages 244--257. Springer, 2009.
+\bibitem{OptimiPaper2}
+N.~Courtois, T.~Mourouzis, and D.~Hulme.
+\newblock Exact logic minimization and multiplicative complexity of concrete
+  algebraic and cryptographic circuits.
+\newblock In {\em To Appear in IARIA Journal: IntSys13v6n34}, 2013.
 
-\bibitem{courtois2009practical}
-Nicolas~T Courtois, Sean O’Neil, and Jean-Jacques Quisquater.
-\newblock Practical algebraic attacks on the hitag2 stream cipher.
-\newblock In {\em Information Security}, pages 167--176. Springer, 2009.
+\bibitem{simonref}
+N.~Courtois, T.~Mourouzis, and G.~Song.
+\newblock Reference implementation of simon and speck and a basic generator of
+  equations - https://github.com/gsonghashrate/simonspeck/.
+\newblock 2014.
+
+\bibitem{courtois2014combined}
+N.~Courtois, T.~Mourouzis, G.~Song, P.~Sepehrdad, and P.~Susil.
+\newblock Combined algebraic and truncated differential cryptanalysis on
+  reduced-round simon.
+\newblock In {\em SECRYPT}, pages 399--404, 2014.
 
 \bibitem{courtois2008algebraic}
-Nicolas Courtois, Karsten Nohl, and Sean O'Neil.
+N.~Courtois, K.~Nohl, and S.~O'Neil.
 \newblock Algebraic attacks on the crypto-1 stream cipher in mifare classic and
   oyster cards.
 \newblock {\em IACR Cryptology ePrint Archive}, 2008:166, 2008.
@@ -322,140 +329,128 @@ N.~Courtois, P.~Sepehrdad, P.~Susil, and S.~Vaudenay.
 \newblock In {\em Fast Software Encryption, pp. 306-325, Springer Berlin
   Heidelberg}, 2012.
 
-\bibitem{FourMNL}
-J.~Boyar, M.~Find, and R.~Peralta.
-\newblock Four measures of nonlinearity.
-\newblock In {\em In Algorithms and Complexity, pp. 61-72. Springer Berlin
-  Heidelberg}, 2013.
+\bibitem{courtois2004feistel}
+N.~T. Courtois.
+\newblock Feistel schemes and bi-linear cryptanalysis.
+\newblock In {\em Advances in Cryptology--CRYPTO 2004}, pages 23--40. Springer,
+  2004.
 
-\bibitem{OptimiPaper2}
-N.~Courtois, T.~Mourouzis, and D.~Hulme.
-\newblock Exact logic minimization and multiplicative complexity of concrete
-  algebraic and cryptographic circuits.
-\newblock In {\em To Appear in IARIA Journal: IntSys13v6n34}, 2013.
+\bibitem{secrypt09}
+N.~T. Courtois.
+\newblock The dark side of security by obscurity - and cloning mifare classic
+  rail and building passes, anywhere, anytime.
+\newblock In {\em Proceedings of the International Conference on Security and
+  Cryptography (ICETE 2009)}, pages 331--338, 2009.
 
-\bibitem{gost198928147}
-Gosudarstvennyi~Standard GOST.
-\newblock 28147-89,“.
-\newblock {\em Cryptographic protection for data processing systems,”
-  Government Committee of the USSR for Standards}, 1989.
-
-\bibitem{schneier2007applied}
-Bruce Schneier.
-\newblock {\em Section 14.1 GOST (2nd ed.) Applied cryptography}.
-\newblock john wiley \& sons, 1996.
-
-\bibitem{GOSTRussianReferenceImplementation}
-A russian reference implementation of gost implementing russian algorithms as
-  an extension of tls v1.0 is available as a part of openssl library. the file
-  gost89.c contains eight different sets of s-boxes and is found in openssl
-  0.9.8 and later at.
-\newblock \url{http://www.openssl.org/source/}.
-
-\bibitem{PoschmannImplement}
-Axel Poschmann, San Ling, and Huaxiong Wang.
-\newblock 256 bit standardized crypto for 650 ge--gost revisited.
-\newblock In {\em Cryptographic Hardware and Embedded Systems, CHES 2010},
-  pages 219--233. Springer, 2010.
-
-\bibitem{JapaneseGOSTMITMFSE2011}
-Takanori Isobe.
-\newblock A single-key attack on the full gost block cipher.
-\newblock {\em Journal of cryptology}, 26(1):172--189, 2013.
+\bibitem{gostdc2}
+N.~T. Courtois.
+\newblock An improved differential attack on full gost.
+\newblock {\em IACR Cryptology ePrint Archive}, 2012:138, 2012.
 
 \bibitem{gostreport}
-Nicolas~T Courtois.
+N.~T. Courtois.
 \newblock Security evaluation of gost 28147-89 in view of international
   standardisation.
 \newblock {\em Cryptologia}, 36(1):2--13, 2012.
 
-\bibitem{GOSTReflectionKara}
-Orhun Kara.
-\newblock Reflection cryptanalysis of some ciphers.
-\newblock In {\em Progress in Cryptology-INDOCRYPT 2008}, pages 294--307.
-  Springer, 2008.
-
-\bibitem{DunkelmanImprovedGOST8R}
-Itai Dinur, Orr Dunkelman, and Adi Shamir.
-\newblock Improved attacks on full gost.
-\newblock In {\em Fast Software Encryption}, pages 9--28. Springer, 2012.
+\bibitem{courtois2013cryptanalysis}
+N.~T. Courtois.
+\newblock Cryptanalysis of gost in the multiple-key scenario.
+\newblock {\em Tatra Mountains Mathematical Publications}, 57(1):45--63, 2013.
 
 \bibitem{gostlow8r}
-Nicolas~T Courtois.
+N.~T. Courtois.
 \newblock Low-complexity key recovery attacks on gost block cipher.
 \newblock {\em Cryptologia}, 37(1):1--10, 2013.
 
-\bibitem{gostdcpp1}
-Nicolas~T Courtois and Micha{\l} Misztal.
-\newblock Aggregated differentials and cryptanalysis of pp-1 and gost.
-\newblock {\em Periodica Mathematica Hungarica}, 65(2):177--192, 2012.
+\bibitem{cryptoeprint:2016:704}
+N.~T. Courtois.
+\newblock High saturation complete graph approach for ec point decomposition
+  and ecdl problem.
+\newblock Cryptology ePrint Archive, Report 2016/704, 2016.
+\newblock \url{http://eprint.iacr.org/2016/704}.
 
-\bibitem{slide2}
-Alex Biryukov and David Wagner.
-\newblock Advanced slide attacks.
-\newblock In {\em Advances in Cryptology—EUROCRYPT 2000}, pages 589--606.
-  Springer, 2000.
+\bibitem{courtois2007algebraicDES}
+N.~T. Courtois and G.~V. Bard.
+\newblock Algebraic cryptanalysis of the data encryption standard.
+\newblock In {\em Cryptography and Coding}, pages 152--169. Springer, 2007.
 
-\bibitem{KeeLoqTatra}
-Bard Gregory~V Courtois, Nicolas~T and Andrey Bogdanov.
-\newblock Periodic ciphers with small blocks and cryptanalysis of keeloq.
-\newblock {\em Tatra Mt. Math. Publ}, 41:167--188, 2008.
+\bibitem{courtois2008algebraicKeeLoq}
+N.~T. Courtois, G.~V. Bard, and D.~Wagner.
+\newblock Algebraic and slide attacks on keeloq.
+\newblock In {\em Fast Software Encryption}, pages 97--115. Springer, 2008.
+
+\bibitem{courtois2003s}
+N.~T. Courtois, G.~Castagnos, and L.~Goubin.
+\newblock What do des s-boxes say to each other?
+\newblock {\em IACR Cryptology ePrint Archive}, 2003:184, 2003.
 
 \bibitem{AlgSnowCourtoisDebraize}
-Nicolas~T Courtois and Blandine Debraize.
+N.~T. Courtois and B.~Debraize.
 \newblock Algebraic description and simultaneous linear approximations of
   addition in snow 2.0.
 \newblock In {\em Information and Communications Security}, pages 328--344.
   Springer, 2008.
 
-\bibitem{OptimiPaper}
-N.~Courtois, D.~Hulme, and T.~Mourouzis.
-\newblock Solving circuit optimisation problems in cryptography and
-  cryptanalysis.
-\newblock In {\em In electronic proceedings of 2nd IMA Conference Mathematics
-  in Defence 2011}, 2011.
+\bibitem{courtois2012contradiction}
+N.~T. Courtois, J.~A. Gawinecki, and G.~Song.
+\newblock Contradiction immunity and guess-then-determine attacks on gost.
+\newblock {\em Tatra Mountains Mathematical Publications}, 53(1):65--79, 2012.
 
-\bibitem{SemaevSparseJournalPaper}
-Igor Semaev.
-\newblock Sparse algebraic equations over finite fields.
-\newblock {\em SIAM Journal on Computing}, 39(2):388--409, 2009.
+\bibitem{gostdc0}
+N.~T. Courtois and M.~Misztal.
+\newblock First differential attack on full 32-round gost.
+\newblock In {\em Information and Communications Security}, pages 216--227.
+  Springer, 2011.
 
-\bibitem{CryptoMiniSat}
-Niklas S{\"o}rensson, Niklas E{\'e}n, and Mate Soos.
-\newblock Cryptominisat 2.92, an open-source sat solver package based on
-  earlier minisat software.
+\bibitem{gostdcpp1}
+N.~T. Courtois and M.~Misztal.
+\newblock Aggregated differentials and cryptanalysis of pp-1 and gost.
+\newblock {\em Periodica Mathematica Hungarica}, 65(2):177--192, 2012.
 
-\bibitem{BoyarPeraltaMCMethod}
-J.~Boyar and R.~Peralta.
-\newblock A new combinational logic minimization technique with applications to
-  cryptology.
-\newblock 2010.
+\bibitem{courtois2015can}
+N.~T. Courtois, T.~Mourouzis, M.~Misztal, J.-J. Quisquater, and G.~Song.
+\newblock Can gost be made secure against differential cryptanalysis?
+\newblock {\em Cryptologia}, 39(2):145--156, 2015.
 
-\bibitem{BoyarPeraltaMCBoolean}
-J.~Boyar, R.~Peralta, and D.~Pochuev.
-\newblock On the multiplicative complexity of boolean functions over the basis.
-\newblock 2000.
+\bibitem{courtois2009practical}
+N.~T. Courtois, S.~O’Neil, and J.-J. Quisquater.
+\newblock Practical algebraic attacks on the hitag2 stream cipher.
+\newblock In {\em Information Security}, pages 167--176. Springer, 2009.
 
-\bibitem{KATAN}
-C.~Canniere, O.~Dunkelman, and M.~Knezevic.
-\newblock Katan and ktantan a family of small and efficient hardware-oriented
-  block ciphers.
-\newblock In {\em In Christophe Clavier and Kris Gaj, editors,Cryptographic
-  Hardware and Embedded Systems - CHES 2009, volume 5747 of Lecture Notes in
-  Computer Science, Springer Berlin Heidelberg}, 2009.
+\bibitem{XL2}
+N.~T. Courtois and J.~Patarin.
+\newblock About the xl algorithm over gf (2).
+\newblock In {\em Cryptographers’ Track at the RSA Conference}, pages
+  141--157. Springer, 2003.
 
-\bibitem{KLEIN}
-Z.~Gong, S.~Nikova, and Y.~Law.
-\newblock Klein: A new family of lightweight block ciphers.
-\newblock In {\em In Ari Juels and Christof Paar, editors, RFID. Security and
-  Privacy, volume 7055 of Lecture Notes in Computer Science}, 2012.
+\bibitem{courtois2002cryptanalysis}
+N.~T. Courtois and J.~Pieprzyk.
+\newblock Cryptanalysis of block ciphers with overdefined systems of equations.
+\newblock In {\em Advances in Cryptology—ASIACRYPT 2002}, pages 267--287.
+  Springer, 2002.
 
-\bibitem{ICEBERG}
-F.~Standaert, G.~Piret, G.~Rouvroy, J.~Quisquater, and J.~Legat.
-\newblock Iceberg : An involutional cipher efficient for block encryption in
-  reconfigurable hardware.
-\newblock In {\em In Bimal Roy and Willi Meier, editors, Fast Software
-  Encryption, volume 3017 of Lecture Notes in Computer Science}, 2004.
+\bibitem{cramer2003design}
+R.~Cramer and V.~Shoup.
+\newblock Design and analysis of practical public-key encryption schemes secure
+  against adaptive chosen ciphertext attack.
+\newblock {\em SIAM Journal on Computing}, 33(1):167--226, 2003.
+
+\bibitem{explicitBernstein}
+T.~L. Daniel J.~Bernstein.
+\newblock Explicit-formulas database.
+\newblock \url{https://www.hyperelliptic.org/EFD/}.
+
+\bibitem{davies1989security}
+D.~W. Davies and W.~L. Price.
+\newblock {\em Security for computer networks: and introduction to data
+  security in teleprocessing and electronic funds transfer}.
+\newblock John Wiley \& Sons, Inc., 1989.
+
+\bibitem{delfs2002introduction}
+H.~Delfs, H.~Knebl, and H.~Knebl.
+\newblock {\em Introduction to cryptography}, volume~2.
+\newblock Springer, 2002.
 
 \bibitem{HIGHT}
 H.~Deukjo, J.~Sung, S.~Hong, J.~Lim, S.~Lee, B.~Koo, C.~Lee, D.~Chang, J.~Lee,
@@ -465,12 +460,222 @@ H.~Deukjo, J.~Sung, S.~Hong, J.~Lim, S.~Lee, B.~Koo, C.~Lee, D.~Chang, J.~Lee,
   Hardware and Embedded Systems, CHES 2006, volume 4249 of Lecture Notes in
   Computer Science}, 2006.
 
+\bibitem{diem2011discrete}
+C.~Diem.
+\newblock On the discrete logarithm problem in elliptic curves.
+\newblock {\em Compositio Mathematica}, 147(01):75--104, 2011.
+
+\bibitem{DunkelmanImprovedGOST8R}
+I.~Dinur, O.~Dunkelman, and A.~Shamir.
+\newblock Improved attacks on full gost.
+\newblock In {\em Fast Software Encryption}, pages 9--28. Springer, 2012.
+
+\bibitem{dinur2009cube}
+I.~Dinur and A.~Shamir.
+\newblock Cube attacks on tweakable black box polynomials.
+\newblock In {\em Annual International Conference on the Theory and
+  Applications of Cryptographic Techniques}, pages 278--299. Springer, 2009.
+
+\bibitem{elgamal1985public}
+T.~ElGamal.
+\newblock A public key cryptosystem and a signature scheme based on discrete
+  logarithms.
+\newblock In {\em Advances in cryptology}, pages 10--18. Springer, 1985.
+
+\bibitem{erickson2010algebraic}
+J.~Erickson, J.~Ding, and C.~Christensen.
+\newblock Algebraic cryptanalysis of sms4: Gr{\"o}bner basis attack and sat
+  attack compared.
+\newblock In {\em Information, Security and Cryptology--ICISC 2009}, pages
+  73--86. Springer, 2010.
+
+\bibitem{simon1}
+A.~Farzaneh, E.~List, S.~Lucks, and J.~Wenzel.
+\newblock Differential and linear cryptanalysis of reduced-round simon.
+\newblock In {\em Cryptology ePrint Archive, Report 2013/526}, 2013.
+
+\bibitem{faugere1999new}
+J.-C. Faugere.
+\newblock A new efficient algorithm for computing gr{\"o}bner bases (f 4).
+\newblock {\em Journal of pure and applied algebra}, 139(1):61--88, 1999.
+
+\bibitem{grobner}
+J.-C. Faugere.
+\newblock A new efficient algorithm for computing gr{\"o}bner bases (f 4).
+\newblock {\em Journal of pure and applied algebra}, 139(1):61--88, 1999.
+
+\bibitem{faugere2014using}
+J.-C. Faug{\`e}re, P.~Gaudry, L.~Huot, and G.~Renault.
+\newblock Using symmetries in the index calculus for elliptic curves discrete
+  logarithm.
+\newblock {\em Journal of cryptology}, 27(4):595--635, 2014.
+
+\bibitem{faugere2012improving}
+J.-C. Faug{\`e}re, L.~Perret, C.~Petit, and G.~Renault.
+\newblock Improving the complexity of index calculus algorithms in elliptic
+  curves over binary fields.
+\newblock In {\em Advances in Cryptology--EUROCRYPT 2012}, pages 27--44.
+  Springer, 2012.
+
+\bibitem{feistel1973cryptography}
+H.~Feistel.
+\newblock Cryptography and computer privacy.
+\newblock {\em Scientific american}, 228:15--23, 1973.
+
+\bibitem{fips2000186}
+P.~FIPS.
+\newblock 186-2. digital signature standard (dss).
+\newblock {\em National Institute of Standards and Technology (NIST)}, 2000.
+
+\bibitem{fraenkel1980complexity}
+A.~S. Fraenkel and Y.~Yesha.
+\newblock Complexity of solving algebraic equations.
+\newblock {\em Information Processing Letters}, 10(4):178--179, 1980.
+
+\bibitem{StevenECDLP2015}
+S.~Galbraith.
+\newblock Elliptic curve discrete logarithm problem in characteristic two.
+\newblock
+  \url{https://ellipticnews.wordpress.com/2015/04/13/elliptic-curve-discrete-logarithm-problem-in-characteristic-two},
+  2015.
+
+\bibitem{gaudry2004index}
+P.~Gaudry.
+\newblock Index calculus for abelian varieties and the elliptic curve discrete
+  logarithm problem.
+\newblock {\em IACR Cryptology ePrint Archive}, 2004:73, 2004.
+
+\bibitem{KLEIN}
+Z.~Gong, S.~Nikova, and Y.~Law.
+\newblock Klein: A new family of lightweight block ciphers.
+\newblock In {\em In Ari Juels and Christof Paar, editors, RFID. Security and
+  Privacy, volume 7055 of Lecture Notes in Computer Science}, 2012.
+
+\bibitem{gost198928147}
+G.~S. GOST.
+\newblock 28147-89,“.
+\newblock {\em Cryptographic protection for data processing systems,”
+  Government Committee of the USSR for Standards}, 1989.
+
+\bibitem{ieee2000ieee}
+I.~W. Group et~al.
+\newblock Ieee 1363-2000: Standard specifications for public key cryptography.
+\newblock {\em IEEE Standard, IEEE, New York, NY}, 10017, 2000.
+
 \bibitem{LED}
 J.~Guo, T.~Peyrin, A.~Poschmann, and M.~Robshaw.
 \newblock The led block cipher.
 \newblock In {\em In Bart Preneel and Tsuyoshi Takagi, editors, Cryptographic
   Hardware and Embedded Systems, CHES 2011, volume 6917 of Lecture Notes in
   Computer Science, Springer Berlin Heidelberg}, 2011.
+
+\bibitem{hankerson2006guide}
+D.~Hankerson, A.~J. Menezes, and S.~Vanstone.
+\newblock {\em Guide to elliptic curve cryptography}.
+\newblock Springer Science \& Business Media, 2006.
+
+\bibitem{DoSemiRegularSequencesExist}
+T.~J. Hodges, S.~D. Molina, and J.~Schlather.
+\newblock On the existence of semi-regular sequences.
+\newblock {\em arXiv preprint arXiv:1412.7865}, 2014.
+
+\bibitem{hong2003differential}
+S.~Hong, D.~Hong, Y.~Ko, D.~Chang, W.~Lee, and S.~Lee.
+\newblock Differential cryptanalysis of tea and xtea.
+\newblock In {\em International Conference on Information Security and
+  Cryptology}, pages 402--417. Springer, 2003.
+
+\bibitem{huang2014effective}
+J.~Huang and X.~Lai.
+\newblock What is the effective key length for a block cipher: an attack on
+  every practical block cipher.
+\newblock {\em Science China Information Sciences}, 57(7):1--11, 2014.
+
+\bibitem{huang2013improvement}
+Y.-J. Huang, C.~Petit, N.~Shinohara, and T.~Takagi.
+\newblock Improvement of faugere et al.’s method to solve ecdlp.
+\newblock In {\em Advances in Information and Computer Security}, pages
+  115--132. Springer, 2013.
+
+\bibitem{DavidHunduson2015}
+D.~Hunduson.
+\newblock Bitcoin traffic bulletin.
+\newblock \url{http://hashingit.com/analysis/34-bitcoin-traffic-bulletin},
+  2015.
+
+\bibitem{JapaneseGOSTMITMFSE2011}
+T.~Isobe.
+\newblock A single-key attack on the full gost block cipher.
+\newblock {\em Journal of cryptology}, 26(1):172--189, 2013.
+
+\bibitem{johnson2001elliptic}
+D.~Johnson, A.~Menezes, and S.~Vanstone.
+\newblock The elliptic curve digital signature algorithm (ecdsa).
+\newblock {\em International Journal of Information Security}, 1(1):36--63,
+  2001.
+
+\bibitem{kahn1996codebreakers}
+D.~Kahn.
+\newblock {\em The Codebreakers: The comprehensive history of secret
+  communication from ancient times to the internet}.
+\newblock Simon and Schuster, 1996.
+
+\bibitem{kaliski1994linear}
+B.~S. Kaliski~Jr and M.~J. Robshaw.
+\newblock Linear cryptanalysis using multiple approximations.
+\newblock In {\em Advances in Cryptology—Crypto’94}, pages 26--39.
+  Springer, 1994.
+
+\bibitem{GOSTReflectionKara}
+O.~Kara.
+\newblock Reflection cryptanalysis of some ciphers.
+\newblock In {\em Progress in Cryptology-INDOCRYPT 2008}, pages 294--307.
+  Springer, 2008.
+
+\bibitem{kilian1996protect}
+J.~Kilian and P.~Rogaway.
+\newblock How to protect des against exhaustive key search.
+\newblock In {\em Advances in Cryptology—CRYPTO’96}, pages 252--267.
+  Springer, 1996.
+
+\bibitem{Knudsen95}
+L.~Knudsen.
+\newblock Truncated and higher order differentials.
+\newblock In B.~Preneel, editor, {\em Fast Software Encryption}, volume 1008 of
+  {\em Lecture Notes in Computer Science}, pages 196--211. Springer Berlin
+  Heidelberg, 1995.
+
+\bibitem{knudsen1993cryptanalysis}
+L.~R. Knudsen.
+\newblock Cryptanalysis of loki.
+\newblock In {\em Advances in Cryptology—ASIACRYPT'91}, pages 22--35.
+  Springer, 1993.
+
+\bibitem{knudsen1994block}
+L.~R. Knudsen.
+\newblock Block ciphers: analysis, design and applications.
+\newblock {\em DAIMI Report Series}, 23(485), 1994.
+
+\bibitem{knudsen1998block}
+L.~R. Knudsen.
+\newblock Block ciphers—a survey.
+\newblock In {\em State of the Art in Applied Cryptography}, pages 18--48.
+  Springer, 1998.
+
+\bibitem{koblitz1987elliptic}
+N.~Koblitz.
+\newblock Elliptic curve cryptosystems.
+\newblock {\em Mathematics of computation}, 48(177):203--209, 1987.
+
+\bibitem{kosters2015notes}
+M.~Kosters and S.~L. Yeo.
+\newblock Notes on summation polynomials.
+\newblock {\em arXiv preprint arXiv:1503.08001}, 2015.
+
+\bibitem{lenstra2001selecting}
+A.~K. Lenstra and E.~R. Verheul.
+\newblock Selecting cryptographic key sizes.
+\newblock {\em Journal of cryptology}, 14(4):255--293, 2001.
 
 \bibitem{mCrypton}
 C.~Lim and T.~Korkishko.
@@ -480,11 +685,168 @@ C.~Lim and T.~Korkishko.
   Information Security Applications, volume 3786 of Lecture Notes in Computer
   Science, Springer Berlin Heidelberg}, 2006.
 
-\bibitem{PRESENT}
-A.~Bogdanov, L.~Knudsen, C.~Paar, A.~Poschmann, M.~Robshaw, Y.~Seurin, and
-  Y.~Vikkelsoe.
-\newblock Present: An ultra-lightweight block cipher.
-\newblock In {\em In the proceedings of CHES 2007}, 2007.
+\bibitem{massey1994safer}
+J.~L. Massey.
+\newblock Safer k-64: A byte-oriented block-ciphering algorithm.
+\newblock In {\em Fast Software Encryption}, pages 1--17. Springer, 1994.
+
+\bibitem{matsui1994linear}
+M.~Matsui.
+\newblock Linear cryptanalysis method for des cipher.
+\newblock In {\em Advances in Cryptology—EUROCRYPT’93}, pages 386--397.
+  Springer, 1994.
+
+\bibitem{matsui1993new}
+M.~Matsui and A.~Yamagishi.
+\newblock A new method for known plaintext attack of feal cipher.
+\newblock In {\em Advances in Cryptology—Eurocrypt’92}, pages 81--91.
+  Springer, 1993.
+
+\bibitem{miller1985use}
+V.~S. Miller.
+\newblock Use of elliptic curves in cryptography.
+\newblock In {\em Conference on the Theory and Application of Cryptographic
+  Techniques}, pages 417--426. Springer, 1985.
+
+\bibitem{TheoPhD}
+T.~Mourouzis.
+\newblock {\em Optimizations in algebraic and differential cryptanalysis}.
+\newblock PhD thesis, UCL (University College London), 2015.
+
+\bibitem{nakahara2009linear}
+J.~Nakahara~Jr, P.~Sepehrdad, B.~Zhang, and M.~Wang.
+\newblock Linear (hull) and algebraic cryptanalysis of the block cipher
+  present.
+\newblock In {\em International Conference on Cryptology and Network Security},
+  pages 58--75. Springer, 2009.
+
+\bibitem{nakamoto2008bitcoin}
+S.~Nakamoto.
+\newblock Bitcoin: A peer-to-peer electronic cash system.
+\newblock {\em Consulted}, 1(2012):28, 2008.
+
+\bibitem{NSA16}
+NSA.
+\newblock Cnsa suite and quantum computing faq.
+\newblock
+  "\url{https://www.iad.gov/iad/library/ia-guidance/ia-solutions-for-classified/algorithm-guidance/cnsa-suite-and-quantum-computing-
+  faq.cfm}”, 2016.
+
+\bibitem{NSA16key}
+NSA.
+\newblock Recommendation for key management.
+\newblock
+  "\url{http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf}”,
+  2016.
+
+\bibitem{pasalic2009probabilistic}
+E.~Pasalic.
+\newblock Probabilistic versus deterministic algebraic cryptanalysis—a
+  performance comparison.
+\newblock {\em IEEE Transactions on information theory}, 55(11):5233--5240,
+  2009.
+
+\bibitem{petit2016algebraic}
+C.~Petit, M.~Kosters, and A.~Messeng.
+\newblock Algebraic approaches for the elliptic curve discrete logarithm
+  problem over prime fields.
+\newblock In {\em IACR International Workshop on Public Key Cryptography},
+  pages 3--18. Springer, 2016.
+
+\bibitem{petit2012polynomial}
+C.~Petit and J.-J. Quisquater.
+\newblock On polynomial systems arising from a weil descent.
+\newblock In {\em Advances in Cryptology--ASIACRYPT 2012}, pages 451--466.
+  Springer, 2012.
+
+\bibitem{PoschmannImplement}
+A.~Poschmann, S.~Ling, and H.~Wang.
+\newblock 256 bit standardized crypto for 650 ge--gost revisited.
+\newblock In {\em Cryptographic Hardware and Embedded Systems, CHES 2010},
+  pages 219--233. Springer, 2010.
+
+\bibitem{pub197746}
+N.~F. PUB.
+\newblock 46-3. data encryption standard.
+\newblock {\em Federal Information Processing Standards, National Bureau of
+  Standards, US Department of Commerce}, 1977.
+
+\bibitem{RaddumSimon}
+H.~Raddum.
+\newblock Algebraic analysis of the simon block cipher family.
+\newblock In {\em International Conference on Cryptology and Information
+  Security in Latin America}, pages 157--169. Springer, 2015.
+
+\bibitem{raddum2006new}
+H.~Raddum and I.~Semaev.
+\newblock New technique for solving sparse equation systems.
+\newblock {\em IACR Cryptology ePrint Archive}, 2006:475, 2006.
+
+\bibitem{rivest1978method}
+R.~L. Rivest, A.~Shamir, and L.~Adleman.
+\newblock A method for obtaining digital signatures and public-key
+  cryptosystems.
+\newblock {\em Communications of the ACM}, 21(2):120--126, 1978.
+
+\bibitem{robling1982cryptography}
+D.~E. Robling~Denning.
+\newblock {\em Cryptography and data security}.
+\newblock Addison-Wesley Longman Publishing Co., Inc., 1982.
+
+\bibitem{schneier1996applied}
+B.~Schneier.
+\newblock Applied cryptography. protocols, algorithms, and source code in
+  c/bruce schneier, 1996.
+
+\bibitem{schneier2007applied}
+B.~Schneier.
+\newblock {\em Section 14.1 GOST (2nd ed.) Applied cryptography}.
+\newblock john wiley \& sons, 1996.
+
+\bibitem{schneier2006beyond}
+B.~Schneier.
+\newblock {\em Beyond fear: Thinking sensibly about security in an uncertain
+  world}.
+\newblock Springer Science \& Business Media, 2006.
+
+\bibitem{semaev2004summation}
+I.~Semaev.
+\newblock Summation polynomials and the discrete logarithm problem on elliptic
+  curves.
+\newblock {\em IACR Cryptology ePrint Archive}, 2004:31, 2004.
+
+\bibitem{SemaevSparseJournalPaper}
+I.~Semaev.
+\newblock Sparse algebraic equations over finite fields.
+\newblock {\em SIAM Journal on Computing}, 39(2):388--409, 2009.
+
+\bibitem{cryptoeprint:2015:310}
+I.~Semaev.
+\newblock New algorithm for the discrete logarithm problem on elliptic curves.
+\newblock Cryptology ePrint Archive, Report 2015/310, 2015.
+
+\bibitem{semaev}
+I.~Semaev and M.~Mikus.
+\newblock Methods to solve algebraic equations in cryptanalysis.
+\newblock In {\em In Tatra Mountains Mathematic Publications, Vol. 45, pp.
+  107-136}, 2010.
+
+\bibitem{sepehrdad2012statistical}
+P.~Sepehrdad.
+\newblock {\em Statistical and algebraic cryptanalysis of lightweight and
+  ultra-lightweight symmetric primitives}.
+\newblock PhD thesis, {\'E}COLE POLYTECHNIQUE F{\'E}D{\'E}RALE DE LAUSANNE,
+  2012.
+
+\bibitem{Shannon}
+C.~Shannon.
+\newblock Communication theory of secrecy systems.
+\newblock In {\em Bell System Technical Journal 28}, 1949.
+
+\bibitem{shannon1949communication}
+C.~E. Shannon.
+\newblock Communication theory of secrecy systems.
+\newblock {\em Bell system technical journal}, 28(4):656--715, 1949.
 
 \bibitem{Piccolo}
 K.~Shibutani, T.~Isobe, H.~Hiwatari, A.~Mitsuda, T.~Akishita, and T.~Shirai.
@@ -493,284 +855,99 @@ K.~Shibutani, T.~Isobe, H.~Hiwatari, A.~Mitsuda, T.~Akishita, and T.~Shirai.
   Hardware and Embedded Systems, CHES 2011, volume 6917 of Lecture Notes in
   Computer Science, Springer Berlin Heidelberg}, 2011.
 
-\bibitem{NSAciphers}
-R.~Beaulieu, D.~Shors, J.~Smith, S.~Treatman-Clark, B.~Weeks, and L.~Wingers.
-\newblock The simon and speck families of lightweight block ciphers.
-\newblock In {\em Cryptology ePrint Archive, Report 2013/404}, 2013.
+\bibitem{simmons1992contemporary}
+G.~J. Simmons et~al.
+\newblock {\em Contemporary cryptology}, volume~3.
+\newblock IEEE press New York, 1992.
 
-\bibitem{simonref}
-N.~Courtois, T.~Mourouzis, and G.~Song.
-\newblock Reference implementation of simon and speck and a basic generator of
-  equations - https://github.com/gsonghashrate/simonspeck/.
-\newblock 2014.
+\bibitem{SongSimonSpeckGithub}
+G.~Song.
+\newblock Simon and speck implementation in c.
+\newblock \url{https://github.com/gsonghashrate/SimonSpeck}.
 
-\bibitem{simoneff}
-A.~Aysu, E.~Gulcan, and P.~Schaumont.
-\newblock Simon says, break the area records for symmetric key block ciphers on
-  fpgas.
-\newblock In {\em Cryptology ePrint Archive, Report 2014/237}, 2014.
+\bibitem{soos2009extending}
+M.~Soos, K.~Nohl, and C.~Castelluccia.
+\newblock Extending sat solvers to cryptographic problems.
+\newblock In {\em Theory and Applications of Satisfiability Testing-SAT 2009},
+  pages 244--257. Springer, 2009.
 
-\bibitem{BoyarPeraltaMCMethodAES}
-J.~Boyar and R.~Peralta.
-\newblock A depth-16 circuit for the aes s-box.
-\newblock 2011.
+\bibitem{minisat}
+N.~Sorensson and N.~Een.
+\newblock Minisat v1. 13-a sat solver with conflict-clause minimization.
+\newblock {\em SAT}, 2005(53):1--2, 2005.
 
-\bibitem{simon1}
-A.~Farzaneh, E.~List, S.~Lucks, and J.~Wenzel.
-\newblock Differential and linear cryptanalysis of reduced-round simon.
-\newblock In {\em Cryptology ePrint Archive, Report 2013/526}, 2013.
+\bibitem{CryptoMiniSat}
+N.~S{\"o}rensson, N.~E{\'e}n, and M.~Soos.
+\newblock Cryptominisat 2.92, an open-source sat solver package based on
+  earlier minisat software.
 
-\bibitem{simon2}
-H.~Alkhzaimi and M.~Lauridsen.
-\newblock Differential and linear cryptanalysis of reduced-round simon.
-\newblock In {\em Cryptology ePrint Archive, Report 2013/543}, 2013.
+\bibitem{ICEBERG}
+F.~Standaert, G.~Piret, G.~Rouvroy, J.~Quisquater, and J.~Legat.
+\newblock Iceberg : An involutional cipher efficient for block encryption in
+  reconfigurable hardware.
+\newblock In {\em In Bimal Roy and Willi Meier, editors, Fast Software
+  Encryption, volume 3017 of Lecture Notes in Computer Science}, 2004.
 
-\bibitem{EquationSolving}
-N.~Courtois.
-\newblock Basic equation solving toolbox -
-  http://www.cryptosystem.net/aes/tools.html.
-\newblock 2010.
+\bibitem{sugita2001security}
+M.~Sugita, K.~Kobara, and H.~Imai.
+\newblock Security of reduced version of the block cipher camellia against
+  truncated and impossible differential cryptanalysis.
+\newblock In {\em International Conference on the Theory and Application of
+  Cryptology and Information Security}, pages 193--207. Springer, 2001.
 
-\bibitem{semaev}
-I.~Semaev and M.~Mikus.
-\newblock Methods to solve algebraic equations in cryptanalysis.
-\newblock In {\em In Tatra Mountains Mathematic Publications, Vol. 45, pp.
-  107-136}, 2010.
-
-\bibitem{RaddumSimon}
-{H\aa vard} Raddum.
-\newblock Algebraic analysis of the simon block cipher family.
-\newblock In {\em LatinCrypt 2015, pp. 157-169}. Springer, 2015.
-
-\bibitem{SlidesAlgAllteach}
-N.T. Courtois.
-\newblock Algebraic attacks vs. design of block and stream ciphers.
-\newblock In {\em slides used in UCL GA18 course ``Cryptanalysis'', University
-  College London}.
-  \url{http://www.nicolascourtois.com/papers/algat_all_teach_2015.pdf}, 2016.
-
-\bibitem{desalg}
-G.~V.~Bard N.~Courtois.
-\newblock Algebraic cryptanalysis of the data encryption standard,.
-\newblock In {\em IMA Cryptography and Coding, pp. 152-169}. Springer, 2007.
-
-\bibitem{FastAlg}
-N.T. Courtois.
-\newblock How fast can be algebraic attacks on block ciphers?
-\newblock In {\em Dagstuhl Seminar 07021, Symmetric Cryptography}.
-  \url{dagstuhl.de}, 2007.
-
-\bibitem{FastAlg2}
-N.~Courtois.
-\newblock Ctc2 and fast algebraic attacks on block ciphers revisited.
-\newblock In {\em eprint}. \url{eprint.iacr.org/2007/152/}, 2007.
-
-\bibitem{ToyRijSer}
-N.~Courtois and B.~Debraize.
-\newblock Specific s-box criteria in algebraic attacks on block ciphers with
-  several known plaintexts.
-\newblock In {\em WEWoRC 2007, pp 100-113}. Springer, 2008.
-
-\bibitem{AlgteachElimLinLab}
-N.T. Courtois.
-\newblock Software and algebraic cryptanalysis lab,.
-\newblock In {\em University College London}.
-  \url{http://www.nicolascourtois.com/papers/ga18/AC_Lab1_ElimLin_Simon_CTC2.pdf},
-  2016.
-
-\bibitem{CourtoisSoftware}
-N.T. Courtois.
-\newblock Algebraic cryptanalysis software,.
-\newblock \url{http://www.cryptosystem.net/aes/tools.html}, 2000-2016.
-
-\bibitem{XL2}
-J.~Patarin N.~Courtois.
-\newblock About the xl algorithm over gf(2).
-\newblock In {\em CT-RSA 2003, pp. 141-157}. Springer, 2003.
-
-\bibitem{ACTruncSimon}
-G.~Song P.~Sepehrdad N.~Courtois, T.~Mourouzis and P.~Susil.
-\newblock Combined algebraic and truncated differential cryptanalysis on
-  reduced-round simon,.
-\newblock In {\em proc. of SECRYPT 2014}. INSTICC, 2014.
+\bibitem{ElimLinRevisit}
+N.~C. P. S.~P. Susil and S.~Vaudenay.
+\newblock Elimlin algorithm revisited.
+\newblock In {\em FSE 2012}. Springer, 2012.
 
 \bibitem{ElimLinUniversalEqs}
-S.~Vaudenay N.~Courtois P.~Susil, P.~Sepehrdad.
+P.~Susil, P.~Sepehrdad, S.~Vaudenay, and N.~Courtois.
 \newblock On selection of samples in algebraic attacks and a new technique to
   find hidden low degree equations.
-\newblock In {\em Int. J. Inf. Sec. vol. 15 iss. 1, pp. 51-65}. Springer, 2016.
+\newblock {\em International Journal of Information Security}, 15(1):51--65,
+  2016.
 
-\bibitem{balasubramanian1998improbability}
-Ramachandran Balasubramanian and Neal Koblitz.
-\newblock The improbability that an elliptic curve has subexponential discrete
-  log problem under the menezes—okamoto—vanstone algorithm.
-\newblock {\em Journal of cryptology}, 11(2):141--145, 1998.
+\bibitem{suvsil2016selection}
+P.~Su{\v{s}}il, P.~Sepehrdad, S.~Vaudenay, and N.~Courtois.
+\newblock On selection of samples in algebraic attacks and a new technique to
+  find hidden low degree equations.
+\newblock {\em International Journal of Information Security}, 15(1):51--65,
+  2016.
 
-\bibitem{IEEEP1363}
-Standard specifications for public key cryptography annex a.
-\newblock pages 76--172. IEEE P1363 / D9, Feb 1999.
+\bibitem{tardy1991known}
+A.~Tardy-Corfdir and H.~Gilbert.
+\newblock A known plaintext attack of feal-4 and feal-6.
+\newblock In {\em Annual International Cryptology Conference}, pages 172--182.
+  Springer, 1991.
 
-\bibitem{rivest1978method}
-Ronald~L Rivest, Adi Shamir, and Len Adleman.
-\newblock A method for obtaining digital signatures and public-key
-  cryptosystems.
-\newblock {\em Communications of the ACM}, 21(2):120--126, 1978.
+\bibitem{vasek2016bitcoin}
+M.~Vasek, J.~Bonneau, C.~K. Ryan~Castellucci, and T.~Moore.
+\newblock The bitcoin brain drain: A short paper on the use and abuse of
+  bitcoin brain wallets.
+\newblock {\em Financial Cryptography and Data Security, Lecture Notes in
+  Computer Science. Springer}, 2016.
 
-\bibitem{elgamal1985public}
-Taher ElGamal.
-\newblock A public key cryptosystem and a signature scheme based on discrete
-  logarithms.
-\newblock In {\em Advances in cryptology}, pages 10--18. Springer, 1985.
+\bibitem{SIMON4}
+N.~Wang, X.~Wang, K.~Jia, and J.~Zhao.
+\newblock Improved differential attacks on reduced simon versions.
+\newblock {\em IACR Cryptology ePrint Archive}, 2014:448, 2014.
 
-\bibitem{barker2006recommendation}
-Elaine Barker, William Barker, William Burr, William Polk, and Miles Smid.
-\newblock Recommendation for key management-part 1: General (revised.
-\newblock In {\em NIST special publication}. Citeseer, 2006.
+\bibitem{SIMON5}
+Q.~Wang, Z.~Liu, K.~Var{\i}c{\i}, Y.~Sasaki, V.~Rijmen, and Y.~Todo.
+\newblock Cryptanalysis of reduced-round simon32 and simon48.
+\newblock In {\em International Conference in Cryptology in India}, pages
+  143--160. Springer, 2014.
 
-\bibitem{kosters2015notes}
-Michiel Kosters and Sze~Ling Yeo.
-\newblock Notes on summation polynomials.
-\newblock {\em arXiv preprint arXiv:1503.08001}, 2015.
+\bibitem{Wulliesecp256k1}
+P.~Wullie.
+\newblock bitcoin secp256k1 library, version 2015/08/11.
+\newblock \url{https://github.com/bitcoin/secp256k1}.
 
-\bibitem{diem2011discrete}
-Claus Diem.
-\newblock On the discrete logarithm problem in elliptic curves.
-\newblock {\em Compositio Mathematica}, 147(01):75--104, 2011.
-
-\bibitem{gaudry2004index}
-Pierrick Gaudry.
-\newblock Index calculus for abelian varieties and the elliptic curve discrete
-  logarithm problem.
-\newblock {\em IACR Cryptology ePrint Archive}, 2004:73, 2004.
-
-\bibitem{faugere2014using}
-Jean-Charles Faug{\`e}re, Pierrick Gaudry, Louise Huot, and Gu{\'e}na{\"e}l
-  Renault.
-\newblock Using symmetries in the index calculus for elliptic curves discrete
-  logarithm.
-\newblock {\em Journal of cryptology}, 27(4):595--635, 2014.
-
-\bibitem{faugere2012improving}
-Jean-Charles Faug{\`e}re, Ludovic Perret, Christophe Petit, and Gu{\'e}na{\"e}l
-  Renault.
-\newblock Improving the complexity of index calculus algorithms in elliptic
-  curves over binary fields.
-\newblock In {\em Advances in Cryptology--EUROCRYPT 2012}, pages 27--44.
-  Springer, 2012.
-
-\bibitem{petit2012polynomial}
-Christophe Petit and Jean-Jacques Quisquater.
-\newblock On polynomial systems arising from a weil descent.
-\newblock In {\em Advances in Cryptology--ASIACRYPT 2012}, pages 451--466.
-  Springer, 2012.
-
-\bibitem{huang2013improvement}
-Yun-Ju Huang, Christophe Petit, Naoyuki Shinohara, and Tsuyoshi Takagi.
-\newblock Improvement of faugere et al.’s method to solve ecdlp.
-\newblock In {\em Advances in Information and Computer Security}, pages
-  115--132. Springer, 2013.
-
-\bibitem{StevenECDLP2015}
-Steven Galbraith.
-\newblock Elliptic curve discrete logarithm problem in characteristic two.
-\newblock
-  \url{https://ellipticnews.wordpress.com/2015/04/13/elliptic-curve-discrete-logarithm-problem-in-characteristic-two},
-  2015.
-
-\bibitem{CourtoisECCPost2015}
-Nicolas Courtois.
-\newblock Half of all elliptic curves broken???
-\newblock \url{http://blog.bettercrypto.com/?p=1544}, 2015.
-
-\bibitem{courtois2014combined}
-Nicolas Courtois, Theodosis Mourouzis, Guangyan Song, Pouyan Sepehrdad, and
-  Petr Susil.
-\newblock Combined algebraic and truncated differential cryptanalysis on
-  reduced-round simon.
-\newblock In {\em SECRYPT}, pages 399--404, 2014.
-
-\bibitem{koblitz1987elliptic}
-Neal Koblitz.
-\newblock Elliptic curve cryptosystems.
-\newblock {\em Mathematics of computation}, 48(177):203--209, 1987.
-
-\bibitem{bernstein2009ebacs}
-Daniel~J Bernstein and Tanja Lange.
-\newblock ebacs: Ecrypt benchmarking of cryptographic systems, 2009.
-
-\bibitem{lenstra2001selecting}
-Arjen~K Lenstra and Eric~R Verheul.
-\newblock Selecting cryptographic key sizes.
-\newblock {\em Journal of cryptology}, 14(4):255--293, 2001.
-
-\bibitem{johnson2001elliptic}
-Don Johnson, Alfred Menezes, and Scott Vanstone.
-\newblock The elliptic curve digital signature algorithm (ecdsa).
-\newblock {\em International Journal of Information Security}, 1(1):36--63,
-  2001.
-
-\bibitem{fips2000186}
-PUB FIPS.
-\newblock 186-2. digital signature standard (dss).
-\newblock {\em National Institute of Standards and Technology (NIST)}, 2000.
-
-\bibitem{ieee2000ieee}
-IEEE~Working Group et~al.
-\newblock Ieee 1363-2000: Standard specifications for public key cryptography.
-\newblock {\em IEEE Standard, IEEE, New York, NY}, 10017, 2000.
-
-\bibitem{ansi2005x9}
-ANSI ANSI.
-\newblock X9. 62: 2005: Public key cryptography for the financial services
-  industry.
-\newblock {\em The elliptic curve digital signature algorithm (ECDSA)}, 2005.
-
-\bibitem{nakamoto2008bitcoin}
-Satoshi Nakamoto.
-\newblock Bitcoin: A peer-to-peer electronic cash system.
-\newblock {\em Consulted}, 1(2012):28, 2008.
-
-\bibitem{certicom2000sec}
-SEC Certicom.
-\newblock Sec 2: Recommended elliptic curve domain parameters.
-\newblock {\em Proceeding of Standards for Efficient Cryptography, Version}, 1,
-  2000.
-
-\bibitem{RyanDefcon}
-Ryan Castellucci.
-\newblock Cracking cryptocurrency brainwallets.
-\newblock \url{https://www.defcon.org/html/defcon-23/dc-23-index.html}.
-
-\bibitem{brickell1993fast}
-Ernest~F Brickell, Daniel~M Gordon, Kevin~S McCurley, and David~B Wilson.
-\newblock Fast exponentiation with precomputation.
-\newblock In {\em Advances in Cryptology—EUROCRYPT’92}, pages 200--207.
-  Springer, 1993.
-
-\bibitem{bernstein2007explicit}
-Daniel~J Bernstein and Tanja Lange.
-\newblock Explicit-formulas database, 2007.
-
-\bibitem{brier2002weierstrass}
-Eric Brier and Marc Joye.
-\newblock Weierstra{\ss} elliptic curves and side-channel attacks.
-\newblock In {\em Public Key Cryptography}, pages 335--345. Springer, 2002.
-
-\bibitem{bernstein2007faster}
-Daniel~J Bernstein and Tanja Lange.
-\newblock Faster addition and doubling on elliptic curves.
-\newblock In {\em Advances in cryptology--ASIACRYPT 2007}, pages 29--50.
-  Springer, 2007.
-
-\bibitem{explicitBernstein}
-Tanja~Lange Daniel J.~Bernstein.
-\newblock Explicit-formulas database.
-\newblock \url{https://www.hyperelliptic.org/EFD/}.
-
-\bibitem{cohen1998efficient}
-Henri Cohen, Atsuko Miyaji, and Takatoshi Ono.
-\newblock Efficient elliptic curve exponentiation using mixed coordinates.
-\newblock In {\em Advances in Cryptology ASIACRYPT’98}, pages 51--65.
-  Springer, 1998.
+\bibitem{XLAsEstCourt04}
+B.-Y. Yang, J.-M. Chen, and N.~T. Courtois.
+\newblock On asymptotic security estimates in xl and gr{\"o}bner bases-related
+  algebraic cryptanalysis.
+\newblock In {\em International Conference on Information and Communications
+  Security}, pages 401--413. Springer, 2004.
 
 \end{thebibliography}

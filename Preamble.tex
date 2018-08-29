@@ -2,15 +2,28 @@
 \makedeclaration
 
 \begin{abstract} % 300 word limit
-My research is about stuff.
+In this thesis we study two major topics in cryptanalysis and optimization: software algebraic cryptanalysis and elliptic curve optimizations in cryptanalysis. The idea of algebraic cryptanalysis is to model a cipher by a Multivariate Quadratic (MQ) equation system. Solving MQ is an NP-hard problem. However, NP-hard problems have a point of phase transition where the problems become easy to solve. This thesis explores different optimizations to make solving algebraic cryptanalysis problems easier. 
 
-It begins with a study of some stuff, and then some other stuff and things.
+We first worked on guessing a well-chosen number of key bits, a specific optimization problem leading to guess-then-solve attacks on GOST cipher. In addition to attacks, we propose two new security metrics of contradiction immunity and SAT immunity applicable to any cipher. These optimizations play a pivotal role in recent highly competitive results on full GOST. This and another cipher Simon, which we cryptanalyzed were submitted to ISO to become a global encryption standard which is the reason why we study the security of these ciphers in a lot of detail. 
 
-There is a 300-word limit on your abstract.
+Another optimization direction is to use well-selected data in conjunction with Plaintext/Ciphertext pairs following a truncated differential property. These allow to supplement an algebraic attack with extra equations and reduce solving time. This was a key innovation in our algebraic cryptanalysis work on NSA block cipher Simon and we could break up to 10 rounds of Simon64/128. The second major direction in our work is to inspect, analyse and predict the behaviour of ElimLin attack the complexity of which is very poorly understood, at a level of detail never seen before. Our aim is to extrapolate and discover the limits of such attacks, and go beyond with several types of concrete improvement. 
+
+Finally, we have studied some optimization problems in elliptic curves which also deal with polynomial arithmetic over finite fields. We have studied existing implementations of the secp256k1 elliptic curve which is used in many popular cryptocurrency systems such as Bitcoin and we introduce an optimized attack on Bitcoin brain wallets and improved the state of art attack by 2.5 times. 
+
+\vskip5pt
+\vskip5pt
+{\bf Keywords:} algebraic cryptanalysis, SAT solver, ElimLin, symmetric encryption,  GOST, Simon, Bitcoin brain wallets, Elliptic curves
 \end{abstract}
 
 \begin{acknowledgements}
-Acknowledge all the things!
+I would like to express my sincere gratitude to my supervisor Dr. Nicolas Courtois for his guidance and advice throughout my research. He is an excellent example of codebreaker and a great mentor.  His patience, motivation, enthusiasm and immense knowledge have been invaluable throughout my academic and personal development.
+
+I would like to express my great appreciation to Dr. Daniel Hulme for his endless support, continuous encouragement, valuable suggestions and the working opportunity he offered from Satalia over the years. Furthermore, I thank my UCL colleagues Dr. Theodosis Mourouzis, Dr. Jie Xiong and Yongxin Yang for the sleepless nights when we were working together before deadlines, and for all the fun we have had in the last few years.
+
+I extend my gratitude to Dr. Mark Herbster, Dr. David Clark, Dr. Earl Barr from UCL and Steven Poulson from Cisco, for their kindness and advice, offering internship opportunities in their groups and leading me in working on exciting projects. 
+
+Finally, and most importantly, a very special thank you goes to my parents and my wife for their love during all these years of my Ph.D. studies. It would have been impossible to have done it without them.
+
 \end{acknowledgements}
 
 \setcounter{tocdepth}{2} 

@@ -1,61 +1,85 @@
 \chapter{Cryptanalysis of Block Ciphers} \label{ch:CoBC}
 \label{Cryptanalysis of block ciphers}
 %\input{method}
-The history of cryptanalysis is long and at least as fascinating as the history of cryptography. As an example, in 1917 an article in ``Scientific American" claimed the Vigen\`{e}re cipher is ``impossible of translation" \cite{knudsen1998block}. Today, most cryptography classes at university use it as an exercise to illustrate that this claim is not true. When discussing the security of a cryptosystem, one needs to define a model works in the real world which we will use the model of Shannon \cite{shannon1949communication}.
+The history of cryptanalysis is as long and as fascinating as the history of cryptography. For example, in 1917, an article in ``Scientific American" claimed that the Vigen\`{e}re cipher was ``impossible of translation" \cite{knudsen1998block}. Today, most cryptography classes at university use the Vigen\`{e}re cipher as an exercise to illustrate that this claim is not true. When discussing the security of a cryptosystem, one needs to define a model that works in the real world for which we will use the model of Shannon \cite{shannon1949communication}.
 
 %TO DO 插图 
 
-The sender and the receiver share a common key $K$ over a secure channel in advance. The sender encrypts a plaintext P using the secret key $K$, sends ciphertext C over an insecure channel to the receiver. The receiver then decrypt C to P using K. The attacker has access to the insecure channel and can intercept ciphertext. In this chapter we assume that the sender and receiver use a secret key cipher $E_{K}(\cdot)$ of n-bits block size and k-bits size of key $K$. To evaluate the security we assume:
+The sender and the receiver share a common key $K$ over a secure channel in advance. The sender encrypts a plaintext P using the secret key $K$, sends ciphertext C over an insecure channel to the receiver. The receiver then decrypts C to P using K. The attacker has access to the insecure channel and can intercept the ciphertext. In this chapter we assume that the sender and receiver use a secret key cipher $E_{K}(\cdot)$ of n-bits block size and k-bits size of key $K$. 
 
-\begin{myAssumption}
-	All keys are equally likely and a key K is always chosen uniformly at random
-\end{myAssumption}
-Also we will assume that the attacker knows all details about the cryptographic algorithm used by the sender and receiver, except the secret key. This assumption is known as Kerckhofs's Assumption \cite{kahn1996codebreakers}.
-\begin{myAssumption} \label{assumption2a}
-	The enemy cryptanalyst knows all details of the enciphering process and deciphering process except for the value of the secret key.
-\end{myAssumption}
-
-As an extension of the Assumption \ref{assumption2a}, we discuss the following two cases. 
-\begin{myAssumption} \label{assumption2b}
-	The enemy cryptanalyst knows all the details of the enciphering process and deciphering process except the value of the key and the S-Boxes (Substitution-box) which is a basic component of symmetric key algorithms which performs substitution.
-\end{myAssumption}
-
-Under this assumption, the S-Boxes are like te master key or a high level key, which is kept as security. Similar to the rotors using in German Enigma during World War II. The attacker has to first recover the S-boxes through silicon reverse engineering or try for different sets of known S-boxes, then perform normal cryptanalysis as Assumption \ref{assumption2a}.
-\begin{myAssumption}
-	The enemy cryptanalyst knows all the details of the enciphering process and deciphering process except that the cipher has been tweaked, for example 90\% of the cipher is what we know
-\end{myAssumption}
-attacker has again two steps under this assumption. First recover the cipher through reverse engineering and try different sets of known S-boxes, then perform normal cryptanalysis as Assumption \ref{assumption2a}.
-
-\section{Classification of Attacks}
-Based on these assumptions, we classify the possible attacks an attacker can do \cite{schneier1996applied}
+The definition of security is also strongly related to what type of attackers you are defending against. In chapter 5 of Bruce Schneier's book \cite{schneier2006beyond}, the author categorizes (also appear in slides 35 in \cite{SlidesCompSec}) attackers along the following basic lines: 
+	
 \begin{enumerate}
-	\item \textbf{Ciphertext only attack}: The attacker processes a set of intercepted ciphertexts
-	\item \textbf{Known plaintext attack}: The attacker obtains $P_{1},P_{2},...,P_{s}$ a set of s plaintexts and the corresponding ciphertexts $C_{1},C_{2},...,C_{s}$
-	\item \textbf{Chosen plaintext attack}: the attacker chooses a priori set of s plaintexts $P_{1},P_{2},...,P_{s}$ and obtains in some way the corresponding ciphertexts $C_{1},C_{2},...,C_{s}$
-	\item \textbf{Adaptively chosen plaintext attack}: The attacker chooses a set of plaintext $P_{1},P_{2},...,P_{s}$ interactively as he obtains the corresponding ciphertext $C_{1},C_{2},...,C_{s}$. That is the attacker chooses $P_{1}$, obtains $C_{1}$, \textbf{then} chooses $P_{2}$ etc.
-	\item \textbf{Chosen ciphertext attacks}: For symmetric ciphers these are similar to those of chosen plaintext attack and adaptively chosen plaintext attack
+	\item Adversarial goals and motivations.
+	\item Resources: money, human resources, computing power, memory, risk, expertise, etc.
+	\item Access to the system.
 \end{enumerate}
 
-The chosen text attacks are the most powerful attacks. However, they are also unrealistic in many applications. If there exist redundancy in plaintext space, it will be very hard for an attacker to find an encrypted non-meaningful plaintexts send by the sender, and similarly hard to get ciphertexts decrypted. But if a system is secure against an adaptively chosen text attack then it is also secure against all other attacks.
+A system could be secure against one type of attackers but not secure to another type. This reflects on the different types of security assumptions and classification of attacks which we will discuss later. 
 
-Modern cryptanalysis on block ciphers has been very focused on finding the secret key $K$. However, there are other serious attacks for public key cryptography which do not find the secret key. \cite{knudsen1994block} classified the types of breaks in his paper as follows:
+To evaluate the security of a cipher we assume:
+
+\begin{myAssumption}
+	All keys are equally likely and a key K is chosen uniformly at random.
+\end{myAssumption}
+Also we will assume that the attacker knows all the details about the cryptographic algorithm used by the sender and receiver, except the secret key. This assumption is known as Kerckhoffs's assumption \cite{kahn1996codebreakers}.
+
+
+\begin{subtheorem}{myAssumption} 
+	\begin{myAssumption} \label{assumption2a}
+		The enemy cryptanalyst knows all details of the enciphering process and deciphering process except for the value of the secret key.
+	\end{myAssumption}
+	
+	This is not quite realistic if we look at the history of cryptography and cryptanalysis. As an extension of  Assumption \ref{assumption2a}, we discuss the following two assumptions. 
+	
+	\begin{myAssumption} \label{assumption2b}
+		The enemy cryptanalyst knows all the details of the enciphering process and deciphering process except the value of the key and the Substitution-box (S-box) which is a core component of symmetric key algorithms that performs substitution.
+	\end{myAssumption}
+	
+	Under this assumption, the S-boxes are like the master key or a high-level key, which is kept secret at a certain parameter (e.g., banks or country) and can be computed by the enemy, but at a high cost. This is similar to the rotors used in the German Enigma machine during World War II. The attacker has to recover the S-boxes first through silicon reverse engineering or try for different sets of known S-boxes, then perform normal cryptanalysis as in Assumption \ref{assumption2a}.
+	
+	\begin{myAssumption}\label{assumption2c}
+			The enemy cryptanalyst knows all the details of the enciphering and deciphering processes except that the cipher has been tweaked; for example 90\% of the cipher is what we know.
+	\end{myAssumption}
+\end{subtheorem}
+
+For example, the encryption algorithm used in Chinese Sim cards is known as COMP128-V0, which is defined by China Mobile and only used in China. In this case, the attacker has again two steps under this assumption: first to recover the cipher through reverse engineering and try different sets of known S-boxes; then performs normal cryptanalysis as Assumption \ref{assumption2a}.
+
+\section{Classification of Attacks}
+Regarding access to the system, Schneier classifies the possible attacks an attacker can perform as follows: \cite{schneier1996applied}
 \begin{enumerate}
-	\item \textbf{Total break}: An attacker finds the secret key $K$
-	\item \textbf{Global deduction}: An attacker finds an algorithm $A$, functionally equivalent to $E_{K}(\cdot)(or\ D_{K}(\cdot))$ without knowing the key $K$.
-	\item \textbf{Instance (local) deduction}: An attacker finds the plaintext (ciphertext) of an intercepted ciphertext (plaintext), which he did not obtain from the legitimate sender
-	\item \textbf{Information deduction}: An attacker gains some information about the key, plaintexts or ciphertexts, which he did not get directly from sender and which he did not have before the attack.
+	\item \textbf{Ciphertext-only Attack}: The attacker processes a set of intercepted ciphertexts.
+	\item \textbf{Known Plaintext Attack}: The attacker obtains a set of $s$ plaintexts $P_{1},P_{2},...,P_{s}$, and the corresponding ciphertexts $C_{1},C_{2},...,C_{s}$.
+	\item \textbf{Chosen Plaintext Attack}: The attacker chooses a prior set of $s$ plaintexts $P_{1},P_{2},...,P_{s}$ and obtains, in some way, the corresponding ciphertexts $C_{1},C_{2},...,C_{s}$.
+	\item \textbf{Adaptively Chosen Plaintext Attack}: The attacker chooses a set of $s$ plaintext $P_{1},P_{2},...,P_{s}$ interactively as he obtains the corresponding ciphertext $C_{1},C_{2},...,C_{s}$. That is, the attacker chooses $P_{1}$, obtains $C_{1}$, and then chooses $P_{2}$ etc.
+	\item \textbf{Chosen Ciphertext Attacks}: For symmetric ciphers, Chosen Ciphertext Attacks are similar to the Chosen Plaintext Attack and the Adaptively Chosen Plaintext Attack.
+	\item \textbf{Chosen Plaintext and Ciphertext Attack}: The attacker has access to both encryption and decryption oracles and can choose both plaintext and ciphertext.
+\end{enumerate}
+
+The chosen text attacks are the most powerful attacks. However, they are also unrealistic in many applications. If redundancy exists in plaintext space, it will be very hard for an attacker to find an encrypted non-meaningful plaintext sent by the sender, and to get the ciphertexts decrypted. However, if a system is secure against an Adaptively Chosen Plaintext Attack, then it is also secure against all other attacks.
+
+Modern cryptanalysis of block ciphers has focused on finding the secret key $K$ for any scenario, even unrealistic ones. Importantly, there are other serious attacks for public key cryptography, which do not find the secret key. In \cite{knudsen1994block}, Knudsen classifies the types of attacks as follows:
+\begin{enumerate}
+	\item \textbf{Total break}: An attacker finds the secret key $K$.
+	\item \textbf{Global deduction}: An attacker finds an algorithm $A$, which is functionally equivalent to $E_{K}(\cdot)(or\ D_{K}(\cdot))$ without knowing the key $K$.
+	\item \textbf{Instance (local) deduction}: An attacker finds the plaintext (ciphertext) of an intercepted ciphertext (plaintext), which was not obtained from the legitimate sender.
+	\item \textbf{Information deduction}: An attacker gains some information about the key, plaintexts or ciphertexts, which was not obtained directly from the sender or before the attack.
 \end{enumerate} 
-This classification is hierarchical, i.e., if a total break is possible, then a global deduction is possible etc.
+This classification is hierarchical, i.e., if a total break is possible, then a global deduction is possible, etc.
 
-\paragraph{Data Requirement} Attacks can also be characterised by resources they require. Those resources include time complexity, memory usage and data requirements. The first two types of resources are very obvious, however it is worth to point out data requirement is also a key component that makes an attack can work in practices. Full plaintext and ciphertext pairs are not easy to obtain in real world. Some of attacks works only if all possible plaintext and ciphertext pairs for a single key is known, and some of the attacks can work with multiple key scenarios. 
-\section{Brute-force Attack}
-Brute-force attack or exhaustive key search is the most general attack that can be applied to any block cipher. All block ciphers are totally breakable in a ciphertext only attack, just simply by trying all the possible keys one by one and checking whether the computed plaintext is meaningful. This attack requires the computation of about $2^{k}$ encryptions. The dimension of the key space $k$, which is the length of the key, determines the practical feasibility of performing a brute-force attack. For modern block ciphers, brute force is always possible in theory but computationally infeasible in practise.
+\paragraph{Data Requirements}  \mbox{} \\
+Attacks can also be characterized by the resources they require. These resources include time complexity, memory usage, and data requirements. Although the first two types of resources are very obvious, it is worth pointing out the data requirement is also a key component that makes an attack able to work in practice. Full plaintext and ciphertext pairs are not easy to obtain in the real world. Some of the attacks work only if all possible plaintext and ciphertext pairs for a single key are known which is called single key scenario \cite{bouillaguet2012low}, and some of the attacks (which have only appeared in recent years) are specifically designed to take advantage of a so-called multiple key
+scenario, where the attacker has access to data encrypted with more than
+one key (such attacks typically also work in standard single key
+scenario, however in this case they will be less advantageous) \cite{gostac,courtois2013cryptanalysis}. 
+\section{Brute-force Attacks}
+A brute-force attack or exhaustive key search is the most general attack that can be applied to any block cipher. All block ciphers are totally breakable in a ciphertext-only attack, just simply by trying all the possible keys one by one, and checking whether the computed plaintext is meaningful. If the block size is equal to key size, in the worst case, this attack requires the computation of $2^{k}$ encryptions. The dimension of the key space $k$, which is the length of the key, determines the practical feasibility of performing a brute-force attack. While in 2014 an paper written by Huang and Lai \cite{huang2014effective} described a brute-force-like attack, with a time complexity faster than the exhaustive key search by going over the entire key space, but performing less than a full encryption for each possible key. The time complexity of this attack is $2^k(1 - \epsilon)$ (where $\epsilon > 0$) on average regardless the block size, cf. \cite{huang2014effective,gostac}. For modern block ciphers, brute-force is always possible in theory, but computationally infeasible in practice.
 \section{Linear Cryptanalysis}
-Linear cryptanalysis is a known plaintext attack on block ciphers. It was popularised by Matsui in 1993 \cite{matsui1994linear}. A preliminary version of the attack on FEAL was described in 1992 \cite{matsui1993new}. Although the published attack on DES requires $2^{43}$ known plaintexts which is not very practical, it still was a great improvement in experimental cryptanalysis. 
+Linear cryptanalysis is a Known Plaintext Attack on block ciphers. It was popularised by Matsui in 1993 \cite{matsui1994linear} and invented earlier by Gilbert and his student \cite{tardy1991known}. A preliminary version of the attack on FEAL was described in 1992 \cite{matsui1993new}. A year later, Matsui published another attack on DES\cite{matsui1994linear}. Although the published attack on DES required $2^{43}$ known plaintexts which is not very practical, it still was a great improvement in experimental cryptanalysis. 
 
-Linear cryptanalysis is based on finding affine approximations to the action of a cipher which hold with high probability. The attacker exploits linear approximations of some bits of the plaintext, ciphertext and key. In the attack on the DES (or on DES-like iterated ciphers) the linear approximations are obtained by combining approximations for each round under the assumption of independent round keys. 
+Linear cryptanalysis is based on finding affine approximations to the action of a cipher which holds with high probability. The attacker exploits linear approximations of some bits of the plaintext, ciphertext and key. In the attack on the DES (or on DES-like iterated ciphers) the linear approximations are obtained by combining approximations for each round under the assumption of independent round keys. 
 
-The attacker hopes to find an expression (equation \ref{eq:test}), which holds with probability $p_{L} \neq \frac{1}{2}$ over all keys \cite{matsui1994linear}, such that $\epsilon = \mid p_{L} - \frac{1}{2} \mid$, call the bias, is maximal. 
+The attacker hopes to find an expression (equation \ref{eq:test}), which holds with probability $p_{L} \neq \frac{1}{2}$ over the keys \cite{matsui1994linear}, such that $\epsilon = \mid p_{L} - \frac{1}{2} \mid$, called the bias, is maximal. 
 \begin{equation} \label{eq:test}
 (P\cdot\alpha)\oplus(C\cdot\beta)=(K\cdot\gamma)
 \end{equation}
@@ -69,98 +93,130 @@ Given an approximation (equation \ref{eq:test}) a linear attack using $N$ plaint
 	\item if $T > \frac{N}{2}$ guess that $K \cdot \gamma = 0$, otherwise guess that $K \cdot \gamma = 1$ (majority vote).
 	
 \end{enumerate}
-By using the above method, the attacker can find one bit of information about the secret key, $K \cdot \gamma$. However, the above linear attack is not very efficient, as it only finds one bit of information about the key. In \cite{matsui1994linear}, Matsui also showed an extended linear attack which finds more key bits. Instead of approximating the first and last round, the extended linear attack simply repeat the attack for all values of the relevant key bits in those two rounds by using the following approximation equation (equation \ref{eq:linear2}). 
+By using the above method, the attacker can find one bit of information about the secret key, $K \cdot \gamma$. However, this is only one step in an attack, as it only finds one bit or a linear equation about the key. In \cite{matsui1994linear}, Matsui also showed an extended linear attack which finds more key bits. Instead of approximating the first and last round, the extended linear attack simply repeats the attack for all values of the relevant key bits in those two rounds by using the following approximation equation: 
 \begin{equation} \label{eq:linear2}
 (P \cdot \alpha) \oplus (C \cdot \beta) \oplus (F(P_{R},K_{1}) \cdot \alpha_{1}) \oplus (F(C_{R},K_{r}) \cdot \alpha_{r}) = (K \cdot \gamma)
 \end{equation}
-where $P_{R}, C_{R}$ are the right halves of the plaintexts and ciphertexts. $K_{1}$ and $K_{R}$ are the key bits affecting the linear approximation in the first and $r$th rounds. We refer reader to \cite{matsui1994linear} for more details.
+where $P_{R}, C_{R}$ are the right halves of the plaintexts and ciphertexts. $K_{1}$ and $K_{R}$ are the key bits affecting the linear approximation in the first and $r$th rounds. We refer the reader to Matsui's paper \cite{matsui1994linear} for more details.
 
+%TODO: citiation
+Kaliski and Robshaw showed an improved linear attack using multiple linear approximations in \cite{kaliski1994linear}. In \cite{kilian1996protect} Knudsen and Robshaw introduced a linear attack using non-linear approximations in the outer rounds of a block cipher. Both of these have not been able to show any significant improvement compared to Matsui's linear attack. Kaliski's and Knudsen's attacks seem best suited for ciphers with large S-boxes, such as LOKI \cite{brown1990loki,kilian1996protect}. However in 2004 as an extension of Knudsen and Robshaw's work, new attacks were introduced by Courtois \cite{courtois2004feistel} to attack Feistel schemes, which makes this non-linear approximation ``penetrate" inside the cipher and achieved a small improvement upon Matsui's work.
 
-Kaliski and Robshaw showed an improved linear attack using multipe linear approximations in \cite{kaliski1994linear}. In \cite{kilian1996protect} Knudsen and Robshaw introduced a linear attack using non-linear approximations in the outer rounds of an block cipher. Both of these are not been able to show an significant improvement compared to Matsui's linear attack. The attacks seem best suited for ciphers with large S-boxes, such as LOKI \cite{brown1990loki} \cite{kilian1996protect}. In 2004, new attacks were introduced to attack Feistel schemes in \cite{courtois2004feistel} which have a small improvements than Matsui's work.
+\section{Differential Cryptanalysis} \label{sec:differentialCry}
+Differential cryptanalysis is based on tracking changes in the differences between two messages as they pass through the consecutive rounds of encryption. It is one of the oldest classical attacks on modern block ciphers. In cryptographic literature, it was first described and analyzed by Biham and Shamir, and applied to the DES algorithm in the early 1990s \cite{biham1993differential}. However, Coppersmith, a member of the IBM team that designed DES \cite{coppersmith1994data,coppersmith2000development,courtois2003s},  reported that this attack was already known to IBM designers around 1974. It was known under the name of T-attack or Tickle attack, and DES had already been designed to resist this type of attack. A detailed discussion of the specific original design criteria of DES can be found in \cite{courtois2003s}. Moreover, it appears that IBM had agreed with the NSA that the design criteria of DES should not be made public, precisely because it would ``weaken the competitive advantage the United States enjoyed over other countries in the field of cryptography" cf. \cite{coppersmith1994data,coppersmith2000development}. In contrast, linear cryptanalysis seems more recent. 
 
-\section{Differential Cryptanalysis}
-Differential cryptanalysis is based on tracking changes in the differences between two messages as theypass through the consecutive rounds of encryption. It is one of the oldest classical attacks on modern block ciphers. In cryptographic literature, it was first described and analysed by Biham and Shamir and applied to DES algorithm in the early 1990s \cite{biham1993differential}. However, Coppersmith, a member of the IBM team which designed DES \cite{coppersmith1994data,coppersmith2000development,courtois2003s}, has reported that this attack was already known to IBM designers around 1974. It was known under the name of T-attack or Tickle attack, and DES had already been designed to resist this type of attack. A detailed discussion of specific original design criteria of DES can be found in \cite{courtois2003s}. Moreover, it appers that IBM had agreed with the NSA that the design criteria of DES should not be made public, precisely because it would ``weaken the competitive advantage the United States enjoyed over other countries in the field of cryptography" cf. \cite{coppersmith1994data,coppersmith2000development} 
+Today, differential cryptanalysis is extremely well known. Numerous authors studied various aspects of differential cryptanalysis extensively in the 1990s. Apart from DES, differential cryptanalysis has also been successfully applied to a wide range of iterated ciphers \cite{knudsen1993cryptanalysis,massey1994safer}.  Recent research work showed great success using differential cryptanalysis to break the Russian standard GOST  \cite{gostdc0,gostdc1} and the NSA lightweight cipher Simon and Speck \cite{simon3,simon2}.
 
-Today, differential cryptanalysis is extremely well known. Numerous authors studied various aspects of differential cryptanalysis extensively in the 1990s. Apart from DES, differential cryptanalysis has also been successfully applied to a wide range of iterated ciphers \cite{knudsen1993cryptanalysis,massey1994safer}.  Recent research work also showed a great success using differential cryptanalysis to break Russian standard GOST  \cite{gostdc0,gostdc1} and NSA lightweight cipher SIMON and SPECK \cite{biryukov2014differential,alkhzaimi2013cryptanalysis}
+Both linear and differential cryptanalysis require lots of data; however a major difference between these two type of attacks is that differential cryptanalysis works in a so-called multiple key scenario. In a multiple key scenario, where given $2^{X}$ devices with distinct keys, $2^{Y}$ of data per device, and $M = 2^{Z}$ of memory, some keys can be recovered at the total cost of $T = 2^{Z}$ \cite{courtois2013cryptanalysis}. This also appears in the original Biham and Shamir paper in 1993 \cite{biham1993differential}. But this attack scenario has only been discussed in recent years \cite{courtois2013cryptanalysis}. The fact that differential cryptanalysis works with data collected from multiple keys (where linear cryptanalysis requires data on a single key) makes differential cryptanalysis more practical than linear cryptanalysis, as it's easier for an attacker to get data from multiple keys than a single key in practice.
 
-The data requirements for differential cryptanalysis works with multiple key scenario, where linear cryptanalysis requires data on single key. This is the main reason why differential cryptanalysis is considered more stronger than linear cryptanalysis \cite{courtois2005best}.
-
-The main task of Differential cryptanalysis is to study the propagation of input differences from round to round inside the encryption system, and find specific differences which propagate with high probability. Such pairs of input-output can be used to recover some bits of the secret key. In general, differential cryptanalysis exposes the non-uniform distribution of the output differences given one or several input differences.
+The main task of differential cryptanalysis is to studies the propagation of input differences from round to round inside the encryption system, and to find specific differences that propagate with high probability. Such plaintext and ciphertext pair (P/C pairs) can be used to recover some bits of the secret key. In general, differential cryptanalysis exposes the non-uniform distribution of the output differences given one or several input differences. However, what really matters in differential cryptanalysis is that some special events can happen at least once within a given attack requirements.
 
 \begin{mydef} \label{df_difference}
-	a \textbf{difference} between two bit strings, $X$ and $X^{'}$ of equal length as $$\triangle X = X \otimes (X^{'})^{-1}$$
-	where $\otimes$ is the group operation on the group of bit strings used to combine the key with the text input in the round function and where $(X)^{-1}$ is the inverse element of X with respect to $\otimes$
+	A \textbf{difference} between two bit strings, $X$ and $X^{'}$ of equal length is defined as $$\triangle X = X \otimes (X^{'})^{-1}$$
+	where $\otimes$ is the group operation on the group of bit strings used to combine the key with the text input in the round function and $(X)^{-1}$ is the inverse element of X with respect to $\otimes$
 \end{mydef}
 
-Generally, the selection of the operator $\otimes$ depends on the way the round subkeys are introduced in each round. As in many ciphers use XOR for the key application in round function, the operator in definition \ref{df_difference} usually is exclusive-or ($\oplus$).
+Generally, the selection of the operator $\otimes$ depends on the way the round subkeys are introduced in each round. As many ciphers use XOR for the key application in round function, the operator in Definition \ref{df_difference} is usually exclusive-or ($\oplus$).
 
-The attacker then computes the differences of the corresponding ciphertexts, hoping to detect statistical patterns in their distribution. The resulting pair of differences is called a differential. Their statistical properties depend upon the internal structure of the cipher. The attacker aim to find one particular ciphertext difference which is especially frequent. In this way, the cipher can be distinguished from random.
+The attacker then computes the differences of the corresponding ciphertexts, hoping to detect statistical patterns in their distribution. The resulting pair of differences is called a differential. Their statistical properties depend upon the internal structure of the cipher. The attacker aims to find one particular ciphertext difference that is especially frequent. In this way, the cipher can be distinguished from random.
+
+Some differential cryptanalysis work study multiple input / output differences, such as truncated differentials (which we will discuss later), and the work presented in 2009 by Courtois \cite{secrypt09} for cloning MiFare Classic building passes.
+%\paragraph{Differential Cryptanalysis with Multiple Differences} \mbox{ } \\
 
 \paragraph{Truncated Differentials} \mbox{ } \\
-Truncated Differential Cryptanalysis is a generalization of differential cryptanalysis developed by Lars Knudsen \cite{Knudsen95}. Unlike differential cryptanalysis which studies the propagation of the full difference between two plaintexts, truncated differential cryptanalysis consider differences that are partially determined, as in some ciphers, it is possible and advantageous to predict the values of parts of the differences after each round. This technique have been successfully applied to many block ciphers such as Russian standard GOST \cite{gostdc2,TheoPhD,courtois2015can}. Truncated differential is defined as follow: \cite{Knudsen95}.
-
+Truncated Differential Cryptanalysis is a generalization of differential cryptanalysis developed by Lars Knudsen in 1995 \cite{Knudsen95}. Unlike differential cryptanalysis, which studies the propagation of the full difference between two plaintexts, truncated differential cryptanalysis considers differences that are partially determined, since in some ciphers it is possible and advantageous to predict the values of parts of the differences after each round. This technique has been successfully applied to many block ciphers, such as Camellia \cite{sugita2001security}, TEA and XTEA \cite{hong2003differential}, and Russian standard GOST \cite{gostdc2,TheoPhD,courtois2015can}. Truncated differential cryptanalysis has also been extensively studied by Mourouzis in his PhD thesis \cite{TheoPhD}. Truncated differential is defined as follows \cite{Knudsen95}.
 \begin{mydef}
-	A differential that predicts only parts of an n-bit value is called a truncated differential. More formally, let(a,b) be an $i$-round differential. If $a^{'}$ is a subsequence of a and $b^{'}$, then ($a^{'},b^{'}$) is called an $i$-round truncated differential.
+	Let $a = a_{0}a_{1}...a_{n-1}$ be an n-bit string, then its truncation is the n-bit string $b$ given by $b_{0}b_{1}...b_{n-1}$ = $TRUNC(a_{0}a_{1}...a_{n-1})$, where either $b_{i} = a_{i}$ or $b_{i} = *$, for all $0 \leq i \leq n-1 $ and $*$ is an unknown value
 \end{mydef}
 
-A truncated differential can be considered as a collection of differentials. For example, let ($a^{'},b$) be the truncated differential of an  n-bit block cipher, where $a^{'}$ specifies the least $n^{'} < n$ significant bits of the plaintext difference and b specifies the ciphertext difference of length n. This differential is a collection of all $2^{n-n^{'}}$ differentials (a,b), where a is any value that truncated to the $n^{'}$ least significant bits is $a^{'}$. 
+\begin{mydef}
+	A differential that predicts only parts of a $n$-bit value is called a truncated differential. More formally, let $(a,b)$ be an $i$-round differential. If $a^{'}$ is a truncation of a and $b^{'}$ is a truncation of b, then ($a^{'},b^{'}$) is called an $i$-round truncated differential.
+\end{mydef}
+
+A truncated differential can be considered as a collection of differentials. For example, for an $i$-round 64-bit block cipher, a truncated differential $\Delta=[00000222 00000080]$ in hexadecimal (which appears later in Section \ref{Sec:DAcSimon})  is a collection of $2^{4}-1$ differentials $(a,b)$ where $a$ and $b$ can take any of the following values:
+\[
+\begin{tabular}{ccc}
+00000200 00000000 &  00000020 00000000 & 00000002 00000000 \\ 
+00000000 00000080 &  00000220 00000000 & 00000202 00000000 \\
+00000200 00000080 &  00000022 00000000 & 00000020 00000080 \\ 
+00000002 00000080 &  00000222 00000000 & 00000220 00000080 \\ 
+00000202 00000080 &  00000022 00000080 & 00000222 00000080 
+\end{tabular}
+\]
 
 \section{Algebraic Attacks} \label{sec:AA}
+%TODO AC encoding
 %What is AA?
+% ElimLin crictail extension of LC, 
+In general, the security of a given block cipher will grow exponentially with the number of rounds and so does the number of required Plaintext/Ciphertext pairs that are needed in a linear and differential cryptanalytic attack. However, in most cases, only a few Plaintext/Ciphertext pairs are available for cryptanalysis, so linear or differential attacks are not expected to succeed. Thus, a new method needs to be invented that will be able to recover the secret key when only a very limited amount of data is available..
 
-In general the security of a given block cipher will grow exponentially with the number of rounds and so does the number of required plaintext-ciphertext pairs which are needed in a linear and differential cryptanalytic attack. However, in most cases, only a few plaintext-ciphertext pairs are available for cryptanalysis, linear or differential attacks are not expected to succeed. Thus, a new method needs to be invented which will be able to recover the secret key with only a few information is available.
-
-Claude Shannon, has once suggested that the security of a cipher should be related to the difficulty of solving the underlying system of equations and deriving the key: 
-
+Claude Shannon, once suggested that the security of a cipher should be related to the difficulty of solving the underlying system of equations and deriving the key: 
 
 \begin{quotation}
 	\textit{``if we could show that solving a certain system requires at least as much work as solving a system of simultaneous equations in a large number of unknowns, of a complex type, then we would have a lower bound of sorts for the work characteristic"} \cite{Shannon}. 
 \end{quotation}
-This is the core concept behind algebraic attacks. 
-
-An algebraic attack is a form of known plaintext attack which consists of the following two steps:
+This is the core concept behind algebraic attacks. An algebraic attack is a form of Known Plaintext Attack which consists of the following two steps:
 
 %How AA works?
 \begin{enumerate}
-	\item \textbf{Modelling}: Describe the cipher as a multivariate system of polynomial equations over a small finite field (like GF(2) ) or logical constraints in terms of the secret key K, the plaintext P and the ciphertext C. $$ {f_{1}(K,P,C)=0,...f_{r}(K,P,C)=0 \Longleftrightarrow E(K,P) = C}$$
+	\item \textbf{Modelling}: Describe the cipher as a multivariate system of polynomial equations over a small finite field (like $\mathbb{F}_2$) or logical constraints in terms of the secret key $K$, the plaintext $P$ and the ciphertext $C$. $$ {f_{1}(K,P,C)=0,...f_{r}(K,P,C)=0 \Longleftrightarrow E(K,P) = C}$$
 	
-	\item \textbf{Solving}: Solve the underlying multivariate system of equations and obtain the secret key. In order to reduce the complexity of solving the system we substitute to the system all known plaintext/ciphertext pairs. The more the pairs the more
-	the equations we obtain involving the key bits. For many known attack this can make the problem easier to solve.
+	\item \textbf{Solving}: Solve the underlying multivariate system of equations and obtain the secret key. In order to reduce the complexity of solving the system, we substitute all known Plaintext/Ciphertext pairs. The more pairs that are substituted, the more the equations we obtain involving the key bits. For many known attacks, this can make the problem easier to solve.
 \end{enumerate}
 
-Generally, each module of a block cipher can be described with a set of algebraic equations. Put these algebraic equation together, we can get a large precise system describing the whole cipher. The main idea of algebraic attack is to establish a series of low complexity algebraic equations of initial plaintext and ciphertext, and then find the secret key by solving the equations. Such equation systems are normally very large systems of quadratic multivariate polynomial equations over GF(2). Each variable of such equation system represents a state-bit of the encryption algorithm. Then the variables which representing state-bits from the initial round are set according to values of the plaintext, and similarly variables which representing state-bits from the last round are set according to values to the ciphertext. Therefore, the security of a block cipher depends on whether there exist an efficient algorithm to solve such large and sparse multivariate polynomial equations. If we can solve the equation system faster than exhaustive key search attack, the cipher will be broken (in academic sense).
+Generally, each module of a block cipher can be described with a set of algebraic equations. By putting these algebraic equations together, we can get a large precise system representing the whole cipher. The main idea of an algebraic attack is to establish a series of low complexity algebraic equations of initial plaintext and ciphertext, and then find the secret key by solving the equations. Such equation systems are normally very large systems of quadratic multivariate polynomial equations over $\mathbb{F}_2$. Each variable represents a state-bit of the encryption algorithm. Then the variables that represent state-bits from the initial round are set according to the corresponding actual values of the plaintext; similarly variables that represent state-bits from the last round are set according to the corresponding actual values of the bits of the ciphertext. Therefore, the security of a block cipher depends on whether an efficient algorithm exists to solve such large and sparse multivariate polynomial equations. If we can solve the equation system faster than an exhaustive key search attack, the cipher will be broken (in an academic sense).
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=130mm]{./pics/ch3ACmodeling.png}	
+	\caption[Toy example for modelling Simon block cipher with a multivariate quadratic equation system]{Toy example for modelling Simon block cipher with a multivariate quadratic equation system. The upper part is the main block encryption with extended keys generated by a key schedule\protect\footnotemark (lower part). }
+	\label{fig:ch3ACmodeling}
+\end{figure}	
+\footnotetext{The key schedule here has a specific recursive form %%%%found
+	in popular ciphers such as DES, AES and Simon
+	which optimizes storage or chip size and timing.}
 
-In addition, some high profile cryptanalysis problems in public key cryptography can be written in such a form which contains a ``block cipher topology" \footnote{which is how we / Dr. Courtois classify the equations proposed by Semaev in 2015 \cite{courtois2002cryptanalysis,CourtoisBlockEnigmaSlides,cryptoeprint:2015:310}}. Such equations have similar structure as a block cipher, where the beginning inputs and final outputs variables are easy to get and the middle part of the equation system are very hard to analyse (see figure \ref{fig:blockciphertopology}). One example is Semaev's summation polynomial equations for elliptic curve \cite{semaev2004summation,cryptoeprint:2015:310} see section \ref{sec:SemaevCipher}.      
+% Algerbirc 
+In addition, some high profile cryptanalysis problems in public key cryptography can be written in a form that contains a \textit{block cipher topology} \footnote{
+	This is basically a property of the equations proposed by Semaev in 2015 \cite{semaev2004summation,cryptoeprint:2015:310}, they have  the same structure as on Figure \ref{fig:blockciphertopology} with variables progressively more and more remote from the constraints which make that the system of equations have a unique solution. The key point is that this sort of configuration leads to a system of equations which is really very hard to solve in the same way as in algebraic attacks on block ciphers.}. Such equations have a similar structure to a block cipher, where the beginning inputs and final outputs variables are easy to get and the middle part of the equation system is very hard to analyse (see Figure \ref{fig:blockciphertopology}). One example is Semaev's summation polynomial equations studied in elliptic curve cryptanalysis \cite{semaev2004summation,cryptoeprint:2015:310} see Section \ref{sec:SemaevCipher}.      
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=130mm]{./pics/block_cipher_topology2.png}	
-	\caption{Block cipher topology: attackers are easy to control or manipulate the inputs and outputs but very hard to analyse variables in the middle}
+	\caption[Block cipher topology] {Block cipher topology: the attacker can control or manipulate
+		the inputs and the outputs but it is quite hard to say anything about the variables in the middle}
 	\label{fig:blockciphertopology}
 \end{figure}	
 
-
-
 \subsection{Algebraic Attacks Solving Stage}
-Solving a random system of multivariate non-linear boolean equations is an NP-hard problem \cite{fraenkel1980complexity}. As many cryptographic primitives can be described by a sparse multivariate non-linear system of equations over $GF(2)$ or any other algebraic systems. Several techniques were develop in order to tackle the problem of solving such equations. A classic approach is to use techniques from algebraic geometry and especially Gr\"{o}bner bases algorithms to solve the system of equations \cite{faugere1999new}. But most of the times they do not lead to solutions in practise due to the extremely high memory requirements. Then, some heuristic techniques were developed called \textit{linearisation} \cite{courtois2000efficient}, where all the non-linear terms are replaced by an independent linear variable and the resulting linear system can be solved using Gaussian elimination \cite{sepehrdad2012statistical}. However, it requires that there are enough linearly independent equations and the initial system is highly over-defined and sparse. Then, XL algorithm \cite{courtois2000efficient,courtois2002cryptanalysis} was developed to make the system over-defined, by addition of new equations to the current system. The proposal of XL made it possible to solve the multi-order nonlinear equations within polynomial time, which accelerated the development of the algebraic attacks. Then researchers focus mainly on the fast solutions to the algebraic equation systems. 
+Solving a random system of multivariate non-linear boolean equations is an NP-hard problem \cite{fraenkel1980complexity}. As many cryptographic primitives can be described by a sparse multivariate non-linear system of equations over $\mathbb{F}_2$ or any other algebraic systems, several techniques were developed to tackle the problem of solving these equations. A classic approach is to use techniques from algebraic geometry, especially Gr\"{o}bner bases algorithms, to solve the system of equations \cite{faugere1999new}. But most of the time they do not lead to solutions in practice due to the extremely high memory requirements. Subsequently, some heuristic techniques were developed called \textit{linearization} \cite{XL}, where all the non-linear terms are replaced by an independent linear variable and the resulting linear system can be solved using Gaussian elimination \cite{sepehrdad2012statistical}. However, this requires there to be enough linearly independent equations and that the initial system  be highly over-defined and sparse. Then, the XL algorithm \cite{XL,courtois2002cryptanalysis} was developed to make the system over-defined by adding new equations to the current system. The XL proposal made it possible to solve the multi-order non-linear equations within polynomial time, which accelerated the development of the algebraic attacks. Then researchers focused mainly on  fast solutions to the algebraic equation systems. 
 
-In the past few years, researchers try to solve the problem by using tools and software, such as SAT solvers. Nicolas Courtois is the pioneer of bringing SAT solvers into action in the area of symmetric cryptanalysis. His paper \cite{cryptoeprint:2007:024,BardCourtoiJeffersonConv} described how to covert such equations to a format which can be solved automatically by SAT solvers. The advantage of such technique is that SAT solvers can perform reasonably well and do not require a lot of memory as in case of Gr$\ddot{o}$bner basis-based techniques \cite{grobner}. The only disadvantage is the unpredictability of its complexity. The first algebraic attack on reduce round block cipher DES was done by Courtois and Bard in  \cite{DEScourtois}. Later in 2008, first algebraic attack on full block cipher KeeLoq \cite{courtois2008algebraicKeeLoq}. In the past 10 years, SAT solvers were used for attacks on block ciphers such as GOST\cite{courtois2012contradiction,gostac} and Chinese block cipher SMS4 \cite{erickson2010algebraic},  stream ciphers such as Crypto-1, HiTag2 and Bivium \cite{soos2009extending,courtois2009practical}, and also MiFare Classic smart cards \cite{courtois2008algebraic}.
+Since 2006, Courtois and Bard discovered that this problem could be solved using tools and software \cite{courtois2007algebraicDES}, such as SAT solvers. SAT solvers are automated software solvers which aim to solve one of the original NP-complete problems, the so-called Boolean Satisfiability Problem. 
+\begin{mydef} \label{def:booleanSat}[Boolean Satisfiability Problem] 
+The SAT problem in Conjunctive Normal Form (CNF) consists of the conjunction ( $\wedge$  representing the Boolean AND connective) of a number of clauses, where a clause is a disjunction ( $\vee$ representing the Boolean OR connective) of a number of propositions or their negations (literals).
 
-Another method, is to use ElimLin algorithm \cite{ElimLinR}. ElimLin stands for \textbf{Elim}inate \textbf{Lin}ear and it is a simple algorithm for solving polynomial systems of multivariate equations over small finite fields and was initially proposed as a single tool by Courtois to attack DES and CTC/CTC2 ciphers \cite{DEScourtois}. It is also known as ``inter-reduction'' step in all major algebra systems.
+If $x_{i}$ represent propositions that can assume only the values True ($\equiv 1 \equiv \top$) or False ($\equiv 0 \equiv \bot$), then an example formula in CNF would be:
+$$(x0 \vee x2 \vee x3) \wedge (x3) \wedge (x1 \vee \lnot x2)$$
+where $\lnot x_{i}$ is the negation of $x_{i}$.
+Given a set of clauses $C_{0}, C_{1}, ... , C_{m-1}$ on the propositions $x_{0}, x_{1}, ... , x_{n-1}$, the problem is to
+determine whether the formula $$ F = \bigwedge_{j<m} C_{j}$$ has an assignment of truth values to the propositions such
+that it evaluates to True.	
+\end{mydef}
+In the past decade, the rapid improvements in SAT algorithms has made SAT solvers increasingly popular. Modern SAT solvers have a significant impact on the fields of  electronic design automation, software verification, constraint solving in artificial intelligence, and operations research, among others.  Nicolas Courtois is the pioneer of bringing SAT solvers into action in the area of symmetric cryptanalysis. In his paper \cite{bard2007efficient}, the authors described how to convert a multivariate quadratic equation system to CNF which can be solved automatically by SAT solvers. The advantage of this technique is that SAT solvers can perform reasonably well and do not require a lot of memory as compared with Gr$\ddot{o}$bner basis-based techniques \cite{grobner}. The only disadvantage is the unpredictability of its complexity. The first algebraic attack on reduced-round block cipher DES was done by Courtois and Bard in  \cite{DEScourtois}. Later in 2008, the first algebraic attack on full block cipher KeeLoq \cite{courtois2008algebraicKeeLoq} took place. In the past 10 years, SAT solvers have been used for attacks on block ciphers, such as GOST\cite{courtois2012contradiction,gostac}, KATAN32 \cite{bard2010algebraic} and the Chinese block cipher SMS4 \cite{erickson2010algebraic},  stream ciphers, such as Crypto-1, HiTag2 and Bivium \cite{soos2009extending,courtois2009practical}, and MiFare Classic smart cards \cite{courtois2008algebraic}.
 
-Its main aim is to reveal some hidden linear equations existing in the ideal generated by the system of
-polynomials. ElimLin is composed of two sequential stages, as follows:
+Another method is to use the ElimLin algorithm \cite{ElimLinR}. ElimLin stands for \textbf{Elim}inate \textbf{Lin}ear, and it is a simple algorithm for solving polynomial systems of multivariate equations over small finite fields. It was initially proposed as a single tool by Courtois to attack DES and CTC/CTC2 ciphers \cite{DEScourtois}. It is also known as the \textit{inter-reduction} step in all major algebra systems. Its main aim is to reveal some hidden linear equations existing in the ideal generated by the system of
+polynomials. ElimLin is composed of two sequential stages:
 
 \begin{itemize}
-	\item \textbf{Gaussian Elimination:} Discover all the linear equations in the linear span of initial equations.
-	\item \textbf{Substitution:} Variables are iteratively eliminated in the whole system based on linear equations found until there is no linear equation left.
+	\item \textbf{Gaussian Elimination:} To discover all the linear equations in the linear span of initial equations.
+	\item \textbf{Substitution:} Variables are iteratively eliminated in the whole system based on the linear equations found until no linear equation is left.
 \end{itemize}
 
-Given an initial multivariate system of equations over $S^0$ in $\mathbb{F}_2[x_1,x_2,..,x_n]$, then the ElimLin is formally described as below.
+Given an initial multivariate system of equations over $S^0$ in $\mathbb{F}_2[x_1,x_2,..,x_n]$, then the ElimLin is formally described in algorithm \ref{alg:ElimLin}.
 
-\begin{algorithm}
+\begin{algorithm} 
+	
 	\caption{ElimLin Algorithm}
-	\begin{algorithmic}
+	\begin{algorithmic}\label{alg:ElimLin}
 		\STATE \textbf{Input:} $S^0=\{f_1,f_2,...,f_m\} \in \mathbb{F}_2[x_1,x_2,..,x_n]$
 		\STATE \textbf{Output:} An updated system of equations $S^T$ and a system of linear equations $S_L$
 		\STATE 1. Set $S_L\leftarrow{\O}$ and $S^T \leftarrow S^0$ and $k\leftarrow 1$
@@ -168,19 +224,290 @@ Given an initial multivariate system of equations over $S^0$ in $\mathbb{F}_2[x_
 		\STATE For some ordering of equations and monomials perform $Gauss(S^T)$ to eliminate non-linear monomials
 		\STATE Set $S_{L'} \leftarrow$ Linear Equations from $Gauss(S^T)$
 		\STATE Set $S^T\leftarrow Gauss(S^T)\backslash S_{L'}$
-		\STATE Let $l \in S_{L'}$, $l$ non-trivial (if unsolvable then \emph{terminate})
-		\STATE Let $x_{i_k}$ a monomial in $l$
-		\STATE Substitute $x_{i_k}$ in $S^T$ and $S_{L'}$ using $l$
+		\FOR {$\forall l \in S_{L'}$, $l$ non-trivial (if l=1and unsolvable then \emph{terminate})} 
+		%\STATE Let $l \in S_{L'}$, $l$ non-trivial (if unsolvable then \emph{terminate})
+		\STATE Let $x_{i_k}$ be a monomial in $l$
+		\STATE Substitute $x_{i_k}$ in $S^T$ and $S_{L'}$ and replace by $l-x_{i_k}$
 		\STATE Insert $l$ in $S_L$
+		\ENDFOR
 		\STATE $k\leftarrow k+1$
 	\end{algorithmic}
 \end{algorithm}
 
-This method is iterated until no linear equation is obtained in the linear
-span of the system. Intuitively, ElimLin seems to work better in cases where there is low
-non-linearity since this implies the existence of more linear equations.
-MC is another notion of non-linearity \cite{FourMNL,OptimiPaper2}
-and possibly such method
-may work sufficiently well in cryptographic primitives of low MC.
+The study of ElimLin is interesting \cite{ElimLinRevisit,ElimLinUniversalEqs}
+precisely because it is simpler to understand than more complex
+polynomial algebra techniques \cite{XL,XL2,XLAsEstCourt04,Bardet,DoSemiRegularSequencesExist}. In recent years, ElimLin has been applied to NSA block cipher Simon, LBlock, KATAN32 and PRESENT \cite{courtois2014combined,RaddumSimon,ElimLinUniversalEqs,nakahara2009linear}. The main characteristic of ElimLin is that it quietly dissolves
+and makes non-linear equations disappear and generates linear equations. Non-linearity is the main and only thing which makes cryptographic schemes not broken by simple linear algebra. Intuitively, ElimLin seems to work better in cases where there is low non-linearity, since this implies the existence of more linear equations.  Multiplicative complexity (MC) is another notion of non-linearity which was studied in \cite{FourMNL,OptimiPaper2,TheoPhD} and possibly Elimlin may work sufficiently well in cryptographic primitives with low MC.
+However, the complexity of ElimLin attack or software algebraic attacks in general is not well studied. It is not clear why this works and how well the ElimLin attack scales for larger systems of equations. This is a major topic of interest in this thesis.
+
+\subsection{Connection with other Cryptanalysis Techniques}
+Many researchers consider algebraic cryptanalysis as an independent cryptanalysis research area called deterministic cryptanalysis, while differential and linear cryptanalysis methods are called probabilistic methods in cryptography \cite{pasalic2009probabilistic}. However, we argue that there are a lot of connections between algebraic cryptanalysis, linear and differential cryptanalysis. In Figure \ref{fig:ch3general}, we describe our view of the connections between these cryptanalytic techniques.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=130mm]{./pics/ch3general.png}	
+	\caption[Classification of cryptanalysis methods and their connections]{Classification of cryptanalysis methods and their connections. Most of the existing literature considered algebraic cryptanalysis as an independent research area compare to probablisitic cryptanalysis methods such as differencial cryptanalysis (DC) and linear cryptanalysis (LC). We believe Algebraic Attacks has many connections. probablisitic method are often used together with Algebraic methods and in some attacks presented in this thesis they improved Algebraic Attacks performance by introduction new equations to the mathematic model and reduced solving complexity at the solving stage of Algebraic Attacks. Boxes colored in red are normally considered as LC. Yellow boxes are normally considered as DC methods. Green boxes are the parts included in this thesis and blue boxes are considered as specific solving methods}
+	\label{fig:ch3general}
+\end{figure}	
+
+A link between ElimLin and linear cryptanalysis in Figure \ref{fig:ch3general} reflects the fact that both of these methods are looking for linear relations inside the cipher. However, a major difference between these two approaches is ElimLin looks for equations that work only for a particular set of P/C pairs\footnote{although some equations might exist for any P/C pairs}. Cube attack which was introduced by Dinur and Shamir in 2009 \cite{dinur2009cube} chooses a subset of 'public' input bits such that the sum of an output bit value is a linear combination of the key after a certain summation over a cube composed of plaintexts where a subset of bits varies. Cube attack can sometimes be linear and sometimes non-linear which can be seen as related to both ElimLin and Non-Linear Cryptanalysis (NLC) sometimes called Generalized Linear Cryptanalysis (GLC). In \cite{suvsil2016selection} the authors have studied how well-selected samples from cube attack can be used to improve the performance of ElimLin. Our research in general more or less accidentally identifies some of the equations which are also found in cube attacks and many more. One key focus is how different cryptanalysis techniques can be used to improve software algebraic attacks by adding more equations which makes that these attacks themselves will find yet more equations (amplification effect). 
+In Chapter \ref{ch:SIMON} we show how well-selected samples following a truncated differential property can reduce the solving complexity of ElimLin and SAT solvers. Guess-then-solve method is a general cryptanalysis method which can be used in many attack scenarios. In Chapter \ref{ch:GOST} we will explore this type of attacks on Russian GOST cipher and show this method can be used to improve algebraic cryptanalysis with SAT solvers.
+%
+
+\subsection{On Complexity of Algebraic Attacks} \label{sec:ACCxty}
+
+Algebraic cryptanalysis attacks allow the cryptanalyst to recover secret key bits given only one or very few plaintext / ciphertext pairs. However, one of the fundamental problems of algebraic cryptanalysis is that the runtime of algebraic attacks against block ciphers is not well understood. In 2007, Courtois and Bard said in the first paper describing an algebraic attack on block cipher:
+ 
+ \begin{quotation}
+ 	``Very little is known about what approach would make an algebraic attack efficient and why." 
+ \end{quotation}
+
+
+Up to today, this question still remains in algebraic cryptanalysis. This is the main motivation of my research in Chapter \ref{ch:ElimLIn} and our (partial)  answer is to study the asymptotic growth in the equations generated. 
+
+\subsection{Algebraic Complexity Reduction} \label{sec:ACReduction}
+
+In order to break a full cipher, algebraic attacks are normally combined with other cryptanalysis techniques to reduce the solving complexity. This attack scenario consists of two independent tasks: one is how a reduced-round cipher can be solved by software algebraic cryptanalysis which we will discuss in Chapter \ref{ch:GOST}-\ref{ch:ElimLIn}. The other task is called algebraic complexity reduction \cite{gostreport,gostac}, which focuses on how the complexity of solving a full round cipher can be reduced to a problem of breaking a cipher with much fewer rounds. Algebraic complexity reduction raises an important optimization problem in algebraic cryptanalysis: one needs to minimize the costs (regarding the probability that our assumptions hold) and to maximize the benefits (regarding the number and the complexity of interesting relations
+which hold under these assumptions).  Amplification which was introduced by Courtois and Debraize in 2008 \cite{AlgSnowCourtoisDebraize} is a notion which occurs in such optimization problems.
+
+\begin{mydef}[Amplification, Informal]
+	The goal of the attacker
+	is to find a reduction where he makes some assumptions
+	at a certain initial cost.
+	For example they are true with probability $2^{-X}$
+	or work for certain proportion $2^{-Z}$ of keys.
+	Then the attacker can in constant time determine
+	many other internal bits inside the cipher to the total of $Y$ bits.
+	
+	We are only interested in cases in which the values
+	$X$ and $Z$ are judged realistic for a given attack,
+	for example $Z<32$ and $X<128$.
+	
+	We call amplification the ratio $A=Y/X$.
+\end{mydef}
+
+The idea of amplification is to gain additional information inside the cipher with low cost. Amplification is also a general cryptanalysis principle which can apply to many cryptanalysis attacks. For example, a guess-then-determine process can be seen as a form of amplification. With the cost of guessing, attackers gain additional information about the key bits which might lead to knowledge about many other bits inside the cipher. 
+Gordon Welchman's diagonal board is also a form of amplification which makes Turing's Bombe machine gain additional information about Enigma encryption settings, cf. \cite{CourtoisBlockEnigmaSlides}. 
+
+Algebraic complexity reduction can be very successful if the cipher has certain special properties. For example, in \cite{gostac}, Courtois found the Russian cipher GOST had many self-similarity properties, which reduced the problem of breaking the full GOST cipher from $2^{64}$ key pairs for 32 rounds to 4 key pairs for 8 rounds and similar results. In chapter 4, we will explore the idea of amplification in 8 rounds GOST with a software algebraic attack as the last solving step.
+%Very little is known about what approach would make an algebraic attack efficient and why.
+
+%phase transition and solving time for random 3 sat problems
+%from hard to solve to easy to solve
+
+\section{Cryptanlysis of GOST Block Cipher} \label{sec:introductionToGOST}
+The Russian encryption standard
+GOST 28147-89 %was developed in the 1970s
+is an important government standard
+\cite{gost198928147}.
+Its large key size of 256 bits makes GOST a plausible alternative for AES-256 and 3-key triple DES.
+%% full version maybe %%The latter for the same block size of 64 bits offers keys of only 168 bits.
+This indicates that GOST means to be a serious cipher for serious applications
+%% full version maybe %%designed with most serious applications in mind.
+and at least two sets of GOST S-boxes have been explicitly identified as being used by the most prominent Russian banks, %financial institutions
+cf. \cite{schneier2007applied,GOSTRussianReferenceImplementation}.
+
+\subsection{GOST And ISO Standardisation.}
+The cost of cryptography is still an important problem for the industry.
+For example it was only around 2010 that Intel implemented an encryption algorithm
+in some of its CPUs, and nowadays both Intel and AMD have very good support for AES-NI instructions.
+It is therefore very important to notice that,
+in addition to the very long bit keys,
+GOST has a much lower implementation cost
+than AES or any other comparable encryption algorithm.
+For example, in hardware GOST 256 bits requires less than 800 GE\footnote{GE: (informally) 1 GE is equivalent to 1 AND gate },
+while AES-128 requires 3100 GE, see \cite{PoschmannImplement}.
+Thus it is not surprising that GOST became an Internet standard.
+It is part of many crypto libraries such as OpenSSL
+\cite{GOSTRussianReferenceImplementation}, %,Crypto++},
+and is also increasingly popular %and used
+outside its country of origin
+\cite{PoschmannImplement}.
+It is hard to think about a better algorithm for the industry
+because of its ultra-low implementation cost and
+20 years of cryptanalysis efforts behind it \cite{PoschmannImplement}.
+In 2010 GOST was submitted to ISO 18033
+to become a worldwide encryption standard.
+Less than 10
+%Only eight
+block ciphers have ever become an
+ISO %international
+standard.
+Unhappily in 2011 several key recovery attacks on GOST were found
+\cite{JapaneseGOSTMITMFSE2011,gostreport,gostac,gostdc0,gostdc2}.
+
+\subsection{Cryptanalysis of GOST} \label{sec:CrytanalysisGOST}
+
+The turning point in the security of GOST was the discovery of the so called
+``Reflection'' property described in \cite{GOSTReflectionKara}.
+Initially at Indocrypt 2008 only a weak-key attack with time complexity of $2^{192}$ was proposed, with a large proportion of $2^{-32}$ of weak keys. Then in 2011 several attacks on regular GOST keys were discovered, and more than half of these new attacks use this reflection property \cite{JapaneseGOSTMITMFSE2011,DunkelmanImprovedGOST8R}, sometimes twice, three or four times \cite{gostac}. Most of these attacks follow the principle of algebraic complexity reduction (see Section \ref{sec:ACReduction}) where from some data for the full 32 rounds GOST we obtain a certain number
+of pairs for 8 or less rounds of GOST. The quantity of data available after reduction is very small,
+for example 2,3 or 4 pairs for a reduced cipher. In this chapter we look precisely at questions pertaining to cryptanalysing 8 rounds GOST with 2,3,4 P/C pairs needed as a last step in numerous already known attacks on GOST \cite{gostreport,gostac,gostlow8r}.
+
+Many attacks which do not use any reflections
+have also been proposed \cite{gostac,gostreport,DunkelmanImprovedGOST8R}
+and also differential attacks which do not
+fall into the algebraic complexity reduction category.
+The most recent advanced differential attack on GOST
+has a time complexity of $2^{178}$ \cite{gostdc0,gostdc2}
+which is also the best single-key attack known.
+
+\subsection{The Internal Structure of GOST}
+GOST is a block cipher with a simple Feistel structure,
+64-bit block size, 256-bit keys and 32 rounds.
+Each round contains a key addition modulo $2^{32}$,
+a set of 8 bijective S-boxes on 4 bits,
+and a simple rotation by 11 positions.
+
+GOST has 32 identical rounds such as the one described on Figure \ref{GostRoundAndConnections} below.
+They differ only by the subsets of 32 key bits which they use. GOST has a weak key schedule which is the main source of all the attacks on full 32-round GOST \cite{gostreport,gostac,JapaneseGOSTMITMFSE2011,gostdcpp1,gostdc0,gostdc1,gostdc2,DunkelmanImprovedGOST8R}.  
+In this thesis we only look at up to 8 rounds of GOST which have independent 32-bit keys and don't repeat, therefore we can ignore the GOST key scheduling totally.
+
+We number the inputs of the S-box Si for $i=1,2,\ldots,8$ by integers from $4i+1$ to $4i+4$ out of $1..32$ and its outputs are numbered according to their final positions after the rotation by 11 positions: for example the inputs of S6 are $21,22,23,24$ and the outputs are $32,1,2,3$.
+
+
+\begin{figure}[h] 
+	\centering
+	\includegraphics[width=80mm]{./pics/gostfeist2.jpg}
+	
+	\caption[One Round of GOST And Connections in The Following Round] {One Round of GOST And Connections in The Following Round. This figure describes the encryption process for one round of GOST. Firstly, the 32-bit right half is added with $k_{i}$ (modulo $2^{32}$, showed in figure as  $\boxplus$ ). Then, the result is divided into eight 4-bit consecutive blocks and each block is given as input to a different S-box. The first 4 bits go into the first S-box S1, bits 5-8 go into S2 and so on. Then, the 32-bit output undergoes a 11-bit left circular shift and finally the result is xored to the left 32-bit half of the data.}
+	\label{GostRoundAndConnections}
+\end{figure}
+
+In Figure \ref{GostRoundAndConnections}
+we also show S-box numbers
+in the next round in the left margin.
+This is very helpful in order to see which bits are successfully determined in our attacks on GOST.
+In a great simplification, in most cases, one S-box in one round affects essentially
+only two consecutive S-boxes in the next round. Additional propagation is obtained due to the Feistel structure
+and due to carries in the modular addition.
+
+\section{Cryptanalysis of SIMON Block Cipher}
+Nowadays lightweight cryptography is rapidly evolving and becoming more and more important due to the increasing demand from mobile phones and the Internet of Things. These lightweight cryptographic primitives are designed to
+be efficient (in both hardware and software) when limited
+hardware resources are available and at the same time to
+guarantee a desired level of security. The
+design of such primitives is a great challenge and can be
+seen as a non-trivial optimization problem, where several
+trade-offs are taken into account. They need to maintain
+a reasonable balance between security and efficient software and hardware
+implementation with very low overall cost with respect to several
+meaningful metrics (power consumption, energy consumption, size of the circuit \cite{OptimiPaper,BoyarPeraltaMCMethod,BoyarPeraltaMCBoolean}).
+
+The research community has
+proposed many lightweight hash functions, block ciphers and stream ciphers which are
+reasonably good and satisfy at a reasonable level the trade-off
+between efficiency and security. Nowadays, in cryptographic
+literature we find lots of such lightweight cryptographic primitives such as
+KATAN \cite{KATAN}, KLEIN \cite{KLEIN}, ICEBERG
+\cite{ICEBERG}, HIGHT \cite{HIGHT}, LED \cite{LED},
+mCrypton \cite{mCrypton}, PRESENT \cite{PRESENT}, Piccolo \cite{Piccolo}
+and many others.
+
+In July 2013, a team from the NSA proposed two new families of particularly lightweight block
+ciphers, Simon and Speck, both coming in a variety of blocks and key sizes
+\cite{NSAciphers}. We have developed a basic reference implementation of both ciphers 
+which can be found in Github \cite{simonref},
+as well as a generator of algebraic equations to be used in algebraic attacks. 
+
+The designers of Simon and Speck published the full specifications and presented
+only performance and implementation footprints, without providing
+any advanced security analysis
+against known cryptanalytic attacks.
+Both of them offer excellent performance on both
+hardware and software platforms and perform
+exceptionally well across the majority of lightweight applications and
+not only on a single platform. Compared to
+other lightweight cryptographic primitives,
+these two are meant to have better performance with respect to the area
+needed for a given throughput, code size and memory usage.
+Simon is designed for optimal performance in hardware, and Speck for optimal
+performance in software.
+According to \cite{simoneff}, Simon with an equivalent security level as AES,
+is $86\%$ smaller
+than AES, $70\%$ smaller than PRESENT and its smallest hardware architecture
+only costs 36 slices (72 look-up tables, 30 registers). Recent results about hardware
+implementation of block ciphers emphasize reducing the size and/or Multiplicative Complexity (MC) further possibly
+leads to optimal implementations \cite{BoyarPeraltaMCMethodAES,OptimiPaper}.
+
+However, in the original NSA paper \cite{NSAciphers}, there is no analysis of the security of these 2 ciphers against major well-known attacks. In the same paper \cite{NSAciphers}, the authors briefly said that Simon and Speck were designed to provide security against traditional adversaries who can adaptively encrypt and decrypt large amounts of data, and some attention was given so that there are no related-key attacks. Except for these comments, no more analysis against common attacks such as linear or differential cryptanalysis was presented and the task of analyzing the resistance of the ciphers against known attacks was left to the academic community. Immediately after the release of the specifications we had the first attempts using differential, linear and rotational cryptanalysis \cite{simon1,simon2}. Our attacks on Simon described in Chapter \ref{ch:SIMON}were the first algebraic cryptanalysis attacks attempted on Simon. The work was published in 2014 \cite{courtois2014combined}. In recent years Simon was studied heavily by a lot of researchers, including differential attacks introduced by Biryukov et al \cite{simon3}, Mourouzis et al \cite{SIMON6} and Wang et al \cite{SIMON4, SIMON5}, also combined differential and linear attacks by Farzaneh et al \cite{simon1} and Alkhzaimi et al \cite{simon2}. Most of them are using statistical cryptanalysis techniques, the best results break around 70\% rounds of different versions of Simon. In 2015, Raddum \cite{raddum2006new} published another algebraic cryptanalysis work on Simon for most of the versions (not including Simon 64/128 version). Raddum's work uses more P/C pairs than our attack and breaks 16 (out of 72) rounds of Simon 128/256 version with ElimLin.  This attack shows that there is a need to understand better how ElimLin attacks can scale to larger attacks. 
+
+\subsection{SIMON Structure}
+SIMON is a family of lightweight block ciphers with the aim of havingan  optimal hardware performance \cite{NSAciphers}.
+It follows the classical Feistel design paradigm\footnote{Note that in classical Feistel structure computation is done on left side, see \ref{sec:feistel}. In Simon computation is done on right side see Figure \ref{fig:SIMONroundfn}}, operating on two
+$n$-bit halves in each round and thus the general block size is $2n$.
+The Simon block cipher with an $n$-bit word is denoted by Simon-$2n$, where
+$n=16,24,32,48$ or $64$, and if it uses an $m$-word key (equivalently $mn$-bit
+key) we denote it as Simon-$2n/mn$. In this chapter, we study the variant of
+Simon with $n=32$ and $m=4$ (i.e. 128-bit key).
+
+Each round of Simon applies a non-linear, non-bijective (and as a result
+non-invertible) function
+
+\begin{equation}
+F:GF(2)^n\rightarrow GF(2)^n
+\end{equation}
+
+to the left half of the state which is repeated for 44 rounds.
+The operations used are as follows:
+
+\begin{enumerate}
+	\item bitwise XOR, $\oplus$
+	\item bitwise AND,
+	\item left circular shift, $S^j$ by $j$ bits.
+\end{enumerate}
+
+We denote the input to the $i$-th round by $L^{i-1}||R^{i-1}$
+and in each round the left word $L^{i-1}$ is used as input
+to the round function $F$ defined by,
+
+\begin{equation}
+F(L^{i-1})=(L^{i-1}<<<1)\wedge(L^{i-1}<<<8)\oplus(L^{i-1}<<<2)
+\end{equation}
+
+Then, the next state $L^{i}||R^{i}$ is computed as follows
+(cf. Fig. \ref{fig:SIMONroundfn}),
+
+\begin{equation}
+L^i=R^{i-1}\oplus F(L^{i-1})\oplus K^{i-1}
+\end{equation}
+
+\begin{equation}
+R^i=L^{i-1}
+\end{equation}
+
+
+\begin{figure}[!h]
+	\vspace{-0.2cm}
+	\centering
+	%   {\epsfig{file = .\SIMONroundfn.eps, width = 6.5cm}}
+	\includegraphics[width=120mm]{./pics/SIMONroundfn-eps-converted-to.pdf}
+	\caption{The round function of Simon}
+	\label{fig:SIMONroundfn}
+	\vspace{-0.1cm}
+\end{figure}
+
+
+The output of the last round is the ciphertext.
+\subsection{Key Schedule}
+The key schedule of Simon is based on an Linear-Feedback Shift Register(LSFR)-like procedure, where the $nm$-bits of the key are used to generate the keys $K_0,K_1,...,K_{r-1}$ to be used in each round. There are three different key schedule procedures depending on the number of words that the secret key consists of ($m=2,3,4$).
+
+At the beginning, the first $m$ words $K^0,K^1,...,K^{m-1}$ are initialized with the secret key, while the remaining are generated by the LSFR-like construction. For the variant of  interest, where $m=4$, the remaining keys are generated in the following way:
+
+\begin{equation}
+Y=K^{i+1}\oplus (K^{i+3}>>>3)
+\end{equation}
+
+\begin{equation}
+K^{i+4}=K^i\oplus Y \oplus (Y>>>1)\oplus c\oplus (z_j)_i
+\end{equation}
+
+The constant $c=0xff...fc$ is used for preventing slide attacks and attacks exploiting rotational symmetries \cite{NSAciphers}. In addition, the generated subkeys are XORed with a bit $(z_j)_i$, that denotes the $i$-th bit from the one of the five constant sequences $z_0,...,z_4$. These sequences are defined in the NSA's orginial paper \cite{NSAciphers} and for our variant we use $z_3$. We have implemented a basic reference implementation of Simon and Speck ciphers and a basic generator of equations that are used in algebraic attacks \cite{simonref} .
+
+The Feistel network, the construction of the round function and the key generation of Simon, enables bit-serial hardware architectures which can significantly reduce the cost of implementation \cite{simoneff}. Additionally, encryption and decryption can be done using the
+same hardware.
+
+\section{Summary}
+
 
 

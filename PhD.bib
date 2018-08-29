@@ -15,12 +15,72 @@
 	year={2004},
 	organization={Springer}
 }
+@misc{bard2007efficient,
+	title={Efficient methods for conversion and solution of sparse systems of low-degree multivariate polynomials over GF (2) via SAT-solvers},
+	author={Bard, Gregory V and Courtois, Nicolas T and Jefferson, Chris},
+	year={2007}
+}
+
 @phdthesis{TheoPhD,
 	title={Optimizations in algebraic and differential cryptanalysis},
 	author={Mourouzis, Theodosis},
 	year={2015},
 	school={UCL (University College London)}
 }
+
+@article{pasalic2009probabilistic,
+	title={Probabilistic Versus Deterministic Algebraic Cryptanalysis—A Performance Comparison},
+	author={Pasalic, Enes},
+	journal={IEEE Transactions on information theory},
+	volume={55},
+	number={11},
+	pages={5233--5240},
+	year={2009},
+	publisher={IEEE}
+}
+
+@article{suvsil2016selection,
+	title={On selection of samples in algebraic attacks and a new technique to find hidden low degree equations},
+	author={Su{\v{s}}il, Petr and Sepehrdad, Pouyan and Vaudenay, Serge and Courtois, Nicolas},
+	journal={International Journal of Information Security},
+	volume={15},
+	number={1},
+	pages={51--65},
+	year={2016},
+	publisher={Springer}
+}
+@article{davis1987genetic,
+	title={Genetic algorithms and simulated annealing},
+	author={Davis, Lawrence},
+	year={1987},
+	publisher={Morgan Kaufman Publishers, Inc., Los Altos, CA}
+}
+@article{matthews1993use,
+	title={The use of genetic algorithms in cryptanalysis},
+	author={Matthews, Robert AJ},
+	journal={Cryptologia},
+	volume={17},
+	number={2},
+	pages={187--201},
+	year={1993},
+	publisher={Taylor \& Francis}
+}
+@article{garg2010comparison,
+	title={A Comparison between Memetic algorithm and Genetic algorithm for the cryptanalysis of Simplified Data Encryption Standard algorithm},
+	author={Garg, Poonam},
+	journal={arXiv preprint arXiv:1004.0574},
+	year={2010}
+}
+
+@inproceedings{dinur2009cube,
+	title={Cube attacks on tweakable black box polynomials},
+	author={Dinur, Itai and Shamir, Adi},
+	booktitle={Annual International Conference on the Theory and Applications of Cryptographic Techniques},
+	pages={278--299},
+	year={2009},
+	organization={Springer}
+}
+
 @inproceedings{biryukov2014differential,
 	title={Differential analysis of block ciphers SIMON and SPECK},
 	author={Biryukov, Alex and Roy, Arnab and Velichkov, Vesselin},
@@ -191,18 +251,53 @@
 	title = {Guiding Principles of Effective Crypto and Security Engineering},
 	howpublished = "\url{http://www.nicolascourtois.com/papers/sc/Pr_Crypto_eng_v12.pdf}"
 	}
+
+@misc{NSA16,
+	author = {NSA},
+	title = {Cnsa suite and quantum computing faq},
+	howpublished = {"\url{https://www.iad.gov/iad/library/ia-guidance/ia-solutions-for-classified/algorithm-guidance/cnsa-suite-and-quantum-computing- faq.cfm}”},
+	year=2016
+	}
+@misc{NSA16key,
+	author = {NSA},
+	title = {Recommendation for Key Management},
+	howpublished = {"\url{http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf}”},
+	year=2016
+}
+@INPROCEEDINGS{SlidesCompSec,
+	AUTHOR =       "N.T. Courtois",
+	TITLE =        "Computer Security Foundations and Principles – standard version",
+	BOOKTITLE =    "slides used in UCL course ``Computer Security'', University College London",
+	YEAR =         "2016",
+	publisher =    "\url{http://www.nicolascourtois.com/papers/compsec/CompSec_Intro_01.ppt}",
+	file = F
+}
+
+@book{schneier2006beyond,
+	title={Beyond fear: Thinking sensibly about security in an uncertain world},
+	author={Schneier, Bruce},
+	year={2006},
+	publisher={Springer Science \& Business Media}
+}
+
 @misc{StevenECDLP2015,
 	author = {Steven Galbraith},
 	title = {Elliptic Curve Discrete Logarithm Problem In Characteristic Two},
 	howpublished = "\url{https://ellipticnews.wordpress.com/2015/04/13/elliptic-curve-discrete-logarithm-problem-in-characteristic-two}",
 	year = {2015},
 }
+
 @misc{Wulliesecp256k1, 
 	title={bitcoin secp256k1 library, version 2015/08/11},
 	author={Wullie, Petier},
 	howpublished = "\url{https://github.com/bitcoin/secp256k1}"
 }
 
+@misc{SongSimonSpeckGithub, 
+	title={Simon and Speck implementation in C},
+	author={Song, Guangyan},
+	howpublished = "\url{https://github.com/gsonghashrate/SimonSpeck}"
+}
 
 @misc{sm2parameter,
 	title={Chinese Elliptic Curve Standard Parameters},
@@ -240,7 +335,7 @@
 @misc{explicitBernstein,
 	author = {Daniel J. Bernstein, Tanja Lange},
 	title = {Explicit-Formulas Database},
-	howpublished = "\url{https://www.hyperelliptic.org/EFD/}";
+	howpublished = "\url{https://www.hyperelliptic.org/EFD/}"
 	}
 @article{faugere2014using,
 	title={Using symmetries in the index calculus for elliptic curves discrete logarithm},
@@ -414,14 +509,14 @@
   organization={Springer}
 }
 @article{cramer2003design,
-  title={Design and analysis of practical public-key encryption schemes secure against adaptive chosen ciphertext attack},
-  author={Cramer, Ronald and Shoup, Victor},
-  journal={SIAM Journal on Computing},
-  volume={33},
-  number={1},
-  pages={167--226},
-  year={2003},
-  publisher={SIAM}
+	title={Design and analysis of practical public-key encryption schemes secure against adaptive chosen ciphertext attack},
+	author={Cramer, Ronald and Shoup, Victor},
+	journal={SIAM Journal on Computing},
+	volume={33},
+	number={1},
+	pages={167--226},
+	year={2003},
+	publisher={SIAM}
 }
 @inproceedings{clark1994modern,
   title={Modern optimisation algorithms for cryptanalysis},
@@ -492,16 +587,9 @@ pages = {151-158}
     title = {Efficient Methods for Conversion and Solution of Sparse Systems of Low-Degree Multivariate Polynomials over GF(2) via SAT-Solvers},
     howpublished = {Cryptology ePrint Archive, Report 2007/024},
     year = {2007},
-    note = {http://eprint.iacr.org/},
+    note = {http://eprint.iacr.org/}
 }
-@incollection{courtois2002cryptanalysis,
-  title={Cryptanalysis of block ciphers with overdefined systems of equations},
-  author={Courtois, Nicolas T and Pieprzyk, Josef},
-  booktitle={Advances in Cryptology—ASIACRYPT 2002},
-  pages={267--287},
-  year={2002},
-  publisher={Springer}
-}
+
 @incollection{cusick1991redoc,
   title={The Redoc II Cryptosystem},
   author={Cusick, Thomas W and Wood, Michael C},
@@ -570,14 +658,14 @@ pages = {151-158}
   organization={Springer}
 }
 @article{faugere1999new,
-  title={A new efficient algorithm for computing Gr{\"o}bner bases (< i> F</i>< sub> 4</sub>)},
-  author={Faugere, Jean-Charles},
-  journal={Journal of pure and applied algebra},
-  volume={139},
-  number={1},
-  pages={61--88},
-  year={1999},
-  publisher={Elsevier}
+	title={A new efficient algorithm for computing Gr{\"o}bner bases (F 4)},
+	author={Faugere, Jean-Charles},
+	journal={Journal of pure and applied algebra},
+	volume={139},
+	number={1},
+	pages={61--88},
+	year={1999},
+	publisher={Elsevier}
 }
 
 @inproceedings{ferguson2001simple,
@@ -805,16 +893,7 @@ school = {University College London}
   year={1994},
   organization={Springer}
 }
-@article{matthews1993use,
-  title={The use of genetic algorithms in cryptanalysis},
-  author={Matthews, Robert AJ},
-  journal={Cryptologia},
-  volume={17},
-  number={2},
-  pages={187--201},
-  year={1993},
-  publisher={Taylor \& Francis}
-}
+
 @incollection{merkle1991fast,
   title={Fast software encryption functions},
   author={Merkle, Ralph C},
@@ -1026,6 +1105,48 @@ ISSN={0164-1239},}
   year={2007},
   publisher={Citeseer}
 }
+@inproceedings{petit2016algebraic,
+	title={Algebraic Approaches for the Elliptic Curve Discrete Logarithm Problem over Prime Fields},
+	author={Petit, Christophe and Kosters, Michiel and Messeng, Ange},
+	booktitle={IACR International Workshop on Public Key Cryptography},
+	pages={3--18},
+	year={2016},
+	organization={Springer}
+}
+
+@misc{cryptoeprint:2016:704,
+	author = {Nicolas T. Courtois},
+	title = {High Saturation Complete Graph Approach for EC Point Decomposition and ECDL Problem},
+	howpublished = {Cryptology ePrint Archive, Report 2016/704},
+	year = {2016},
+	note = {\url{http://eprint.iacr.org/2016/704}},
+}
+
+@conference{secrypt09,
+	author={Nicolas T. Courtois},
+	title={THE DARK SIDE OF SECURITY BY OBSCURITY - and Cloning MiFare Classic Rail and Building Passes, Anywhere, Anytime},
+	booktitle={Proceedings of the International Conference on Security and Cryptography (ICETE 2009)},
+	year={2009},
+	pages={331-338},
+	doi={10.5220/0002238003310338},
+	isbn={978-989-674-005-4},
+}
+@inproceedings{bard2010algebraic,
+	title={Algebraic, AIDA/cube and side channel analysis of KATAN family of block ciphers},
+	author={Bard, Gregory V and Courtois, Nicolas T and Nakahara Jr, Jorge and Sepehrdad, Pouyan and Zhang, Bingsheng},
+	booktitle={International Conference on Cryptology in India},
+	pages={176--196},
+	year={2010},
+	organization={Springer}
+}
+@inproceedings{nakahara2009linear,
+	title={Linear (hull) and algebraic cryptanalysis of the block cipher PRESENT},
+	author={Nakahara Jr, Jorge and Sepehrdad, Pouyan and Zhang, Bingsheng and Wang, Meiqin},
+	booktitle={International Conference on Cryptology and Network Security},
+	pages={58--75},
+	year={2009},
+	organization={Springer}
+}
 @inproceedings{uddin2006cryptanalysis,
   title={Cryptanalysis of simple substitution ciphers using particle swarm optimization},
   author={Uddin, Mohammad Faisal and Youssef, Amr M},
@@ -1227,11 +1348,11 @@ year = 2008
   YEAR =         "2013",
 }
 
-%@INPROCEEDINGS{PRESENTBitSliceImplem,
-%	Author = "M. Albrecht and N. Courtois and D. Hulme and G. Song",
-%   Title = "Bit-Slice Implementation of PRESENT in pure standard C, v1.5, - https://bitbucket.org/malb/algebraic_attacks/src/tip/present_bitslice.c",
-%	Year = "2011",
-%}
+@INPROCEEDINGS{PRESENTBitSliceImplem,
+	Author = "M. Albrecht and N. Courtois and D. Hulme and G. Song",
+   Title = "Bit-Slice Implementation of PRESENT in pure standard C, v1.5, - https://bitbucket.org/malb/algebraic_attacks/src/tip/present_bitslice.c",
+	Year = "2011"
+}
 
 @INPROCEEDINGS{OptimiPaper,
   AUTHOR =       "N. Courtois and D. Hulme and T. Mourouzis",
@@ -1331,18 +1452,7 @@ year = 2008
   YEAR =         "2014",
 }
 
-%@INPROCEEDINGS{mourouzis,
-%  AUTHOR =       "T. Mourouzis",
-%  TITLE =        "Optimizations in Algebraic and Differential Cryptanalysis",
-%  BOOKTITLE =    "PhD Thesis, University College London",
-%  YEAR =         "2014",
-%}
-@INPROCEEDINGS{simon2,
-  AUTHOR =       "H. Alkhzaimi and M. Lauridsen",
-  TITLE =        "Differential and linear cryptanalysis of reduced-round SIMON",
-  BOOKTITLE =    "Cryptology ePrint Archive, Report 2013/543",
-  YEAR =         "2013",
-}
+
 @INPROCEEDINGS{simon1,
   AUTHOR =       "A. Farzaneh and E. List and S. Lucks and J. Wenzel",
   TITLE =        "Differential and linear cryptanalysis of reduced-round SIMON",
@@ -1419,12 +1529,6 @@ year = 2008
   TITLE =        "Algebraic Cryptanalysis of the DATA Encryption Standard",
   BOOKTITLE =    "In IMA Int. Conf. volume 4887, Springer",
   YEAR =         "2007",
-}
-@INPROCEEDINGS{grobner,
-  AUTHOR =       "J-C. Faugere",
-  TITLE =        "A new efficient algorithm for computing Grobner bases (F4)",
-  BOOKTITLE =    "Journal of pure and applied Algebra, Vol. 139, pp. 61-88",
-  YEAR =         "1999",
 }
 
 @INPROCEEDINGS{Shannon,
@@ -1572,16 +1676,6 @@ year = 2008
 	pages={73},
 	year={2004}
 }
-@article{faugere2014using,
-	title={Using symmetries in the index calculus for elliptic curves discrete logarithm},
-	author={Faug{\`e}re, Jean-Charles and Gaudry, Pierrick and Huot, Louise and Renault, Gu{\'e}na{\"e}l},
-	journal={Journal of cryptology},
-	volume={27},
-	number={4},
-	pages={595--635},
-	year={2014},
-	publisher={Springer}
-}
 @incollection{faugere2012improving,
 	title={Improving the complexity of index calculus algorithms in elliptic curves over binary fields},
 	author={Faug{\`e}re, Jean-Charles and Perret, Ludovic and Petit, Christophe and Renault, Gu{\'e}na{\"e}l},
@@ -1666,6 +1760,46 @@ GOST
 	pages={626},
 	year={2011}
 }
+
+@article{courtois2013cryptanalysis,
+	title={Cryptanalysis of GOST in the multiple-key scenario},
+	author={Courtois, Nicolas T},
+	journal={Tatra Mountains Mathematical Publications},
+	volume={57},
+	number={1},
+	pages={45--63},
+	year={2013}
+}
+
+@article{bouillaguet2012low,
+	title={Low-data complexity attacks on AES},
+	author={Bouillaguet, Charles and Derbez, Patrick and Dunkelman, Orr and Fouque, Pierre-Alain and Keller, Nathan and Rijmen, Vincent},
+	journal={IEEE Transactions on Information Theory},
+	volume={58},
+	number={11},
+	pages={7002--7017},
+	year={2012},
+	publisher={IEEE}
+}
+@inproceedings{tardy1991known,
+	title={A known plaintext attack of FEAL-4 and FEAL-6},
+	author={Tardy-Corfdir, Anne and Gilbert, Henri},
+	booktitle={Annual International Cryptology Conference},
+	pages={172--182},
+	year={1991},
+	organization={Springer}
+}
+@article{huang2014effective,
+	title={What is the effective key length for a block cipher: an attack on every practical block cipher},
+	author={Huang, JiaLin and Lai, XueJia},
+	journal={Science China Information Sciences},
+	volume={57},
+	number={7},
+	pages={1--11},
+	year={2014},
+	publisher={Springer}
+}
+
 @incollection{gostdc0,
 	title={First differential attack on full 32-round GOST},
 	author={Courtois, Nicolas T and Misztal, Micha{\l}},
@@ -1805,36 +1939,28 @@ GOST
 
 
 
-
-
-
-
-@INPROCEEDINGS{Bardet,
-	AUTHOR =       "M. Bardet, J.-C. {Faug\`{e}re]}, B. Salvy,",
-	TITLE =        "{On the complexity of Gr\"{o}bner basis computation
-	of semi-regular overdetermined algebraic equations}",
-	BOOKTITLE =    "ICPSS, Proceedings of International Conference on Polynomial System Solving",
-	YEAR =         "2004",
-	file = F
+@inproceedings{Bardet,
+	title={On the complexity of Gr{\"o}bner basis computation of semi-regular overdetermined algebraic equations},
+	author={Bardet, Magali and Faugere, Jean-Charles and Salvy, Bruno},
+	booktitle={Proceedings of the International Conference on Polynomial System Solving},
+	pages={71--74},
+	year={2004}
 }
 
-@INPROCEEDINGS{DoSemiRegularSequencesExist,
-	AUTHOR =       "T.J. Hodges, S.D. Molina, J. Schlather",
-	TITLE =        "On the Existence of Semi-Regular Sequences",
-	BOOKTITLE =    "DIMACS Workshop on the Mathematics of Post-Quantum Cryptography",
-	YEAR =         "2015",
-	publisher =    "arxiv.org/1412.7865",
-	file = F
+@article{DoSemiRegularSequencesExist,
+	title={On the Existence of Semi-Regular Sequences},
+	author={Hodges, TIMOTHY J and Molina, SERGIO D and Schlather, JACOB},
+	journal={arXiv preprint arXiv:1412.7865},
+	year={2014}
 }
 
-@INPROCEEDINGS{XLAsEstCourt04,
-	AUTHOR =       "J.-M. Chen, N. Courtois and B.-Y. Yang",
-	TITLE =        "{On Asymptotic Security Estimates in XL and
-	Gr\"{o}bner Bases-Related Algebraic Cryptanalysis}",
-	BOOKTITLE =    "ICICS'04, pp. 401-413",
-	YEAR =         "2004",
-	publisher =    "Springer",
-	file = F
+@inproceedings{XLAsEstCourt04,
+	title={On asymptotic security estimates in XL and Gr{\"o}bner bases-related algebraic cryptanalysis},
+	author={Yang, Bo-Yin and Chen, Jiun-Ming and Courtois, Nicolas T},
+	booktitle={International Conference on Information and Communications Security},
+	pages={401--413},
+	year={2004},
+	organization={Springer}
 }
 
 @INPROCEEDINGS{desalg,
@@ -1846,23 +1972,21 @@ GOST
 	file = F
 }
 
-@INPROCEEDINGS{XL,
-	AUTHOR =       "N. Courtois, A. Shamir, J. Patarin, A. Klimov,",
-	TITLE =        "Efficient Algorithms for solving Overdefined Systems of Multivariate Polynomial Equations",
-	BOOKTITLE =    "Eurocrypt'2000, pp. 392-407",
-	YEAR =         "2000",
-	publisher =    "Springer",
-	file = F
+@inproceedings{XL,
+	title={Efficient algorithms for solving overdefined systems of multivariate polynomial equations},
+	author={Courtois, Nicolas and Klimov, Alexander and Patarin, Jacques and Shamir, Adi},
+	booktitle={International Conference on the Theory and Applications of Cryptographic Techniques},
+	pages={392--407},
+	year={2000},
+	organization={Springer}
 }
-
-
-@INPROCEEDINGS{XL2,
-	AUTHOR =       "N. Courtois, J. Patarin",
-	TITLE =        "About the XL Algorithm over GF(2)",
-	BOOKTITLE =    "CT-RSA 2003, pp. 141-157",
-	YEAR =         "2003",
-	publisher =    "Springer",
-	file = F
+@inproceedings{XL2,
+	title={About the XL Algorithm over GF (2)},
+	author={Courtois, Nicolas T and Patarin, Jacques},
+	booktitle={Cryptographers’ Track at the RSA Conference},
+	pages={141--157},
+	year={2003},
+	organization={Springer}
 }
 
 @INPROCEEDINGS{FastAlg,
@@ -1906,7 +2030,7 @@ GOST
 
 
 @INPROCEEDINGS{ElimLinRevisit,
-	AUTHOR =       "N. Courtois, P. Sepherdad,  P. Susil, S. Vaudenay",
+	AUTHOR =       "N. Courtois P. Sepherdad  P. Susil and S. Vaudenay",
 	TITLE =        "ElimLin Algorithm Revisited",
 	BOOKTITLE =    "FSE 2012",
 	YEAR =         "2012",
@@ -1964,16 +2088,6 @@ GOST
 }
 
 
-@INPROCEEDINGS{ACTruncSimon,
-	AUTHOR =       "N. Courtois, T. Mourouzis, G. Song, P. Sepehrdad and P. Susil",
-	TITLE =        "Combined Algebraic and Truncated Differential Cryptanalysis on Reduced-round Simon,",
-	BOOKTITLE =    "proc. of SECRYPT 2014",
-	YEAR =         "2014",
-	publisher =    "INSTICC",
-	file = F
-}
-
-
 
 @INPROCEEDINGS{NashNSA,
 	AUTHOR =       "John Nash",
@@ -1984,24 +2098,130 @@ GOST
 	file = F
 }
 
+@article{ElimLinUniversalEqs,
+	title={On selection of samples in algebraic attacks and a new technique to find hidden low degree equations},
+	author={Susil, Petr and Sepehrdad, Pouyan and Vaudenay, Serge and Courtois, Nicolas},
+	journal={International Journal of Information Security},
+	volume={15},
+	number={1},
+	pages={51--65},
+	year={2016},
+	publisher={SPRINGER 233 SPRING ST, NEW YORK, NY 10013 USA}
+}
 
-@INPROCEEDINGS{ElimLinUniversalEqs,
-	AUTHOR =       "P. Susil, P. Sepehrdad, S. Vaudenay, N. Courtois",
-	TITLE =        "On selection of samples in algebraic attacks
-	and a new technique to find hidden low degree equations",
-	BOOKTITLE =    "Int. J. Inf. Sec. vol. 15 iss. 1, pp. 51-65",
-	YEAR =         "2016",
-	publisher =    "Springer",
-	file = F
+@inproceedings{RaddumSimon,
+	title={Algebraic analysis of the simon block cipher family},
+	author={Raddum, H{\aa}vard},
+	booktitle={International Conference on Cryptology and Information Security in Latin America},
+	pages={157--169},
+	year={2015},
+	organization={Springer}
+}
+
+@inproceedings{SIMON6,
+	title={Cryptanalysis of SIMON variants with connections},
+	author={Alizadeh, Javad and Alkhzaimi, Hoda A and Aref, Mohammad Reza and Bagheri, Nasour and Gauravaram, Praveen and Kumar, Abhishek and Lauridsen, Martin M and Sanadhya, Somitra Kumar},
+	booktitle={International Workshop on Radio Frequency Identification: Security and Privacy Issues},
+	pages={90--107},
+	year={2014},
+	organization={Springer}
+}
+
+@article{SIMON4,
+	title={Improved Differential Attacks on Reduced SIMON Versions.},
+	author={Wang, Ning and Wang, Xiaoyun and Jia, Keting and Zhao, Jingyuan},
+	journal={IACR Cryptology ePrint Archive},
+	volume={2014},
+	pages={448},
+	year={2014},
+	publisher={Citeseer}
+}
+
+@inproceedings{SIMON5,
+	title={Cryptanalysis of reduced-round SIMON32 and SIMON48},
+	author={Wang, Qingju and Liu, Zhiqiang and Var{\i}c{\i}, Kerem and Sasaki, Yu and Rijmen, Vincent and Todo, Yosuke},
+	booktitle={International Conference in Cryptology in India},
+	pages={143--160},
+	year={2014},
+	organization={Springer}
 }
 
 
+@techreport{SIMONBest,
+	title={Improved linear hull attack on round-reduced simon with dynamic key-guessing techniques},
+	author={Chen, Huaifeng and Wang, Xiaoyun},
+	year={2015},
+	institution={Cryptology ePrint Archive, Report 2015/666}
+}
 
-@INPROCEEDINGS{RaddumSimon,
-	AUTHOR =       "{H\aa vard} Raddum",
-	TITLE =        "Algebraic Analysis of the Simon Block Cipher Family",
-	BOOKTITLE =    "LatinCrypt 2015, pp. 157-169",
-	YEAR =         "2015",
-	publisher =    "Springer",
-	file = F
+@inproceedings{sugita2001security,
+	title={Security of reduced version of the block cipher Camellia against truncated and impossible differential cryptanalysis},
+	author={Sugita, Makoto and Kobara, Kazukuni and Imai, Hideki},
+	booktitle={International Conference on the Theory and Application of Cryptology and Information Security},
+	pages={193--207},
+	year={2001},
+	organization={Springer}
+}
+
+@inproceedings{hong2003differential,
+	title={Differential Cryptanalysis of TEA and XTEA},
+	author={Hong, Seokhie and Hong, Deukjo and Ko, Youngdai and Chang, Donghoon and Lee, Wonil and Lee, Sangjin},
+	booktitle={International Conference on Information Security and Cryptology},
+	pages={402--417},
+	year={2003},
+	organization={Springer}
+}
+
+@book{delfs2002introduction,
+	title={Introduction to cryptography},
+	author={Delfs, Hans and Knebl, Helmut and Knebl, Helmut},
+	volume={2},
+	year={2002},
+	publisher={Springer}
+}
+
+@inproceedings{miller1985use,
+	title={Use of elliptic curves in cryptography},
+	author={Miller, Victor S},
+	booktitle={Conference on the Theory and Application of Cryptographic Techniques},
+	pages={417--426},
+	year={1985},
+	organization={Springer}
+}
+
+@article{vasek2016bitcoin,
+	title={The Bitcoin Brain Drain: A Short Paper on the Use and Abuse of Bitcoin Brain Wallets},
+	author={Vasek, Marie and Bonneau, Joseph and Ryan Castellucci, Cameron Keith and Moore, Tyler},
+	journal={Financial Cryptography and Data Security, Lecture Notes in Computer Science. Springer},
+	year={2016}
+}
+
+@article{mourouzis2015advanced,
+	title={Advanced differential cryptanalysis of reduced-round simon64/128 using large-round statistical distinguishers},
+	author={Mourouzis, Theodosis and Song, Guangyan and Courtois, Nicolas and Christofii, Michalis},
+	year={2015}
+}
+
+@article{courtoisspeed,
+	title={Speed Optimizations in Bitcoin Key Recovery Attacks},
+	author={Courtois, Nicolas and Song, Guangyan and Castellucci, Ryan},
+	journal={Tatra Mountains Mathematical Publications},
+	year={2016}
+}
+
+@article{minisat,
+	title={Minisat v1. 13-a sat solver with conflict-clause minimization},
+	author={Sorensson, Niklas and Een, Niklas},
+	journal={SAT},
+	volume={2005},
+	number={53},
+	pages={1--2},
+	year={2005}
+}
+
+@inproceedings{secrypt2016,
+	title={Predicting Outcomes of ElimLin Attack on Lightweight Block Cipher Simon},
+	author={Courtois, Nicolas and Sepehrdad, Pouyan and Song, Guangyan and Iason Papapanagiotakis-Bousy},
+	booktitle={SECRYPT},
+	year={2016}
 }

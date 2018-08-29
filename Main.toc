@@ -1,102 +1,115 @@
-\contentsline {chapter}{\numberline {1}Introductory Material}{12}{chapter.1}
-\contentsline {chapter}{\numberline {2}Introduction to Cryptography}{13}{chapter.2}
-\contentsline {section}{\numberline {2.1}Symmetric and Asymmetric Cryptography}{14}{section.2.1}
-\contentsline {section}{\numberline {2.2}Block Ciphers}{16}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Substitution Ciphers}{17}{subsection.2.2.1}
-\contentsline {paragraph}{Simple Substitution}{17}{section*.6}
-\contentsline {paragraph}{Polyalphabetic Substitution}{17}{section*.7}
-\contentsline {subsection}{\numberline {2.2.2}Transposition Systems}{18}{subsection.2.2.2}
-\contentsline {subsection}{\numberline {2.2.3}Product Ciphers}{18}{subsection.2.2.3}
-\contentsline {paragraph}{Feistel Ciphers}{19}{section*.8}
-\contentsline {chapter}{\numberline {3}Cryptanalysis of Block Ciphers}{21}{chapter.3}
-\contentsline {section}{\numberline {3.1}Classification of Attacks}{22}{section.3.1}
-\contentsline {paragraph}{Data Requirement}{23}{section*.9}
-\contentsline {section}{\numberline {3.2}Brute-force Attack}{24}{section.3.2}
-\contentsline {section}{\numberline {3.3}Linear Cryptanalysis}{24}{section.3.3}
-\contentsline {section}{\numberline {3.4}Differential Cryptanalysis}{25}{section.3.4}
-\contentsline {paragraph}{Truncated Differentials}{27}{section*.10}
-\contentsline {section}{\numberline {3.5}Algebraic Attacks}{28}{section.3.5}
-\contentsline {subsection}{\numberline {3.5.1}Algebraic Attacks Solving Stage}{29}{subsection.3.5.1}
-\contentsline {chapter}{\numberline {4}Cryptanalysis of GOST}{33}{chapter.4}
-\contentsline {section}{\numberline {4.1}GOST encryption standard}{33}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}GOST And ISO Standardisation.}{33}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}Cryptanalysis of GOST}{34}{subsection.4.1.2}
-\contentsline {section}{\numberline {4.2}The Internal Structure of GOST}{34}{section.4.2}
-\contentsline {section}{\numberline {4.3}Algebraic Cryptanalysis with Complexity Reduction}{35}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Reductions and Black-Box Reductions}{36}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}Optimizing The Reductions: Amplification}{37}{subsection.4.3.2}
-\contentsline {subsection}{\numberline {4.3.3}Working at The Low Level}{38}{subsection.4.3.3}
-\contentsline {subsection}{\numberline {4.3.4}Applications of UNSAT/SAT Immunities}{39}{subsection.4.3.4}
-\contentsline {section}{\numberline {4.4}Application to DES}{40}{section.4.4}
-\contentsline {section}{\numberline {4.5}Application to GOST}{41}{section.4.5}
-\contentsline {subsection}{\numberline {4.5.1}SAT Immunity of GOST}{42}{subsection.4.5.1}
-\contentsline {section}{\numberline {4.6}A Mixed Attack with 4 KP}{43}{section.4.6}
-\contentsline {subsection}{\numberline {4.6.1}Application to Full 32-round GOST}{44}{subsection.4.6.1}
-\contentsline {chapter}{\numberline {5}Cryptanalysis of Simon}{45}{chapter.5}
-\contentsline {section}{\numberline {5.1}Introduction}{45}{section.5.1}
-\contentsline {section}{\numberline {5.2}General Description of SIMON}{48}{section.5.2}
-\contentsline {section}{\numberline {5.3}Algebraic Cryptanalysis of SIMON}{50}{section.5.3}
-\contentsline {section}{\numberline {5.4}Algebraic Attacks experiments and results}{52}{section.5.4}
-\contentsline {subsection}{\numberline {5.4.1}Experiments with 2 P/C pairs}{53}{subsection.5.4.1}
-\contentsline {subsection}{\numberline {5.4.2}Experiments with more P/C pairs}{54}{subsection.5.4.2}
-\contentsline {subsection}{\numberline {5.4.3}Algebraic Attacks Using ElimLin Algorithm}{55}{subsection.5.4.3}
-\contentsline {section}{\numberline {5.5}ElimLin On Lightweight Ciphers}{56}{section.5.5}
-\contentsline {subsection}{\numberline {5.5.1}Phase transitions}{56}{subsection.5.5.1}
-\contentsline {section}{\numberline {5.6}Experimental Setup and Notation}{57}{section.5.6}
-\contentsline {section}{\numberline {5.7}How to Predict the Success of ElimLin}{59}{section.5.7}
-\contentsline {subsection}{\numberline {5.7.1}On Growth Rate in ElimLin}{59}{subsection.5.7.1}
-\contentsline {subsection}{\numberline {5.7.2}Analysis of Our Prediction}{60}{subsection.5.7.2}
-\contentsline {subsection}{\numberline {5.7.3}Limitations vs. Improvements}{60}{subsection.5.7.3}
-\contentsline {section}{\numberline {5.8}The Big Picture - Long Term Predictions}{61}{section.5.8}
-\contentsline {subsection}{\numberline {5.8.1}Are Reliable Extrapolations Possible?}{63}{subsection.5.8.1}
-\contentsline {subsection}{\numberline {5.8.2}Are Low Degree Polynomial Extrapolations Possible?}{64}{subsection.5.8.2}
-\contentsline {section}{\numberline {5.9}On Comparative Strength of Ciphers}{65}{section.5.9}
-\contentsline {chapter}{\numberline {6}Introduction to Elliptic Curves}{66}{chapter.6}
-\contentsline {section}{\numberline {6.1}Mathematical Foundations}{66}{section.6.1}
-\contentsline {subsection}{\numberline {6.1.1}Finite Groups}{66}{subsection.6.1.1}
-\contentsline {subsection}{\numberline {6.1.2}Finite Fields}{66}{subsection.6.1.2}
-\contentsline {paragraph}{Prime Fields}{67}{section*.25}
-\contentsline {paragraph}{Binary Fields}{67}{section*.26}
-\contentsline {subsection}{\numberline {6.1.3}Cyclic Groups}{67}{subsection.6.1.3}
-\contentsline {section}{\numberline {6.2}Elliptic Curves}{68}{section.6.2}
-\contentsline {subsection}{\numberline {6.2.1}Elliptic Curves Over $\mathbb {F}_p$}{69}{subsection.6.2.1}
-\contentsline {subsection}{\numberline {6.2.2}Binary Elliptic Curves}{70}{subsection.6.2.2}
-\contentsline {section}{\numberline {6.3}Point Arithmetic}{71}{section.6.3}
-\contentsline {subsection}{\numberline {6.3.1}Point Addition}{71}{subsection.6.3.1}
-\contentsline {subsection}{\numberline {6.3.2}Point Doubling}{71}{subsection.6.3.2}
-\contentsline {subsection}{\numberline {6.3.3}Explicit Formulas}{73}{subsection.6.3.3}
-\contentsline {subsection}{\numberline {6.3.4}Point Multiplication and ECDLP}{74}{subsection.6.3.4}
-\contentsline {section}{\numberline {6.4}Open Research Questions}{75}{section.6.4}
-\contentsline {subsection}{\numberline {6.4.1}Summation Polynomials}{75}{subsection.6.4.1}
-\contentsline {paragraph}{Elliptic Curves Over $\mathbb {F}_p$}{76}{section*.31}
-\contentsline {paragraph}{Special Curve secp256k1}{76}{section*.32}
-\contentsline {paragraph}{Elliptic Curves Over $\mathbb {F}_{2^m}$}{77}{section*.33}
-\contentsline {subsection}{\numberline {6.4.2}Semaev Cipher}{77}{subsection.6.4.2}
-\contentsline {subsection}{\numberline {6.4.3}Curves with Special Shortcuts}{79}{subsection.6.4.3}
-\contentsline {section}{\numberline {6.5}Elliptic Curve Cryptography}{80}{section.6.5}
-\contentsline {subsection}{\numberline {6.5.1}Domain Parameters}{81}{subsection.6.5.1}
-\contentsline {subsection}{\numberline {6.5.2}Key Pair Generation}{81}{subsection.6.5.2}
-\contentsline {subsection}{\numberline {6.5.3}Elliptic Curve Digital Signature Algorithm}{82}{subsection.6.5.3}
-\contentsline {chapter}{\numberline {7}Bitcoin and Brain Wallet Attacks}{84}{chapter.7}
-\contentsline {section}{\numberline {7.1}Bitcoin Elliptic Curve}{85}{section.7.1}
-\contentsline {section}{\numberline {7.2}Brain Wallet}{86}{section.7.2}
-\contentsline {section}{\numberline {7.3}Bitcoin Elliptic Curve Implementation and Benchmarking}{88}{section.7.3}
-\contentsline {subsection}{\numberline {7.3.1}Related Work}{88}{subsection.7.3.1}
-\contentsline {subsection}{\numberline {7.3.2}Special Designed Point Multiplication Method For Attack}{89}{subsection.7.3.2}
-\contentsline {subsubsection}{\numberline {7.3.2.1}Fixed Point Multiplication Methods}{89}{subsubsection.7.3.2.1}
-\contentsline {subsection}{\numberline {7.3.3}Point Representation}{92}{subsection.7.3.3}
-\contentsline {paragraph}{Projective Coordinates}{92}{section*.38}
-\contentsline {paragraph}{Jacobian Coordinates}{93}{section*.39}
-\contentsline {paragraph}{Point Addition using Jacobian-Affine Mixed Coordinates}{94}{section*.41}
-\contentsline {paragraph}{secp256k1 point addition formulas}{94}{section*.42}
-\contentsline {paragraph}{Bernstein-Lange point addition formulas}{95}{section*.43}
-\contentsline {paragraph}{Detailed Filed Operation Benchmarks}{95}{section*.44}
-\contentsline {section}{\numberline {7.4}Experiment Results}{97}{section.7.4}
-\contentsline {subsection}{\numberline {7.4.1}Network Stress Test}{97}{subsection.7.4.1}
-\contentsline {subsection}{\numberline {7.4.2}Disclosure of results}{98}{subsection.7.4.2}
-\contentsline {chapter}{\numberline {8}General Conclusions}{100}{chapter.8}
-\contentsline {chapter}{Appendices}{101}{chapter.8}
-\contentsline {chapter}{\numberline {A}An Appendix About Stuff}{101}{appendix.A}
-\contentsline {chapter}{\numberline {B}Another Appendix About Things}{102}{appendix.B}
-\contentsline {chapter}{\numberline {C}Colophon}{103}{appendix.C}
-\contentsline {chapter}{Bibliography}{104}{appendix.C}
+\contentsline {chapter}{\numberline {1}Introduction}{15}{chapter.1}
+\contentsline {part}{I\hspace {1em}Backgroud and Related Work}{19}{part.1}
+\contentsline {chapter}{\numberline {2}Introduction to Cryptography}{20}{chapter.2}
+\contentsline {section}{\numberline {2.1}Symmetric and Asymmetric Encryptions}{21}{section.2.1}
+\contentsline {section}{\numberline {2.2}Block Ciphers}{23}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Substitution Ciphers}{24}{subsection.2.2.1}
+\contentsline {paragraph}{Simple Substitution}{24}{section*.9}
+\contentsline {paragraph}{Polyalphabetic Substitution}{25}{section*.10}
+\contentsline {subsection}{\numberline {2.2.2}Transposition Systems}{25}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Product Ciphers}{26}{subsection.2.2.3}
+\contentsline {paragraph}{Feistel Ciphers}{26}{section*.11}
+\contentsline {subsection}{\numberline {2.2.4}Courtois Toy Cipher}{28}{subsection.2.2.4}
+\contentsline {chapter}{\numberline {3}Cryptanalysis of Block Ciphers}{29}{chapter.3}
+\contentsline {section}{\numberline {3.1}Classification of Attacks}{31}{section.3.1}
+\contentsline {paragraph}{Data Requirements}{32}{section*.13}
+\contentsline {section}{\numberline {3.2}Brute-force Attacks}{33}{section.3.2}
+\contentsline {section}{\numberline {3.3}Linear Cryptanalysis}{33}{section.3.3}
+\contentsline {section}{\numberline {3.4}Differential Cryptanalysis}{35}{section.3.4}
+\contentsline {paragraph}{Truncated Differentials}{37}{section*.14}
+\contentsline {section}{\numberline {3.5}Algebraic Attacks}{38}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}Algebraic Attacks Solving Stage}{40}{subsection.3.5.1}
+\contentsline {subsection}{\numberline {3.5.2}Connection with other Cryptanalysis Techniques}{43}{subsection.3.5.2}
+\contentsline {subsection}{\numberline {3.5.3}On Complexity of Algebraic Attacks}{45}{subsection.3.5.3}
+\contentsline {subsection}{\numberline {3.5.4}Algebraic Complexity Reduction}{45}{subsection.3.5.4}
+\contentsline {section}{\numberline {3.6}Cryptanlysis of GOST Block Cipher}{47}{section.3.6}
+\contentsline {subsection}{\numberline {3.6.1}GOST And ISO Standardisation.}{47}{subsection.3.6.1}
+\contentsline {subsection}{\numberline {3.6.2}Cryptanalysis of GOST}{47}{subsection.3.6.2}
+\contentsline {subsection}{\numberline {3.6.3}The Internal Structure of GOST}{48}{subsection.3.6.3}
+\contentsline {section}{\numberline {3.7}Cryptanalysis of SIMON Block Cipher}{49}{section.3.7}
+\contentsline {subsection}{\numberline {3.7.1}SIMON Structure}{51}{subsection.3.7.1}
+\contentsline {subsection}{\numberline {3.7.2}Key Schedule}{53}{subsection.3.7.2}
+\contentsline {section}{\numberline {3.8}Summary}{53}{section.3.8}
+\contentsline {chapter}{\numberline {4}Introduction to Elliptic Curves}{54}{chapter.4}
+\contentsline {section}{\numberline {4.1}Mathematical Foundations}{54}{section.4.1}
+\contentsline {paragraph}{Prime Fields}{55}{section*.22}
+\contentsline {paragraph}{Binary Fields}{55}{section*.23}
+\contentsline {section}{\numberline {4.2}Elliptic Curves}{56}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Elliptic Curves Over $\mathbb {F}_p$}{57}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Binary Elliptic Curves}{58}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.3}Point Arithmetic}{59}{section.4.3}
+\contentsline {section}{\numberline {4.4}ECDLP}{62}{section.4.4}
+\contentsline {section}{\numberline {4.5}An Interesting Research Question - Semaev Cipher}{63}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Summation Polynomials}{63}{subsection.4.5.1}
+\contentsline {paragraph}{Elliptic Curves Over $\mathbb {F}_p$}{64}{section*.33}
+\contentsline {paragraph}{Special Curve secp256k1}{64}{section*.34}
+\contentsline {paragraph}{Elliptic Curves Over $\mathbb {F}_{2^m}$}{64}{section*.35}
+\contentsline {subsection}{\numberline {4.5.2}Solving Semaev Equations with Extra Variables}{65}{subsection.4.5.2}
+\contentsline {paragraph}{Semaev Cipher}{66}{section*.36}
+\contentsline {section}{\numberline {4.6}Elliptic Curve in Cryptography}{66}{section.4.6}
+\contentsline {subsection}{\numberline {4.6.1}Domain Parameters}{67}{subsection.4.6.1}
+\contentsline {subsection}{\numberline {4.6.2}Key Pair Generation}{68}{subsection.4.6.2}
+\contentsline {subsection}{\numberline {4.6.3}Elliptic Curve Digital Signature Algorithm}{69}{subsection.4.6.3}
+\contentsline {section}{\numberline {4.7}Bitcoin and Brain Wallet Attacks}{70}{section.4.7}
+\contentsline {section}{\numberline {4.8}Bitcoin Elliptic Curve}{71}{section.4.8}
+\contentsline {section}{\numberline {4.9}Brain Wallets}{72}{section.4.9}
+\contentsline {subsection}{\numberline {4.9.1}Related Work}{73}{subsection.4.9.1}
+\contentsline {part}{II\hspace {1em}The Path to Better Software Algebraic Cryptanalysis}{75}{part.2}
+\contentsline {chapter}{\numberline {5}Contradiction Immunity and Application to GOST}{76}{chapter.5}
+\contentsline {section}{\numberline {5.1}Contradiction Immunity and SAT Immunity}{76}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Software Algebraic Attack with SAT Solver}{76}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Contradiction Immunity and SAT Immunity}{78}{subsection.5.1.2}
+\contentsline {subsection}{\numberline {5.1.3}Applications of UNSAT/SAT Immunities}{79}{subsection.5.1.3}
+\contentsline {section}{\numberline {5.2}Applying SAT/UNSAT Immunity to GOST and DES}{80}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Application to DES}{80}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Contradiction Immunity of GOST}{81}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}SAT Immunity of GOST}{83}{subsection.5.2.3}
+\contentsline {subsection}{\numberline {5.2.4}Low Data Complexity Meet-In-The-Middle Attack for 8 Rounds GOST}{83}{subsection.5.2.4}
+\contentsline {section}{\numberline {5.3}Conclution}{84}{section.5.3}
+\contentsline {chapter}{\numberline {6}Algebraic Cryptanalysis of Simon}{86}{chapter.6}
+\contentsline {section}{\numberline {6.1}Introduction}{86}{section.6.1}
+\contentsline {section}{\numberline {6.2}How to Write Simon Equations}{89}{section.6.2}
+\contentsline {section}{\numberline {6.3}Differential-Algebraic Cryptanalysis of Simon}{90}{section.6.3}
+\contentsline {section}{\numberline {6.4}Algebraic Attacks experiments and results}{92}{section.6.4}
+\contentsline {subsection}{\numberline {6.4.1}Experiments with 2 P/C pairs}{93}{subsection.6.4.1}
+\contentsline {subsection}{\numberline {6.4.2}Experiments with more P/C pairs}{94}{subsection.6.4.2}
+\contentsline {subsection}{\numberline {6.4.3}ElimLin Results}{95}{subsection.6.4.3}
+\contentsline {section}{\numberline {6.5}Conclusion}{96}{section.6.5}
+\contentsline {chapter}{\numberline {7}Re-Designing Algebraic Attacks Beyond ElimLin}{97}{chapter.7}
+\contentsline {section}{\numberline {7.1}ElimLin Overview}{97}{section.7.1}
+\contentsline {subsection}{\numberline {7.1.1}Phase transitions}{98}{subsection.7.1.1}
+\contentsline {section}{\numberline {7.2}How to Predict the Success of ElimLin}{99}{section.7.2}
+\contentsline {subsection}{\numberline {7.2.1}Experimental Setup and Notation}{99}{subsection.7.2.1}
+\contentsline {section}{\numberline {7.3}The Big Picture}{101}{section.7.3}
+\contentsline {subsection}{\numberline {7.3.1}On Growth Rate in ElimLin}{101}{subsection.7.3.1}
+\contentsline {subsection}{\numberline {7.3.2}Deep Inspection}{104}{subsection.7.3.2}
+\contentsline {section}{\numberline {7.4}Known Plaintext vs Chosen Plaintext}{107}{section.7.4}
+\contentsline {paragraph}{Scaling Down Method}{107}{section*.51}
+\contentsline {section}{\numberline {7.5}Equations In ElimLin vs. Direct Approximation}{108}{section.7.5}
+\contentsline {subsection}{\numberline {7.5.1}Polynomial Approximation in Practice}{109}{subsection.7.5.1}
+\contentsline {paragraph}{Experimental Results}{111}{section*.53}
+\contentsline {paragraph}{Application --- Prediction of Attack Complexity}{111}{section*.55}
+\contentsline {subsection}{\numberline {7.5.2}ElimLin+}{113}{subsection.7.5.2}
+\contentsline {section}{\numberline {7.6}Conclusion}{113}{section.7.6}
+\contentsline {part}{III\hspace {1em}Speed Optimisation for Bitcoin Brain Wallet Attacks}{116}{part.3}
+\contentsline {chapter}{\numberline {8}Improving Brain Wallet Attacks}{117}{chapter.8}
+\contentsline {section}{\numberline {8.1}Bitcoin Elliptic Curve Implementation and Benchmarking}{117}{section.8.1}
+\contentsline {subsection}{\numberline {8.1.1}Dedicated Scalar Multiplication Method}{117}{subsection.8.1.1}
+\contentsline {subsubsection}{\numberline {8.1.1.1}Fixed Point Multiplication Methods}{118}{subsubsection.8.1.1.1}
+\contentsline {subsection}{\numberline {8.1.2}Point Representation}{120}{subsection.8.1.2}
+\contentsline {paragraph}{Projective Coordinates}{121}{section*.59}
+\contentsline {paragraph}{Jacobian Coordinates}{121}{section*.60}
+\contentsline {paragraph}{Point Addition using Jacobian-Affine Mixed Coordinates}{122}{section*.62}
+\contentsline {paragraph}{secp256k1 point addition formulas}{122}{section*.63}
+\contentsline {paragraph}{Bernstein-Lange point addition formulas}{123}{section*.64}
+\contentsline {paragraph}{Detailed Filed Operation Benchmarks}{123}{section*.65}
+\contentsline {section}{\numberline {8.2}On Cracked Brain Wallets}{126}{section.8.2}
+\contentsline {subsection}{\numberline {8.2.1}Network Stress Test}{126}{subsection.8.2.1}
+\contentsline {subsection}{\numberline {8.2.2}Disclosure of Results}{127}{subsection.8.2.2}
+\contentsline {section}{\numberline {8.3}Summary}{128}{section.8.3}
+\contentsline {chapter}{\numberline {9}Conclusion}{129}{chapter.9}
+\contentsline {chapter}{Appendices}{132}{chapter.9}
+\contentsline {chapter}{\numberline {A}Full Instruction for ElimLin Prediction Experiments}{132}{appendix.A}
+\contentsline {chapter}{\numberline {B}Java Tool for Deep Inspection of ElimLin}{134}{appendix.B}
+\contentsline {chapter}{\numberline {C}Examples of Cracked Brainwallet Passwords}{135}{appendix.C}
+\contentsline {chapter}{Bibliography}{137}{Item.75}

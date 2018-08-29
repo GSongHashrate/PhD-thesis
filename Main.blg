@@ -1,7 +1,6 @@
-This is BibTeX, Version 0.99d (TeX Live 2015)
+This is BibTeX, Version 0.99d (TeX Live 2016)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Main.aux
-The style file: unsrt.bst
 A level-1 auxiliary file: Preamble.aux
 A level-1 auxiliary file: Introduction.aux
 A level-1 auxiliary file: Chapter2.aux
@@ -9,99 +8,61 @@ A level-1 auxiliary file: Chapter3.aux
 A level-1 auxiliary file: Chapter4.aux
 A level-1 auxiliary file: Chapter5.aux
 A level-1 auxiliary file: Chapter6.aux
+A level-1 auxiliary file: Chapter7.aux
 A level-1 auxiliary file: Conclusions.aux
 A level-1 auxiliary file: Appendices.aux
+The style file: abbrv.bst
 Database file #1: PhD.bib
-I was expecting a `,' or a `}'---line 485 of file PhD.bib
- :  howpublished = "\url{https://www.hyperelliptic.org/EFD/}"
- :                                                           ;
-I'm skipping whatever remains of this entry
-Repeated entry---line 993 of file PhD.bib
- : @incollection{courtois2002cryptanalysis
- :                                        ,
-I'm skipping whatever remains of this entry
-You're missing a field name---line 2461 of file PhD.bib
- : 
- : % Author = "M. Albrecht and N. Courtois and D. Hulme and G. Song",
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-You're missing a field name---line 2669 of file PhD.bib
- : 
- : %  AUTHOR =       "T. Mourouzis",
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-Repeated entry---line 2679 of file PhD.bib
- : @inproceedings{simon2
- :                      ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 2845 of file PhD.bib
- : @inproceedings{grobner
- :                       ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 3149 of file PhD.bib
- : @article{faugere2014using
- :                          ,
-I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for "example-citation"
-Warning--I didn't find a database entry for "optisharcs"
-Name 1 in "Gregory V. Bard, and Nicolas T. Courtois, and Chris Jefferson." has a comma at the end for entry cryptoeprint:2007:024
-while executing---line 944 of file unsrt.bst
-Name 2 in "Gregory V. Bard, and Nicolas T. Courtois, and Chris Jefferson." has a comma at the end for entry cryptoeprint:2007:024
-while executing---line 944 of file unsrt.bst
-Warning--empty booktitle in BardCourtoiJeffersonConv
-Too many commas in name 1 of "Courtois, Nicolas T, Bard, Gregory V and Bogdanov, Andrey" for entry KeeLoqTatra
-while executing---line 944 of file unsrt.bst
-Warning--empty booktitle in BoyarPeraltaMCMethod
-Warning--empty booktitle in BoyarPeraltaMCBoolean
-Warning--empty booktitle in simonref
-Warning--empty booktitle in BoyarPeraltaMCMethodAES
-Warning--empty booktitle in EquationSolving
-Warning--empty booktitle in CourtoisSoftware
-Too many commas in name 1 of "N. Courtois, T. Mourouzis, G. Song, P. Sepehrdad and P. Susil" for entry ACTruncSimon
-while executing---line 944 of file unsrt.bst
-Too many commas in name 1 of "P. Susil, P. Sepehrdad, S. Vaudenay, N. Courtois" for entry ElimLinUniversalEqs
-while executing---line 944 of file unsrt.bst
+Warning--to sort, need author or key in GOSTRussianReferenceImplementation
+Warning--to sort, need author or key in IEEEP1363
 Warning--empty author in IEEEP1363
 Warning--empty booktitle in IEEEP1363
-You've used 135 entries,
-            1791 wiz_defined-function locations,
-            1133 strings with 24650 characters,
-and the built_in function-call counts, 30312 in all, are:
-= -- 2763
-> -- 1082
-< -- 35
-+ -- 425
-- -- 290
-* -- 1534
-:= -- 4505
-add.period$ -- 444
-call.type$ -- 135
-change.case$ -- 125
+Warning--empty booktitle in BardCourtoiJeffersonConv
+Warning--empty booktitle in BoyarPeraltaMCMethod
+Warning--empty booktitle in BoyarPeraltaMCMethodAES
+Warning--empty booktitle in BoyarPeraltaMCBoolean
+Warning--empty booktitle in CourtoisSoftware
+Warning--empty booktitle in EquationSolving
+Warning--empty booktitle in simonref
+You've used 163 entries,
+            2118 wiz_defined-function locations,
+            1326 strings with 30355 characters,
+and the built_in function-call counts, 54185 in all, are:
+= -- 5377
+> -- 2294
+< -- 50
++ -- 931
+- -- 749
+* -- 3223
+:= -- 8678
+add.period$ -- 536
+call.type$ -- 163
+change.case$ -- 849
 chr.to.int$ -- 0
-cite$ -- 144
-duplicate$ -- 1636
-empty$ -- 3372
-format.name$ -- 290
-if$ -- 7179
+cite$ -- 174
+duplicate$ -- 2343
+empty$ -- 4662
+format.name$ -- 749
+if$ -- 11813
 int.to.chr$ -- 0
-int.to.str$ -- 135
-missing$ -- 127
-newline$ -- 674
-num.names$ -- 135
-pop$ -- 648
+int.to.str$ -- 163
+missing$ -- 151
+newline$ -- 813
+num.names$ -- 324
+pop$ -- 1182
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 698
 quote$ -- 0
-skip$ -- 753
+skip$ -- 1633
 stack$ -- 0
-substring$ -- 1516
-swap$ -- 451
-text.length$ -- 35
+substring$ -- 2883
+swap$ -- 607
+text.length$ -- 50
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
-warning$ -- 9
-while$ -- 286
-width$ -- 138
-write$ -- 1445
-(There were 12 error messages)
+type$ -- 632
+warning$ -- 11
+while$ -- 528
+width$ -- 166
+write$ -- 1752
+(There were 11 warnings)

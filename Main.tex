@@ -75,7 +75,7 @@
 % Title Settings
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
-\title{A Thesis Title}
+\title{Optimization and Guess-then-Solve Attacks in Cryptanalysis}
 \author{Guangyan Song}
 \department{Department of Computer Science}
 
@@ -100,12 +100,49 @@
 % At last, content! Remember filenames are case-sensitive and 
 %  *must not* include spaces.
 \include{Preamble}
+\chapter*{List of Publications}
+\begin{itemize}
+	\item Courtois, N.T., Gawinecki, J.A. and Song, G., 2012. Contradiction immunity and guess-then-determine attacks on GOST. Tatra Mountains Mathematical Publications, 53(1), pp.65-79. 
+	\item Courtois, N., Mourouzis, T., Song, G., Sepehrdad, P. and Susil, P., 2014. Combined algebraic and truncated differential cryptanalysis on reduced-round Simon. In Proceedings of the 11th International Conference on Security and Cryptography, pp. 399-404. 
+	\item Courtois, N.T., Mourouzis, T., Misztal, M., Quisquater, J.J. and Song, G., 2015. Can GOST Be Made Secure Against Differential Cryptanalysis?. Cryptologia, 39(2), pp.145-156. 
+	\item Mourouzis, T., Song, G., Courtois, N. and Christofii, M., 2015. Advanced differential cryptanalysis of reduced-round simon64/128 using large-round statistical distinguishers. Cryptology ePrint Archive, Report 2015/481
+	\item Nicolas Courtois, Guangyan Song, Ryan Castellucci:
+	Speed Optimizations in Bitcoin Key Recovery Attacks, will appear in journal post-proceedings of CECC 2016,
+	Central European Conference on Cryptology, Tatra Mountains Mathematic
+	Publications.
+	\item Courtois N., Sepehrdad P., Song G. and Papapanagiotakis-Bousy I. 2016. Predicting Outcomes of ElimLin Attack on Lightweight Block Cipher Simon. International Conference on Security and Cryptography pp. 465-470.
+\end{itemize}
+\chapter*{List of Software Deliverables}
+\begin{itemize}
+	\item  N Courtois, T Mourouzis, G Song. Simonspeck. \url{https://github.com/GSongHashrate/ SimonSpeck}
+	NSA Simon and Speck C++ implementation, equation generator for all versions of Simon cipher.
+	\item Nicolas Courtois, Jason Papapanagiotakis, Guangyan Song, Chris Park:
+	"Fast Bitcoin data mining Tutorial" (used in GA18 and GA12 teaching/projects at University College London)
+	\url{http://www.nicolascourtois.com/bitcoin/fast_bitcoin_data_mining.pdf}
+	\item DeepElimLin: 
+	``Java tool for DEEP INSPECTION of equations generated with ElimLin over GF(2)
+	in Cryptalanalysis of Block Ciphers'', developed by Guangyan Song and Nicolas Courtois.
+	Available at:
+	\url{http://www.cryptosystem.net/aes/tools.html}
+	\item How to crack bitcoin passwords at a very high speed: brainflayer cracker.
+	\url{https://github.com/ryancdotorg/brainflayer} written by Ryan Castellucci. Nicolas
+	Courtois and Guangyan Song contributed the code in ec\_pubkey\_fast.c
+	which more than doubles the speed of public key computations. 
+	
+	\item How to crack bitcoin and LinkedIn passwords at home 
+	(easy starter project for UCL students and GA18 code breaking competition, 
+	by Nicolas Courtois and Guangyan Song. Cf. 
+	\url{https://drive.google.com/open?id=0B0iephZbbC3uSU9WRUdWZVZfa1U}
+	and database files \url{https://drive.google.com/file/d/0B0iephZbbC3uWERlanN5b3hJak0}. 
+\end{itemize}
+
 \include{Introduction}
 \include{Chapter2}
 \include{Chapter3}
 \include{Chapter4}
 \include{Chapter5}
 \include{Chapter6}
+\include{Chapter7}
 
 \include{Conclusions}
 \include{Appendices} 
@@ -119,6 +156,8 @@
 \addcontentsline{toc}{chapter}{Bibliography}
 
 % Actually generates your bibliography.
+%\bibliographystyle{apa}
+\bibliographystyle{abbrv}
 \bibliography{PhD}
 
 % All done. \o/
