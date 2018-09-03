@@ -7,7 +7,7 @@ The history of cryptanalysis is as long and as fascinating as the history of cry
 
 The sender and the receiver share a common key $K$ over a secure channel in advance. The sender encrypts a plaintext P using the secret key $K$, sends ciphertext C over an insecure channel to the receiver. The receiver then decrypts C to P using K. The attacker has access to the insecure channel and can intercept the ciphertext. In this chapter we assume that the sender and receiver use a secret key cipher $E_{K}(\cdot)$ of n-bits block size and k-bits size of key $K$. 
 
-The definition of security is also strongly related to what type of attackers you are defending against. In chapter 5 of Bruce Schneier's book \cite{schneier2006beyond}, the author categorizes (also appear in slides 35 in \cite{SlidesCompSec}) attackers along the following basic lines: 
+The definition of security is also strongly related to what type of attackers you are defending against. In chapter 5 of Bruce Schneier's book \cite{schneier2006beyond}, the author categorizes attackers along the following basic lines: 
 	
 \begin{enumerate}
 	\item Adversarial goals and motivations.
@@ -58,7 +58,7 @@ Regarding access to the system, Schneier classifies the possible attacks an atta
 
 The chosen text attacks are the most powerful attacks. However, they are also unrealistic in many applications. If redundancy exists in plaintext space, it will be very hard for an attacker to find an encrypted non-meaningful plaintext sent by the sender, and to get the ciphertexts decrypted. However, if a system is secure against an Adaptively Chosen Plaintext Attack, then it is also secure against all other attacks.
 
-Modern cryptanalysis of block ciphers has focused on finding the secret key $K$ for any scenario, even unrealistic ones. Importantly, there are other serious attacks for public key cryptography, which do not find the secret key. In \cite{knudsen1994block}, Knudsen classifies the types of attacks as follows:
+Modern cryptanalysis of block ciphers has focused on finding the secret key $K$ for any scenario, even unrealistic ones. Importantly, there are other serious attacks for public key cryptography, which do not find the secret key. Knudsen classifies the types of attacks as follows \cite{knudsen1994block}:
 \begin{enumerate}
 	\item \textbf{Total break}: An attacker finds the secret key $K$.
 	\item \textbf{Global deduction}: An attacker finds an algorithm $A$, which is functionally equivalent to $E_{K}(\cdot)(or\ D_{K}(\cdot))$ without knowing the key $K$.
@@ -75,9 +75,9 @@ scenario, however in this case they will be less advantageous) \cite{gostac,cour
 \section{Brute-force Attacks}
 A brute-force attack or exhaustive key search is the most general attack that can be applied to any block cipher. All block ciphers are totally breakable in a ciphertext-only attack, just simply by trying all the possible keys one by one, and checking whether the computed plaintext is meaningful. If the block size is equal to key size, in the worst case, this attack requires the computation of $2^{k}$ encryptions. The dimension of the key space $k$, which is the length of the key, determines the practical feasibility of performing a brute-force attack. While in 2014 an paper written by Huang and Lai \cite{huang2014effective} described a brute-force-like attack, with a time complexity faster than the exhaustive key search by going over the entire key space, but performing less than a full encryption for each possible key. The time complexity of this attack is $2^k(1 - \epsilon)$ (where $\epsilon > 0$) on average regardless the block size, cf. \cite{huang2014effective,gostac}. For modern block ciphers, brute-force is always possible in theory, but computationally infeasible in practice.
 \section{Linear Cryptanalysis}
-Linear cryptanalysis is a Known Plaintext Attack on block ciphers. It was popularised by Matsui in 1993 \cite{matsui1994linear} and invented earlier by Gilbert and his student \cite{tardy1991known}. A preliminary version of the attack on FEAL was described in 1992 \cite{matsui1993new}. A year later, Matsui published another attack on DES\cite{matsui1994linear}. Although the published attack on DES required $2^{43}$ known plaintexts which is not very practical, it still was a great improvement in experimental cryptanalysis. 
+Linear cryptanalysis is a Known Plaintext Attack on block ciphers. It was popularised by Matsui in 1993 \cite{matsui1994linear} and invented earlier by Gilbert and his student \cite{tardy1991known}. A preliminary version of the attack on FEAL was described in 1992 \cite{matsui1993new}. A year later, Matsui published another attack on DES \cite{matsui1994linear}. Although the published attack on DES required $2^{43}$ known plaintexts which is not very practical, it still was a great improvement in experimental cryptanalysis. 
 
-Linear cryptanalysis is based on finding affine approximations to the action of a cipher which holds with high probability. The attacker exploits linear approximations of some bits of the plaintext, ciphertext and key. In the attack on the DES (or on DES-like iterated ciphers) the linear approximations are obtained by combining approximations for each round under the assumption of independent round keys. 
+In linear cryptanalysis the attacker exploits linear approximations of some bits of the plaintext, ciphertext and key. In the attack on the DES (or on DES-like iterated ciphers) the linear approximations are obtained by combining approximations for each round under the assumption of independent round keys. 
 
 The attacker hopes to find an expression (equation \ref{eq:test}), which holds with probability $p_{L} \neq \frac{1}{2}$ over the keys \cite{matsui1994linear}, such that $\epsilon = \mid p_{L} - \frac{1}{2} \mid$, called the bias, is maximal. 
 \begin{equation} \label{eq:test}
@@ -85,7 +85,7 @@ The attacker hopes to find an expression (equation \ref{eq:test}), which holds w
 \end{equation}
 where $P,C,\alpha,\beta,\gamma$ are m-bit strings and where `$\cdot$' denotes the dot product.
 
-Given an approximation (equation \ref{eq:test}) a linear attack using $N$ plaintexts and the $N$ corresponding ciphertexts goes as follows\cite{matsui1994linear}. 
+Given an approximation (equation \ref{eq:test}) a linear attack using $N$ plaintexts and the $N$ corresponding ciphertexts goes as follows \cite{matsui1994linear}. 
 
 \begin{enumerate}
 	
@@ -93,17 +93,17 @@ Given an approximation (equation \ref{eq:test}) a linear attack using $N$ plaint
 	\item if $T > \frac{N}{2}$ guess that $K \cdot \gamma = 0$, otherwise guess that $K \cdot \gamma = 1$ (majority vote).
 	
 \end{enumerate}
-By using the above method, the attacker can find one bit of information about the secret key, $K \cdot \gamma$. However, this is only one step in an attack, as it only finds one bit or a linear equation about the key. In \cite{matsui1994linear}, Matsui also showed an extended linear attack which finds more key bits. Instead of approximating the first and last round, the extended linear attack simply repeats the attack for all values of the relevant key bits in those two rounds by using the following approximation equation: 
+By using the above method, the attacker can find one bit of information about the secret key, $K \cdot \gamma$. However, this is only one step in an attack, as it only finds one bit or a linear equation about the key. Matsui also showed an extended linear attack which finds more key bits \cite{matsui1994linear}. Instead of approximating the first and last round, the extended linear attack simply repeats the attack for all values of the relevant key bits in those two rounds by using the following approximation equation: 
 \begin{equation} \label{eq:linear2}
 (P \cdot \alpha) \oplus (C \cdot \beta) \oplus (F(P_{R},K_{1}) \cdot \alpha_{1}) \oplus (F(C_{R},K_{r}) \cdot \alpha_{r}) = (K \cdot \gamma)
 \end{equation}
 where $P_{R}, C_{R}$ are the right halves of the plaintexts and ciphertexts. $K_{1}$ and $K_{R}$ are the key bits affecting the linear approximation in the first and $r$th rounds. We refer the reader to Matsui's paper \cite{matsui1994linear} for more details.
 
 %TODO: citiation
-Kaliski and Robshaw showed an improved linear attack using multiple linear approximations in \cite{kaliski1994linear}. In \cite{kilian1996protect} Knudsen and Robshaw introduced a linear attack using non-linear approximations in the outer rounds of a block cipher. Both of these have not been able to show any significant improvement compared to Matsui's linear attack. Kaliski's and Knudsen's attacks seem best suited for ciphers with large S-boxes, such as LOKI \cite{brown1990loki,kilian1996protect}. However in 2004 as an extension of Knudsen and Robshaw's work, new attacks were introduced by Courtois \cite{courtois2004feistel} to attack Feistel schemes, which makes this non-linear approximation ``penetrate" inside the cipher and achieved a small improvement upon Matsui's work.
+Kaliski and Robshaw showed an improved linear attack using multiple linear approximations in 1994 \cite{kaliski1994linear}. In 1996, Knudsen and Robshaw introduced a linear attack using non-linear approximations in the outer rounds of a block cipher \cite{kilian1996protect}. Both of these have not been able to show any significant improvement compared to Matsui's linear attack. Kaliski's and Knudsen's attacks seem best suited for ciphers with large S-boxes, such as LOKI \cite{brown1990loki,kilian1996protect}. However in 2004 as an extension of Knudsen and Robshaw's work, new attacks were introduced by Courtois \cite{courtois2004feistel} to attack Feistel schemes, which makes this non-linear approximation ``penetrate" inside the cipher and achieved a small improvement upon Matsui's work.
 
 \section{Differential Cryptanalysis} \label{sec:differentialCry}
-Differential cryptanalysis is based on tracking changes in the differences between two messages as they pass through the consecutive rounds of encryption. It is one of the oldest classical attacks on modern block ciphers. In cryptographic literature, it was first described and analyzed by Biham and Shamir, and applied to the DES algorithm in the early 1990s \cite{biham1993differential}. However, Coppersmith, a member of the IBM team that designed DES \cite{coppersmith1994data,coppersmith2000development,courtois2003s},  reported that this attack was already known to IBM designers around 1974. It was known under the name of T-attack or Tickle attack, and DES had already been designed to resist this type of attack. A detailed discussion of the specific original design criteria of DES can be found in \cite{courtois2003s}. Moreover, it appears that IBM had agreed with the NSA that the design criteria of DES should not be made public, precisely because it would ``weaken the competitive advantage the United States enjoyed over other countries in the field of cryptography" cf. \cite{coppersmith1994data,coppersmith2000development}. In contrast, linear cryptanalysis seems more recent. 
+Differential cryptanalysis is based on tracking changes in the differences between two messages as they pass through the consecutive rounds of encryption. It is one of the oldest classical attacks on modern block ciphers. In cryptographic literature, it was first described and analyzed by Biham and Shamir, and applied to the DES algorithm in the early 1990s \cite{biham1993differential}. However, Coppersmith, a member of the IBM team that designed DES \cite{coppersmith1994data,coppersmith2000development,courtois2003s},  reported that this attack was already known to IBM designers around 1974. It was known under the name of T-attack or Tickle attack, and DES had already been designed to resist this type of attack. A detailed discussion of the specific original design criteria of DES can be found in the work done by Courtois et al \cite{courtois2003s}. Moreover, it appears that IBM had agreed with the NSA that the design criteria of DES should not be made public, precisely because it would ``weaken the competitive advantage the United States enjoyed over other countries in the field of cryptography" cf. \cite{coppersmith1994data,coppersmith2000development}. In contrast, linear cryptanalysis seems more recent. 
 
 Today, differential cryptanalysis is extremely well known. Numerous authors studied various aspects of differential cryptanalysis extensively in the 1990s. Apart from DES, differential cryptanalysis has also been successfully applied to a wide range of iterated ciphers \cite{knudsen1993cryptanalysis,massey1994safer}.  Recent research work showed great success using differential cryptanalysis to break the Russian standard GOST  \cite{gostdc0,gostdc1} and the NSA lightweight cipher Simon and Speck \cite{simon3,simon2}.
 
@@ -201,7 +201,7 @@ Given a set of clauses $C_{0}, C_{1}, ... , C_{m-1}$ on the propositions $x_{0},
 determine whether the formula $$ F = \bigwedge_{j<m} C_{j}$$ has an assignment of truth values to the propositions such
 that it evaluates to True.	
 \end{mydef}
-In the past decade, the rapid improvements in SAT algorithms has made SAT solvers increasingly popular. Modern SAT solvers have a significant impact on the fields of  electronic design automation, software verification, constraint solving in artificial intelligence, and operations research, among others.  Nicolas Courtois is the pioneer of bringing SAT solvers into action in the area of symmetric cryptanalysis. In his paper \cite{bard2007efficient}, the authors described how to convert a multivariate quadratic equation system to CNF which can be solved automatically by SAT solvers. The advantage of this technique is that SAT solvers can perform reasonably well and do not require a lot of memory as compared with Gr$\ddot{o}$bner basis-based techniques \cite{grobner}. The only disadvantage is the unpredictability of its complexity. The first algebraic attack on reduced-round block cipher DES was done by Courtois and Bard in  \cite{DEScourtois}. Later in 2008, the first algebraic attack on full block cipher KeeLoq \cite{courtois2008algebraicKeeLoq} took place. In the past 10 years, SAT solvers have been used for attacks on block ciphers, such as GOST\cite{courtois2012contradiction,gostac}, KATAN32 \cite{bard2010algebraic} and the Chinese block cipher SMS4 \cite{erickson2010algebraic},  stream ciphers, such as Crypto-1, HiTag2 and Bivium \cite{soos2009extending,courtois2009practical}, and MiFare Classic smart cards \cite{courtois2008algebraic}.
+In the past decade, the rapid improvements in SAT algorithms has made SAT solvers increasingly popular. Modern SAT solvers have a significant impact on the fields of  electronic design automation, software verification, constraint solving in artificial intelligence, and operations research, among others.  Nicolas Courtois is the pioneer of bringing SAT solvers into action in the area of symmetric cryptanalysis. His paper \cite{bard2007efficient} described how to convert a multivariate quadratic equation system to CNF which can be solved automatically by SAT solvers. The advantage of this technique is that SAT solvers can perform reasonably well and do not require a lot of memory as compared with Gr$\ddot{o}$bner basis-based techniques \cite{grobner}. The only disadvantage is the unpredictability of its complexity. The first algebraic attack on reduced-round block cipher DES was done by Courtois and Bard in 2007 \cite{DEScourtois}. Later in 2008, the first algebraic attack on full block cipher KeeLoq \cite{courtois2008algebraicKeeLoq} took place. In the past 10 years, SAT solvers have been used for attacks on block ciphers, such as GOST \cite{courtois2012contradiction,gostac}, KATAN32 \cite{bard2010algebraic} and the Chinese block cipher SMS4 \cite{erickson2010algebraic},  stream ciphers, such as Crypto-1, HiTag2 and Bivium \cite{soos2009extending,courtois2009practical}, and MiFare Classic smart cards \cite{courtois2008algebraic}.
 
 Another method is to use the ElimLin algorithm \cite{ElimLinR}. ElimLin stands for \textbf{Elim}inate \textbf{Lin}ear, and it is a simple algorithm for solving polynomial systems of multivariate equations over small finite fields. It was initially proposed as a single tool by Courtois to attack DES and CTC/CTC2 ciphers \cite{DEScourtois}. It is also known as the \textit{inter-reduction} step in all major algebra systems. Its main aim is to reveal some hidden linear equations existing in the ideal generated by the system of
 polynomials. ElimLin is composed of two sequential stages:
@@ -237,7 +237,7 @@ Given an initial multivariate system of equations over $S^0$ in $\mathbb{F}_2[x_
 The study of ElimLin is interesting \cite{ElimLinRevisit,ElimLinUniversalEqs}
 precisely because it is simpler to understand than more complex
 polynomial algebra techniques \cite{XL,XL2,XLAsEstCourt04,Bardet,DoSemiRegularSequencesExist}. In recent years, ElimLin has been applied to NSA block cipher Simon, LBlock, KATAN32 and PRESENT \cite{courtois2014combined,RaddumSimon,ElimLinUniversalEqs,nakahara2009linear}. The main characteristic of ElimLin is that it quietly dissolves
-and makes non-linear equations disappear and generates linear equations. Non-linearity is the main and only thing which makes cryptographic schemes not broken by simple linear algebra. Intuitively, ElimLin seems to work better in cases where there is low non-linearity, since this implies the existence of more linear equations.  Multiplicative complexity (MC) is another notion of non-linearity which was studied in \cite{FourMNL,OptimiPaper2,TheoPhD} and possibly Elimlin may work sufficiently well in cryptographic primitives with low MC.
+and makes non-linear equations disappear and generates linear equations. Non-linearity is the main and only thing which makes cryptographic schemes not broken by simple linear algebra. Intuitively, ElimLin seems to work better in cases where there is low non-linearity, since this implies the existence of more linear equations.  Multiplicative complexity (MC) is another notion of non-linearity which was studied in Mourouzis's PhD thesis \cite{TheoPhD} and possibly Elimlin may work sufficiently well in cryptographic primitives with low MC.
 However, the complexity of ElimLin attack or software algebraic attacks in general is not well studied. It is not clear why this works and how well the ElimLin attack scales for larger systems of equations. This is a major topic of interest in this thesis.
 
 %
@@ -311,17 +311,64 @@ Less than 10
 block ciphers have ever become an
 ISO %international
 standard.
-Unhappily in 2011 several key recovery attacks on GOST were found
+Unhappily in 2011 several key recovery attacks on GOST were found by researchers
 \cite{JapaneseGOSTMITMFSE2011,gostreport,gostac,gostdc0,gostdc2}.
 
 \subsection{Cryptanalysis of GOST} \label{sec:CrytanalysisGOST}
-
 The turning point in the security of GOST was the discovery of the so called
-``Reflection'' property described in \cite{GOSTReflectionKara}.
-Initially at Indocrypt 2008 only a weak-key attack with time complexity of $2^{192}$ was proposed, with a large proportion of $2^{-32}$ of weak keys. Then in 2011 several attacks on regular GOST keys were discovered, and more than half of these new attacks use this reflection property \cite{JapaneseGOSTMITMFSE2011,DunkelmanImprovedGOST8R}, sometimes twice, three or four times \cite{gostac}. Most of these attacks follow the principle of algebraic complexity reduction (see Section \ref{sec:ACReduction}) where from some data for the full 32 rounds GOST we obtain a certain number
-of pairs for 8 or less rounds of GOST. The quantity of data available after reduction is very small,for example 2,3 or 4 pairs for a reduced round cipher. 
+``Reflection'' property described by Kara in Indocrypt 2008 \cite{GOSTReflectionKara}.
 
-In Courtois' initial attack on breaking full 32 rounds GOST, the author described a guess-then-solve attack solving 8 rounds GOST using 4 known P/C pairs as the last step of breaking full 32 rounds of GOST \cite{gostreport}. The time complexity of breaking 8 rounds GOST was $2^{120}$. In this thesis we look precisely at questions pertaining to cryptanalysing 8 rounds GOST with 2,3,4 P/C pairs which can be used as a plugin to replace already known attacks on full GOST \cite{gostreport,gostac,gostlow8r}. 
+The reflection property in GOST is based on its key schedule. GOST is a Feistel cipher with 32 rounds. In each round we have a round function $f_k(X)$ with a 32-bit sub-key which is the original 256-bit key divided into eight 32-bit segments $k = (k_0, k_1, k_2, k_3, k_4, k_5, k_6, k_7)$.
+One 32-bit sub-key is used in each round, and their exact order is shown in Table \ref{tab:GOSTKey}:
+
+\begin{table}[!h]
+	\centering
+	\caption[Key Schedule in GOST]{Key schedule in GOST}
+	\label{tab:GOSTKey}
+	\addtolength{\tabcolsep}{-6pt}
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|c|c c c c c c c c|c c c c c c c c|c c c c c c c c|c c c c c c c c|}
+			\hline
+			rounds &1&&&&&&&8&9&&&&&&&16&17&&&&&&&24&25&&&&&&&32 \\ \hline
+			keys & $k_0$ & $k_1$ & $k_2$ & $k_3$ & $k_4$ & $k_5$ & $k_6$ & $k_7$& $k_0$ & $k_1$ & $k_2$ & $k_3$ & $k_4$ & $k_5$ & $k_6$ & $k_7$&
+			$k_0$ & $k_1$ & $k_2$ & $k_3$ & $k_4$ & $k_5$ & $k_6$ & $k_7$&
+			$k_7$ & $k_6$ & $k_5$ & $k_4$ & $k_3$ & $k_2$ & $k_1$ & $k_0$  \\ \hline
+			
+	\end{tabular}}
+\end{table}
+
+Follow Kara's work in Indocrypt 2008 \cite{GOSTReflectionKara}, we write GOST as the following functional decomposition (to be read from right to left)
+$$Enc_{k}=\mathfrak{D}  \circ S \circ \varepsilon \circ \varepsilon \circ \varepsilon$$
+where $\varepsilon$ is the first 8 rounds which exploits the whole 256-bit key, $S$ is a swap function which exchanges the left and right hand sides and does not depend on the key, and $\mathfrak{D}$ is the corresponding decryption function with $\varepsilon \circ \mathfrak{D}  = \mathfrak{D} \circ \varepsilon = Id$.
+
+Initially at Indocrypt 2008 only a weak-key attack with time complexity of $2^{192}$ was proposed, with a large proportion of $2^{-32}$ of weak keys. Then in 2011, Courtois propsed an algebraic complex reduction attack which break full 32 rounds GOST using pure algebraic cryptanalysis. 
+
+\begin{myAssumption} \label{AssumptionW}
+	\cite{gostreport} Let $A$ be such that $\varepsilon(D) = \overline{D}$ where $D$ is defined as $D=\varepsilon^{3}(A)$.
+\end{myAssumption}
+
+\begin{fact}
+	\cite{gostreport} Given $2^{64}$ known plaintext there is on average one value $A$ which satisfies Assumption \ref{AssumptionW}. For 63\% of all GOST keys at least one such $A$ exists.
+\end{fact}
+
+\begin{fact} 
+\cite{gostreport} If $A$ satisfies the Assumption \ref{AssumptionW} and defining $B = \varepsilon(A) $ and $C = \varepsilon(B)$ we have:
+\begin{enumerate}
+	\item $Enc_k(A) = D$. This is illustrated on the right hand side of Figure \ref{GOSTRef}
+	\item $Enc_k(B) = C$. This can be seen on the left hand side of Figure \ref{GOSTRef}
+\end{enumerate}
+\end{fact}
+
+\begin{figure}[h!] 
+	\centering
+	\includegraphics[width=80mm]{./pics/GOSTRef.png}
+	
+	\caption[Algebraic Complexity Reduction from 32 to 8 rounds of GOST] {Algebraic Complexity Reduction from 32 to 8 rounds of GOST. Due to GOST's self similiarity in the key schedule, the problem of breaking full 32 rounds can be reduced to 8 rounds. The idea is to find 2 Known Plaintext $A$ and $B$ that has properties shown in this figure. }
+	\label{GOSTRef}
+\end{figure}
+
+\paragraph{From $2^{64}$ KP for 32 Rounds to 4 KP for 8 Rounds:}
+Given $2^{64}$ known plaintexts for GOST, it is possible to obtain 4 P/C pairs for 8 rounds of GOST and our guess will be correct with probability $2^{128}$. Thus we obtained 4 pairs for 8 rounds of GOST: $A 􏰀\rightarrow B, B \rightarrow C, C \rightarrow D, D \rightarrow \overline{D}$. As a result breaking 4 P/C pairs 8 rounds of GOST become the last step of breaking full GOST. Courtois said in his papaer the time complexity of breaking 8 rounds GOST is $2^{120}$ \cite{gostreport}. In this thesis we look precisely at questions pertaining to cryptanalysing 8 rounds GOST with less or equal than 4 P/C pairs which can be used as a plugin to replace already known attacks on full GOST.
 
 Many attacks which do not use any reflections
 have also been proposed \cite{gostac,gostreport,DunkelmanImprovedGOST8R}
@@ -340,7 +387,7 @@ and a simple rotation by 11 positions.
 
 GOST has 32 identical rounds such as the one described on Figure \ref{GostRoundAndConnections} below.
 They differ only by the subsets of 32 key bits which they use. GOST has a weak key schedule which is the main source of all the attacks on full 32-round GOST \cite{gostreport,gostac,JapaneseGOSTMITMFSE2011,gostdcpp1,gostdc0,gostdc1,gostdc2,DunkelmanImprovedGOST8R}.  
-In this thesis we only look at up to 8 rounds of GOST which have independent 32-bit keys and don't repeat, therefore we can ignore the GOST key scheduling totally.
+In this thesis we only look at up to 8 rounds of GOST which have independent 32-bit keys and don't repeat.
 
 We number the inputs of the S-box Si for $i=1,2,\ldots,8$ by integers from $4i+1$ to $4i+4$ out of $1..32$ and its outputs are numbered according to their final positions after the rotation by 11 positions: for example the inputs of S6 are $21,22,23,24$ and the outputs are $32,1,2,3$.
 
@@ -360,6 +407,8 @@ This is very helpful in order to see which bits are successfully determined in o
 In a great simplification, in most cases, one S-box in one round affects essentially
 only two consecutive S-boxes in the next round. Additional propagation is obtained due to the Feistel structure
 and due to carries in the modular addition.
+
+
 
 \section{Cryptanalysis of SIMON Block Cipher}
 Nowadays lightweight cryptography is rapidly evolving and becoming more and more important due to the increasing demand from mobile phones and the Internet of Things. These lightweight cryptographic primitives are designed to
@@ -386,7 +435,7 @@ and many others.
 In July 2013, a team from the NSA proposed two new families of particularly lightweight block
 ciphers, Simon and Speck, both coming in a variety of blocks and key sizes
 \cite{NSAciphers}. We have developed a basic reference implementation of both ciphers 
-which can be found in Github \cite{simonref},
+which can be found on Github \cite{simonref},
 as well as a generator of algebraic equations to be used in algebraic attacks. 
 
 The designers of Simon and Speck published the full specifications and presented
@@ -402,14 +451,14 @@ these two are meant to have better performance with respect to the area
 needed for a given throughput, code size and memory usage.
 Simon is designed for optimal performance in hardware, and Speck for optimal
 performance in software.
-According to \cite{simoneff}, Simon with an equivalent security level as AES,
+According to Aysu's analysis \cite{simoneff}, Simon with an equivalent security level as AES,
 is $86\%$ smaller
 than AES, $70\%$ smaller than PRESENT and its smallest hardware architecture
 only costs 36 slices (72 look-up tables, 30 registers). Recent results about hardware
 implementation of block ciphers emphasize reducing the size and/or Multiplicative Complexity (MC) further possibly
 leads to optimal implementations \cite{BoyarPeraltaMCMethodAES,OptimiPaper}.
 
-However, in the original NSA paper \cite{NSAciphers}, there is no analysis of the security of these 2 ciphers against major well-known attacks. In the same paper \cite{NSAciphers}, the authors briefly said that Simon and Speck were designed to provide security against traditional adversaries who can adaptively encrypt and decrypt large amounts of data, and some attention was given so that there are no related-key attacks. Except for these comments, no more analysis against common attacks such as linear or differential cryptanalysis was presented and the task of analyzing the resistance of the ciphers against known attacks was left to the academic community. Immediately after the release of the specifications we had the first attempts using differential, linear and rotational cryptanalysis \cite{simon1,simon2}. Our attacks on Simon described in Chapter \ref{ch:SIMON}were the first algebraic cryptanalysis attacks attempted on Simon. The work was published in 2014 \cite{courtois2014combined}. In recent years Simon was studied heavily by a lot of researchers, including differential attacks introduced by Biryukov et al \cite{simon3}, Mourouzis et al \cite{SIMON6} and Wang et al \cite{SIMON4, SIMON5}, also combined differential and linear attacks by Farzaneh et al \cite{simon1} and Alkhzaimi et al \cite{simon2}. Most of them are using statistical cryptanalysis techniques, the best results break around 70\% rounds of different versions of Simon. In 2015, Raddum \cite{raddum2006new} published another algebraic cryptanalysis work on Simon for most of the versions (not including Simon 64/128 version). Raddum's work uses more P/C pairs than our attack and breaks 16 (out of 72) rounds of Simon 128/256 version with ElimLin.  This attack shows that there is a need to understand better how ElimLin attacks can scale to larger attacks. 
+However, in the original NSA paper \cite{NSAciphers}, there is no analysis of the security of these 2 ciphers against major well-known attacks. In the same paper \cite{NSAciphers}, the authors briefly said that Simon and Speck were designed to provide security against traditional adversaries who can adaptively encrypt and decrypt large amounts of data, and some attention was given so that there are no related-key attacks. Except for these comments, no more analysis against common attacks such as linear or differential cryptanalysis was presented and the task of analyzing the resistance of the ciphers against known attacks was left to the academic community. Immediately after the release of the specifications we had the first attempts using differential, linear and rotational cryptanalysis \cite{simon1,simon2}. Our attacks on Simon described in Chapter \ref{ch:SIMON} were the first algebraic cryptanalysis attacks attempted on Simon. The work was published in 2014 \cite{courtois2014combined}. In recent years Simon was studied heavily by a lot of researchers, including differential attacks introduced by Biryukov et al \cite{simon3}, Mourouzis et al \cite{SIMON6} and Wang et al \cite{SIMON4, SIMON5}, also combined differential and linear attacks by Farzaneh et al \cite{simon1} and Alkhzaimi et al \cite{simon2}. Most of them are using statistical cryptanalysis techniques, the best results break around 70\% rounds of different versions of Simon. In 2015, Raddum \cite{raddum2006new} published another algebraic cryptanalysis work on Simon for most of the versions (not including Simon 64/128 version). Raddum's work uses more P/C pairs than our attack and breaks 16 (out of 72) rounds of Simon 128/256 version with ElimLin.  This attack shows that there is a need to understand better how ElimLin attacks can scale to larger attacks. 
 
 \subsection{SIMON Structure}
 SIMON is a family of lightweight block ciphers with the aim of havingan  optimal hardware performance \cite{NSAciphers}.
@@ -422,7 +471,6 @@ Simon with $n=32$ and $m=4$ (i.e. 128-bit key).
 
 Each round of Simon applies a non-linear, non-bijective (and as a result
 non-invertible) function
-
 \begin{equation}
 F:GF(2)^n\rightarrow GF(2)^n
 \end{equation}
@@ -450,7 +498,6 @@ Then, the next state $L^{i}||R^{i}$ is computed as follows
 \begin{equation}
 L^i=R^{i-1}\oplus F(L^{i-1})\oplus K^{i-1}
 \end{equation}
-
 \begin{equation}
 R^i=L^{i-1}
 \end{equation}
@@ -472,11 +519,9 @@ The output of the last round is the ciphertext.
 The key schedule of Simon is based on an Linear-Feedback Shift Register(LSFR)-like procedure, where the $nm$-bits of the key are used to generate the keys $K_0,K_1,...,K_{r-1}$ to be used in each round. There are three different key schedule procedures depending on the number of words that the secret key consists of ($m=2,3,4$).
 
 At the beginning, the first $m$ words $K^0,K^1,...,K^{m-1}$ are initialized with the secret key, while the remaining are generated by the LSFR-like construction. For the variant of  interest, where $m=4$, the remaining keys are generated in the following way:
-
 \begin{equation}
 Y=K^{i+1}\oplus (K^{i+3}>>>3)
 \end{equation}
-
 \begin{equation}
 K^{i+4}=K^i\oplus Y \oplus (Y>>>1)\oplus c\oplus (z_j)_i
 \end{equation}
@@ -487,7 +532,7 @@ The Feistel network, the construction of the round function and the key generati
 same hardware.
 
 \section{Summary} \label{sec:ACCxty}
-Algebraic cryptanalysis attacks allow the cryptanalyst to recover secret key bits given only one or very few plaintext / ciphertext pairs. However, one of the fundamental problems of algebraic cryptanalysis is that the runtime of algebraic attacks against block ciphers is not well understood. In 2007, Courtois and Bard said in the first paper describing an algebraic attack on block cipher:
+Algebraic cryptanalysis attacks allow the cryptanalyst to recover secret key bits given only one or very few plaintext / ciphertext pairs. However, one of the fundamental problems of algebraic cryptanalysis is that the runtime of algebraic attacks against block ciphers is not well understood. In 2007, Courtois and Bard said in the first paper describing an algebraic attack on block cipher \cite{DEScourtois}:
 
 \begin{quotation}
 	``Very little is known about what approach would make an algebraic attack efficient and why." 
@@ -496,7 +541,7 @@ Algebraic cryptanalysis attacks allow the cryptanalyst to recover secret key bit
 
 Up to today, this question still remains in algebraic cryptanalysis. At the moment most of the exising Algebraic Cryptanalysis applications are just coverting target ciphers to equation systems and then solved directly by a software solver  (i.e ElimLin or SAT solvers). Very limited research has been done in order to understand the behavior of a solver and how to make the coverted equation system become easier to solve. 
 
-On cryptanalysis of block ciphers we introduced two well known encryption standards: Russian GOST and NSA SIMON. We reviewed the state of art cryptanalysis works on these encryption standards: best algerbraic cryptanalysis attack on 8 rounds GOST require time complexity of $2^{120}$ and no algerbraic cryptanalysis has been done on SIMON.The above facts motive our research work decribed in Part \ref{Part2} of the thesis. 
+On cryptanalysis of block ciphers we introduced two well known encryption standards: Russian GOST and NSA SIMON. We reviewed the state of art cryptanalysis works on these encryption standards: best algerbraic cryptanalysis attack on 8 rounds GOST require time complexity of $2^{120}$ and no algerbraic cryptanalysis has been done on SIMON. The above facts motivate our research work decribed in Part \ref{Part2} of the thesis. 
 
-In Chapter \ref{ch:GOST} of Part \ref{Part2} we will introduce a fundemental notion of ``contradiction immunity`` and describe how conradiction can be used in algebraic cryptanalysis. We will demostrate a mixed SAT/UNSAT attack on GOST which improve the time complexity of current best attack on breaking 8 rounds of GOST from $2^{120}$ to $2^{92}$. In Chapter \ref{ch:SIMON} we will describe a new Algebraic Cryptanalysis approach combined with well selected P/C paris in a Chosen Plaintext Attack scenario and benchmark our attacks with randomly selected P/C pairs. We will apply this method in newly proposed NSA cipher SIMON and provide the first Algebraic Cryptanalysis on SIMON block cipher. Finally in Chapter \ref{ch:ElimLIn} we will study the behavior of ElimLin method with regards to the number of data samples availiable to an attacker. By studying the number of linear independent equations found by ElimLin, we will show ElimLin has a phase transition process where the number of equations found by ElimLin increase much faster than linear and eventually break the cipher.
+In Chapter \ref{ch:GOST} we will introduce a fundemental notion of ``contradiction immunity`` and describe how conradiction can be used in algebraic cryptanalysis. We will demostrate a mixed SAT/UNSAT attack on GOST which improve the time complexity of current best attack on breaking 8 rounds of GOST from $2^{120}$ to $2^{92}$. In Chapter \ref{ch:SIMON} we will describe a new Algebraic Cryptanalysis approach combined with well selected P/C paris in a Chosen Plaintext Attack scenario and benchmark our attacks with randomly selected P/C pairs. We will apply this method in newly proposed NSA cipher SIMON and provide the first Algebraic Cryptanalysis on SIMON block cipher. Finally in Chapter \ref{ch:ElimLIn} we will study the behavior of ElimLin method with regards to the number of data samples availiable to an attacker. By studying the number of linear independent equations found by ElimLin, we will show ElimLin has a phase transition process where the number of equations found by ElimLin increase much faster than linear and eventually break the cipher. We will then inspect where the faster than linear groth come from and study how to find more equations that ElimLin can not yet find.
 

@@ -180,6 +180,9 @@ R.~Castellucci.
 \newblock Cracking cryptocurrency brainwallets.
 \newblock \url{https://www.defcon.org/html/defcon-23/dc-23-index.html}.
 
+\bibitem{ECCF2Pic}
+Certicom.
+
 \bibitem{certicom2000sec}
 S.~Certicom.
 \newblock Sec 2: Recommended elliptic curve domain parameters.
@@ -357,11 +360,6 @@ N.~T. Courtois.
 N.~T. Courtois.
 \newblock Cryptanalysis of gost in the multiple-key scenario.
 \newblock {\em Tatra Mountains Mathematical Publications}, 57(1):45--63, 2013.
-
-\bibitem{gostlow8r}
-N.~T. Courtois.
-\newblock Low-complexity key recovery attacks on gost block cipher.
-\newblock {\em Cryptologia}, 37(1):1--10, 2013.
 
 \bibitem{cryptoeprint:2016:704}
 N.~T. Courtois.
@@ -620,6 +618,11 @@ D.~Kahn.
   communication from ancient times to the internet}.
 \newblock Simon and Schuster, 1996.
 
+\bibitem{kaliski1995montgomery}
+B.~S. Kaliski.
+\newblock The montgomery inverse and its applications.
+\newblock {\em IEEE transactions on computers}, 44(8):1064--1065, 1995.
+
 \bibitem{kaliski1994linear}
 B.~S. Kaliski~Jr and M.~J. Robshaw.
 \newblock Linear cryptanalysis using multiple approximations.
@@ -771,6 +774,12 @@ N.~F. PUB.
 \newblock {\em Federal Information Processing Standards, National Bureau of
   Standards, US Department of Commerce}, 1977.
 
+\bibitem{ECCPic}
+PurpleAlien.
+\newblock An introduction to elliptic curve cryptography -
+  https://www.purplealienplanet.com/node/27.
+\newblock 2012.
+
 \bibitem{RaddumSimon}
 H.~Raddum.
 \newblock Algebraic analysis of the simon block cipher family.
@@ -808,6 +817,11 @@ B.~Schneier.
 \newblock {\em Beyond fear: Thinking sensibly about security in an uncertain
   world}.
 \newblock Springer Science \& Business Media, 2006.
+
+\bibitem{selman2006hill}
+B.~Selman and C.~P. Gomes.
+\newblock Hill-climbing search.
+\newblock {\em Encyclopedia of Cognitive Science}, 81:82, 2006.
 
 \bibitem{semaev2004summation}
 I.~Semaev.

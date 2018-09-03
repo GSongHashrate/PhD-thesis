@@ -8,11 +8,17 @@ A level-1 auxiliary file: Chapter3.aux
 A level-1 auxiliary file: Chapter4.aux
 A level-1 auxiliary file: Chapter5.aux
 A level-1 auxiliary file: Chapter6.aux
+A level-1 auxiliary file: chapter8.aux
 A level-1 auxiliary file: Chapter7.aux
 A level-1 auxiliary file: Conclusions.aux
 A level-1 auxiliary file: Appendices.aux
 The style file: abbrv.bst
 Database file #1: PhD.bib
+I was expecting a `,' or a `}'---line 3161 of file PhD.bib
+ :  
+ :  TITLE =        "Example of an Elliptic Curve Group over F2m - https://www.certicom.com/content/certicom/en/41-an-example-of-an-elliptic-curve-group-over-f2m.html"
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
 Warning--to sort, need author or key in GOSTRussianReferenceImplementation
 Warning--to sort, need author or key in IEEEP1363
 Warning--empty author in IEEEP1363
@@ -21,48 +27,52 @@ Warning--empty booktitle in BardCourtoiJeffersonConv
 Warning--empty booktitle in BoyarPeraltaMCMethod
 Warning--empty booktitle in BoyarPeraltaMCMethodAES
 Warning--empty booktitle in BoyarPeraltaMCBoolean
+Warning--empty title in ECCF2Pic
+Warning--empty booktitle in ECCF2Pic
+Warning--empty year in ECCF2Pic
 Warning--empty booktitle in CourtoisSoftware
 Warning--empty booktitle in EquationSolving
 Warning--empty booktitle in simonref
-You've used 163 entries,
+Warning--empty booktitle in ECCPic
+You've used 166 entries,
             2118 wiz_defined-function locations,
-            1326 strings with 30355 characters,
-and the built_in function-call counts, 54185 in all, are:
-= -- 5377
-> -- 2294
+            1344 strings with 30691 characters,
+and the built_in function-call counts, 54951 in all, are:
+= -- 5442
+> -- 2321
 < -- 50
-+ -- 931
-- -- 749
-* -- 3223
-:= -- 8678
-add.period$ -- 536
-call.type$ -- 163
-change.case$ -- 849
++ -- 944
+- -- 757
+* -- 3267
+:= -- 8804
+add.period$ -- 543
+call.type$ -- 166
+change.case$ -- 861
 chr.to.int$ -- 0
-cite$ -- 174
-duplicate$ -- 2343
-empty$ -- 4662
-format.name$ -- 749
-if$ -- 11813
+cite$ -- 181
+duplicate$ -- 2380
+empty$ -- 4740
+format.name$ -- 757
+if$ -- 11972
 int.to.chr$ -- 0
-int.to.str$ -- 163
-missing$ -- 151
-newline$ -- 813
-num.names$ -- 324
-pop$ -- 1182
+int.to.str$ -- 166
+missing$ -- 154
+newline$ -- 826
+num.names$ -- 330
+pop$ -- 1207
 preamble$ -- 1
-purify$ -- 698
+purify$ -- 708
 quote$ -- 0
-skip$ -- 1633
+skip$ -- 1653
 stack$ -- 0
-substring$ -- 2883
-swap$ -- 607
+substring$ -- 2921
+swap$ -- 610
 text.length$ -- 50
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 632
-warning$ -- 11
-while$ -- 528
-width$ -- 166
-write$ -- 1752
-(There were 11 warnings)
+type$ -- 644
+warning$ -- 15
+while$ -- 535
+width$ -- 169
+write$ -- 1777
+(There was 1 error message)

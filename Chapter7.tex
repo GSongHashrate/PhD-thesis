@@ -1,4 +1,4 @@
-\part{Speed Optimisation for Bitcoin Brain Wallet Attacks}
+\part{Speed Optimisation for Bitcoin Brain Wallet Attacks} \label{Part3}
 
 
 \chapter{Improving Brain Wallet Attacks}
@@ -264,7 +264,7 @@ Although all the cracked brain wallets are currently empty, we still decided not
   	\label{fig:tagged_address}
   \end{figure}
   
-The idea behind Bitcoin brain wallets is elegant: remembering a password or passphrase is surely easier than a private key. Our work and also Vasek's work \cite{vasek2016bitcoin} have made a clear point that it is an extremely insecure way to store bitcoin. There exist lots of other methods to keep bitcoin more secure. As a result of our research, the first and widely suggested brain wallet generation website brainwallet.org has been permanently closed.  
 \section{Summary}
-In this chapter we provided the first detailed benchmarks on Bitcoin elliptic curve secp256k1 and proposed a new attack for craking Bitcoin brain wallets. Our attack improved the speed of the an existing attack by a factor of 2.5. We strongly encourage all Bitcoin brain wallet users to swtich to other wallet types as brain wallets are extremly insecure.
+In this chapter we have analysed and improved the state of the art on the implementation of the secp256k1 elliptic curve and similar curves. We provided the first benchmarks on existing implementations and provided a faster implementation for specific applications where private keys are not manipulated or there exist other protections against side channel attacks [e.g. physical and electro-magnetic isolation] and when larger amounts of RAM are available. We are able to examine passwords in brain wallets 2.5 times faster than the state of the art implementation presented at DEF CON. We have released our source code. As an example application of this research, we have been able to crack thousands of passwords including some quite difficult ones.
 
+The idea behind Bitcoin brain wallets is elegant: remembering a password or passphrase is surely easier than a private key. Our work and also Vasek's work \cite{vasek2016bitcoin} have made a clear point that it is an extremely insecure way to store bitcoin. There exist lots of other methods to keep bitcoin more secure. As a result of our research, the first and widely suggested brain wallet generation website brainwallet.org has been permanently closed.  
