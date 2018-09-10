@@ -223,6 +223,11 @@ N.~Courtois.
 \newblock Algebraic cryptanalysis software,.
 \newblock \url{http://www.cryptosystem.net/aes/tools.html}, 2000-2016.
 
+\bibitem{courtois2007ctc2}
+N.~Courtois.
+\newblock Ctc2 and fast algebraic attacks on block ciphers revisited.
+\newblock {\em IACR Cryptology ePrint Archive}, 2007:152, 2007.
+
 \bibitem{FastAlg2}
 N.~Courtois.
 \newblock Ctc2 and fast algebraic attacks on block ciphers revisited.
@@ -256,14 +261,6 @@ N.~Courtois.
 \newblock In {\em slides used in UCL GA18 course ``Cryptanalysis'', University
   College London}.
   \url{http://www.nicolascourtois.com/papers/algat_all_teach_2015.pdf}, 2016.
-
-\bibitem{SlidesCompSec}
-N.~Courtois.
-\newblock Computer security foundations and principles – standard version.
-\newblock In {\em slides used in UCL course ``Computer Security'', University
-  College London}.
-  \url{http://www.nicolascourtois.com/papers/compsec/CompSec_Intro_01.ppt},
-  2016.
 
 \bibitem{AlgteachElimLinLab}
 N.~Courtois.
@@ -325,6 +322,12 @@ N.~Courtois, K.~Nohl, and S.~O'Neil.
 \newblock Algebraic attacks on the crypto-1 stream cipher in mifare classic and
   oyster cards.
 \newblock {\em IACR Cryptology ePrint Archive}, 2008:166, 2008.
+
+\bibitem{secrypt2016}
+N.~Courtois, P.~Sepehrdad, G.~Song, and I.~Papapanagiotakis-Bousy.
+\newblock Predicting outcomes of elimlin attack on lightweight block cipher
+  simon.
+\newblock In {\em SECRYPT}, 2016.
 
 \bibitem{ElimLinR}
 N.~Courtois, P.~Sepehrdad, P.~Susil, and S.~Vaudenay.
@@ -687,6 +690,11 @@ C.~Lim and T.~Korkishko.
 \newblock In {\em In Joo-Seok Song, Taekyoung Kwon, and Moti Yung, editors,
   Information Security Applications, volume 3786 of Lecture Notes in Computer
   Science, Springer Berlin Heidelberg}, 2006.
+
+\bibitem{lindell2014introduction}
+Y.~Lindell and J.~Katz.
+\newblock {\em Introduction to modern cryptography}.
+\newblock Chapman and Hall/CRC, 2014.
 
 \bibitem{massey1994safer}
 J.~L. Massey.

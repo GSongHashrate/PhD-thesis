@@ -99,7 +99,7 @@ from the last rounds of the cipher, expecting that the system is even easier to 
 attack, we assume (to make it simple) that the entire codebook is available and thus the
 data complexity is $2^{64}$.
 
-In all of our attacks we start with an 8-round truncated differential property (see Section \ref{sec:differentialCry} and more details can be found in \cite{TheoPhD}) $\Delta=[00000222 00000080]$
+In all of our attacks we start with an 8-round truncated differential property (see Section \ref{sec:differentialCry}) $\Delta=[00000222 00000080]$
 with 4 active bits found by heuristic method:
 
 \begin{equation}
@@ -164,7 +164,7 @@ The experiment results show that for setting 2 and setting 3, using only 2 P/C p
 \subsection{Experiments with more P/C pairs}
 We start by using more P/C pairs for 8 rounds Simon and we show our results in Table \ref{tab:8RmorePC}. Here we start to record some features of the converted CNF files. In Table \ref{tab:8RmorePC} and other SAT solver results table, $n,s,h$ stand for number of variables, average sparsity (the average number of literals in each clause) and hardness respectively and $m$ is the number of clauses in the converted CNF file.
 We define hardness as a number $h$ such that $h^n$ is the running time, where $n$ is the number of variables.
-It is known that $h\leq 1.47$ for 4-SAT problems (cf. Table 1 in \cite{semaev})
+It is known that $h\leq 1.47$ for 4-SAT problems \cite{semaev}
 % explain hardness
 
 \begin{table}[!hh]

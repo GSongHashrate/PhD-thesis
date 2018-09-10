@@ -35,7 +35,7 @@ or two main ways to break a cipher with a SAT solver:
 	Guess $X$ bits and run a SAT solver which,
 	if the assumption on $X$ bits is incorrect,
 	finds a contradiction in time $T$
-	with large probability $1-P$ say 99 $\%$.
+	with large probability $1-P$ say 99$\%$.
 	
 	With a small probability of $P>0$,
 	we can guess more key bits
@@ -77,7 +77,7 @@ it is natural to define the two following numbers:
 	given $M=1$ P/C pair we
 	can obtain a contradiction
 	with probability at least
-	50 $\%$ by just
+	50$\%$ by just
 	examining the logical consequences
 	of these key bits.
 	We require this contradiction
@@ -154,8 +154,7 @@ It is very hard to say.
 \section{Applying SAT/UNSAT Immunity to GOST and DES}
 
 \subsection{Application to DES}
-Here we give some basic results for DES obtained by the methods of \cite{DEScourtois}
-with, however, a better SAT solver CryptoMiniSat 2.92 \cite{CryptoMiniSat}. In DES the key bits are spread more or less uniformly in different rounds, and they tend to repeat many times. Therefore it is difficult to choose really good sets of bits using our discovery method and, for now, we just report upper bounds obtained when choosing
+ In DES the key bits are spread more or less uniformly in different rounds, and they tend to repeat many times. Therefore it is difficult to choose really good sets of bits using our discovery method and, for now, we just report upper bounds obtained when choosing
 the key bits at random, and letting the SAT solver do the job. 
 
 There are multiple ways of write DES S-boxes into algebric equations which will leads to different solving complexity for AC solving stages. In 2007 Courtois and Bard studied the best s-box encodings with low I/O degrees \cite{courtois2007algebraicDES}, and provided ready software for generating such equations and solve the SAT problem using MiniSat \cite{minisat}. Our experiments set up uses the same software for generating DES equations, and the results are obtained by using a better performing SAT solver CryptoMiniSat 2.92 \cite{CryptoMiniSat}.
@@ -175,8 +174,7 @@ Our final results are:
 
 DES has key size of 56 bits, for SAT method, we have to fix 34 bits (request $2^{34}$ GOST encryption) and solve within 1000 seconds by a SAT solver. Our PC can run approximately $2^{22}$ 8 rounds DES encryptions per seconds. The total time complexity of solving 8 rounds of DES using 1 P/C pair is larger than brute force. For ultra low-data complexity attacks, 8 rounds of DES seem already secure or secure enough.
 
-\subsection{Contradiction Immunity of GOST}
-
+\subsection{Contradiction Immunity of GOST} 
 Now we are going to provide some results on the Contradiction Immunity and SAT Immunity of GOST. These results are constructive upper bounds.
 
 First we started in a similar set up as DES, with random selected key bits for guessing. The initail Contradiction Immunity we got was about 128. Previous cryptanalysis work on GOST done by Coutrios in 2012 \cite{gostdc2} analysed the internal structure on GOST and how key bits and S-boxes are connected for each round of the encryption. Courtios' work \cite{gostdc2} shows that GOST splits very neatly into two nearly independent ciphers with 128-bit key each, which are only loosely connected. With this idea it is easy to understand why Courtois' original attack on 8 rounds of GOST with complexity of $2^{120}$ \cite{gostreport} seems plausible and natural. Randonly guessed key bits will not create a closely connected structure, thus the chance to find a contridiction for wrong guesses become harder compared to closely connected key bits.
@@ -206,8 +204,6 @@ Our best set is as follows (cf. Figure \ref{Gost81optimal4KPUNSAT78}):
 The contradictions can be found in time of 0.06 s
 with CryptoMiniSat 2.92 software \cite{CryptoMiniSat}
 with a probability of about 50 $\%$.
-It is easy to see that they could be obtained in essentially constant time
-by a dedicated algorithm with some small precomputed tables.
 
 \subsection{SAT Immunity of GOST}
 It turns out that a set which is good for UNSAT is typically NOT good at SAT.
@@ -224,7 +220,7 @@ depicted on Fig \ref{Gost81optimal4KPSAT68Bits}
 0-15,51-55,64-66,128-130,179-183,192-207,224-231,244-255.
 All the remaining 256-68 bits can be determined in time of
 about 400 seconds
-using GOST encodings described in \cite{OptimiPaper}
+using GOST encodings described in Section \ref{sec:GOSTStructure}
 and with CryptoMiniSat 2.92.
 
 From here a naive ``SAT strategy'' attack on GOST would be to run

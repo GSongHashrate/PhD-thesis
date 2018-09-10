@@ -14,7 +14,7 @@ A level-1 auxiliary file: Conclusions.aux
 A level-1 auxiliary file: Appendices.aux
 The style file: abbrv.bst
 Database file #1: PhD.bib
-I was expecting a `,' or a `}'---line 3161 of file PhD.bib
+I was expecting a `,' or a `}'---line 3173 of file PhD.bib
  :  
  :  TITLE =        "Example of an Elliptic Curve Group over F2m - https://www.certicom.com/content/certicom/en/41-an-example-of-an-elliptic-curve-group-over-f2m.html"
 (Error may have been on previous line)
@@ -34,45 +34,45 @@ Warning--empty booktitle in CourtoisSoftware
 Warning--empty booktitle in EquationSolving
 Warning--empty booktitle in simonref
 Warning--empty booktitle in ECCPic
-You've used 166 entries,
+You've used 168 entries,
             2118 wiz_defined-function locations,
-            1344 strings with 30691 characters,
-and the built_in function-call counts, 54951 in all, are:
-= -- 5442
-> -- 2321
+            1349 strings with 30817 characters,
+and the built_in function-call counts, 55529 in all, are:
+= -- 5490
+> -- 2357
 < -- 50
-+ -- 944
-- -- 757
-* -- 3267
-:= -- 8804
-add.period$ -- 543
-call.type$ -- 166
-change.case$ -- 861
++ -- 958
+- -- 769
+* -- 3305
+:= -- 8907
+add.period$ -- 548
+call.type$ -- 168
+change.case$ -- 872
 chr.to.int$ -- 0
-cite$ -- 181
-duplicate$ -- 2380
-empty$ -- 4740
-format.name$ -- 757
-if$ -- 11972
+cite$ -- 183
+duplicate$ -- 2403
+empty$ -- 4784
+format.name$ -- 769
+if$ -- 12087
 int.to.chr$ -- 0
-int.to.str$ -- 166
-missing$ -- 154
-newline$ -- 826
-num.names$ -- 330
-pop$ -- 1207
+int.to.str$ -- 168
+missing$ -- 157
+newline$ -- 836
+num.names$ -- 334
+pop$ -- 1222
 preamble$ -- 1
-purify$ -- 708
+purify$ -- 718
 quote$ -- 0
-skip$ -- 1653
+skip$ -- 1668
 stack$ -- 0
-substring$ -- 2921
-swap$ -- 610
+substring$ -- 2940
+swap$ -- 612
 text.length$ -- 50
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 644
+type$ -- 650
 warning$ -- 15
-while$ -- 535
-width$ -- 169
-write$ -- 1777
+while$ -- 540
+width$ -- 171
+write$ -- 1797
 (There was 1 error message)

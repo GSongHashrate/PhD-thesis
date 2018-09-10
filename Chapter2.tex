@@ -35,7 +35,7 @@ If the keys used for encryption and decryption are different to each other, but 
 \end{mydef}
 Note that symmetric cryptosystems have two algorithms: encryption and decryption. Asymmetric cryptosystems normally have at least three algorithms: key generation, encryption, and decryption. In a symmetric cryptosystem, if the key is compromised, then an adversary can decrypt any message passed from sender to receiver and gains full control over the system. Asymmetric cryptosystems solve this problem by using different, but corresponding keys, for encryption and decryption. However, modern cryptography sometimes requires a huge number of keys that must be distributed securely. 
 
-Researchers start to solve the problem by combining both types of cryptosystem, called a $hybrid$ encryption scheme. This cryptosystem combines the convenience of asymmetric with the efficiency of a symmetric cryptosystem \cite{simmons1992contemporary}. In hybrid encryption, symmetric cryptosystem is used for encryption, while the secret key is shared using a protocol based on public-key cryptography, cf. \ref{hybird}. There are two main components of a hybrid encryption scheme, Key Encapsulation Mechanism (KEM) and Data Encapsulation Mechanism (DEM). The key feature is that the two parts are independent of one another. The framework was first formalized by Cramer and Shoup in 2003 and we refer the reader to their work \cite{cramer2003design} for more details.
+Researchers start to solve the problem by combining both types of cryptosystem, called a $hybrid$ encryption scheme. This cryptosystem combines the convenience of asymmetric with the efficiency of a symmetric cryptosystem \cite{simmons1992contemporary}. In hybrid encryption, symmetric cryptosystem is used for encryption, while the secret key is shared using a protocol based on public-key cryptography, cf. Figure \ref{hybird}. There are two main components of a hybrid encryption scheme, Key Encapsulation Mechanism (KEM) and Data Encapsulation Mechanism (DEM). The key feature is that the two parts are independent of one another. The framework was first formalized by Cramer and Shoup in 2003 and we refer the reader to their work \cite{cramer2003design} for more details.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=80mm]{./pics/HybridEnc.png}
@@ -60,7 +60,6 @@ As indicated in the name, in substitution ciphers, every character in plaintext 
 In a simple substitution cipher, each plaint text character is transformed into a ciphertext character via the same encryption function $E$. More formally, let $P = p_{0}, ... ,p_{n-1}$ be an $n$-character plaintext and $C=c_{0},...c_{n-1}$ be a ciphertext,  $\forall i : 0 \leq i < n $ 
 $$ E : P \rightarrow C$$
 $$c_{i} = E (p_{i})$$
-%TODO: f is unbounded
 Around 50 BC, Julius Caesar wrote to Marcus Cicero using a cipher that encrypted messages by shifting every letter in the plaintext three positions to the right in the alphabet. This cipher is based on \textit{shifted alphabets}. For the Caesar cipher, the secret key $k$ is $+3\mod{26}$. In general, the cipher is easily broken by shifting the ciphertexts one position until the plaintext arises.
 \paragraph{Polyalphabetic Substitution} \mbox{} \\ 
 In a polyalphabetic substitution, the characters in plaintext are transformed into ciphertext using a $j$-character key $K = k_{0}, k_{1}, ... k_{j-1}$, which defines j distinct encryption functions $E_{k_{0}}, E_{k_{1}}, ... , E_{k_{j-1}}$. In this case, $\forall i : 0 \leq i < n$  $$ E_{k_{l}} : P \rightarrow C   \qquad  \qquad   \forall l : 0 \leq l < j$$
@@ -83,8 +82,8 @@ To produce much stronger ciphers than the ones we have currently seen, we can co
 In general, it is not easy to make an invertible function that makes the encryption and decryption process identical. One method was created by the German physicist and cryptographer Horst Feistel, who was a pioneer in this area while working for American IBM. Feistel, together with Don Coppersmith, introduced the concept of Feistel networks while working on IBM's ``Lucifer'' cipher in 1973 \cite{feistel1973cryptography}. Their work gained the respect of the United States Federal Government who adapted it to the Data Encryption Standard (DES), which is based on the Lucifer project with some changes done by the NSA \cite{pub197746}.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=80mm]{./pics/fofKW.png}
-	\caption{Feistel network}
+	\includegraphics[width=80mm]{./pics/myNetwork.png}
+	\caption[Feistel network]{Feistel network}
 	\label{Fig:FeistelNet}
 \end{figure}
 \begin{mydef}	[Feistel Network, cf. Figure \ref{Fig:FeistelNet}]
@@ -102,8 +101,7 @@ Since the encryption and decryption processes are identical (except for the key 
 Courtois Toy Cipher (CTC) is a block cipher designed by Courtois, as a research tool
 cipher for performing experiments with algebraic attacks (see Section \ref{sec:AA}) using a PC with a reasonable quantity of RAM \cite{FastAlg}.
 CTC has a substitution layer followed by a diffusion layer in each round. This structure follows the concepts of confusion and diffusion originally described by Claude
-Shannon \cite{shannon1949communication}. A very good description of confusion and diffusion properties is
-provided by Massey \cite{kaliski1995montgomery}:
+Shannon \cite{shannon1949communication}. A very good description of confusion and diffusion properties is provided by Massey \cite{kaliski1995montgomery}:
 
 Confusion: The ciphertext should depend on the plaintext statistics in a manner
 too complicated to be exploited by the cryptanalyst
@@ -150,6 +148,19 @@ demonstrate that it is possible to break a cipher with sufficiently good diffusi
 a small number of plaintexts. Intuitively, if the input parameters
 (e.g. number of S-boxes in each round $B$ and number of rounds $N_r$, ) are large
 enough, then the cipher is expected to be more secure.
+
+In 2007 Courtois suggested a tweaked version of CTC, named CTC2, which is expected to be more secure and flexible \cite{courtois2007ctc2}. The main difference is that the key schedule of CTC2 has been extended to use keys of any size, independently of the block size. In CTC2, the key size of key $K$, denoted by $H_k$, is not necessarily equal to the block size $Bs$ and it is computed in the following way:
+\begin{equation}
+K_{i(j)} = K_{(j+i \cdot 509 \text{ mod } H_k)}
+\end{equation}
+The diffusion part $D$ of the cipher CTC2 is defined as follows:
+
+\begin{equation}
+Z_{i(j \cdot 1987 + 257 \text{ mod } Bs)} = Y_{i(j)} \oplus Y_{i(j+137 \text{ mod } Bs)} \oplus Y_{i(j+274 \text{ mod } Bs)}, \text{if } j = 257 \text{ mod } Bs
+\end{equation}
+\begin{equation}
+Z_{i(j \cdot 1987 + 257 \text{ mod } Bs)} = Y_{i(j)} \oplus Y_{i(j+137 \text{ mod } Bs)} , \text{otherwise}
+\end{equation}
 
 \subsection{DES}
 DES is a block-cipher based on the Feistel Network iterative structure. It was adopted in 1977 by the US Standards body National Institute of Standards and Technology (NIST) for federal agencies to use in protecting sensitive, unclassified information. It maps 64 bits to 64 bits using keys of 56 bits and consists of 16 rounds. It uses two 64-bit permutations $IP(\cdot)$ and $FP(\cdot)$ before and after the round functions, respectively. These permutations satisfy $FP$ = $IP^{-1}$. These permutations have no cryptographic effect and they are used for facilitating loading blocks in and out of mid-1970s 8-bit based hardware \cite{schneier1996applied}.
