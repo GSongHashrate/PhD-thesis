@@ -266,7 +266,7 @@ This leads to the following improved attack which mixes the SAT and UNSAT strate
 	$2^{68+23}+2^{68+31-5}\approx 2^{94}$ GOST computations.
 \end{enumerate}
 
-\section{Conclution}
+\section{Conclusions}
 In this chapter, we discussed algebraic cryptanalysis using SAT solver as solving stage and it's application to break 8 round GOST. We introduced a new notion of Contradiction Immunity and a related notion of SAT Immunity. These definitions lead to new computational optimization problems in cryptography, which can be seen as looking for an optimal software guess-then-solve attack. We provided our best optimizations found which were constructed following a sort of meet-in-the middle strategy. Our key result is that the Contradiction Immunity for the GOST cipher is quite low, about 78, for 8 rounds. 
 
 The main contribution of this chpater is not just providing a bound on the two Immunity figures, but to provide concrete sets of bits based on which we can build concrete attacks on the given cipher. Theses sets are fundamental in being able to improve the time complexity of 8 rounds of GOST attack from $2^{120}$ to $2^{94}$. 
